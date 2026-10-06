@@ -96,6 +96,45 @@ html.hc #site p,html.hc #site li{color:#000!important}
 .step-n{font-family:'Cormorant Garamond',serif;font-size:44px;line-height:1;color:#C81E73}
 #mapa{height:460px;border-radius:24px;z-index:0}
 .leaflet-popup-content{font-family:'Josefin Sans',sans-serif}
+/* === Ajustes para celulares === */
+@media (max-width:640px){
+.draft-bar{font-size:11px;padding:5px 12px}
+.hide-m,.a11y>span:first-child{display:none!important}
+#site>div:nth-of-type(2)>div{padding:8px 16px!important;font-size:13px!important;gap:6px 12px!important}
+header>div{padding:8px 16px!important}header img{height:52px!important}
+section>div{padding-left:18px!important;padding-right:18px!important}
+[style*="padding: 112px"],[style*="padding: 104px"],[style*="padding: 120px"],[style*="padding: 96px"],[style*="padding: 88px"],[style*="padding:96px"],[style*="padding:88px"],[style*="padding:80px"]{padding-top:60px!important;padding-bottom:60px!important}
+[style*="margin-bottom: 56px"]{margin-bottom:32px!important}
+h2{font-size:clamp(30px,8.4vw,40px)!important}
+[style*="minmax(180px, 1fr)"],[style*="minmax(170px, 1fr)"]{grid-template-columns:1fr 1fr!important;gap:14px!important}
+.partner{height:72px;font-size:11px;padding:0 8px;text-align:center}
+.stat-n{font-size:44px}
+[style*="minmax(240px, 1fr)); gap: 2px"]{grid-template-columns:1fr 1fr!important}
+[style*="minmax(240px, 1fr)); gap: 2px"]>div{padding:22px 14px!important}[style*="minmax(240px, 1fr)); gap: 2px"] p{font-size:13.5px!important}
+[style*="minmax(240px, 1fr)); gap: 2px"]>div [style*="font-size: 64px"]{font-size:40px!important}
+.hero-v{min-height:auto}
+.hero-inner{padding:48px 18px 84px!important;gap:28px!important}
+.hero-v h1{font-size:38px}
+.hero-v .hero-copy>p{font-size:17px;margin-bottom:28px}
+.hero-v .btn{flex:1 1 100%}
+.hero-trust{margin-top:28px;font-size:14px}
+.hero-cards{display:grid!important;grid-template-columns:1fr 1fr;gap:10px!important}
+.hero-card{padding:16px 14px 14px;border-radius:14px}
+.hero-card div{font-size:34px!important;margin:6px 0 4px!important}
+.hero-card p{font-size:12.5px!important;line-height:1.4!important;margin:0!important}
+.hero-card>span:last-child{display:none}
+.hero-card>span:first-child{font-size:10px!important;letter-spacing:.1em!important}
+.prog-body h3{font-size:26px}
+.btn{min-height:48px;padding:0 20px;font-size:14px}
+.wa-float{left:14px;bottom:14px}.to-top{right:14px;bottom:14px}
+details.faq summary{font-size:21px}
+#mapa{height:340px}
+[style*="repeat(2, minmax(0, 1fr)); gap: 20px"]{grid-template-columns:1fr!important}
+#equipo [style*="minmax(240px, 1fr)); gap: 32px"]{grid-template-columns:1fr 1fr!important;gap:18px!important}
+#equipo h3{font-size:20px!important}#equipo .member p{font-size:13px!important}
+img[style*="height: 520px"]{height:260px!important;border-radius:0 90px 0 0!important}
+.legal{padding-top:40px!important}
+}
 .nav-link.active{color:#C81E73;border-bottom-color:#C81E73}
 </style>
 </head>
@@ -107,7 +146,7 @@ html.hc #site p,html.hc #site li{color:#000!important}
 <div style="background: #4A1035; color: #FFFFFF; font-size: 14px; letter-spacing: .03em">
 <div style="max-width: 1200px; margin: 0 auto; padding: 10px 32px; display: flex; flex-wrap: wrap; gap: 8px 24px; justify-content: space-between; align-items: center">
 <span>¿Estás en peligro? Llama gratis a la <strong>Línea 100</strong> · las 24 horas</span>
-<span style="display:inline-flex;flex-wrap:wrap;gap:8px 20px;align-items:center"><span>Jr. Circunvalación 1384, Piura · Perú</span><span class="a11y" role="group" aria-label="Accesibilidad"><span style="opacity:.8;margin-right:2px">Accesibilidad:</span><button type="button" data-fs="-1" aria-label="Reducir texto">A−</button><button type="button" data-fs="0" aria-label="Texto normal">A</button><button type="button" data-fs="1" aria-label="Agrandar texto">A+</button><button type="button" data-hc aria-pressed="false" aria-label="Alto contraste"><svg width="14" height="14" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9" fill="none" stroke="currentColor" stroke-width="2"/><path d="M12 3a9 9 0 0 1 0 18z" fill="currentColor"/></svg></button></span></span>
+<span style="display:inline-flex;flex-wrap:wrap;gap:8px 20px;align-items:center"><span class="hide-m">Jr. Circunvalación 1384, Piura · Perú</span><span class="a11y" role="group" aria-label="Accesibilidad"><span style="opacity:.8;margin-right:2px">Accesibilidad:</span><button type="button" data-fs="-1" aria-label="Reducir texto">A−</button><button type="button" data-fs="0" aria-label="Texto normal">A</button><button type="button" data-fs="1" aria-label="Agrandar texto">A+</button><button type="button" data-hc aria-pressed="false" aria-label="Alto contraste"><svg width="14" height="14" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9" fill="none" stroke="currentColor" stroke-width="2"/><path d="M12 3a9 9 0 0 1 0 18z" fill="currentColor"/></svg></button></span></span>
 </div>
 </div>
 
