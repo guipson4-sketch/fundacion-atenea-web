@@ -60,7 +60,7 @@ details.story-more[open] summary{margin-bottom:14px}
 :focus-visible{outline:3px solid #E23B8C;outline-offset:3px}
 
 .draft-bar{background:#F6E08A;color:#4A1035;text-align:center;font-size:13px;letter-spacing:.04em;padding:7px 16px}
-.wa-float{position:fixed;left:20px;bottom:20px;z-index:20;display:flex;align-items:center;gap:10px;background:#25D366;color:#fff;text-decoration:none;font-weight:700;padding:12px 18px 12px 14px;border-radius:999px;box-shadow:0 10px 26px rgba(0,0,0,.2)}
+.wa-float{font-family:'Josefin Sans',sans-serif;position:fixed;left:20px;bottom:20px;z-index:20;display:flex;align-items:center;gap:10px;background:#25D366;color:#fff;text-decoration:none;font-weight:700;padding:12px 18px 12px 14px;border-radius:999px;box-shadow:0 10px 26px rgba(0,0,0,.2)}
 .wa-float:hover{color:#fff;transform:translateY(-2px)}
 @media (max-width:640px){.wa-float span{display:none}.wa-float{padding:14px}}
 .social a{width:40px;height:40px;border-radius:50%;display:inline-flex;align-items:center;justify-content:center;background:rgba(255,255,255,.08);color:#F2DDE9}
@@ -71,6 +71,20 @@ details.story-more[open] summary{margin-bottom:14px}
 .partner:hover{filter:none;color:#69184B}
 .legal h2{font-family:'Cormorant Garamond',serif;font-size:32px;color:#69184B;margin:40px 0 12px}
 .legal p,.legal li{font-size:17px;line-height:1.75;color:#3A1530}
+.prog{position:relative;background:#fff;border:1px solid #F1DCE8;border-radius:20px;overflow:hidden;display:flex;flex-direction:column;transition:transform .3s ease,box-shadow .3s ease}
+.prog:hover{transform:translateY(-6px);box-shadow:0 24px 50px rgba(74,16,53,.14)}
+.prog-media{position:relative;aspect-ratio:16/11;overflow:hidden}
+.prog-media img{width:100%;height:100%;object-fit:cover;display:block;transition:transform .5s ease}
+.prog:hover .prog-media img{transform:scale(1.06)}
+.prog-media::after{content:"";position:absolute;inset:0;background:linear-gradient(200deg,rgba(46,10,34,.55) 0%,rgba(46,10,34,0) 35%)}
+.prog-num{position:absolute;right:16px;top:14px;z-index:1;font-family:'Cormorant Garamond',serif;font-size:30px;font-weight:600;color:#fff;text-shadow:0 2px 10px rgba(0,0,0,.35)}
+.prog-icon{position:relative;margin:-32px 0 0 24px;flex-shrink:0;width:64px;height:64px;border-radius:18px;display:flex;align-items:center;justify-content:center;color:#fff;background:var(--c);box-shadow:0 12px 24px -6px var(--c);z-index:2;transition:transform .3s ease}
+.prog:hover .prog-icon{transform:rotate(-6deg) scale(1.05)}
+.prog-body{padding:20px 26px 28px;display:flex;flex-direction:column;gap:12px;flex-grow:1}
+.prog-body h3{font-family:'Cormorant Garamond',serif;font-size:29px;line-height:1.1;font-weight:600;color:#3A1530;margin:0}
+.prog-body p{margin:0;font-size:16px;line-height:1.65;color:#5A3550;flex-grow:1}
+.prog-link{display:inline-flex;align-items:center;gap:8px;font-weight:600;letter-spacing:.04em;text-decoration:none;color:#69184B;margin-top:6px}
+.prog-link svg{transition:transform .25s}.prog:hover .prog-link svg{transform:translateX(5px)}
 .nav-link.active{color:#C81E73;border-bottom-color:#C81E73}
 </style>
 </head>
@@ -261,48 +275,43 @@ details.story-more[open] summary{margin-bottom:14px}
 </div>
 <a class="link-arrow" href="programas.html" style="font-size: 16px">Ver todos los programas →</a>
 </div>
-<div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 24px">
-
-<article class="card" style="background: #FFF8FB; padding: 36px 30px 32px; display: flex; flex-direction: column; gap: 16px; position: relative; overflow: hidden">
-<span style="width: 56px; height: 56px; display: flex; align-items: center; justify-content: center; background: #F9D6E6">
-<svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#4A1035" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 21s-7-4.5-9.5-9A5.5 5.5 0 0 1 12 6a5.5 5.5 0 0 1 9.5 6C19 16.5 12 21 12 21zM9 12h6M12 9v6"></path></svg>
-</span>
-<span style="font-size: 13px; font-weight: 600; letter-spacing: .14em; color: #8A2BB0">01</span>
-<h3 style="font-family: 'Cormorant Garamond', serif; font-size: 30px; line-height: 1.1; font-weight: 600; color: #69184B; margin: 0">Salud y acompañamiento</h3>
-<p style="margin: 0; font-size: 16px; line-height: 1.65; color: #5A3550; flex-grow: 1">Medicamentos, exámenes, traslados y acompañamiento a personas enfermas sin recursos para afrontar su tratamiento.</p>
-<a class="link-arrow" href="programas.html" style="font-size: 15px">Conocer más →</a>
+<div class="prog-grid" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 24px">
+<article class="prog">
+<div class="prog-media"><img src="assets/foto-salud.jpg" alt="Cuidadora acompañando a una paciente" loading="lazy"><span class="prog-num">01</span></div>
+<span class="prog-icon" style="--c: #C81E73"><svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M19.5 12.6 12 20l-7.5-7.4A4.8 4.8 0 0 1 12 6.3a4.8 4.8 0 0 1 7.5 6.3z"/><path d="M12 10v5M9.5 12.5h5"/></svg></span>
+<div class="prog-body">
+<h3>Salud y acompañamiento</h3>
+<p>Medicamentos, exámenes, traslados y acompañamiento a personas enfermas sin recursos para afrontar su tratamiento.</p>
+<a class="prog-link" href="programas.html#ayuda">Conocer más <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+</div>
 </article>
-
-<article class="card" style="background: #FFF8FB; padding: 36px 30px 32px; display: flex; flex-direction: column; gap: 16px; position: relative; overflow: hidden">
-<span style="width: 56px; height: 56px; display: flex; align-items: center; justify-content: center; background: #EBD6F3">
-<svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#4A1035" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 13a4 4 0 1 0 0-8 4 4 0 0 0 0 8zM12 13v8M9 18h6"></path></svg>
-</span>
-<span style="font-size: 13px; font-weight: 600; letter-spacing: .14em; color: #8A2BB0">02</span>
-<h3 style="font-family: 'Cormorant Garamond', serif; font-size: 30px; line-height: 1.1; font-weight: 600; color: #69184B; margin: 0">Mujeres que avanzan</h3>
-<p style="margin: 0; font-size: 16px; line-height: 1.65; color: #5A3550; flex-grow: 1">Apoyo a mujeres en situación de violencia, abandono o jefatura de hogar, con capacitación y emprendimiento.</p>
-<a class="link-arrow" href="programas.html" style="font-size: 15px">Conocer más →</a>
+<article class="prog">
+<div class="prog-media"><img src="assets/foto-mujeres.jpg" alt="Grupo de mujeres sonriendo juntas" loading="lazy"><span class="prog-num">02</span></div>
+<span class="prog-icon" style="--c: #8A2BB0"><svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="8" r="3.2"/><path d="M5.5 20a6.5 6.5 0 0 1 13 0"/><path d="M17 4.5l1.2 1.2M19.5 9H21M7 4.5 5.8 5.7M4.5 9H3"/></svg></span>
+<div class="prog-body">
+<h3>Mujeres que avanzan</h3>
+<p>Apoyo a mujeres en situación de violencia, abandono o jefatura de hogar, con capacitación y emprendimiento.</p>
+<a class="prog-link" href="programas.html#ayuda">Conocer más <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+</div>
 </article>
-
-<article class="card" style="background: #FFF8FB; padding: 36px 30px 32px; display: flex; flex-direction: column; gap: 16px; position: relative; overflow: hidden">
-<span style="width: 56px; height: 56px; display: flex; align-items: center; justify-content: center; background: #FBE3CC">
-<svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#4A1035" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 10l9-6 9 6v10H3zM9 20v-6h6v6"></path></svg>
-</span>
-<span style="font-size: 13px; font-weight: 600; letter-spacing: .14em; color: #8A2BB0">03</span>
-<h3 style="font-family: 'Cormorant Garamond', serif; font-size: 30px; line-height: 1.1; font-weight: 600; color: #69184B; margin: 0">Ayuda humanitaria</h3>
-<p style="margin: 0; font-size: 16px; line-height: 1.65; color: #5A3550; flex-grow: 1">Alimentos, ropa, higiene y ayuda a familias afectadas por emergencias y desastres naturales en la región.</p>
-<a class="link-arrow" href="programas.html" style="font-size: 15px">Conocer más →</a>
+<article class="prog">
+<div class="prog-media"><img src="assets/foto-ayuda.jpg" alt="Voluntarias preparando bolsas de alimentos" loading="lazy"><span class="prog-num">03</span></div>
+<span class="prog-icon" style="--c: #E0702C"><svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 9.5 12 4l9 5.5"/><path d="M5 8.5V20h14V8.5"/><path d="M9 20v-4.5a3 3 0 0 1 6 0V20"/><path d="M12 9.2c-.9-1-2.6-.6-2.6.8 0 1.2 2.6 2.6 2.6 2.6s2.6-1.4 2.6-2.6c0-1.4-1.7-1.8-2.6-.8z"/></svg></span>
+<div class="prog-body">
+<h3>Ayuda humanitaria</h3>
+<p>Alimentos, ropa, higiene y ayuda a familias afectadas por emergencias y desastres naturales en la región.</p>
+<a class="prog-link" href="programas.html#ayuda">Conocer más <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+</div>
 </article>
-
-<article class="card" style="background: #FFF8FB; padding: 36px 30px 32px; display: flex; flex-direction: column; gap: 16px; position: relative; overflow: hidden">
-<span style="width: 56px; height: 56px; display: flex; align-items: center; justify-content: center; background: #DCEBFB">
-<svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#4A1035" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 5h16v11H8l-4 4zM8 10h8M8 13h5"></path></svg>
-</span>
-<span style="font-size: 13px; font-weight: 600; letter-spacing: .14em; color: #8A2BB0">04</span>
-<h3 style="font-family: 'Cormorant Garamond', serif; font-size: 30px; line-height: 1.1; font-weight: 600; color: #69184B; margin: 0">Orientación gratuita</h3>
-<p style="margin: 0; font-size: 16px; line-height: 1.65; color: #5A3550; flex-grow: 1">Asesoría legal, psicológica y social gratuita, presencial o a distancia, a cargo de profesionales habilitados.</p>
-<a class="link-arrow" href="programas.html" style="font-size: 15px">Conocer más →</a>
+<article class="prog">
+<div class="prog-media"><img src="assets/foto-orientacion.jpg" alt="Dos mujeres conversando en una asesoría" loading="lazy"><span class="prog-num">04</span></div>
+<span class="prog-icon" style="--c: #1F6FB2"><svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 5h11v8H8l-4 3.5z"/><path d="M15 9h5v8.5L17 15h-6v-2"/><path d="M7.5 9h4"/></svg></span>
+<div class="prog-body">
+<h3>Orientación gratuita</h3>
+<p>Asesoría legal, psicológica y social gratuita, presencial o a distancia, a cargo de profesionales habilitados.</p>
+<a class="prog-link" href="programas.html#ayuda">Conocer más <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+</div>
 </article>
-
 </div>
 </div>
 </section>
