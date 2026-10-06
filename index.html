@@ -96,6 +96,26 @@ html.hc #site p,html.hc #site li{color:#000!important}
 .step-n{font-family:'Cormorant Garamond',serif;font-size:44px;line-height:1;color:#C81E73}
 #mapa{height:460px;border-radius:24px;z-index:0}
 .leaflet-popup-content{font-family:'Josefin Sans',sans-serif}
+.hero-v{position:relative;overflow:hidden;min-height:min(92vh,860px);display:flex;align-items:center;background:#2E0A22;color:#fff}
+.hero-video{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.hero-shade{position:absolute;inset:0;background:linear-gradient(90deg,rgba(46,10,34,.92) 0%,rgba(74,16,53,.72) 45%,rgba(74,16,53,.25) 100%)}
+.hero-inner{position:relative;z-index:1;width:100%;max-width:1200px;margin:0 auto;padding:96px 32px 112px;display:flex;flex-wrap:wrap;gap:48px;align-items:center;justify-content:space-between;box-sizing:border-box}
+.hero-copy{flex:1 1 520px;min-width:0;max-width:640px}
+.hero-eyebrow{display:inline-flex;align-items:center;gap:12px;font-size:14px;font-weight:600;letter-spacing:.18em;text-transform:uppercase;color:#F6E08A;margin-bottom:26px}
+.hero-eyebrow .dots{display:inline-flex;gap:4px}.hero-eyebrow i{width:10px;height:10px;display:block}
+.hero-v h1{font-family:'Cormorant Garamond',serif;font-weight:600;font-size:clamp(42px,5.4vw,76px);line-height:1.02;letter-spacing:-.01em;margin:0 0 26px;color:#fff}
+.hero-v .hero-copy>p{font-size:20px;line-height:1.6;color:#F2DDE9;margin:0 0 38px;max-width:560px}
+.btn-ghost{background:transparent;color:#fff;box-shadow:inset 0 0 0 2px rgba(255,255,255,.75)}.btn-ghost:hover{background:#fff;color:#69184B}
+.hero-trust{display:flex;flex-wrap:wrap;gap:10px 28px;margin-top:40px;padding-top:24px;border-top:1px solid rgba(255,255,255,.2);font-size:15px;color:#F2DDE9}
+.hero-cards{flex:0 1 320px;display:flex;flex-direction:column;gap:18px}
+.hero-card{background:rgba(255,255,255,.94);color:#3A1530;border-radius:18px;padding:24px 26px 20px;border-top:4px solid #C81E73;box-shadow:0 24px 60px rgba(0,0,0,.25);backdrop-filter:blur(6px)}
+.hero-card.dark{background:rgba(105,24,75,.88);color:#fff;border-top-color:#F6E08A}
+.hero-card div{font-size:52px!important;margin:8px 0 6px!important}
+.hero-toggle{position:absolute;right:24px;bottom:24px;z-index:2;width:40px;height:40px;border-radius:50%;border:1px solid rgba(255,255,255,.5);background:rgba(0,0,0,.25);color:#fff;cursor:pointer;display:flex;align-items:center;justify-content:center}
+.hero-scroll{position:absolute;left:50%;bottom:20px;transform:translateX(-50%);z-index:2;color:#fff;opacity:.8;animation:bob 2s ease-in-out infinite}
+@keyframes bob{50%{transform:translate(-50%,6px)}}
+@media (max-width:700px){.hero-cards{flex-basis:100%}.hero-shade{background:linear-gradient(180deg,rgba(46,10,34,.85),rgba(74,16,53,.8))}.hero-inner{padding:64px 20px 96px}}
+@media (prefers-reduced-motion:reduce){.hero-scroll{animation:none}}
 .nav-link.active{color:#C81E73;border-bottom-color:#C81E73}
 </style>
 </head>
@@ -131,45 +151,40 @@ html.hc #site p,html.hc #site li{color:#000!important}
 </div>
 </header>
 
-<!-- HERO -->
-<section id="inicio" style="position: relative; overflow: hidden; background: #FFFFFF">
-<div style="max-width: 1200px; margin: 0 auto; padding: 88px 32px 104px; display: flex; flex-wrap: wrap; gap: 56px; align-items: center">
-<div style="flex: 1 1 520px; min-width: 0; position: relative; z-index: 2">
-<div style="display: flex; align-items: center; gap: 12px; margin-bottom: 28px">
-<span style="display: inline-flex; gap: 4px"><span style="width: 10px; height: 10px; background: #E23B8C"></span><span style="width: 10px; height: 10px; background: #F3BC81"></span><span style="width: 10px; height: 10px; background: #A3CDF5"></span></span>
-<span style="font-size: 14px; font-weight: 600; letter-spacing: .18em; text-transform: uppercase; color: #8A2BB0">Piura, Perú · Fundación sin fines de lucro</span>
-</div>
-<h1 style="font-family: 'Cormorant Garamond', serif; font-weight: 600; font-size: clamp(42px, 5.4vw, 74px); line-height: 1.02; letter-spacing: -.01em; color: #69184B; margin: 0 0 28px">Ninguna mujer debería enfrentar <em style="font-style: italic; color: #C81E73">sola</em> la enfermedad, la violencia o la pobreza.</h1>
-<p style="font-size: 20px; line-height: 1.6; color: #5A3550; margin: 0 0 40px; max-width: 560px">Acompañamos a personas enfermas, mujeres y familias en situación de vulnerabilidad en Piura con ayuda concreta, orientación gratuita y oportunidades para salir adelante.</p>
+<!-- HERO (video a pantalla completa) -->
+<section id="inicio" class="hero-v">
+<video class="hero-video" autoplay muted loop playsinline preload="auto" poster="assets/video-portada.jpg" aria-hidden="true">
+<source src="assets/video-portada.webm" type="video/webm">
+<source src="assets/video-portada.mp4" type="video/mp4">
+</video>
+<div class="hero-shade" aria-hidden="true"></div>
+<div class="hero-inner">
+<div class="hero-copy">
+<span class="hero-eyebrow"><span class="dots"><i style="background:#E23B8C"></i><i style="background:#F3BC81"></i><i style="background:#A3CDF5"></i></span>Piura, Perú · Fundación sin fines de lucro</span>
+<h1>Ninguna mujer debería enfrentar <em style="font-style: italic; color: #F6A5CB">sola</em> la enfermedad, la violencia o la pobreza.</h1>
+<p>Acompañamos a personas enfermas, mujeres y familias en situación de vulnerabilidad en Piura con ayuda concreta, orientación gratuita y oportunidades para salir adelante.</p>
 <div style="display: flex; flex-wrap: wrap; gap: 16px">
-<a class="btn btn-primary" href="involucrate.html">Quiero donar
-<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"></path></svg></a>
-<a class="btn btn-outline" href="programas.html#ayuda">Necesito ayuda</a>
+<a class="btn btn-primary" href="involucrate.html">Quiero donar <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"></path></svg></a>
+<a class="btn btn-ghost" href="programas.html#ayuda">Necesito ayuda</a>
 </div>
-<div style="display: flex; flex-wrap: wrap; gap: 28px; margin-top: 48px; padding-top: 28px; border-top: 1px solid #F1DCE8; font-size: 15px; color: #5A3550">
-<span style="display: flex; align-items: center; gap: 10px"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#C81E73" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3l7 3v6c0 4.5-3 7.5-7 9-4-1.5-7-4.5-7-9V6z"></path><path d="M9 12l2 2 4-4"></path></svg>100 % de lo recibido va a nuestros fines</span>
-<span style="display: flex; align-items: center; gap: 10px"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#C81E73" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 4h16v16H4z"></path><path d="M8 9h8M8 13h8M8 17h5"></path></svg>Rendimos cuentas públicas cada año</span>
+<div class="hero-trust"><span>✓ 100 % de lo recibido va a nuestros fines</span><span>✓ Rendimos cuentas públicas cada año</span></div>
 </div>
-</div>
-
-<div style="flex: 1 1 460px; min-width: 0; position: relative; height: 580px">
-<video class="hero-photo" autoplay muted loop playsinline preload="metadata" poster="assets/video-portada.jpg" aria-label="Una mujer abraza con cariño a una persona mayor" style="position: absolute; inset: 0 40px 0 60px; width: calc(100% - 100px); height: 100%; object-fit: cover; border-radius: 120px 0 120px 0; box-shadow: 0 30px 70px rgba(74,16,53,.18)"><source src="assets/video-portada.mp4" type="video/mp4"></video>
-<div class="hero-stat" style="position: absolute; right: 0; top: 4%; width: 270px; background: #FFFFFF; padding: 26px 26px 22px; border-radius: 16px; box-shadow: 0 24px 60px rgba(74,16,53,.16); border-top: 4px solid #C81E73">
+<div class="hero-cards">
+<div class="hero-card">
 <span style="font-size: 12px; font-weight: 700; letter-spacing: .16em; text-transform: uppercase; color: #8A2BB0">Violencia en Piura</span>
 <div style="font-family: 'Cormorant Garamond', serif; font-size: 58px; font-weight: 700; line-height: 1; color: #69184B; margin: 10px 0 8px">4 578</div>
 <p style="margin: 0 0 12px; font-size: 15px; line-height: 1.5; color: #3A1530">casos atendidos por los Centros Emergencia Mujer entre enero y julio de 2026. El 87,7 % fueron mujeres.</p>
-<span style="font-size: 12px; color: #6E4A62">Fuente: MIMP – Programa Warmi Ñan</span>
-</div>
-<div class="hero-stat" style="position: absolute; left: 0; bottom: 4%; width: 290px; background: #69184B; color: #FFFFFF; padding: 26px 26px 22px; border-radius: 16px; box-shadow: 0 24px 60px rgba(74,16,53,.22)">
+<span style="font-size: 12px; color: #6E4A62">Fuente: MIMP – Programa Warmi Ñan</span></div>
+<div class="hero-card dark">
 <span style="font-size: 12px; font-weight: 700; letter-spacing: .16em; text-transform: uppercase; color: #F6E08A">Pobreza en Piura</span>
 <div style="font-family: 'Cormorant Garamond', serif; font-size: 58px; font-weight: 700; line-height: 1; margin: 10px 0 8px">28,1 %</div>
 <p style="margin: 0 0 12px; font-size: 15px; line-height: 1.5; color: #F2DDE9">de la población de Piura vive en pobreza monetaria, por encima del promedio nacional (25,7 %).</p>
-<span style="font-size: 12px; color: #E7C6D8">Fuente: INEI, 2025</span>
+<span style="font-size: 12px; color: #E7C6D8">Fuente: INEI, 2025</span></div>
 </div>
 </div>
-</div>
+<button class="hero-toggle" type="button" aria-label="Pausar video" aria-pressed="false"><svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path class="i-pause" d="M7 5h4v14H7zM13 5h4v14h-4z"/><path class="i-play" d="M8 5l12 7-12 7z" style="display:none"/></svg></button>
+<a href="#mision" class="hero-scroll" aria-label="Bajar"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg></a>
 </section>
-
 
 <!-- FRANJA DEGRADADO MOSAICO -->
 <div aria-hidden="true" style="display: grid; grid-template-columns: repeat(12, minmax(0, 1fr)); height: 10px">
@@ -194,7 +209,7 @@ html.hc #site p,html.hc #site li{color:#000!important}
 </section>
 
 <!-- MISIÓN (declaración) -->
-<section style="background: #FFFFFF">
+<section id="mision" style="background: #FFFFFF">
 <div style="max-width: 1100px; margin: 0 auto; padding: 120px 32px 96px; text-align: center">
 <p style="font-family: 'Cormorant Garamond', serif; font-weight: 500; font-size: clamp(34px, 4.6vw, 62px); line-height: 1.12; color: #3A1530; margin: 0 0 40px">Trabajamos por una Piura donde <em style="color: #C81E73">cada</em> mujer, cada paciente y cada familia pueda vivir con <em style="color: #8A2BB0">dignidad</em>, salud y oportunidades.</p>
 <a class="btn btn-outline" href="nosotros.html">Conoce nuestra misión</a>
@@ -516,7 +531,13 @@ function apply(){site.style.zoom=[0.9,1,1.15,1.3][lv+1]||1;}
 lv=+(get('a11y-fs')||0);if(get('a11y-hc')==='1')root.classList.add('hc');apply();
 document.querySelectorAll('[data-fs]').forEach(function(b){b.addEventListener('click',function(){var d=+b.dataset.fs;lv=d===0?0:Math.max(-1,Math.min(2,lv+d));set('a11y-fs',lv);apply()})});
 document.querySelectorAll('[data-hc]').forEach(function(b){b.setAttribute('aria-pressed',root.classList.contains('hc'));b.addEventListener('click',function(){var on=root.classList.toggle('hc');b.setAttribute('aria-pressed',on);set('a11y-hc',on?'1':'0')})});
-var v=document.querySelector('video.hero-photo');if(v&&matchMedia('(prefers-reduced-motion: reduce)').matches){v.removeAttribute('autoplay');v.pause()}})();
+})();
+</script>
+<script>
+(function(){var v=document.querySelector('.hero-video'),b=document.querySelector('.hero-toggle');if(!v||!b)return;
+function ui(){var p=v.paused;b.setAttribute('aria-pressed',p);b.setAttribute('aria-label',p?'Reproducir video':'Pausar video');b.querySelector('.i-pause').style.display=p?'none':'';b.querySelector('.i-play').style.display=p?'':'none'}
+if(matchMedia('(prefers-reduced-motion: reduce)').matches){v.removeAttribute('autoplay');v.pause()}else{var pr=v.play();if(pr&&pr.catch)pr.catch(function(){})}
+b.addEventListener('click',function(){v.paused?v.play():v.pause()});v.addEventListener('play',ui);v.addEventListener('pause',ui);ui()})();
 </script>
 </body>
 </html>
