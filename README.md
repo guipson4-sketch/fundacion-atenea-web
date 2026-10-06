@@ -13,6 +13,7 @@ involucrate.html    Donar, voluntariado y alianzas
 historias.html      Historias y recursos
 transparencia.html  Documentos institucionales y preguntas frecuentes
 contacto.html       Datos de contacto, formulario y mapa
+programa-*.html     Una página por programa (salud, mujeres, ayuda, orientación)
 privacidad.html     Política de privacidad (Ley 29733)
 terminos.html       Términos de uso
 reclamaciones.html  Libro de Reclamaciones virtual
@@ -57,5 +58,7 @@ Esta versión es un boceto para aprobación. Antes de publicar con dominio propi
 - Equipo y mensaje de la presidenta (`nosotros.html`): nombres, cargos y fotos de ejemplo.
 - Cifras de impacto (`index.html`, atributos `data-count`), testimonios, aliados y notas de prensa: de ejemplo.
 - RUC, partida registral, WhatsApp (`wa.me/51900000000`), correo, cuentas bancarias y QR de Yape/Plin: de ejemplo.
+- Video de portada (`assets/video-portada.mp4`, de Mixkit, licencia libre) y casos de cada programa: de ejemplo.
+- Zonas del mapa de cobertura (`programas.html`, lista `ZONAS` en el script del mapa).
 - Enlaces de redes sociales y de prensa (`href="#"`).
 - Formularios de contacto, boletín y reclamaciones: conectarlos a un servicio de envío (p. ej. Formspree).
