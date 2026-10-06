@@ -33,3 +33,7 @@ Sitio estático: se puede publicar en GitHub Pages, Netlify o Vercel sin compila
 - INEI, pobreza monetaria 2025 (Piura 28,1 %; nacional 25,7 %).
 - MIMP – Programa Warmi Ñan: casos atendidos por los CEM de Piura, enero–julio 2026.
 - INEI – ENDES 2025: anemia en niñas y niños de 6 a 35 meses en Piura.
+
+## Fotografías
+
+Las fotos de `assets/foto-*.jpg` son provisionales, de [Unsplash](https://unsplash.com) (licencia libre). Reemplázalas por fotos propias de la fundación cuando estén disponibles.
