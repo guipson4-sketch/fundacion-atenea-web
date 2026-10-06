@@ -5,8 +5,16 @@ Sitio web institucional de la **Fundación Atenea**, fundación sin fines de luc
 ## Estructura
 
 ```
-index.html              Página de inicio (HTML + CSS, sin dependencias)
-assets/logo-atenea.png  Logo oficial
+index.html          Inicio
+nosotros.html       Quiénes somos, cómo trabajamos, ODS
+programas.html      Programas y cómo pedir ayuda
+consultorias.html   Consultorías para empresas e instituciones
+involucrate.html    Donar, voluntariado y alianzas
+historias.html      Historias y recursos
+transparencia.html  Documentos institucionales y preguntas frecuentes
+contacto.html       Datos de contacto, formulario y mapa
+404.html            Página no encontrada
+assets/             Logo y fotografías
 ```
 
 ## Ver en local
