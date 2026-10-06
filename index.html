@@ -535,9 +535,13 @@ document.querySelectorAll('[data-hc]').forEach(function(b){b.setAttribute('aria-
 </script>
 <script>
 (function(){var v=document.querySelector('.hero-video'),b=document.querySelector('.hero-toggle');if(!v||!b)return;
+v.muted=true;v.defaultMuted=true;v.setAttribute('muted','');v.playsInline=true;var userPaused=false;
 function ui(){var p=v.paused;b.setAttribute('aria-pressed',p);b.setAttribute('aria-label',p?'Reproducir video':'Pausar video');b.querySelector('.i-pause').style.display=p?'none':'';b.querySelector('.i-play').style.display=p?'':'none'}
-if(matchMedia('(prefers-reduced-motion: reduce)').matches){v.removeAttribute('autoplay');v.pause()}else{var pr=v.play();if(pr&&pr.catch)pr.catch(function(){})}
-b.addEventListener('click',function(){v.paused?v.play():v.pause()});v.addEventListener('play',ui);v.addEventListener('pause',ui);ui()})();
+function go(){if(userPaused)return;var pr=v.play();if(pr&&pr.catch)pr.catch(function(){})}
+go();v.addEventListener('loadeddata',go);v.addEventListener('canplay',go);
+['pointerdown','touchstart','scroll','keydown'].forEach(function(e){addEventListener(e,go,{once:true,passive:true})});
+document.addEventListener('visibilitychange',function(){if(!document.hidden)go()});
+b.addEventListener('click',function(){if(v.paused){userPaused=false;go()}else{userPaused=true;v.pause()}});v.addEventListener('play',ui);v.addEventListener('pause',ui);ui()})();
 </script>
 </body>
 </html>
