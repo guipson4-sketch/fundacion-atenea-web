@@ -94,3 +94,20 @@ Importante: en el plan gratuito Google puede usar las conversaciones para mejora
 Por eso el chat pide no compartir datos personales y deriva los casos a WhatsApp. Si llegan
 consultas sensibles con frecuencia, conviene activar facturación (plan de pago) en Google AI Studio.
 GitHub Pages no ejecuta funciones: para que el chat funcione, el sitio debe estar en Netlify.
+
+## Imágenes
+
+Todas las fotografías del sitio están en `assets/img/` con nombre fijo. Para cambiar una, reemplaza
+el archivo conservando el nombre (JPG horizontal 3:2, mínimo 1600 px de ancho):
+
+| Archivo | Dónde aparece |
+|---|---|
+| `portada.jpg` | Portada a pantalla completa |
+| `mujeres.jpg` | Programa Mujeres que avanzan, portada (díptico) |
+| `ninez.jpg` | Programa Niñez protegida |
+| `salud.jpg` | Programa Salud y acompañamiento |
+| `orientacion.jpg` | Programa Orientación gratuita |
+| `ayuda.jpg` | Programa Ayuda humanitaria |
+| `voluntariado.jpg` | Nosotros, Involúcrate |
+
+Las actuales son de banco de imágenes y provisionales.
