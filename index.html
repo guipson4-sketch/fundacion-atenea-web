@@ -4,714 +4,480 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Fundación Atenea · Piura</title>
-<meta name="description" content="Fundación Atenea: fundación sin fines de lucro de Piura que acompaña a personas enfermas, mujeres y familias en situación de vulnerabilidad.">
+<meta name="description" content="Fundación Atenea: fundación sin fines de lucro con sede en Piura que acompaña a mujeres, niñas y niños en situación de vulnerabilidad.">
 <meta property="og:title" content="Fundación Atenea · Piura">
-<meta property="og:description" content="Ninguna mujer debería enfrentar sola la enfermedad, la violencia o la pobreza.">
-<meta property="og:image" content="https://guipson4-sketch.github.io/fundacion-atenea-web/assets/foto-abrazo.jpg">
-<meta property="og:type" content="website">
-<meta name="twitter:card" content="summary_large_image">
-<script type="application/ld+json">{"@context":"https://schema.org","@type":"NGO","name":"Fundación Atenea","url":"https://guipson4-sketch.github.io/fundacion-atenea-web/","logo":"https://guipson4-sketch.github.io/fundacion-atenea-web/assets/logo-atenea.png","description":"Fundación sin fines de lucro de Piura que acompaña a personas enfermas, mujeres y familias en situación de vulnerabilidad.","address":{"@type":"PostalAddress","streetAddress":"Jr. Circunvalación 1384","addressLocality":"Piura","addressCountry":"PE"},"areaServed":"Piura, Perú"}</script>
+<meta property="og:description" content="Nadie debería enfrentar sola lo que puede enfrentarse acompañada.">
+<meta property="og:image" content="assets/logo-atenea-transparente.png">
 <meta property="og:locale" content="es_PE">
-<meta name="theme-color" content="#4A1035">
-<link rel="icon" href="assets/logo-atenea.png">
+<meta name="theme-color" content="#2E0A22">
+<link rel="icon" href="assets/logo-atenea-transparente.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700;12..96,800&amp;family=Hanken+Grotesk:wght@400;500;600;700&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400;12..96,600;12..96,800&amp;family=Hanken+Grotesk:ital,wght@0,400;0,500;0,600;1,400&amp;display=swap" rel="stylesheet">
 <style>
 :root{
-  --ink:#2E0A22; --plum:#4A1035; --brand:#69184B; --magenta:#C81E73; --violet:#8A2BB0;
+  --ink:#2E0A22; --plum:#4A1035; --brand:#69184B; --magenta:#C81E73;
   --coral:#EE827C; --amber:#F3BC81; --butter:#F6E08A; --sky:#A3CDF5;
-  --paper:#FFFFFF; --blush:#FFF6FA; --wash:#F7E6EF; --lilac:#EBD6F3; --peach:#FBE3CC; --skywash:#DCEBFB;
-  --text:#3A1530; --muted:#5A3550; --line:rgba(74,16,53,.14);
+  --paper:#FBF8F5; --white:#FFFFFF; --sand:#F2ECE6;
+  --text:#2E0A22; --muted:#6B4A60; --line:rgba(46,10,34,.16);
   --display:'Bricolage Grotesque',ui-sans-serif,system-ui,sans-serif;
   --body:'Hanken Grotesk',ui-sans-serif,system-ui,sans-serif;
-  --r-card:28px; --r-pill:9999px;
 }
 *{box-sizing:border-box}
-html{scroll-behavior:smooth;scroll-padding-top:88px}
-body{margin:0;background:var(--paper);color:var(--text);font-family:var(--body);font-size:18px;line-height:1.55;letter-spacing:-.006em;-webkit-font-smoothing:antialiased}
-img,svg{max-width:100%}
+html{scroll-padding-top:80px}
+body{margin:0;background:var(--paper);color:var(--text);font:400 18px/1.6 var(--body);-webkit-font-smoothing:antialiased}
+img{max-width:100%;display:block}
 a{color:inherit}
-h1,h2,h3{margin:0;font-family:var(--display);font-weight:800;color:var(--brand)}
+h1,h2,h3,h4{margin:0;font-family:var(--display);font-weight:600;letter-spacing:-.03em;line-height:1}
 p{margin:0}
-:focus-visible{outline:3px solid var(--magenta);outline-offset:3px;border-radius:6px}
-.dark :focus-visible{outline-color:var(--butter)}
-.wrap{max-width:1200px;margin:0 auto;padding:0 32px}
-.sec{padding:112px 0}
-.h2{font-size:clamp(38px,5.2vw,68px);line-height:.98;letter-spacing:-.035em}
-.lead{font-size:20px;line-height:1.6;color:var(--muted);max-width:34em}
-.src{font-size:13px;line-height:1.4}
+:focus-visible{outline:2px solid var(--magenta);outline-offset:3px}
+.wrap{max-width:1320px;margin:0 auto;padding:0 40px}
+.grid{display:grid;grid-template-columns:repeat(12,1fr);column-gap:24px}
+.eyebrow{display:flex;gap:14px;align-items:baseline;font:600 12px/1 var(--body);letter-spacing:.16em;text-transform:uppercase;color:var(--muted)}
+.eyebrow b{color:var(--magenta);font-weight:600}
+.rule{border:0;border-top:1px solid var(--line);margin:0}
+.sec{padding:128px 0}
+.h2{font-size:clamp(40px,5.4vw,80px)}
+.lead{font-size:21px;line-height:1.55;color:var(--muted);max-width:32em}
+.ital{font-family:var(--body);font-style:italic;font-weight:400;letter-spacing:-.01em}
+.btn{display:inline-flex;align-items:center;gap:12px;min-height:54px;padding:0 30px;border-radius:999px;font:600 16px/1 var(--body);text-decoration:none;border:0;cursor:pointer;white-space:nowrap}
+.btn-main{background:var(--ink);color:#fff}.btn-main:hover{background:var(--magenta)}
+.btn-line{color:var(--ink);box-shadow:inset 0 0 0 1px var(--ink)}.btn-line:hover{background:var(--ink);color:#fff}
+.arrow{font-family:var(--body)}
+.tag{display:inline-block;font:600 11px/1 var(--body);letter-spacing:.12em;text-transform:uppercase;padding:7px 10px;border-radius:999px;background:var(--butter);color:var(--ink)}
 
-/* botones: píldora, siempre */
-.btn{white-space:nowrap;display:inline-flex;align-items:center;justify-content:center;gap:10px;min-height:52px;padding:0 28px;border-radius:var(--r-pill);font:600 16px/1 var(--body);text-decoration:none;border:0;cursor:pointer;transition:background .18s,color .18s,transform .18s}
-.btn:active{transform:scale(.97)}
-.btn-main{background:var(--magenta);color:#fff}.btn-main:hover{background:#A3165D}
-.btn-line{background:#fff;color:var(--brand);box-shadow:inset 0 0 0 1.5px var(--brand)}.btn-line:hover{background:var(--brand);color:#fff}
-.dark .btn-main,.btn-on{background:var(--butter);color:var(--plum)}
-.dark .btn-main:hover,.btn-on:hover{background:#fff;color:var(--plum)}
-.dark .btn-line{background:transparent;color:#fff;box-shadow:inset 0 0 0 1.5px rgba(255,255,255,.6)}
-.dark .btn-line:hover{background:#fff;color:var(--plum)}
-.tlink{font-weight:600;color:var(--brand);text-decoration:underline;text-underline-offset:4px;text-decoration-thickness:2px}
-.tlink:hover{color:var(--magenta)}
-.dark .tlink{color:var(--butter)}
-.pill{display:inline-flex;align-items:center;gap:8px;border-radius:var(--r-pill);padding:8px 14px;font-size:14px;font-weight:600;background:var(--wash);color:var(--brand)}
+/* aviso muestra */
+.demo{background:var(--butter);color:var(--ink);font-size:13px}
+.demo .wrap{padding-top:9px;padding-bottom:9px;display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap}
 
-/* aviso y cabecera */
-.draft-bar{background:#F6E08A;color:#4A1035;text-align:center;font-size:13px;padding:7px 16px}
-.wa{position:fixed;left:16px;bottom:16px;z-index:30;display:inline-flex;align-items:center;gap:8px;background:var(--plum);color:#fff;border-radius:9999px;padding:12px 18px;font-weight:600;font-size:15px;text-decoration:none}
-.wa:hover{background:var(--magenta)}
-.prog .ph{margin:-32px -28px 4px;height:170px;border-radius:var(--r-card) var(--r-card) 0 0;overflow:hidden}
-.prog .ph img{width:100%;height:100%;object-fit:cover;display:block}
-.prog .more{font-weight:600;color:var(--plum);text-decoration:underline;text-underline-offset:4px}
-.alert{background:var(--ink);color:#fff;font-size:14px}
-.alert .wrap{display:flex;flex-wrap:wrap;gap:6px 24px;justify-content:space-between;padding-top:10px;padding-bottom:10px}
-.alert strong{color:var(--butter)}
-header.top{position:sticky;top:0;z-index:20;background:rgba(255,255,255,.96);backdrop-filter:blur(6px);border-bottom:1px solid var(--line)}
-header.top .wrap{display:flex;align-items:center;justify-content:space-between;gap:20px;height:80px}
-.logo img{height:60px;width:auto;display:block}
-.seg{display:flex;gap:2px;padding:4px;border-radius:var(--r-pill);background:var(--wash)}
-.seg a{white-space:nowrap;padding:9px 13px;border-radius:var(--r-pill);font-size:15px;font-weight:600;color:var(--brand);text-decoration:none}
-.seg a:hover{background:var(--brand);color:#fff}
-.top-cta{display:flex;gap:10px}
-.top-cta .btn{min-height:44px;padding:0 20px;font-size:15px}
-.menu{display:none}
-.menu summary{list-style:none;cursor:pointer;width:44px;height:44px;border-radius:50%;background:var(--wash);display:grid;place-items:center}
-.menu summary::-webkit-details-marker{display:none}
-.menu nav{position:absolute;left:16px;right:16px;top:84px;background:#fff;border-radius:var(--r-card);padding:12px;box-shadow:0 0 0 1px var(--line),0 10px 32px rgba(0,0,0,.15);display:flex;flex-direction:column}
-.menu nav a{padding:14px 16px;border-radius:16px;font-weight:600;color:var(--brand);text-decoration:none}
-.menu nav a:hover{background:var(--wash)}
+/* cabecera */
+header{position:sticky;top:0;z-index:10;background:rgba(251,248,245,.94);backdrop-filter:blur(8px);border-bottom:1px solid var(--line)}
+header .wrap{display:flex;align-items:center;justify-content:space-between;height:80px}
+header .logo img{height:58px;width:auto}
+nav ul{display:flex;gap:34px;list-style:none;margin:0;padding:0;font-size:15px;font-weight:500}
+nav a{text-decoration:none}nav a:hover{color:var(--magenta)}
+.nav-cta{min-height:44px;padding:0 22px;font-size:15px}
 
-/* portada */
-.hero{position:relative;overflow:hidden;background:var(--blush)}
-.hero .wrap{position:relative;z-index:2;padding-top:88px;padding-bottom:140px}
-.hero h1{font-size:clamp(52px,8.4vw,118px);line-height:.92;letter-spacing:-.035em;color:var(--plum);max-width:9.4em}
-.hero .lead{margin:32px 0 40px;max-width:25em}
-.hero .acts{display:flex;flex-wrap:wrap;gap:12px 22px;align-items:center}
-.hero-art{position:absolute;right:-90px;bottom:-40px;width:min(54vw,720px);z-index:1}
-.hero-art svg{display:block;width:100%;height:auto}
-.mos rect{animation:pop .7s cubic-bezier(.2,.7,.2,1) backwards;animation-delay:var(--d);transform-box:fill-box;transform-origin:center}
-@keyframes pop{from{opacity:0;transform:scale(.2)}}
-.strip{display:grid;grid-template-columns:repeat(12,1fr);height:12px}
+/* hero */
+.hero{padding:96px 0 0}
+.hero h1{grid-column:1/-1;font-size:clamp(56px,10.4vw,168px);line-height:.88;letter-spacing:-.055em;font-weight:600;color:var(--ink)}
+.hero h1 .ital{color:var(--magenta);letter-spacing:-.04em}
+.hero-meta{grid-column:1/-1;display:grid;grid-template-columns:repeat(12,1fr);column-gap:24px;margin-top:64px;padding:28px 0 0;border-top:1px solid var(--line)}
+.hero-meta .lead{grid-column:1/7}
+.hero-meta .act{grid-column:9/13;display:flex;flex-direction:column;gap:12px;align-items:flex-start}
+.hero-band{margin-top:96px;display:grid;grid-template-columns:5fr 3fr 4fr;height:440px}
+.hero-band > div{position:relative;overflow:hidden}
+.b1{background:var(--ink);color:#fff;padding:40px;display:flex;flex-direction:column;justify-content:space-between}
+.b1 q{font:400 30px/1.25 var(--display);letter-spacing:-.02em;quotes:"“" "”"}
+.b1 small{font-size:14px;color:rgba(255,255,255,.7)}
+.b2{background:var(--magenta)}
+.b3{background:var(--amber)}
+/* mosaico del logo, dibujado con cuadros */
+.tiles{position:absolute;inset:0;display:grid;grid-template-columns:repeat(8,1fr);grid-auto-rows:1fr}
+.tiles i{display:block}
+.b3 .cap{position:absolute;left:32px;bottom:32px;right:32px;font-size:14px;color:var(--ink);background:var(--paper);padding:16px 18px;max-width:300px}
 
-/* cifras de Piura, sección invertida */
-.dark{background:var(--plum);color:#fff}
-.dark h2,.dark h3{color:#fff}
-.dark .lead{color:#F2DDE9}
-.facts{margin-top:64px;display:grid;grid-template-columns:repeat(4,1fr);gap:40px 32px}
-.fact{border-top:1.5px solid rgba(255,255,255,.28);padding-top:24px;display:flex;flex-direction:column;gap:14px}
-.fact b{font:800 clamp(52px,6vw,84px)/.9 var(--display);letter-spacing:-.045em;color:var(--butter)}
-.fact p{font-size:16px;line-height:1.5;color:#F2DDE9;flex-grow:1}
-.fact .src{color:#D9BCCD}
-.head2{display:flex;flex-wrap:wrap;gap:24px 64px;justify-content:space-between;align-items:flex-end}
-.head2 .h2{flex:1 1 520px}
-.head2 .lead,.head2 p{flex:1 1 340px}
-
-/* quiénes somos */
-.about{display:grid;grid-template-columns:1.05fr 1fr;gap:64px;align-items:start}
-.about .big{font:600 clamp(24px,2.6vw,34px)/1.25 var(--display);letter-spacing:-.02em;color:var(--plum)}
-.mv{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-top:32px}
-.mv div{border-radius:var(--r-card);padding:28px}
-.mv h3{font-size:28px;letter-spacing:-.02em;margin-bottom:10px}
-.mv p{font-size:16px;line-height:1.6}
-.vals{list-style:none;margin:20px 0 0;padding:0;display:flex;flex-wrap:wrap;gap:10px}
-.vals li{display:flex;align-items:center;gap:10px;border-radius:var(--r-pill);padding:10px 18px;background:#fff;box-shadow:inset 0 0 0 1.5px var(--line);font-weight:600;color:var(--plum)}
-.vals i{width:12px;height:12px;border-radius:3px;display:block}
+/* manifiesto */
+.manifesto .grid > .eyebrow{grid-column:1/4}
+.manifesto p.big{grid-column:4/13;font:400 clamp(30px,3.4vw,50px)/1.18 var(--display);letter-spacing:-.025em;color:var(--ink)}
+.manifesto p.big em{font-style:normal;color:var(--magenta)}
+.facts{grid-column:4/13;margin-top:72px;display:grid;grid-template-columns:repeat(3,1fr);border-top:1px solid var(--line)}
+.facts div{padding:28px 24px 0 0}
+.facts strong{display:block;font:600 64px/1 var(--display);letter-spacing:-.04em;color:var(--ink)}
+.facts span{display:block;margin-top:12px;font-size:15px;color:var(--muted);max-width:18em}
 
 /* programas */
-.cards4{margin-top:56px;display:grid;grid-template-columns:repeat(4,1fr);gap:20px}
-.prog{border-radius:var(--r-card);padding:32px 28px;display:flex;flex-direction:column;gap:16px;min-height:380px;transition:transform .2s}
-.prog:hover{transform:translateY(-4px)}
-.prog .ic{width:64px;height:64px;border-radius:50%;background:#fff;display:grid;place-items:center}
-.prog h3{font-size:30px;line-height:1;letter-spacing:-.03em;color:var(--plum);margin-top:auto}
-.prog p{font-size:16px;line-height:1.55;color:var(--text)}
+.programs{background:var(--white)}
+.prog-head{display:grid;grid-template-columns:repeat(12,1fr);column-gap:24px;align-items:end;margin-bottom:72px}
+.prog-head h2{grid-column:1/8}
+.prog-head p{grid-column:9/13}
+.prog{display:grid;grid-template-columns:repeat(12,1fr);column-gap:24px;padding:44px 0;border-top:1px solid var(--line);align-items:start}
+.prog:last-child{border-bottom:1px solid var(--line)}
+.prog .n{grid-column:1/2;font:600 15px/1.4 var(--body);color:var(--muted)}
+.prog h3{grid-column:2/6;font-size:40px;color:var(--ink)}
+.prog p{grid-column:7/11;color:var(--muted)}
+.prog ul{grid-column:7/11;margin:20px 0 0;padding:0;list-style:none;font-size:15px}
+.prog li{padding:9px 0;border-top:1px solid var(--line)}
+.prog .sw{grid-column:12/13;justify-self:end;width:44px;height:44px}
 
-/* cómo ayudamos */
-.steps{list-style:none;margin:64px 0 48px;padding:0;display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
-.steps li{background:var(--brand);border-radius:var(--r-card);padding:36px 32px}
-.steps b{font:800 72px/1 var(--display);letter-spacing:-.05em;color:var(--butter);display:block}
-.steps h3{font-size:30px;line-height:1.05;letter-spacing:-.03em;margin:20px 0 10px}
-.steps p{font-size:16px;line-height:1.6;color:#F2DDE9}
-.acts2{display:flex;flex-wrap:wrap;gap:12px 16px;align-items:center}
-.acts2 span{font-size:15px;color:#F2DDE9;margin-left:8px}
-.help{position:relative;overflow:hidden}
-.help .wrap{position:relative;z-index:2}
+/* momentos */
+.moments{background:var(--ink);color:#fff}
+.moments .eyebrow{color:rgba(255,255,255,.6)}
+.moments h2{color:#fff}
+.mom-grid{display:grid;grid-template-columns:repeat(12,1fr);gap:24px;margin-top:80px}
+.mom{background:var(--plum);padding:36px;display:flex;flex-direction:column;justify-content:space-between;min-height:360px}
+.mom q{font:400 26px/1.3 var(--display);letter-spacing:-.02em;quotes:"“" "”"}
+.mom footer{margin-top:40px;display:flex;justify-content:space-between;align-items:end;gap:16px;font-size:14px;color:rgba(255,255,255,.72)}
+.mom footer b{display:block;color:#fff;font-weight:600;font-size:15px}
+.mom .yr{font:600 13px/1 var(--body);letter-spacing:.1em}
+.m1{grid-column:1/8;background:var(--magenta)}
+.m1 q{font-size:36px}
+.m2{grid-column:8/13}
+.m3{grid-column:1/5}
+.m4{grid-column:5/9;background:var(--butter);color:var(--ink)}
+.m4 footer,.m4 footer b{color:var(--ink)}
+.m5{grid-column:9/13}
+.note{margin-top:32px;font-size:13px;color:rgba(255,255,255,.55)}
 
-/* hoja de ruta */
-.road{background:var(--blush)}
-.stages{list-style:none;margin:64px 0 0;padding:0;display:grid;grid-template-columns:repeat(4,1fr);gap:0;position:relative}
-.stages:before{content:"";position:absolute;left:0;right:0;top:11px;height:3px;background:var(--line)}
-.stages li{position:relative;padding:48px 28px 0 0}
-.stages li:before{content:"";position:absolute;top:0;left:0;width:26px;height:26px;border-radius:7px;background:var(--c)}
-.stages li:first-child:before{box-shadow:0 0 0 6px var(--wash)}
-.tag{display:inline-block;border-radius:var(--r-pill);padding:6px 12px;font-size:13px;font-weight:700;margin-bottom:14px}
-.stages h3{font-size:28px;line-height:1.05;letter-spacing:-.03em;color:var(--plum);margin-bottom:10px}
-.stages p{font-size:16px;line-height:1.6;color:var(--muted)}
+/* bitácora */
+.log-row{display:grid;grid-template-columns:repeat(12,1fr);column-gap:24px;padding:26px 0;border-top:1px solid var(--line);align-items:baseline}
+.log-row:last-child{border-bottom:1px solid var(--line)}
+.log-row time{grid-column:1/3;font-size:14px;font-weight:600;color:var(--muted);font-variant-numeric:tabular-nums}
+.log-row h4{grid-column:3/8;font-size:24px;color:var(--ink)}
+.log-row p{grid-column:8/12;font-size:16px;color:var(--muted)}
+.log-row span{grid-column:12/13;justify-self:end;font-size:13px;color:var(--muted)}
 
-/* consultorías */
-.cons{background:var(--skywash)}
-.cons .wrap{display:grid;grid-template-columns:1fr 1.5fr;gap:64px;align-items:start}
-.cons .h2{margin-bottom:20px}
-.cons .lead{margin-bottom:32px}
-.svc{display:grid;grid-template-columns:1fr 1fr;gap:14px}
-.svc div{background:#fff;border-radius:20px;padding:26px 24px}
-.svc i{display:block;width:34px;height:12px;border-radius:6px;margin-bottom:16px}
-.svc h3{font:700 19px/1.25 var(--body);letter-spacing:-.01em;color:var(--plum);margin-bottom:8px}
-.svc p{font-size:15px;line-height:1.55;color:var(--muted)}
-
-/* involúcrate */
-.join{margin-top:56px;display:grid;grid-template-columns:1.2fr 1fr 1fr;gap:20px}
-.join>div{border-radius:var(--r-card);padding:40px 34px;display:flex;flex-direction:column;gap:18px}
-.join h3{font-size:clamp(30px,3vw,40px);line-height:1;letter-spacing:-.035em}
-.join p{font-size:16px;line-height:1.6;flex-grow:1}
-.join .note{font-size:13px;flex-grow:0;opacity:.85}
-.chips{display:flex;flex-wrap:wrap;gap:8px}
-.chips span{border-radius:var(--r-pill);padding:7px 14px;font-size:14px;font-weight:600;box-shadow:inset 0 0 0 1.5px rgba(255,255,255,.4)}
+/* estatuto */
+.statute{background:var(--sand)}
+.st-wrap{display:grid;grid-template-columns:repeat(12,1fr);column-gap:24px}
+.st-side{grid-column:1/5;position:sticky;top:120px;align-self:start}
+.st-side .lead{margin-top:28px;font-size:18px}
+.st-side .btn{margin-top:36px}
+.st-body{grid-column:6/13}
+.art{padding:32px 0;border-top:1px solid var(--line)}
+.art:last-child{border-bottom:1px solid var(--line)}
+.art h3{display:flex;gap:20px;align-items:baseline;font-size:26px;color:var(--ink)}
+.art h3 small{font:600 12px/1 var(--body);letter-spacing:.14em;text-transform:uppercase;color:var(--magenta);min-width:70px}
+.art p,.art ol{margin:14px 0 0 90px;font-size:17px;color:var(--muted)}
+.art ol{padding-left:20px}.art li{margin:6px 0}
 
 /* transparencia */
-.trans{background:var(--wash)}
-.trans .wrap{display:grid;grid-template-columns:1fr 1.3fr;gap:56px;align-items:center}
-.trans .h2{font-size:clamp(34px,4.2vw,56px);margin-bottom:18px}
-.docs{display:grid;grid-template-columns:1fr 1fr;gap:12px}
-.docs a{background:#fff;border-radius:20px;padding:22px;display:flex;gap:16px;align-items:center;text-decoration:none;transition:transform .2s}
-.docs a:hover{transform:translateY(-3px)}
-.docs strong{display:block;font-size:17px;color:var(--plum)}
-.docs span{font-size:14px;color:var(--muted)}
+.trans .grid > *{grid-column:span 4}
+.tbox{border-top:2px solid var(--ink);padding-top:22px}
+.tbox h3{font-size:24px;color:var(--ink)}
+.tbox p{margin-top:12px;font-size:16px;color:var(--muted)}
 
-/* cierre */
-.final{background:var(--paper);padding:0 0 96px}
-.final .box{position:relative;overflow:hidden;border-radius:40px;background:var(--plum);padding:88px 56px;min-height:420px}
-.final .art{position:absolute;right:-40px;bottom:-10px;width:min(62%,760px);opacity:.95}
-.final .art svg{display:block;width:100%;height:auto}
-.final h2{position:relative;z-index:2;font-size:clamp(42px,6.4vw,92px);line-height:.92;letter-spacing:-.045em;color:var(--butter);max-width:9.6em}
-.final .acts{position:relative;z-index:2;display:flex;flex-wrap:wrap;gap:12px 16px;margin-top:40px}
+/* contacto */
+.contact{background:var(--white)}
+.ct{display:grid;grid-template-columns:repeat(12,1fr);column-gap:24px}
+.ct-info{grid-column:1/6}
+.ct-info h2{font-size:clamp(44px,5.6vw,84px)}
+.ct-list{margin-top:56px;border-top:1px solid var(--line)}
+.ct-list div{display:grid;grid-template-columns:130px 1fr;padding:18px 0;border-bottom:1px solid var(--line);font-size:16px}
+.ct-list dt{color:var(--muted);font-size:13px;font-weight:600;letter-spacing:.1em;text-transform:uppercase;padding-top:3px}
+.ct-list dd{margin:0}
+.ct-list a{text-decoration:none;border-bottom:1px solid var(--line)}.ct-list a:hover{border-color:var(--magenta);color:var(--magenta)}
+form{grid-column:7/13;display:grid;grid-template-columns:1fr 1fr;gap:28px 24px;align-content:start}
+.f{display:flex;flex-direction:column;gap:8px}
+.f.full{grid-column:1/-1}
+label{font-size:13px;font-weight:600;letter-spacing:.08em;text-transform:uppercase;color:var(--muted)}
+input,select,textarea{font:400 18px/1.4 var(--body);color:var(--ink);background:transparent;border:0;border-bottom:1px solid var(--ink);padding:10px 0;border-radius:0;outline:none}
+input:focus,select:focus,textarea:focus{border-bottom:2px solid var(--magenta);padding-bottom:9px}
+textarea{resize:vertical;min-height:120px}
+.chips{display:flex;flex-wrap:wrap;gap:10px}
+.chips input{position:absolute;opacity:0;pointer-events:none}
+.chips label{text-transform:none;letter-spacing:0;font-size:15px;font-weight:500;color:var(--ink);padding:10px 18px;border-radius:999px;box-shadow:inset 0 0 0 1px var(--line);cursor:pointer}
+.chips input:checked + label{background:var(--ink);color:#fff;box-shadow:none}
+.chips input:focus-visible + label{outline:2px solid var(--magenta);outline-offset:2px}
+.consent{text-transform:none;letter-spacing:0;font-weight:400;grid-column:1/-1;display:flex;gap:12px;font-size:14px;color:var(--muted);align-items:flex-start}
+.consent input{margin-top:4px;accent-color:var(--magenta)}
+.send{grid-column:1/-1;display:flex;gap:20px;align-items:center;flex-wrap:wrap}
+.send small{font-size:13px;color:var(--muted)}
+.help{grid-column:1/-1;background:var(--sand);padding:18px 20px;font-size:14px;color:var(--ink)}
 
 /* pie */
-footer{background:var(--ink);color:#F2DDE9}
-footer .wrap{padding-top:80px;padding-bottom:36px;display:flex;flex-wrap:wrap;gap:48px}
-footer .col{flex:1 1 200px;min-width:0}
-footer .col:first-child{flex-basis:300px}
-footer h3{font:700 16px/1.2 var(--body);letter-spacing:0;color:#fff;margin-bottom:18px}
-footer ul{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:12px;font-size:15px}
-footer a{text-decoration:none;color:#F2DDE9}footer a:hover{color:var(--butter);text-decoration:underline}
-footer .mini{display:flex;gap:4px;margin:18px 0 20px}
-footer .mini i{width:12px;height:12px;border-radius:3px;display:block}
-.sub{display:flex;gap:8px}
-.sub input{flex:1;min-width:0;height:48px;padding:0 20px;border:0;border-radius:var(--r-pill);font:400 15px var(--body);color:var(--text)}
-.sub input:focus-visible{outline-color:var(--butter)}
-.legal{border-top:1px solid rgba(255,255,255,.14)}
-.legal .wrap{padding-top:22px;padding-bottom:22px;gap:12px 28px;justify-content:space-between;font-size:13px;color:#D9BCCD}
-.legal .wrap.two{padding-top:0;padding-bottom:28px}
-.legal .links{display:flex;flex-wrap:wrap;gap:8px 20px}
+.foot{background:var(--ink);color:rgba(255,255,255,.75);padding:96px 0 40px;font-size:15px}
+.foot .big{font:600 clamp(48px,9vw,140px)/.9 var(--display);letter-spacing:-.05em;color:#fff}
+.foot .big span{color:var(--coral)}
+.foot-cols{display:grid;grid-template-columns:repeat(12,1fr);column-gap:24px;margin-top:80px;padding-top:32px;border-top:1px solid rgba(255,255,255,.18)}
+.foot-cols > div{grid-column:span 3}
+.foot h4{font:600 12px/1 var(--body);letter-spacing:.14em;text-transform:uppercase;color:#fff;margin-bottom:16px}
+.foot ul{list-style:none;margin:0;padding:0;line-height:2}
+.foot a{text-decoration:none}.foot a:hover{color:#fff}
+.foot .legal{margin-top:64px;display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap;font-size:13px;color:rgba(255,255,255,.5)}
+.foot .logo-w{background:#fff;padding:10px 16px;display:inline-block}
+.foot .logo-w img{height:52px;width:auto}
 
-@media (max-width:1180px){.seg,.top-cta .btn-line{display:none}.menu{display:block}}
-@media (max-width:1020px){
-  .facts,.cards4{grid-template-columns:1fr 1fr}
-  .about,.cons .wrap,.trans .wrap{grid-template-columns:1fr;gap:40px}
-  .join{grid-template-columns:1fr}
-  .stages{grid-template-columns:1fr 1fr;row-gap:40px}
-  .hero-art{width:80vw;right:-20vw;opacity:.55}
-}
-@media (max-width:700px){
-  body{font-size:17px}
+@media (max-width:960px){
   .wrap{padding:0 20px}
-  .sec{padding:72px 0}
-  .hero .wrap{padding-top:56px;padding-bottom:110px}
-  .facts,.cards4,.steps,.stages,.svc,.mv,.docs{grid-template-columns:1fr}
-  .prog{min-height:0}
-  .final .box{padding:56px 24px;border-radius:28px;min-height:0}
-  .final .art{width:100%;opacity:.4}
-  .logo img{height:48px}
-  .top-cta .btn-main{padding:0 16px}
-  .alert .wrap span:last-child{display:none}
-}
-@media (prefers-reduced-motion:reduce){
-  .mos rect{animation:none}
-  html{scroll-behavior:auto}
-  *{transition:none!important}
+  .sec{padding:88px 0}
+  nav ul{display:none}
+  .hero-meta .lead,.hero-meta .act{grid-column:1/-1}
+  .hero-meta .act{margin-top:28px;flex-direction:row;flex-wrap:wrap}
+  .hero-band{grid-template-columns:1fr 1fr;height:auto}
+  .b1{grid-column:1/-1;min-height:320px}
+  .b2,.b3{height:260px}
+  .manifesto .grid > *,.manifesto .grid > .eyebrow,.manifesto p.big,.facts{grid-column:1/-1}
+  .b3 .cap{left:16px;right:16px;bottom:16px;max-width:none}
+  .b1 > div{margin-top:40px}
+  .manifesto p.big{margin-top:24px}
+  .facts{grid-template-columns:1fr;margin-top:48px}
+  .facts div{padding:24px 0;border-bottom:1px solid var(--line)}
+  .prog-head h2,.prog-head p{grid-column:1/-1}
+  .prog-head p{margin-top:24px}
+  .prog .n{grid-column:1/-1;margin-bottom:12px}
+  .prog h3,.prog p,.prog ul{grid-column:1/-1}
+  .prog h3{font-size:32px;margin-bottom:16px}
+  .prog .sw{display:none}
+  .mom-grid > *{grid-column:1/-1}
+  .mom{min-height:0}.m1 q{font-size:28px}
+  .log-row time,.log-row h4,.log-row p,.log-row span{grid-column:1/-1;justify-self:start}
+  .log-row h4{margin:8px 0}
+  .st-side,.st-body{grid-column:1/-1;position:static}
+  .st-body{margin-top:56px}
+  .art p,.art ol{margin-left:0}
+  .art h3{flex-direction:column;gap:10px}
+  .trans .grid > *{grid-column:1/-1;margin-bottom:36px}
+  .ct-info,form{grid-column:1/-1}
+  form{margin-top:64px;grid-template-columns:1fr}
+  .ct-list div{grid-template-columns:1fr;gap:6px}
+  .foot-cols > div{grid-column:span 6;margin-bottom:32px}
 }
 </style>
 </head>
 <body>
 
-<div class="draft-bar" role="note">Boceto en revisión · Nombres, fotos, cifras y datos de contacto son de ejemplo</div>
-<div class="alert"><div class="wrap">
-<span>¿Estás en peligro? Llama gratis a la <strong>Línea 100</strong> · las 24 horas</span>
-<span>Jr. Circunvalación 1384, Piura · Perú</span>
+<div class="demo"><div class="wrap">
+  <span><strong>Versión de muestra.</strong> Los testimonios, cifras de actividad y datos de contacto son ilustrativos y se reemplazarán por información oficial.</span>
+  <span>Piura · Perú</span>
 </div></div>
 
-<header class="top"><div class="wrap">
-<a class="logo" href="index.html" aria-label="Fundación Atenea, inicio"><img src="assets/logo-atenea.png" alt="Fundación Atenea"></a>
-<nav class="seg" aria-label="Principal"><a href="nosotros.html">Nosotros</a><a href="programas.html">Programas</a><a href="consultorias.html">Consultorías</a><a href="historias.html">Historias</a><a href="transparencia.html">Transparencia</a><a href="contacto.html">Contacto</a></nav>
-<div class="top-cta">
-<a class="btn btn-line" href="#ayuda">Necesito ayuda</a>
-<a class="btn btn-main" href="involucrate.html">Dona ahora</a>
-<details class="menu"><summary aria-label="Abrir menú"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#69184B" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h16"/></svg></summary>
-<nav aria-label="Menú móvil"><a href="nosotros.html">Nosotros</a><a href="programas.html">Programas</a><a href="consultorias.html">Consultorías</a><a href="historias.html">Historias</a><a href="transparencia.html">Transparencia</a><a href="involucrate.html">Involúcrate</a><a href="contacto.html">Contacto</a><a href="#ayuda">Necesito ayuda</a></nav></details>
-</div>
-</div></header>
+<header>
+  <div class="wrap">
+    <a class="logo" href="#inicio" aria-label="Fundación Atenea, inicio"><img src="assets/logo-atenea-transparente.png" alt="Fundación Atenea"></a>
+    <nav aria-label="Principal"><ul>
+      <li><a href="#programas">Programas</a></li>
+      <li><a href="#momentos">Momentos</a></li>
+      <li><a href="#estatuto">Estatuto</a></li>
+      <li><a href="#transparencia">Transparencia</a></li>
+    </ul></nav>
+    <a class="btn btn-main nav-cta" href="#contacto">Contacto</a>
+  </div>
+</header>
 
-<main>
-<section class="hero" id="inicio">
-<div class="wrap">
-<h1>Ninguna mujer debería enfrentarlo sola.</h1>
-<p class="lead">Acompañamos a personas enfermas, mujeres y familias en situación de vulnerabilidad en Piura, frente a la enfermedad, la violencia y la pobreza, con ayuda concreta, orientación gratuita y oportunidades para salir adelante.</p>
-<div class="acts">
-<a class="btn btn-main" href="involucrate.html">Quiero donar</a>
-<a class="tlink" href="#ayuda">Necesito ayuda</a>
-</div>
-</div>
-<div class="hero-art" aria-hidden="true">
-<svg class="mos" viewBox="0 0 720 640" xmlns="http://www.w3.org/2000/svg">
-<rect x="479.4" y="49.3" width="10.9" height="10.9" fill="#F3C182" fill-opacity="0.29" style="--d:1.04s"/>
-<rect x="369.2" y="80.5" width="19.6" height="19.6" fill="#EB7581" fill-opacity="0.37" style="--d:0.93s"/>
-<rect x="656.9" y="82.3" width="19.3" height="19.3" fill="#A1CBF4" fill-opacity="0.30" style="--d:1.21s"/>
-<rect x="226.8" y="120.7" width="13.5" height="13.5" fill="#B92182" fill-opacity="0.31" style="--d:0.63s"/>
-<rect x="369.0" y="119.1" width="16.9" height="16.9" fill="#E96E81" fill-opacity="0.51" style="--d:0.67s"/>
-<rect x="406.9" y="119.4" width="14.0" height="14.0" fill="#EC8381" fill-opacity="0.47" style="--d:0.84s"/>
-<rect x="442.0" y="116.9" width="19.7" height="19.7" fill="#F3B981" fill-opacity="0.51" style="--d:1.03s"/>
-<rect x="474.4" y="114.8" width="25.4" height="25.4" fill="#F4C383" fill-opacity="0.54" style="--d:0.94s"/>
-<rect x="509.9" y="113.9" width="20.8" height="20.8" fill="#F4CB85" fill-opacity="0.47" style="--d:0.97s"/>
-<rect x="551.6" y="119.4" width="10.1" height="10.1" fill="#F5D587" fill-opacity="0.46" style="--d:1.29s"/>
-<rect x="622.4" y="118.5" width="14.0" height="14.0" fill="#A2CCF5" fill-opacity="0.39" style="--d:1.46s"/>
-<rect x="194.6" y="156.9" width="10.4" height="10.4" fill="#A82592" fill-opacity="0.36" style="--d:0.32s"/>
-<rect x="368.1" y="154.5" width="17.1" height="17.1" fill="#ED8A81" fill-opacity="0.63" style="--d:0.74s"/>
-<rect x="403.0" y="150.4" width="25.9" height="25.9" fill="#F0A781" fill-opacity="0.69" style="--d:1.00s"/>
-<rect x="439.3" y="150.0" width="20.3" height="20.3" fill="#F1AA81" fill-opacity="0.59" style="--d:0.82s"/>
-<rect x="471.3" y="149.2" width="29.0" height="29.0" fill="#F5CE86" fill-opacity="0.74" style="--d:0.92s"/>
-<rect x="513.5" y="153.6" width="14.5" height="14.5" fill="#F6DA89" fill-opacity="0.67" style="--d:1.22s"/>
-<rect x="547.9" y="149.0" width="22.6" height="22.6" fill="#E3DCA3" fill-opacity="0.65" style="--d:1.24s"/>
-<rect x="624.5" y="154.7" width="13.3" height="13.3" fill="#A0CAF4" fill-opacity="0.59" style="--d:1.16s"/>
-<rect x="653.9" y="147.6" width="26.1" height="26.1" fill="#A5CDF2" fill-opacity="0.46" style="--d:1.47s"/>
-<rect x="230.7" y="193.4" width="10.3" height="10.3" fill="#C81E73" fill-opacity="0.58" style="--d:0.57s"/>
-<rect x="333.5" y="189.2" width="15.4" height="15.4" fill="#DF567D" fill-opacity="0.76" style="--d:0.73s"/>
-<rect x="362.5" y="182.9" width="29.9" height="29.9" fill="#EE8F81" fill-opacity="0.79" style="--d:0.79s"/>
-<rect x="439.1" y="185.1" width="21.9" height="21.9" fill="#F0A681" fill-opacity="0.79" style="--d:0.69s"/>
-<rect x="478.9" y="191.9" width="13.9" height="13.9" fill="#F3C182" fill-opacity="0.81" style="--d:1.00s"/>
-<rect x="506.7" y="184.5" width="27.5" height="27.5" fill="#F4CD85" fill-opacity="0.74" style="--d:1.18s"/>
-<rect x="547.9" y="188.5" width="22.4" height="22.4" fill="#F3DF8E" fill-opacity="0.77" style="--d:1.11s"/>
-<rect x="581.4" y="185.7" width="24.9" height="24.9" fill="#BED3D2" fill-opacity="0.74" style="--d:1.26s"/>
-<rect x="693.5" y="189.1" width="20.5" height="20.5" fill="#9AC4F2" fill-opacity="0.54" style="--d:1.29s"/>
-<rect x="9.6" y="228.0" width="13.3" height="13.3" fill="#7720A7" fill-opacity="0.32" style="--d:0.10s"/>
-<rect x="115.4" y="220.4" width="25.0" height="25.0" fill="#8629AE" fill-opacity="0.55" style="--d:0.44s"/>
-<rect x="224.5" y="223.8" width="19.2" height="19.2" fill="#B52286" fill-opacity="0.68" style="--d:0.72s"/>
-<rect x="258.6" y="220.9" width="22.3" height="22.3" fill="#CE2D75" fill-opacity="0.76" style="--d:0.67s"/>
-<rect x="290.9" y="219.6" width="32.5" height="32.5" fill="#D33978" fill-opacity="0.74" style="--d:0.49s"/>
-<rect x="332.3" y="225.5" width="16.4" height="16.4" fill="#EA7081" fill-opacity="0.95" style="--d:0.65s"/>
-<rect x="362.4" y="219.0" width="31.7" height="31.7" fill="#E76A80" fill-opacity="0.77" style="--d:0.92s"/>
-<rect x="409.9" y="228.6" width="11.8" height="11.8" fill="#ED8781" fill-opacity="0.95" style="--d:1.06s"/>
-<rect x="434.6" y="218.1" width="30.5" height="30.5" fill="#F3C182" fill-opacity="0.89" style="--d:0.82s"/>
-<rect x="473.7" y="221.2" width="22.6" height="22.6" fill="#F3BB81" fill-opacity="0.80" style="--d:0.84s"/>
-<rect x="514.4" y="224.5" width="17.3" height="17.3" fill="#F4CB85" fill-opacity="0.88" style="--d:0.97s"/>
-<rect x="548.1" y="226.9" width="16.0" height="16.0" fill="#F5D888" fill-opacity="0.88" style="--d:1.09s"/>
-<rect x="589.0" y="227.5" width="12.6" height="12.6" fill="#C4D5CA" fill-opacity="0.86" style="--d:1.10s"/>
-<rect x="619.0" y="220.5" width="25.8" height="25.8" fill="#A9CEED" fill-opacity="0.91" style="--d:1.28s"/>
-<rect x="655.3" y="223.6" width="17.8" height="17.8" fill="#9AC4F2" fill-opacity="0.71" style="--d:1.15s"/>
-<rect x="697.4" y="229.5" width="11.9" height="11.9" fill="#97C1F1" fill-opacity="0.78" style="--d:1.19s"/>
-<rect x="80.0" y="262.8" width="18.1" height="18.1" fill="#8126AC" fill-opacity="0.62" style="--d:0.26s"/>
-<rect x="151.2" y="260.7" width="17.6" height="17.6" fill="#9429A6" fill-opacity="0.73" style="--d:0.35s"/>
-<rect x="192.0" y="263.3" width="10.2" height="10.2" fill="#9928A1" fill-opacity="0.78" style="--d:0.31s"/>
-<rect x="226.6" y="262.4" width="15.5" height="15.5" fill="#BF207C" fill-opacity="0.91" style="--d:0.72s"/>
-<rect x="259.7" y="262.3" width="19.3" height="19.3" fill="#D03176" fill-opacity="0.79" style="--d:0.73s"/>
-<rect x="292.6" y="255.5" width="29.9" height="29.9" fill="#DE537C" fill-opacity="0.94" style="--d:0.54s"/>
-<rect x="332.3" y="260.2" width="22.0" height="22.0" fill="#E6657F" fill-opacity="0.96" style="--d:0.97s"/>
-<rect x="363.7" y="254.9" width="26.4" height="26.4" fill="#EB7881" fill-opacity="0.79" style="--d:0.63s"/>
-<rect x="402.9" y="258.9" width="23.2" height="23.2" fill="#EF9881" fill-opacity="0.90" style="--d:0.63s"/>
-<rect x="436.2" y="256.4" width="27.5" height="27.5" fill="#F0A181" fill-opacity="0.89" style="--d:1.06s"/>
-<rect x="479.2" y="265.0" width="11.8" height="11.8" fill="#F4CA84" fill-opacity="0.79" style="--d:1.23s"/>
-<rect x="512.4" y="261.2" width="19.0" height="19.0" fill="#F5D487" fill-opacity="0.92" style="--d:1.12s"/>
-<rect x="550.2" y="264.2" width="13.5" height="13.5" fill="#F6E08A" fill-opacity="0.83" style="--d:0.86s"/>
-<rect x="586.5" y="262.5" width="16.4" height="16.4" fill="#E2DCA3" fill-opacity="0.92" style="--d:1.17s"/>
-<rect x="617.9" y="261.0" width="21.2" height="21.2" fill="#A0CAF4" fill-opacity="0.81" style="--d:1.43s"/>
-<rect x="656.8" y="261.4" width="20.9" height="20.9" fill="#A2CCF5" fill-opacity="0.87" style="--d:1.12s"/>
-<rect x="694.8" y="261.1" width="15.0" height="15.0" fill="#8FB8EE" fill-opacity="0.86" style="--d:1.14s"/>
-<rect x="41.2" y="291.4" width="27.1" height="27.1" fill="#7A22A8" fill-opacity="0.69" style="--d:0.09s"/>
-<rect x="79.6" y="295.0" width="20.3" height="20.3" fill="#7F24AB" fill-opacity="0.66" style="--d:0.30s"/>
-<rect x="121.9" y="302.3" width="10.1" height="10.1" fill="#8E2AAD" fill-opacity="0.72" style="--d:0.55s"/>
-<rect x="153.1" y="297.2" width="16.8" height="16.8" fill="#9628A4" fill-opacity="0.96" style="--d:0.43s"/>
-<rect x="187.9" y="296.1" width="16.6" height="16.6" fill="#A0269A" fill-opacity="0.96" style="--d:0.77s"/>
-<rect x="225.9" y="296.6" width="16.4" height="16.4" fill="#C81F73" fill-opacity="0.85" style="--d:0.80s"/>
-<rect x="259.2" y="295.3" width="24.9" height="24.9" fill="#D03176" fill-opacity="0.88" style="--d:0.44s"/>
-<rect x="296.8" y="296.4" width="20.4" height="20.4" fill="#CF2F76" fill-opacity="0.79" style="--d:0.93s"/>
-<rect x="331.0" y="294.9" width="20.7" height="20.7" fill="#EB7781" fill-opacity="0.86" style="--d:0.65s"/>
-<rect x="369.9" y="297.2" width="16.7" height="16.7" fill="#E96F81" fill-opacity="0.72" style="--d:0.68s"/>
-<rect x="444.2" y="300.6" width="14.8" height="14.8" fill="#F0A481" fill-opacity="0.74" style="--d:0.78s"/>
-<rect x="475.7" y="296.3" width="17.4" height="17.4" fill="#F4C684" fill-opacity="0.70" style="--d:1.19s"/>
-<rect x="512.2" y="296.6" width="19.0" height="19.0" fill="#F5CF86" fill-opacity="0.74" style="--d:0.83s"/>
-<rect x="540.9" y="290.4" width="31.2" height="31.2" fill="#E5DC9F" fill-opacity="0.80" style="--d:0.96s"/>
-<rect x="585.8" y="298.0" width="15.6" height="15.6" fill="#C4D4CB" fill-opacity="0.90" style="--d:1.34s"/>
-<rect x="625.4" y="302.2" width="10.8" height="10.8" fill="#AFD0E5" fill-opacity="0.83" style="--d:0.96s"/>
-<rect x="651.4" y="291.6" width="31.7" height="31.7" fill="#A2CCF5" fill-opacity="0.97" style="--d:1.07s"/>
-<rect x="691.5" y="296.5" width="22.5" height="22.5" fill="#92BBEF" fill-opacity="0.93" style="--d:1.45s"/>
-<rect x="5.5" y="332.5" width="21.3" height="21.3" fill="#7820A8" fill-opacity="0.65" style="--d:0.35s"/>
-<rect x="46.6" y="336.1" width="12.9" height="12.9" fill="#761FA7" fill-opacity="0.82" style="--d:0.12s"/>
-<rect x="77.8" y="329.1" width="23.5" height="23.5" fill="#7B22A9" fill-opacity="0.87" style="--d:0.29s"/>
-<rect x="110.2" y="327.1" width="32.8" height="32.8" fill="#8428AD" fill-opacity="0.87" style="--d:0.32s"/>
-<rect x="147.8" y="326.7" width="26.8" height="26.8" fill="#9928A1" fill-opacity="0.88" style="--d:0.46s"/>
-<rect x="186.9" y="328.1" width="25.6" height="25.6" fill="#A22698" fill-opacity="0.75" style="--d:0.51s"/>
-<rect x="227.9" y="335.7" width="14.5" height="14.5" fill="#B12389" fill-opacity="0.82" style="--d:0.84s"/>
-<rect x="255.0" y="327.0" width="27.8" height="27.8" fill="#C71E74" fill-opacity="0.81" style="--d:0.89s"/>
-<rect x="297.9" y="334.7" width="14.0" height="14.0" fill="#E1597D" fill-opacity="0.74" style="--d:0.54s"/>
-<rect x="336.7" y="333.4" width="14.3" height="14.3" fill="#DB4D7B" fill-opacity="0.60" style="--d:0.72s"/>
-<rect x="552.9" y="336.2" width="13.6" height="13.6" fill="#F0DF91" fill-opacity="0.56" style="--d:1.04s"/>
-<rect x="584.4" y="331.7" width="16.7" height="16.7" fill="#DFDBA8" fill-opacity="0.63" style="--d:1.39s"/>
-<rect x="613.9" y="326.5" width="29.9" height="29.9" fill="#A3CDF5" fill-opacity="0.76" style="--d:1.18s"/>
-<rect x="655.4" y="333.6" width="20.2" height="20.2" fill="#A0CAF4" fill-opacity="0.70" style="--d:1.47s"/>
-<rect x="693.6" y="333.4" width="19.3" height="19.3" fill="#9BC5F2" fill-opacity="0.71" style="--d:1.10s"/>
-<rect x="11.0" y="371.6" width="15.9" height="15.9" fill="#711DA4" fill-opacity="0.79" style="--d:0.51s"/>
-<rect x="46.7" y="369.1" width="16.3" height="16.3" fill="#751FA6" fill-opacity="0.82" style="--d:0.46s"/>
-<rect x="79.2" y="363.5" width="25.1" height="25.1" fill="#8025AB" fill-opacity="0.82" style="--d:0.62s"/>
-<rect x="115.5" y="368.2" width="19.1" height="19.1" fill="#8E2AAC" fill-opacity="0.86" style="--d:0.28s"/>
-<rect x="150.0" y="365.8" width="26.7" height="26.7" fill="#8E2AAC" fill-opacity="0.83" style="--d:0.41s"/>
-<rect x="182.9" y="363.4" width="26.7" height="26.7" fill="#9F279B" fill-opacity="0.79" style="--d:0.33s"/>
-<rect x="222.7" y="369.3" width="21.2" height="21.2" fill="#C92073" fill-opacity="0.74" style="--d:0.49s"/>
-<rect x="264.0" y="372.9" width="11.9" height="11.9" fill="#C61F75" fill-opacity="0.61" style="--d:0.62s"/>
-<rect x="473.4" y="366.5" width="23.5" height="23.5" fill="#F4CA84" fill-opacity="0.44" style="--d:0.84s"/>
-<rect x="513.6" y="372.5" width="14.0" height="14.0" fill="#F5CE86" fill-opacity="0.47" style="--d:1.00s"/>
-<rect x="618.4" y="367.7" width="24.5" height="24.5" fill="#B6D1DD" fill-opacity="0.50" style="--d:1.37s"/>
-<rect x="7.9" y="404.2" width="17.1" height="17.1" fill="#741EA6" fill-opacity="0.99" style="--d:0.49s"/>
-<rect x="38.6" y="397.8" width="30.5" height="30.5" fill="#7E24AB" fill-opacity="0.93" style="--d:0.14s"/>
-<rect x="76.8" y="401.4" width="24.1" height="24.1" fill="#7D24AA" fill-opacity="0.75" style="--d:0.26s"/>
-<rect x="112.8" y="400.0" width="24.1" height="24.1" fill="#892AAF" fill-opacity="0.72" style="--d:0.29s"/>
-<rect x="156.1" y="407.1" width="14.1" height="14.1" fill="#892AB0" fill-opacity="0.60" style="--d:0.45s"/>
-<rect x="185.4" y="401.7" width="21.9" height="21.9" fill="#A42596" fill-opacity="0.62" style="--d:0.44s"/>
-<rect x="220.0" y="401.0" width="26.6" height="26.6" fill="#B82183" fill-opacity="0.51" style="--d:0.79s"/>
-<rect x="330.4" y="401.6" width="20.9" height="20.9" fill="#E25E7E" fill-opacity="0.41" style="--d:0.93s"/>
-<rect x="481.1" y="409.4" width="10.3" height="10.3" fill="#F3BD81" fill-opacity="0.36" style="--d:1.05s"/>
-<rect x="587.0" y="408.6" width="14.3" height="14.3" fill="#D7D9B1" fill-opacity="0.36" style="--d:1.31s"/>
-<rect x="661.7" y="409.8" width="12.1" height="12.1" fill="#AACFEB" fill-opacity="0.45" style="--d:1.48s"/>
-<rect x="689.7" y="402.5" width="25.5" height="25.5" fill="#8FB8EE" fill-opacity="0.48" style="--d:1.18s"/>
-<rect x="4.5" y="433.9" width="29.6" height="29.6" fill="#721DA5" fill-opacity="0.78" style="--d:0.29s"/>
-<rect x="46.6" y="444.5" width="12.8" height="12.8" fill="#751FA6" fill-opacity="0.85" style="--d:0.36s"/>
-<rect x="111.6" y="437.5" width="25.8" height="25.8" fill="#882AAF" fill-opacity="0.61" style="--d:0.35s"/>
-<rect x="151.7" y="440.6" width="20.1" height="20.1" fill="#9229A8" fill-opacity="0.51" style="--d:0.26s"/>
-<rect x="586.1" y="440.2" width="15.9" height="15.9" fill="#EEDE94" fill-opacity="0.30" style="--d:1.27s"/>
-<rect x="692.7" y="443.0" width="17.5" height="17.5" fill="#8FB8EE" fill-opacity="0.36" style="--d:1.57s"/>
-<rect x="3.2" y="474.4" width="27.1" height="27.1" fill="#7821A8" fill-opacity="0.72" style="--d:0.49s"/>
-<rect x="43.1" y="471.7" width="25.2" height="25.2" fill="#7C23AA" fill-opacity="0.61" style="--d:0.16s"/>
-<rect x="113.0" y="474.4" width="23.2" height="23.2" fill="#8427AD" fill-opacity="0.49" style="--d:0.32s"/>
-<rect x="226.4" y="481.5" width="12.5" height="12.5" fill="#C71E74" fill-opacity="0.31" style="--d:0.44s"/>
-<rect x="41.1" y="508.2" width="26.4" height="26.4" fill="#7921A8" fill-opacity="0.50" style="--d:0.17s"/>
-<rect x="114.2" y="511.8" width="21.6" height="21.6" fill="#882AAF" fill-opacity="0.36" style="--d:0.52s"/>
-<rect x="8.8" y="547.2" width="19.2" height="19.2" fill="#731EA5" fill-opacity="0.43" style="--d:0.09s"/>
-<rect x="8.9" y="584.3" width="17.4" height="17.4" fill="#7620A7" fill-opacity="0.31" style="--d:0.03s"/>
-</svg>
-</div>
-</section>
-<div class="strip" aria-hidden="true"><span style="background:#8A2BB0"></span><span style="background:#B54DD0"></span><span style="background:#C81E73"></span><span style="background:#E23B8C"></span><span style="background:#EA7081"></span><span style="background:#EE827C"></span><span style="background:#F3BC81"></span><span style="background:#F6E08A"></span><span style="background:#E4E4C2"></span><span style="background:#B1CCE7"></span><span style="background:#A3CDF5"></span><span style="background:#8FB8EE"></span></div>
+<main id="inicio">
 
-<section class="sec dark" id="piura">
-<div class="wrap">
-<div class="head2">
-<h2 class="h2">Piura en cifras: la realidad que queremos cambiar.</h2>
-<p class="lead">Más de la mitad de las y los piuranos vive en pobreza o en riesgo de caer en ella. Detrás de cada cifra hay una mujer, una familia o un paciente que necesita apoyo.</p>
-</div>
-<div class="facts">
-<div class="fact"><b>28,1 %</b><p>de la población de Piura vive en pobreza monetaria, por encima del promedio nacional de 25,7 %.</p><span class="src">Fuente: INEI, 2025</span></div>
-<div class="fact"><b>4 578</b><p>casos de violencia atendidos por los Centros Emergencia Mujer de Piura entre enero y julio de 2026. El 87,7 % fueron mujeres.</p><span class="src">Fuente: MIMP – Programa Warmi Ñan, 2026</span></div>
-<div class="fact"><b>48,6 %</b><p>de las mujeres de Piura que han tenido pareja sufrió violencia por parte de ella alguna vez.</p><span class="src">Fuente: MIMP – Programa Warmi Ñan</span></div>
-<div class="fact"><b>43,7 %</b><p>de niñas y niños de 6 a 35 meses en Piura tiene anemia.</p><span class="src">Fuente: INEI – ENDES 2025</span></div>
-</div>
-</div>
+<section class="hero">
+  <div class="wrap grid">
+    <h1>Nadie debería <span class="ital">cargar sola</span> lo que puede cargarse entre todas.</h1>
+    <div class="hero-meta">
+      <p class="lead">Somos una fundación sin fines de lucro con sede en Piura. Acompañamos a mujeres, niñas y niños que enfrentan violencia, enfermedad o pobreza, con apoyo concreto, cercano y sostenido en el tiempo.</p>
+      <div class="act">
+        <a class="btn btn-main" href="#contacto">Quiero ayudar <span class="arrow">→</span></a>
+        <a class="btn btn-line" href="#programas">Conocer los programas</a>
+      </div>
+    </div>
+  </div>
+  <div class="wrap">
+    <div class="hero-band">
+      <div class="b1">
+        <span class="eyebrow" style="color:rgba(255,255,255,.6)"><b style="color:var(--butter)">Momento 014</b> Castilla, Piura</span>
+        <div>
+          <q>Llegué con mi hija y una bolsa de ropa. Salí con un plan, un trabajo y gente que pregunta por nosotras.</q>
+          <small style="display:block;margin-top:20px">Rosa M., 34 años · Testimonio ilustrativo</small>
+        </div>
+      </div>
+      <div class="b2" aria-hidden="true"><div class="tiles" id="t1"></div></div>
+      <div class="b3" aria-hidden="false"><div class="tiles" id="t2" aria-hidden="true"></div>
+        <p class="cap">Espacio reservado para fotografía real de actividades, tomada con consentimiento informado.</p></div>
+    </div>
+  </div>
 </section>
 
-<section class="sec" id="nosotros">
-<div class="wrap about">
-<div>
-<h2 class="h2">Cada persona es una pieza. Juntas formamos algo más grande.</h2>
-</div>
-<div>
-<p class="big">La Fundación Atenea nace en Piura para estar al lado de quienes atraviesan sus momentos más difíciles: una enfermedad sin recursos para tratarla, una situación de violencia, el abandono o la pobreza.</p>
-<p class="lead" style="margin-top:22px">Como el mosaico de nuestro logo, creemos que cada persona que ayudamos, cada voluntaria y cada aliado suman color a una misma causa: que nadie enfrente sola lo que puede enfrentarse acompañada.</p>
-<div class="mv">
-<div style="background:var(--wash)"><h3>Misión</h3><p>Brindar apoyo, acompañamiento y oportunidades a personas enfermas, mujeres y familias en situación de vulnerabilidad en Piura.</p></div>
-<div style="background:var(--lilac)"><h3>Visión</h3><p>Ser la fundación referente del norte del Perú en asistencia social cercana, transparente y con impacto medible.</p></div>
-</div>
-<h3 style="font-size:24px;letter-spacing:-.02em;margin:36px 0 0;color:var(--plum)">Nuestros valores</h3>
-<ul class="vals">
-<li><i style="background:#C81E73"></i>Empatía</li><li><i style="background:#8A2BB0"></i>Dignidad</li><li><i style="background:#EE827C"></i>Transparencia</li><li><i style="background:#F3BC81"></i>Compromiso</li><li><i style="background:#6FA8E6"></i>Sororidad</li>
-</ul>
-</div>
-</div>
+<section class="sec manifesto">
+  <div class="wrap grid">
+    <p class="eyebrow"><b>01</b> Por qué existimos</p>
+    <p class="big">En Piura, una de cada cuatro personas vive en pobreza. Detrás de esa cifra hay <em>mujeres que sostienen hogares solas</em>, niñas y niños con anemia, y familias que enfrentan una enfermedad sin red. Atenea nace para ser esa red.</p>
+    <div class="facts">
+      <div><strong>28,1 %</strong><span>de la población de Piura en pobreza monetaria (INEI, 2025).</span></div>
+      <div><strong>3</strong><span>programas: mujeres, niñez y salud, articulados en una sola ruta de atención.</span></div>
+      <div><strong>1</strong><span>principio: no soltar la mano hasta que la familia pueda caminar sola.</span></div>
+    </div>
+  </div>
 </section>
 
-<section class="sec" id="que-hacemos" style="background:var(--blush)">
-<div class="wrap">
-<div class="head2">
-<h2 class="h2">Cuatro formas de estar presentes.</h2>
-<p class="lead">Atendemos con ayuda directa y con orientación profesional, sin costo para quien lo necesita.</p>
-</div>
-<div class="cards4">
-<article class="prog" style="background:#F9D6E6">
-<div class="ph"><img src="assets/foto-salud.jpg" alt="" loading="lazy"></div>
-<span class="ic"><svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="#4A1035" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 21s-7-4.5-9.5-9A5.5 5.5 0 0 1 12 6a5.5 5.5 0 0 1 9.5 6C19 16.5 12 21 12 21zM9 12h6M12 9v6"/></svg></span>
-<h3>Salud y acompañamiento</h3>
-<p>Medicamentos, exámenes, traslados y acompañamiento a personas enfermas sin recursos para afrontar su tratamiento.</p>
-<a class="more" href="programa-salud.html">Conocer más</a>
-</article>
-<article class="prog" style="background:var(--lilac)">
-<div class="ph"><img src="assets/foto-mujeres.jpg" alt="" loading="lazy"></div>
-<span class="ic"><svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="#4A1035" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 13a4 4 0 1 0 0-8 4 4 0 0 0 0 8zM12 13v8M9 18h6"/></svg></span>
-<h3>Mujeres que avanzan</h3>
-<p>Apoyo a mujeres en situación de violencia, abandono o jefatura de hogar, con capacitación y emprendimiento.</p>
-<a class="more" href="programa-mujeres.html">Conocer más</a>
-</article>
-<article class="prog" style="background:var(--peach)">
-<div class="ph"><img src="assets/foto-ayuda.jpg" alt="" loading="lazy"></div>
-<span class="ic"><svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="#4A1035" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 10l9-6 9 6v10H3zM9 20v-6h6v6"/></svg></span>
-<h3>Ayuda humanitaria</h3>
-<p>Alimentos, ropa, higiene y ayuda a familias afectadas por emergencias y desastres naturales en la región.</p>
-<a class="more" href="programa-ayuda.html">Conocer más</a>
-</article>
-<article class="prog" style="background:var(--skywash)">
-<div class="ph"><img src="assets/foto-orientacion.jpg" alt="" loading="lazy"></div>
-<span class="ic"><svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="#4A1035" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 5h16v11H8l-4 4zM8 10h8M8 13h5"/></svg></span>
-<h3>Orientación gratuita</h3>
-<p>Asesoría legal, psicológica y social gratuita, presencial o a distancia, a cargo de profesionales habilitados.</p>
-<a class="more" href="programa-orientacion.html">Conocer más</a>
-</article>
-</div>
-</div>
+<section class="sec programs" id="programas">
+  <div class="wrap">
+    <div class="prog-head">
+      <div style="grid-column:1/8"><p class="eyebrow"><b>02</b> Programas</p><h2 class="h2" style="margin-top:28px">Tres frentes, <span class="ital">una misma familia.</span></h2></div>
+      <p class="lead" style="font-size:18px">Cada caso entra por una puerta, pero se atiende completo: una madre que llega por violencia suele necesitar también salud, escuela para sus hijos y un ingreso propio.</p>
+    </div>
+
+    <article class="prog">
+      <span class="n">2.1</span>
+      <h3>Mujeres que se levantan</h3>
+      <div style="grid-column:7/11">
+        <p>Acompañamiento a mujeres que enfrentan violencia o abandono, desde la primera escucha hasta su autonomía económica.</p>
+        <ul><li>Orientación legal y derivación a los CEM</li><li>Apoyo psicológico individual y grupal</li><li>Talleres de oficio y emprendimiento</li></ul>
+      </div>
+      <span class="sw" style="background:var(--magenta)"></span>
+    </article>
+    <article class="prog">
+      <span class="n">2.2</span>
+      <h3>Niñez protegida</h3>
+      <div style="grid-column:7/11">
+        <p>Niñas y niños que crecen sanos, aprenden y juegan en un entorno seguro mientras sus madres reconstruyen su vida.</p>
+        <ul><li>Nutrición y prevención de anemia</li><li>Refuerzo escolar y útiles</li><li>Espacios de cuidado y juego</li></ul>
+      </div>
+      <span class="sw" style="background:var(--amber)"></span>
+    </article>
+    <article class="prog">
+      <span class="n">2.3</span>
+      <h3>Salud que acompaña</h3>
+      <div style="grid-column:7/11">
+        <p>Para mujeres y familias con una enfermedad grave: que el diagnóstico no signifique enfrentarlo en soledad.</p>
+        <ul><li>Gestión de citas, SIS y traslados</li><li>Medicinas y kits de cuidado</li><li>Voluntariado de compañía hospitalaria</li></ul>
+      </div>
+      <span class="sw" style="background:var(--sky)"></span>
+    </article>
+  </div>
 </section>
 
-<section class="sec dark help" id="ayuda">
-<div class="wrap">
-<div class="head2">
-<h2 class="h2">No tienes que hacerlo sola. Así te acompañamos.</h2>
-<p class="lead">Nuestra atención es gratuita y confidencial. Tus datos se protegen conforme a la Ley de Protección de Datos Personales.</p>
-</div>
-<ol class="steps">
-<li><b>1</b><h3>Nos cuentas tu caso</h3><p>Escríbenos por WhatsApp, llámanos o visítanos. Te escuchamos sin juicios y con total reserva.</p></li>
-<li><b>2</b><h3>Evaluamos tu situación</h3><p>Nuestro equipo identifica qué necesitas: salud, orientación, ayuda material o acompañamiento.</p></li>
-<li><b>3</b><h3>Te acompañamos</h3><p>Te brindamos apoyo directo y te conectamos con los servicios públicos y privados que correspondan.</p></li>
-</ol>
-<div class="acts2">
-<a class="btn btn-main" href="contacto.html">Solicitar apoyo</a>
-<a class="tlink" href="https://wa.me/51900000000?text=Hola%2C%20quisiera%20informaci%C3%B3n%20sobre%20la%20Fundaci%C3%B3n%20Atenea">Escríbenos por WhatsApp</a>
-<span>En emergencias: Línea 100 · Policía 105</span>
-</div>
-</div>
+<section class="sec moments" id="momentos">
+  <div class="wrap">
+    <p class="eyebrow"><b style="color:var(--butter)">03</b> Momentos</p>
+    <h2 class="h2" style="margin-top:28px;max-width:12em">Lo que cambia <span class="ital" style="color:var(--coral)">cuando alguien se queda.</span></h2>
+
+    <div class="mom-grid">
+      <figure class="mom m1" style="margin:0">
+        <q>Mi hijo pasó de no querer ir al colegio a pedirme que lo despierte temprano. Dice que allá lo esperan.</q>
+        <footer><div><b>Carmen L.</b>Madre · Veintiséis de Octubre</div><span class="yr">2026</span></footer>
+      </figure>
+      <figure class="mom m2" style="margin:0">
+        <q>Durante la quimio nunca fui sola al hospital. Eso no tiene precio.</q>
+        <footer><div><b>Julia P.</b>Programa Salud · Piura</div><span class="yr">2026</span></footer>
+      </figure>
+      <figure class="mom m3" style="margin:0">
+        <q>Aprendí repostería y hoy vendo en mi barrio. Ya no pido permiso para comprar.</q>
+        <footer><div><b>Milagros T.</b>Sullana</div><span class="yr">2026</span></footer>
+      </figure>
+      <figure class="mom m4" style="margin:0">
+        <q>Fui voluntaria un sábado y me quedé. Aquí entendí lo que significa la palabra comunidad.</q>
+        <footer><div><b>Andrea V.</b>Voluntaria</div><span class="yr">2026</span></footer>
+      </figure>
+      <figure class="mom m5" style="margin:0">
+        <q>Mi hija ya no tiene anemia. La enfermera nos visitó cada mes, sin falta.</q>
+        <footer><div><b>Luz C.</b>Catacaos</div><span class="yr">2026</span></footer>
+      </figure>
+    </div>
+    <p class="note">Testimonios ilustrativos. Se reemplazarán por relatos reales con autorización expresa; los nombres podrán modificarse para proteger la identidad.</p>
+  </div>
 </section>
 
-<section class="sec road" id="ruta">
-<div class="wrap">
-<div class="head2">
-<h2 class="h2">Estamos empezando. Y queremos que seas parte desde el inicio.</h2>
-<div style="flex:1 1 340px"><p class="lead" style="margin-bottom:24px">Esta es nuestra hoja de ruta. Cada etapa cumplida la publicaremos aquí, con resultados verificables.</p><a class="btn btn-main" href="involucrate.html">Sé parte desde el inicio</a></div>
-</div>
-<ol class="stages">
-<li style="--c:#C81E73"><span class="tag" style="background:#C81E73;color:#fff">En curso</span><h3>Constitución e inscripción</h3><p>Escritura pública, inscripción en SUNARP y en el registro del Consejo de Supervigilancia de Fundaciones.</p></li>
-<li style="--c:#B54DD0"><span class="tag" style="background:var(--wash);color:var(--brand)">Próximamente</span><h3>Red de aliados y voluntariado</h3><p>Convenios con universidades, profesionales voluntarios, empresas e instituciones de Piura.</p></li>
-<li style="--c:#EE827C"><span class="tag" style="background:var(--wash);color:var(--brand)">Próximamente</span><h3>Primeras campañas</h3><p>Campañas de salud, entrega de ayuda humanitaria y orientación gratuita para mujeres y familias.</p></li>
-<li style="--c:#F3BC81"><span class="tag" style="background:var(--wash);color:var(--brand)">Próximamente</span><h3>Primer informe público</h3><p>Resultados, personas atendidas y estados financieros, publicados en esta web.</p></li>
-</ol>
-</div>
+<section class="sec">
+  <div class="wrap">
+    <div class="prog-head" style="margin-bottom:48px">
+      <div style="grid-column:1/8"><p class="eyebrow"><b>04</b> Bitácora</p><h2 class="h2" style="margin-top:28px">Lo que hicimos <span class="ital">este mes.</span></h2></div>
+      <p class="lead" style="font-size:18px">Registro breve de actividades. Ilustrativo hasta la primera actividad oficial.</p>
+    </div>
+    <div class="log-row"><time datetime="2026-10-05">05 OCT 2026</time><h4>Campaña de tamizaje de anemia</h4><p>48 niñas y niños evaluados junto a un centro de salud de Castilla.</p><span>Niñez</span></div>
+    <div class="log-row"><time datetime="2026-09-21">21 SET 2026</time><h4>Taller «Mi primer negocio»</h4><p>Doce mujeres terminaron el módulo de costos y precios.</p><span>Mujeres</span></div>
+    <div class="log-row"><time datetime="2026-09-08">08 SET 2026</time><h4>Entrega de kits oncológicos</h4><p>Veinte kits de cuidado para pacientes en tratamiento.</p><span>Salud</span></div>
+    <div class="log-row"><time datetime="2026-08-30">30 AGO 2026</time><h4>Primera jornada de voluntariado</h4><p>Treinta y cinco voluntarias y voluntarios se sumaron a la red.</p><span>Comunidad</span></div>
+  </div>
 </section>
 
-<section class="sec cons" id="consultorias">
-<div class="wrap">
-<div>
-<span class="pill" style="background:#fff;color:#0B4C72">Para empresas e instituciones</span>
-<h2 class="h2" style="margin-top:20px">Tu organización también puede transformar Piura.</h2>
-<p class="lead">Ofrecemos consultorías y capacitaciones especializadas en temas sociales. Todo lo que recibimos por estos servicios se destina íntegramente a nuestros programas.</p>
-<a class="btn btn-main" href="contacto.html">Solicitar propuesta</a>
-</div>
-<div class="svc">
-<div><i style="background:#C81E73"></i><h3>Prevención del hostigamiento sexual</h3><p>Capacitaciones para empresas e instituciones conforme a la Ley N.º 27942.</p></div>
-<div><i style="background:#8A2BB0"></i><h3>Igualdad de género</h3><p>Talleres y asesoría para entornos laborales más justos y seguros.</p></div>
-<div><i style="background:#EE827C"></i><h3>Inclusión laboral</h3><p>Acompañamiento a empresas en la inclusión de personas con discapacidad.</p></div>
-<div><i style="background:#F3BC81"></i><h3>Diagnósticos y estudios sociales</h3><p>Líneas de base, investigación e indicadores sociales para Piura.</p></div>
-<div><i style="background:#6FA8E6"></i><h3>Proyectos y responsabilidad social</h3><p>Diseño, ejecución y evaluación de programas dirigidos a poblaciones vulnerables.</p></div>
-<div><i style="background:#B54DD0"></i><h3>Asistencia técnica a gobiernos locales</h3><p>Apoyo técnico, no partidario, en programas sociales municipales y regionales.</p></div>
-</div>
-</div>
-</section>
-
-<section class="sec" id="donar">
-<div class="wrap">
-<h2 class="h2" style="max-width:12em">Suma tu color al mosaico.</h2>
-<div class="join">
-<div class="dark" style="background:var(--brand)">
-<h3 style="color:var(--butter)">Tu aporte se convierte en ayuda concreta</h3>
-<p style="color:#F2DDE9">Medicamentos, traslados, alimentos y acompañamiento para quien más lo necesita.</p>
-<div class="chips"><span>Yape</span><span>Plin</span><span>Transferencia</span><span>Tarjeta</span></div>
-<p class="note" style="color:#E7C6D8">Nuestros canales oficiales de donación se habilitarán al concluir la inscripción de la fundación.</p>
-<div><a class="btn btn-on" href="contacto.html">Avísame cuando pueda donar</a></div>
-</div>
-<div style="background:var(--wash)">
-<h3 style="color:var(--plum)">Dona tu tiempo y tu talento</h3>
-<p style="color:var(--muted)">Profesionales y estudiantes de salud, derecho, psicología, comunicación y más pueden sumarse a nuestras campañas y asesorías gratuitas.</p>
-<div><a class="btn btn-line" href="contacto.html">Quiero ser voluntario/a</a></div>
-</div>
-<div style="background:var(--peach)">
-<h3 style="color:var(--plum)">Empresas con propósito</h3>
-<p style="color:var(--text)">Construyamos juntos programas de responsabilidad social con impacto real y medible en Piura.</p>
-<div><a class="btn btn-line" href="involucrate.html">Ser aliado</a></div>
-</div>
-</div>
-</div>
+<section class="sec statute" id="estatuto">
+  <div class="wrap st-wrap">
+    <aside class="st-side">
+      <p class="eyebrow"><b>05</b> Estatuto</p>
+      <h2 class="h2" style="margin-top:28px">Las reglas <span class="ital">que nos damos.</span></h2>
+      <p class="lead">Resumen del estatuto de la Fundación Atenea, constituida conforme a los artículos 99 al 110 del Código Civil peruano y sujeta al Consejo de Supervigilancia de Fundaciones.</p>
+      <a class="btn btn-line" href="#contacto">Solicitar estatuto completo</a>
+      <p style="margin-top:20px;font-size:13px;color:var(--muted)">Borrador para revisión. El texto definitivo será el inscrito en SUNARP.</p>
+    </aside>
+    <div class="st-body">
+      <div class="art"><h3><small>Art. 1</small>Denominación y naturaleza</h3><p>La fundación se denomina «Fundación Atenea». Es una persona jurídica de derecho privado sin fines de lucro, de duración indefinida.</p></div>
+      <div class="art"><h3><small>Art. 2</small>Domicilio</h3><p>Su domicilio es la ciudad de Piura, departamento de Piura, República del Perú. Podrá establecer sedes y oficinas en otras localidades del país.</p></div>
+      <div class="art"><h3><small>Art. 3</small>Fines</h3><p>La fundación tiene como fines de beneficencia y asistencia social:</p>
+        <ol><li>Proteger y acompañar a mujeres en situación de violencia, abandono o pobreza.</li><li>Promover la salud, nutrición y educación de niñas y niños.</li><li>Asistir a personas con enfermedades graves y a sus familias.</li><li>Fomentar la autonomía económica de las mujeres.</li></ol></div>
+      <div class="art"><h3><small>Art. 4</small>Patrimonio</h3><p>Constituido por el aporte de la fundadora o fundadoras, donaciones, legados, subvenciones y rentas propias. Se destina exclusivamente al cumplimiento de los fines; ningún beneficio se reparte entre sus miembros.</p></div>
+      <div class="art"><h3><small>Art. 5</small>Consejo de Administración</h3><p>Órgano máximo de gobierno y administración, integrado por una presidenta, una secretaria y una tesorera. Sus miembros ejercen el cargo de forma ad honorem.</p></div>
+      <div class="art"><h3><small>Art. 6</small>Transparencia</h3><p>La fundación presenta cada año sus cuentas y su memoria al Consejo de Supervigilancia de Fundaciones y publica un resumen para la ciudadanía.</p></div>
+      <div class="art"><h3><small>Art. 7</small>Disolución</h3><p>En caso de disolución, el patrimonio remanente se destinará a otra entidad sin fines de lucro con fines análogos, conforme a la ley.</p></div>
+    </div>
+  </div>
 </section>
 
 <section class="sec trans" id="transparencia">
-<div class="wrap">
-<div>
-<h2 class="h2">Cuentas claras, confianza que crece.</h2>
-<p class="lead">Desde el primer día asumimos un compromiso: publicar nuestra información institucional y financiera para que sepas exactamente cómo usamos cada sol.</p>
-</div>
-<div class="docs">
-<a href="transparencia.html"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#C81E73" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14 3H6v18h12V7z"/><path d="M14 3v4h4M9 13h6M9 17h6"/></svg><span><strong>Estatuto de la fundación</strong><span>Disponible tras la inscripción</span></span></a>
-<a href="transparencia.html"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#C81E73" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14 3H6v18h12V7z"/><path d="M14 3v4h4M9 13h6M9 17h6"/></svg><span><strong>Consejo de Administración</strong><span>Quiénes dirigen la fundación</span></span></a>
-<a href="transparencia.html"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#C81E73" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14 3H6v18h12V7z"/><path d="M14 3v4h4M9 13h6M9 17h6"/></svg><span><strong>Estados financieros</strong><span>Publicación anual</span></span></a>
-<a href="transparencia.html"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#C81E73" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14 3H6v18h12V7z"/><path d="M14 3v4h4M9 13h6M9 17h6"/></svg><span><strong>Memoria anual</strong><span>Actividades y resultados</span></span></a>
-</div>
-</div>
+  <div class="wrap">
+    <p class="eyebrow"><b>06</b> Transparencia</p>
+    <h2 class="h2" style="margin:28px 0 72px;max-width:13em">Cada sol, <span class="ital">a la vista.</span></h2>
+    <div class="grid">
+      <div class="tbox"><h3>Memoria anual</h3><p>Resultados, casos atendidos y aprendizajes de cada año. Primera edición al cierre del periodo 2026.</p></div>
+      <div class="tbox"><h3>Estados financieros</h3><p>Ingresos y gastos auditados, presentados al Consejo de Supervigilancia de Fundaciones.</p></div>
+      <div class="tbox"><h3>Protección de datos</h3><p>La información de las personas que atendemos es confidencial y se trata conforme a la Ley N.º 29733.</p></div>
+    </div>
+  </div>
 </section>
 
-<section class="final dark">
-<div class="wrap">
-<div class="box">
-<div class="art" aria-hidden="true"><svg class="mos" viewBox="0 0 760 320" xmlns="http://www.w3.org/2000/svg">
-<rect x="636.2" y="6.7" width="14.2" height="14.2" fill="#E0DBA6" fill-opacity="0.28" style="--d:1.17s"/>
-<rect x="581.2" y="39.4" width="10.9" height="10.9" fill="#F6DB89" fill-opacity="0.39" style="--d:0.88s"/>
-<rect x="669.6" y="42.1" width="9.5" height="9.5" fill="#C0D4CF" fill-opacity="0.45" style="--d:1.10s"/>
-<rect x="701.6" y="39.1" width="9.2" height="9.2" fill="#9EC8F3" fill-opacity="0.45" style="--d:1.12s"/>
-<rect x="5.3" y="66.6" width="16.2" height="16.2" fill="#701CA4" fill-opacity="0.36" style="--d:0.51s"/>
-<rect x="460.6" y="69.2" width="9.5" height="9.5" fill="#F1A781" fill-opacity="0.38" style="--d:0.90s"/>
-<rect x="611.2" y="70.9" width="10.8" height="10.8" fill="#F3DF8E" fill-opacity="0.57" style="--d:1.26s"/>
-<rect x="664.6" y="63.4" width="23.9" height="23.9" fill="#C1D4CE" fill-opacity="0.64" style="--d:1.00s"/>
-<rect x="724.0" y="66.3" width="20.0" height="20.0" fill="#99C2F1" fill-opacity="0.68" style="--d:1.15s"/>
-<rect x="39.4" y="100.6" width="11.7" height="11.7" fill="#751FA6" fill-opacity="0.53" style="--d:0.52s"/>
-<rect x="69.8" y="100.5" width="8.6" height="8.6" fill="#7921A8" fill-opacity="0.43" style="--d:0.29s"/>
-<rect x="130.1" y="100.5" width="12.9" height="12.9" fill="#892AB0" fill-opacity="0.40" style="--d:0.49s"/>
-<rect x="158.7" y="102.2" width="8.8" height="8.8" fill="#9F279B" fill-opacity="0.38" style="--d:0.25s"/>
-<rect x="338.3" y="99.0" width="15.2" height="15.2" fill="#E35F7E" fill-opacity="0.41" style="--d:0.90s"/>
-<rect x="397.7" y="97.6" width="17.7" height="17.7" fill="#EE8E81" fill-opacity="0.46" style="--d:1.02s"/>
-<rect x="486.6" y="94.4" width="17.8" height="17.8" fill="#F4C984" fill-opacity="0.65" style="--d:1.16s"/>
-<rect x="518.5" y="97.8" width="15.0" height="15.0" fill="#F5D086" fill-opacity="0.68" style="--d:0.80s"/>
-<rect x="550.9" y="100.5" width="8.9" height="8.9" fill="#F5D788" fill-opacity="0.69" style="--d:1.05s"/>
-<rect x="571.4" y="90.4" width="25.2" height="25.2" fill="#F3DF8E" fill-opacity="0.74" style="--d:0.95s"/>
-<rect x="603.0" y="92.1" width="25.4" height="25.4" fill="#EBDE98" fill-opacity="0.89" style="--d:1.22s"/>
-<rect x="637.9" y="98.4" width="16.6" height="16.6" fill="#CDD7BF" fill-opacity="0.91" style="--d:1.23s"/>
-<rect x="669.5" y="100.8" width="11.0" height="11.0" fill="#A2CCF5" fill-opacity="0.92" style="--d:1.45s"/>
-<rect x="699.0" y="98.3" width="11.7" height="11.7" fill="#9FC9F4" fill-opacity="0.79" style="--d:1.33s"/>
-<rect x="729.1" y="99.7" width="14.5" height="14.5" fill="#9CC6F3" fill-opacity="0.84" style="--d:1.08s"/>
-<rect x="11.3" y="130.7" width="9.2" height="9.2" fill="#761FA7" fill-opacity="0.75" style="--d:0.03s"/>
-<rect x="34.9" y="128.1" width="16.4" height="16.4" fill="#741EA6" fill-opacity="0.69" style="--d:0.09s"/>
-<rect x="67.5" y="127.6" width="15.9" height="15.9" fill="#8226AC" fill-opacity="0.74" style="--d:0.45s"/>
-<rect x="95.7" y="125.0" width="16.1" height="16.1" fill="#8428AD" fill-opacity="0.64" style="--d:0.24s"/>
-<rect x="128.9" y="128.2" width="13.8" height="13.8" fill="#8A2BB0" fill-opacity="0.61" style="--d:0.39s"/>
-<rect x="214.9" y="122.5" width="22.0" height="22.0" fill="#B32288" fill-opacity="0.53" style="--d:0.78s"/>
-<rect x="248.2" y="127.8" width="16.7" height="16.7" fill="#BD207D" fill-opacity="0.59" style="--d:0.69s"/>
-<rect x="276.7" y="126.0" width="19.1" height="19.1" fill="#C51F76" fill-opacity="0.57" style="--d:0.86s"/>
-<rect x="363.7" y="126.0" width="21.2" height="21.2" fill="#E5657F" fill-opacity="0.70" style="--d:0.58s"/>
-<rect x="397.2" y="126.1" width="17.7" height="17.7" fill="#EE8F81" fill-opacity="0.61" style="--d:0.62s"/>
-<rect x="428.6" y="130.4" width="11.5" height="11.5" fill="#ED8881" fill-opacity="0.68" style="--d:0.89s"/>
-<rect x="453.8" y="124.8" width="23.9" height="23.9" fill="#F3BE81" fill-opacity="0.79" style="--d:0.72s"/>
-<rect x="484.9" y="126.7" width="18.4" height="18.4" fill="#F3BF82" fill-opacity="0.86" style="--d:1.14s"/>
-<rect x="517.3" y="129.1" width="14.5" height="14.5" fill="#F4C383" fill-opacity="0.95" style="--d:1.19s"/>
-<rect x="545.9" y="124.4" width="18.7" height="18.7" fill="#F5D387" fill-opacity="0.89" style="--d:1.11s"/>
-<rect x="571.3" y="120.8" width="27.6" height="27.6" fill="#F6DF8A" fill-opacity="0.95" style="--d:1.09s"/>
-<rect x="610.3" y="129.8" width="9.7" height="9.7" fill="#CAD6C2" fill-opacity="0.99" style="--d:1.02s"/>
-<rect x="639.3" y="130.8" width="10.9" height="10.9" fill="#C8D5C6" fill-opacity="0.96" style="--d:1.09s"/>
-<rect x="666.5" y="123.3" width="20.5" height="20.5" fill="#C6D5C8" fill-opacity="0.93" style="--d:1.07s"/>
-<rect x="693.4" y="123.5" width="21.8" height="21.8" fill="#A6CEF1" fill-opacity="0.89" style="--d:1.39s"/>
-<rect x="724.8" y="124.6" width="18.3" height="18.3" fill="#97C0F1" fill-opacity="0.87" style="--d:1.25s"/>
-<rect x="4.2" y="154.4" width="18.9" height="18.9" fill="#741EA6" fill-opacity="0.91" style="--d:0.29s"/>
-<rect x="36.2" y="153.7" width="20.5" height="20.5" fill="#7B22A9" fill-opacity="0.93" style="--d:0.52s"/>
-<rect x="69.4" y="156.6" width="14.5" height="14.5" fill="#8126AC" fill-opacity="0.97" style="--d:0.18s"/>
-<rect x="92.9" y="152.2" width="22.3" height="22.3" fill="#8126AC" fill-opacity="0.91" style="--d:0.55s"/>
-<rect x="127.8" y="155.1" width="15.9" height="15.9" fill="#892AB0" fill-opacity="0.75" style="--d:0.65s"/>
-<rect x="187.3" y="156.2" width="17.6" height="17.6" fill="#9628A4" fill-opacity="0.81" style="--d:0.32s"/>
-<rect x="220.7" y="160.5" width="9.1" height="9.1" fill="#A42596" fill-opacity="0.77" style="--d:0.42s"/>
-<rect x="245.2" y="155.0" width="23.5" height="23.5" fill="#B1238A" fill-opacity="0.68" style="--d:0.84s"/>
-<rect x="273.2" y="153.7" width="22.3" height="22.3" fill="#CA2474" fill-opacity="0.77" style="--d:0.71s"/>
-<rect x="305.7" y="153.1" width="21.3" height="21.3" fill="#DA497A" fill-opacity="0.78" style="--d:0.66s"/>
-<rect x="339.3" y="157.3" width="11.5" height="11.5" fill="#E5637F" fill-opacity="0.90" style="--d:0.85s"/>
-<rect x="364.4" y="155.2" width="20.5" height="20.5" fill="#EC8181" fill-opacity="0.84" style="--d:0.95s"/>
-<rect x="392.9" y="153.0" width="26.2" height="26.2" fill="#EC7E81" fill-opacity="0.94" style="--d:1.03s"/>
-<rect x="425.0" y="155.0" width="22.1" height="22.1" fill="#F0A181" fill-opacity="0.86" style="--d:0.66s"/>
-<rect x="454.2" y="155.6" width="17.7" height="17.7" fill="#F2B281" fill-opacity="0.92" style="--d:0.79s"/>
-<rect x="483.6" y="154.9" width="21.5" height="21.5" fill="#F3C082" fill-opacity="0.89" style="--d:0.91s"/>
-<rect x="545.2" y="156.1" width="21.6" height="21.6" fill="#F5D687" fill-opacity="0.72" style="--d:1.17s"/>
-<rect x="575.3" y="155.9" width="15.7" height="15.7" fill="#F5D587" fill-opacity="0.76" style="--d:0.97s"/>
-<rect x="638.3" y="156.7" width="17.2" height="17.2" fill="#BFD3D1" fill-opacity="0.80" style="--d:1.34s"/>
-<rect x="666.7" y="153.9" width="18.6" height="18.6" fill="#BED3D2" fill-opacity="0.77" style="--d:1.21s"/>
-<rect x="697.1" y="154.9" width="16.8" height="16.8" fill="#9FC9F4" fill-opacity="0.76" style="--d:1.28s"/>
-<rect x="726.9" y="158.3" width="14.6" height="14.6" fill="#99C3F2" fill-opacity="0.70" style="--d:1.42s"/>
-<rect x="9.7" y="188.8" width="8.7" height="8.7" fill="#751FA6" fill-opacity="0.71" style="--d:0.22s"/>
-<rect x="32.0" y="185.7" width="22.5" height="22.5" fill="#731EA6" fill-opacity="0.91" style="--d:0.52s"/>
-<rect x="68.1" y="185.2" width="17.6" height="17.6" fill="#8126AC" fill-opacity="0.85" style="--d:0.47s"/>
-<rect x="92.5" y="181.6" width="27.6" height="27.6" fill="#8327AD" fill-opacity="0.78" style="--d:0.38s"/>
-<rect x="130.4" y="188.8" width="9.4" height="9.4" fill="#892AAF" fill-opacity="0.87" style="--d:0.42s"/>
-<rect x="154.7" y="186.1" width="19.9" height="19.9" fill="#A0269A" fill-opacity="0.89" style="--d:0.72s"/>
-<rect x="186.9" y="190.0" width="13.1" height="13.1" fill="#A42697" fill-opacity="0.95" style="--d:0.46s"/>
-<rect x="214.3" y="184.4" width="22.0" height="22.0" fill="#B72284" fill-opacity="0.91" style="--d:0.42s"/>
-<rect x="242.8" y="182.6" width="27.8" height="27.8" fill="#B1238A" fill-opacity="0.77" style="--d:0.50s"/>
-<rect x="273.0" y="184.8" width="20.7" height="20.7" fill="#C11F7A" fill-opacity="0.78" style="--d:0.75s"/>
-<rect x="304.0" y="184.5" width="20.9" height="20.9" fill="#D23777" fill-opacity="0.82" style="--d:0.83s"/>
-<rect x="338.5" y="191.3" width="9.9" height="9.9" fill="#E4627F" fill-opacity="0.91" style="--d:0.61s"/>
-<rect x="369.5" y="187.7" width="13.5" height="13.5" fill="#EC8281" fill-opacity="0.90" style="--d:0.71s"/>
-<rect x="395.3" y="183.3" width="22.8" height="22.8" fill="#EA7081" fill-opacity="0.82" style="--d:1.02s"/>
-<rect x="430.3" y="190.0" width="10.0" height="10.0" fill="#EE8F81" fill-opacity="0.85" style="--d:1.02s"/>
-<rect x="459.5" y="187.2" width="12.3" height="12.3" fill="#F2B681" fill-opacity="0.73" style="--d:1.02s"/>
-<rect x="489.0" y="190.5" width="10.9" height="10.9" fill="#F2B281" fill-opacity="0.69" style="--d:1.07s"/>
-<rect x="515.0" y="184.9" width="23.5" height="23.5" fill="#F5CF86" fill-opacity="0.65" style="--d:0.91s"/>
-<rect x="549.4" y="189.2" width="14.7" height="14.7" fill="#F5D086" fill-opacity="0.57" style="--d:0.99s"/>
-<rect x="577.4" y="186.6" width="14.3" height="14.3" fill="#EDDE96" fill-opacity="0.57" style="--d:1.12s"/>
-<rect x="667.1" y="184.7" width="18.8" height="18.8" fill="#AACFEC" fill-opacity="0.43" style="--d:1.25s"/>
-<rect x="67.4" y="214.6" width="17.4" height="17.4" fill="#7F25AB" fill-opacity="0.60" style="--d:0.56s"/>
-<rect x="93.9" y="216.3" width="19.3" height="19.3" fill="#7F25AB" fill-opacity="0.73" style="--d:0.26s"/>
-<rect x="127.2" y="215.7" width="17.7" height="17.7" fill="#902AAA" fill-opacity="0.72" style="--d:0.53s"/>
-<rect x="156.8" y="216.7" width="18.2" height="18.2" fill="#8E2AAC" fill-opacity="0.86" style="--d:0.65s"/>
-<rect x="184.2" y="214.3" width="24.1" height="24.1" fill="#AE238C" fill-opacity="0.87" style="--d:0.60s"/>
-<rect x="215.4" y="213.9" width="21.6" height="21.6" fill="#A42596" fill-opacity="0.78" style="--d:0.70s"/>
-<rect x="278.1" y="219.0" width="11.5" height="11.5" fill="#D53D78" fill-opacity="0.75" style="--d:0.44s"/>
-<rect x="310.4" y="220.9" width="10.5" height="10.5" fill="#CD2975" fill-opacity="0.71" style="--d:0.69s"/>
-<rect x="330.9" y="211.2" width="24.5" height="24.5" fill="#D9487A" fill-opacity="0.69" style="--d:0.62s"/>
-<rect x="364.6" y="214.4" width="18.6" height="18.6" fill="#E25D7E" fill-opacity="0.67" style="--d:0.92s"/>
-<rect x="397.6" y="216.2" width="17.4" height="17.4" fill="#EE9381" fill-opacity="0.62" style="--d:1.04s"/>
-<rect x="428.4" y="216.5" width="16.9" height="16.9" fill="#EC8481" fill-opacity="0.56" style="--d:1.10s"/>
-<rect x="487.2" y="216.2" width="15.8" height="15.8" fill="#F4C283" fill-opacity="0.54" style="--d:0.84s"/>
-<rect x="517.2" y="218.9" width="14.6" height="14.6" fill="#F4CB85" fill-opacity="0.46" style="--d:0.84s"/>
-<rect x="547.8" y="220.3" width="12.5" height="12.5" fill="#F5D688" fill-opacity="0.40" style="--d:1.30s"/>
-<rect x="634.4" y="217.7" width="17.2" height="17.2" fill="#B5D1DE" fill-opacity="0.34" style="--d:0.97s"/>
-<rect x="728.0" y="219.9" width="13.8" height="13.8" fill="#90B9EE" fill-opacity="0.31" style="--d:1.22s"/>
-<rect x="93.9" y="245.3" width="19.8" height="19.8" fill="#7E24AB" fill-opacity="0.49" style="--d:0.57s"/>
-<rect x="126.9" y="247.8" width="12.9" height="12.9" fill="#892BB0" fill-opacity="0.52" style="--d:0.38s"/>
-<rect x="187.7" y="249.7" width="14.4" height="14.4" fill="#A52596" fill-opacity="0.61" style="--d:0.29s"/>
-<rect x="214.3" y="245.6" width="19.3" height="19.3" fill="#A0269A" fill-opacity="0.58" style="--d:0.82s"/>
-<rect x="275.3" y="245.6" width="17.7" height="17.7" fill="#C81E73" fill-opacity="0.58" style="--d:0.58s"/>
-<rect x="304.9" y="244.7" width="18.3" height="18.3" fill="#D23677" fill-opacity="0.58" style="--d:0.93s"/>
-<rect x="393.7" y="243.9" width="19.3" height="19.3" fill="#ED8A81" fill-opacity="0.41" style="--d:0.94s"/>
-<rect x="429.6" y="248.6" width="13.4" height="13.4" fill="#ED8B81" fill-opacity="0.37" style="--d:0.71s"/>
-<rect x="456.7" y="250.0" width="13.3" height="13.3" fill="#F1AD81" fill-opacity="0.35" style="--d:1.00s"/>
-<rect x="98.3" y="279.5" width="12.2" height="12.2" fill="#8126AC" fill-opacity="0.31" style="--d:0.41s"/>
-<rect x="217.7" y="276.3" width="17.9" height="17.9" fill="#AF238B" fill-opacity="0.38" style="--d:0.40s"/>
-</svg></div>
-<h2>Hoy alguien en Piura necesita que no la dejemos sola.</h2>
-<div class="acts"><a class="btn btn-main" href="involucrate.html">Dona ahora</a><a class="btn btn-line" href="contacto.html">Contáctanos</a></div>
-</div>
-</div>
+<section class="sec contact" id="contacto">
+  <div class="wrap ct">
+    <div class="ct-info">
+      <p class="eyebrow"><b>07</b> Contacto</p>
+      <h2 style="margin-top:28px">Escríbenos. <span class="ital" style="color:var(--magenta)">Respondemos.</span></h2>
+      <dl class="ct-list">
+        <div><dt>WhatsApp</dt><dd><a href="https://wa.me/51900000000">+51 900 000 000</a></dd></div>
+        <div><dt>Correo</dt><dd><a href="mailto:hola@fundacionatenea.org">hola@fundacionatenea.org</a></dd></div>
+        <div><dt>Sede</dt><dd>Av. Grau 000, Piura · Perú</dd></div>
+        <div><dt>Atención</dt><dd>Lunes a viernes, 9:00 a 17:00</dd></div>
+        <div><dt>RUC</dt><dd>20000000000</dd></div>
+      </dl>
+    </div>
+
+    <form id="form" novalidate>
+      <div class="f full"><label>Motivo</label>
+        <div class="chips" role="radiogroup">
+          <input type="radio" name="motivo" id="m-ayuda" value="Necesito ayuda" checked><label for="m-ayuda">Necesito ayuda</label>
+          <input type="radio" name="motivo" id="m-vol" value="Quiero ser voluntaria/o"><label for="m-vol">Ser voluntaria/o</label>
+          <input type="radio" name="motivo" id="m-don" value="Quiero donar"><label for="m-don">Donar</label>
+          <input type="radio" name="motivo" id="m-ali" value="Alianza institucional"><label for="m-ali">Alianza</label>
+        </div>
+      </div>
+      <div class="f"><label for="nombre">Nombre</label><input id="nombre" name="nombre" autocomplete="name" required></div>
+      <div class="f"><label for="tel">Teléfono o correo</label><input id="tel" name="tel" autocomplete="email" required></div>
+      <div class="f full"><label for="msg">Mensaje</label><textarea id="msg" name="msg" required></textarea></div>
+      <label class="consent"><input type="checkbox" id="ok" required> Acepto que la Fundación Atenea use estos datos solo para responder mi mensaje.</label>
+      <div class="send"><button class="btn btn-main" type="submit">Enviar mensaje <span class="arrow">→</span></button><small id="status" role="status">Se abrirá tu aplicación de correo.</small></div>
+      <p class="help"><strong>¿Estás en peligro ahora?</strong> Llama a la Línea 100 (gratuita, 24 horas) o al 105 de la Policía Nacional.</p>
+    </form>
+  </div>
 </section>
+
 </main>
 
-<footer id="contacto">
-<div class="wrap">
-<div class="col">
-<img src="assets/logo-atenea.png" alt="Fundación Atenea" style="height:72px;width:auto;display:block;background:#fff;border-radius:16px;padding:6px 14px">
-<p style="margin-top:20px;font-size:15px;line-height:1.7;max-width:320px">Fundación sin fines de lucro dedicada a la beneficencia y asistencia social en Piura, Perú.</p>
-<p style="margin-top:14px;font-size:13px;color:#D9BCCD">RUC 20XXXXXXXXX · Partida registral N.° XXXXXXXX<br>Zona Registral N.° I – Sede Piura</p>
-</div>
-<div class="col"><h3>Fundación</h3><ul><li><a href="nosotros.html">Nosotros</a></li><li><a href="programas.html">Programas</a></li><li><a href="consultorias.html">Consultorías</a></li><li><a href="historias.html">Historias</a></li><li><a href="transparencia.html">Transparencia</a></li><li><a href="involucrate.html">Involúcrate</a></li><li><a href="contacto.html">Contacto</a></li></ul></div>
-<div class="col"><h3>Contacto</h3><ul><li>Jr. Circunvalación 1384, Piura, Perú</li><li>WhatsApp +51 900 000 000</li><li>contacto@fundacionatenea.org</li></ul></div>
-<div class="col"><h3>Recibe novedades</h3>
-<form class="sub" onsubmit="return false"><label for="correo" style="position:absolute;left:-9999px">Tu correo electrónico</label><input id="correo" type="email" placeholder="nombre@correo.com"><button type="button" class="btn btn-on" style="min-height:48px;padding:0 20px">Suscribirme</button></form>
-</div>
-</div>
-<div class="legal">
-<div class="wrap"><span>© 2026 Fundación Atenea · Piura, Perú · Fundación en proceso de inscripción registral</span><span class="links"><a href="privacidad.html">Política de privacidad</a><a href="terminos.html">Términos de uso</a><a href="reclamaciones.html">Libro de Reclamaciones</a></span></div>
-<div class="wrap two">Aviso: la Fundación Atenea solo recibe donaciones por los canales publicados en esta página.</div>
-</div>
+<footer class="foot">
+  <div class="wrap">
+    <p class="big">Piura, <span>juntas</span><br>llegamos más lejos.</p>
+    <div class="foot-cols">
+      <div><span class="logo-w"><img src="assets/logo-atenea-transparente.png" alt="Fundación Atenea"></span></div>
+      <div><h4>Fundación</h4><ul><li><a href="#programas">Programas</a></li><li><a href="#momentos">Momentos</a></li><li><a href="#estatuto">Estatuto</a></li></ul></div>
+      <div><h4>Participa</h4><ul><li><a href="#contacto">Voluntariado</a></li><li><a href="#contacto">Donaciones</a></li><li><a href="#contacto">Alianzas</a></li></ul></div>
+      <div><h4>Contacto</h4><ul><li>+51 900 000 000</li><li>hola@fundacionatenea.org</li><li>Piura, Perú</li></ul></div>
+    </div>
+    <div class="legal"><span>© 2026 Fundación Atenea · RUC 20000000000</span><span>Datos de contacto ilustrativos</span></div>
+  </div>
 </footer>
-<a class="wa" href="https://wa.me/51900000000?text=Hola%2C%20quisiera%20informaci%C3%B3n%20sobre%20la%20Fundaci%C3%B3n%20Atenea" aria-label="Escríbenos por WhatsApp">WhatsApp</a>
+
+<script>
+// Mosaico del logo: cuadros estáticos en la paleta de la marca
+(function(){
+  var pal=['#C81E73','#EE827C','#F3BC81','#F6E08A','#A3CDF5','#69184B','#8A2BB0'];
+  function draw(id,base,seed){
+    var el=document.getElementById(id); if(!el) return;
+    var s=seed; function r(){s=(s*9301+49297)%233280;return s/233280}
+    for(var i=0;i<64;i++){
+      var t=document.createElement('i');
+      var v=r();
+      t.style.background=v<.45?'transparent':pal[Math.floor(r()*pal.length)];
+      t.style.opacity=v<.45?1:(.35+r()*.65).toFixed(2);
+      el.appendChild(t);
+    }
+  }
+  draw('t1','',7); draw('t2','',23);
+})();
+// Formulario: arma un correo (sin servidor en esta versión)
+document.getElementById('form').addEventListener('submit',function(e){
+  e.preventDefault();
+  var f=e.target, st=document.getElementById('status');
+  if(!f.nombre.value.trim()||!f.tel.value.trim()||!f.msg.value.trim()||!f.ok.checked){
+    st.textContent='Completa los campos y acepta el uso de datos.'; st.style.color='#C81E73'; return;
+  }
+  var m=f.querySelector('input[name=motivo]:checked').value;
+  var body='Nombre: '+f.nombre.value+'\nContacto: '+f.tel.value+'\n\n'+f.msg.value;
+  location.href='mailto:hola@fundacionatenea.org?subject='+encodeURIComponent(m)+'&body='+encodeURIComponent(body);
+  st.textContent='Abriendo tu correo…'; st.style.color='';
+});
+</script>
 </body>
 </html>
