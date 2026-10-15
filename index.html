@@ -4,480 +4,147 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Fundación Atenea · Piura</title>
-<meta name="description" content="Fundación Atenea: fundación sin fines de lucro con sede en Piura que acompaña a mujeres, niñas y niños en situación de vulnerabilidad.">
+<meta name="description" content="Fundación sin fines de lucro con sede en Piura que acompaña a mujeres, niñas, niños y familias en situación de vulnerabilidad.">
 <meta property="og:title" content="Fundación Atenea · Piura">
-<meta property="og:description" content="Nadie debería enfrentar sola lo que puede enfrentarse acompañada.">
+<meta property="og:description" content="Fundación sin fines de lucro con sede en Piura que acompaña a mujeres, niñas, niños y familias en situación de vulnerabilidad.">
 <meta property="og:image" content="assets/logo-atenea-transparente.png">
 <meta property="og:locale" content="es_PE">
 <meta name="theme-color" content="#2E0A22">
 <link rel="icon" href="assets/logo-atenea-transparente.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400;12..96,600;12..96,800&amp;family=Hanken+Grotesk:ital,wght@0,400;0,500;0,600;1,400&amp;display=swap" rel="stylesheet">
-<style>
-:root{
-  --ink:#2E0A22; --plum:#4A1035; --brand:#69184B; --magenta:#C81E73;
-  --coral:#EE827C; --amber:#F3BC81; --butter:#F6E08A; --sky:#A3CDF5;
-  --paper:#FBF8F5; --white:#FFFFFF; --sand:#F2ECE6;
-  --text:#2E0A22; --muted:#6B4A60; --line:rgba(46,10,34,.16);
-  --display:'Bricolage Grotesque',ui-sans-serif,system-ui,sans-serif;
-  --body:'Hanken Grotesk',ui-sans-serif,system-ui,sans-serif;
-}
-*{box-sizing:border-box}
-html{scroll-padding-top:80px}
-body{margin:0;background:var(--paper);color:var(--text);font:400 18px/1.6 var(--body);-webkit-font-smoothing:antialiased}
-img{max-width:100%;display:block}
-a{color:inherit}
-h1,h2,h3,h4{margin:0;font-family:var(--display);font-weight:600;letter-spacing:-.03em;line-height:1}
-p{margin:0}
-:focus-visible{outline:2px solid var(--magenta);outline-offset:3px}
-.wrap{max-width:1320px;margin:0 auto;padding:0 40px}
-.grid{display:grid;grid-template-columns:repeat(12,1fr);column-gap:24px}
-.eyebrow{display:flex;gap:14px;align-items:baseline;font:600 12px/1 var(--body);letter-spacing:.16em;text-transform:uppercase;color:var(--muted)}
-.eyebrow b{color:var(--magenta);font-weight:600}
-.rule{border:0;border-top:1px solid var(--line);margin:0}
-.sec{padding:128px 0}
-.h2{font-size:clamp(40px,5.4vw,80px)}
-.lead{font-size:21px;line-height:1.55;color:var(--muted);max-width:32em}
-.ital{font-family:var(--body);font-style:italic;font-weight:400;letter-spacing:-.01em}
-.btn{display:inline-flex;align-items:center;gap:12px;min-height:54px;padding:0 30px;border-radius:999px;font:600 16px/1 var(--body);text-decoration:none;border:0;cursor:pointer;white-space:nowrap}
-.btn-main{background:var(--ink);color:#fff}.btn-main:hover{background:var(--magenta)}
-.btn-line{color:var(--ink);box-shadow:inset 0 0 0 1px var(--ink)}.btn-line:hover{background:var(--ink);color:#fff}
-.arrow{font-family:var(--body)}
-.tag{display:inline-block;font:600 11px/1 var(--body);letter-spacing:.12em;text-transform:uppercase;padding:7px 10px;border-radius:999px;background:var(--butter);color:var(--ink)}
-
-/* aviso muestra */
-.demo{background:var(--butter);color:var(--ink);font-size:13px}
-.demo .wrap{padding-top:9px;padding-bottom:9px;display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap}
-
-/* cabecera */
-header{position:sticky;top:0;z-index:10;background:rgba(251,248,245,.94);backdrop-filter:blur(8px);border-bottom:1px solid var(--line)}
-header .wrap{display:flex;align-items:center;justify-content:space-between;height:80px}
-header .logo img{height:58px;width:auto}
-nav ul{display:flex;gap:34px;list-style:none;margin:0;padding:0;font-size:15px;font-weight:500}
-nav a{text-decoration:none}nav a:hover{color:var(--magenta)}
-.nav-cta{min-height:44px;padding:0 22px;font-size:15px}
-
-/* hero */
-.hero{padding:96px 0 0}
-.hero h1{grid-column:1/-1;font-size:clamp(56px,10.4vw,168px);line-height:.88;letter-spacing:-.055em;font-weight:600;color:var(--ink)}
-.hero h1 .ital{color:var(--magenta);letter-spacing:-.04em}
-.hero-meta{grid-column:1/-1;display:grid;grid-template-columns:repeat(12,1fr);column-gap:24px;margin-top:64px;padding:28px 0 0;border-top:1px solid var(--line)}
-.hero-meta .lead{grid-column:1/7}
-.hero-meta .act{grid-column:9/13;display:flex;flex-direction:column;gap:12px;align-items:flex-start}
-.hero-band{margin-top:96px;display:grid;grid-template-columns:5fr 3fr 4fr;height:440px}
-.hero-band > div{position:relative;overflow:hidden}
-.b1{background:var(--ink);color:#fff;padding:40px;display:flex;flex-direction:column;justify-content:space-between}
-.b1 q{font:400 30px/1.25 var(--display);letter-spacing:-.02em;quotes:"“" "”"}
-.b1 small{font-size:14px;color:rgba(255,255,255,.7)}
-.b2{background:var(--magenta)}
-.b3{background:var(--amber)}
-/* mosaico del logo, dibujado con cuadros */
-.tiles{position:absolute;inset:0;display:grid;grid-template-columns:repeat(8,1fr);grid-auto-rows:1fr}
-.tiles i{display:block}
-.b3 .cap{position:absolute;left:32px;bottom:32px;right:32px;font-size:14px;color:var(--ink);background:var(--paper);padding:16px 18px;max-width:300px}
-
-/* manifiesto */
-.manifesto .grid > .eyebrow{grid-column:1/4}
-.manifesto p.big{grid-column:4/13;font:400 clamp(30px,3.4vw,50px)/1.18 var(--display);letter-spacing:-.025em;color:var(--ink)}
-.manifesto p.big em{font-style:normal;color:var(--magenta)}
-.facts{grid-column:4/13;margin-top:72px;display:grid;grid-template-columns:repeat(3,1fr);border-top:1px solid var(--line)}
-.facts div{padding:28px 24px 0 0}
-.facts strong{display:block;font:600 64px/1 var(--display);letter-spacing:-.04em;color:var(--ink)}
-.facts span{display:block;margin-top:12px;font-size:15px;color:var(--muted);max-width:18em}
-
-/* programas */
-.programs{background:var(--white)}
-.prog-head{display:grid;grid-template-columns:repeat(12,1fr);column-gap:24px;align-items:end;margin-bottom:72px}
-.prog-head h2{grid-column:1/8}
-.prog-head p{grid-column:9/13}
-.prog{display:grid;grid-template-columns:repeat(12,1fr);column-gap:24px;padding:44px 0;border-top:1px solid var(--line);align-items:start}
-.prog:last-child{border-bottom:1px solid var(--line)}
-.prog .n{grid-column:1/2;font:600 15px/1.4 var(--body);color:var(--muted)}
-.prog h3{grid-column:2/6;font-size:40px;color:var(--ink)}
-.prog p{grid-column:7/11;color:var(--muted)}
-.prog ul{grid-column:7/11;margin:20px 0 0;padding:0;list-style:none;font-size:15px}
-.prog li{padding:9px 0;border-top:1px solid var(--line)}
-.prog .sw{grid-column:12/13;justify-self:end;width:44px;height:44px}
-
-/* momentos */
-.moments{background:var(--ink);color:#fff}
-.moments .eyebrow{color:rgba(255,255,255,.6)}
-.moments h2{color:#fff}
-.mom-grid{display:grid;grid-template-columns:repeat(12,1fr);gap:24px;margin-top:80px}
-.mom{background:var(--plum);padding:36px;display:flex;flex-direction:column;justify-content:space-between;min-height:360px}
-.mom q{font:400 26px/1.3 var(--display);letter-spacing:-.02em;quotes:"“" "”"}
-.mom footer{margin-top:40px;display:flex;justify-content:space-between;align-items:end;gap:16px;font-size:14px;color:rgba(255,255,255,.72)}
-.mom footer b{display:block;color:#fff;font-weight:600;font-size:15px}
-.mom .yr{font:600 13px/1 var(--body);letter-spacing:.1em}
-.m1{grid-column:1/8;background:var(--magenta)}
-.m1 q{font-size:36px}
-.m2{grid-column:8/13}
-.m3{grid-column:1/5}
-.m4{grid-column:5/9;background:var(--butter);color:var(--ink)}
-.m4 footer,.m4 footer b{color:var(--ink)}
-.m5{grid-column:9/13}
-.note{margin-top:32px;font-size:13px;color:rgba(255,255,255,.55)}
-
-/* bitácora */
-.log-row{display:grid;grid-template-columns:repeat(12,1fr);column-gap:24px;padding:26px 0;border-top:1px solid var(--line);align-items:baseline}
-.log-row:last-child{border-bottom:1px solid var(--line)}
-.log-row time{grid-column:1/3;font-size:14px;font-weight:600;color:var(--muted);font-variant-numeric:tabular-nums}
-.log-row h4{grid-column:3/8;font-size:24px;color:var(--ink)}
-.log-row p{grid-column:8/12;font-size:16px;color:var(--muted)}
-.log-row span{grid-column:12/13;justify-self:end;font-size:13px;color:var(--muted)}
-
-/* estatuto */
-.statute{background:var(--sand)}
-.st-wrap{display:grid;grid-template-columns:repeat(12,1fr);column-gap:24px}
-.st-side{grid-column:1/5;position:sticky;top:120px;align-self:start}
-.st-side .lead{margin-top:28px;font-size:18px}
-.st-side .btn{margin-top:36px}
-.st-body{grid-column:6/13}
-.art{padding:32px 0;border-top:1px solid var(--line)}
-.art:last-child{border-bottom:1px solid var(--line)}
-.art h3{display:flex;gap:20px;align-items:baseline;font-size:26px;color:var(--ink)}
-.art h3 small{font:600 12px/1 var(--body);letter-spacing:.14em;text-transform:uppercase;color:var(--magenta);min-width:70px}
-.art p,.art ol{margin:14px 0 0 90px;font-size:17px;color:var(--muted)}
-.art ol{padding-left:20px}.art li{margin:6px 0}
-
-/* transparencia */
-.trans .grid > *{grid-column:span 4}
-.tbox{border-top:2px solid var(--ink);padding-top:22px}
-.tbox h3{font-size:24px;color:var(--ink)}
-.tbox p{margin-top:12px;font-size:16px;color:var(--muted)}
-
-/* contacto */
-.contact{background:var(--white)}
-.ct{display:grid;grid-template-columns:repeat(12,1fr);column-gap:24px}
-.ct-info{grid-column:1/6}
-.ct-info h2{font-size:clamp(44px,5.6vw,84px)}
-.ct-list{margin-top:56px;border-top:1px solid var(--line)}
-.ct-list div{display:grid;grid-template-columns:130px 1fr;padding:18px 0;border-bottom:1px solid var(--line);font-size:16px}
-.ct-list dt{color:var(--muted);font-size:13px;font-weight:600;letter-spacing:.1em;text-transform:uppercase;padding-top:3px}
-.ct-list dd{margin:0}
-.ct-list a{text-decoration:none;border-bottom:1px solid var(--line)}.ct-list a:hover{border-color:var(--magenta);color:var(--magenta)}
-form{grid-column:7/13;display:grid;grid-template-columns:1fr 1fr;gap:28px 24px;align-content:start}
-.f{display:flex;flex-direction:column;gap:8px}
-.f.full{grid-column:1/-1}
-label{font-size:13px;font-weight:600;letter-spacing:.08em;text-transform:uppercase;color:var(--muted)}
-input,select,textarea{font:400 18px/1.4 var(--body);color:var(--ink);background:transparent;border:0;border-bottom:1px solid var(--ink);padding:10px 0;border-radius:0;outline:none}
-input:focus,select:focus,textarea:focus{border-bottom:2px solid var(--magenta);padding-bottom:9px}
-textarea{resize:vertical;min-height:120px}
-.chips{display:flex;flex-wrap:wrap;gap:10px}
-.chips input{position:absolute;opacity:0;pointer-events:none}
-.chips label{text-transform:none;letter-spacing:0;font-size:15px;font-weight:500;color:var(--ink);padding:10px 18px;border-radius:999px;box-shadow:inset 0 0 0 1px var(--line);cursor:pointer}
-.chips input:checked + label{background:var(--ink);color:#fff;box-shadow:none}
-.chips input:focus-visible + label{outline:2px solid var(--magenta);outline-offset:2px}
-.consent{text-transform:none;letter-spacing:0;font-weight:400;grid-column:1/-1;display:flex;gap:12px;font-size:14px;color:var(--muted);align-items:flex-start}
-.consent input{margin-top:4px;accent-color:var(--magenta)}
-.send{grid-column:1/-1;display:flex;gap:20px;align-items:center;flex-wrap:wrap}
-.send small{font-size:13px;color:var(--muted)}
-.help{grid-column:1/-1;background:var(--sand);padding:18px 20px;font-size:14px;color:var(--ink)}
-
-/* pie */
-.foot{background:var(--ink);color:rgba(255,255,255,.75);padding:96px 0 40px;font-size:15px}
-.foot .big{font:600 clamp(48px,9vw,140px)/.9 var(--display);letter-spacing:-.05em;color:#fff}
-.foot .big span{color:var(--coral)}
-.foot-cols{display:grid;grid-template-columns:repeat(12,1fr);column-gap:24px;margin-top:80px;padding-top:32px;border-top:1px solid rgba(255,255,255,.18)}
-.foot-cols > div{grid-column:span 3}
-.foot h4{font:600 12px/1 var(--body);letter-spacing:.14em;text-transform:uppercase;color:#fff;margin-bottom:16px}
-.foot ul{list-style:none;margin:0;padding:0;line-height:2}
-.foot a{text-decoration:none}.foot a:hover{color:#fff}
-.foot .legal{margin-top:64px;display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap;font-size:13px;color:rgba(255,255,255,.5)}
-.foot .logo-w{background:#fff;padding:10px 16px;display:inline-block}
-.foot .logo-w img{height:52px;width:auto}
-
-@media (max-width:960px){
-  .wrap{padding:0 20px}
-  .sec{padding:88px 0}
-  nav ul{display:none}
-  .hero-meta .lead,.hero-meta .act{grid-column:1/-1}
-  .hero-meta .act{margin-top:28px;flex-direction:row;flex-wrap:wrap}
-  .hero-band{grid-template-columns:1fr 1fr;height:auto}
-  .b1{grid-column:1/-1;min-height:320px}
-  .b2,.b3{height:260px}
-  .manifesto .grid > *,.manifesto .grid > .eyebrow,.manifesto p.big,.facts{grid-column:1/-1}
-  .b3 .cap{left:16px;right:16px;bottom:16px;max-width:none}
-  .b1 > div{margin-top:40px}
-  .manifesto p.big{margin-top:24px}
-  .facts{grid-template-columns:1fr;margin-top:48px}
-  .facts div{padding:24px 0;border-bottom:1px solid var(--line)}
-  .prog-head h2,.prog-head p{grid-column:1/-1}
-  .prog-head p{margin-top:24px}
-  .prog .n{grid-column:1/-1;margin-bottom:12px}
-  .prog h3,.prog p,.prog ul{grid-column:1/-1}
-  .prog h3{font-size:32px;margin-bottom:16px}
-  .prog .sw{display:none}
-  .mom-grid > *{grid-column:1/-1}
-  .mom{min-height:0}.m1 q{font-size:28px}
-  .log-row time,.log-row h4,.log-row p,.log-row span{grid-column:1/-1;justify-self:start}
-  .log-row h4{margin:8px 0}
-  .st-side,.st-body{grid-column:1/-1;position:static}
-  .st-body{margin-top:56px}
-  .art p,.art ol{margin-left:0}
-  .art h3{flex-direction:column;gap:10px}
-  .trans .grid > *{grid-column:1/-1;margin-bottom:36px}
-  .ct-info,form{grid-column:1/-1}
-  form{margin-top:64px;grid-template-columns:1fr}
-  .ct-list div{grid-template-columns:1fr;gap:6px}
-  .foot-cols > div{grid-column:span 6;margin-bottom:32px}
-}
-</style>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400;12..96,600&amp;family=Hanken+Grotesk:ital,wght@0,400;0,500;0,600;1,400&amp;display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/atenea.css">
 </head>
 <body>
-
+<a class="skip" href="#contenido">Saltar al contenido</a>
 <div class="demo"><div class="wrap">
-  <span><strong>Versión de muestra.</strong> Los testimonios, cifras de actividad y datos de contacto son ilustrativos y se reemplazarán por información oficial.</span>
-  <span>Piura · Perú</span>
+  <span><strong>Versión de muestra.</strong> Nombres, testimonios, cifras de actividad y datos de contacto son ilustrativos.</span>
+  <span>¿Estás en peligro? Llama gratis a la <a href="tel:100">Línea 100</a>, las 24 horas.</span>
 </div></div>
-
-<header>
+<header class="top">
   <div class="wrap">
-    <a class="logo" href="#inicio" aria-label="Fundación Atenea, inicio"><img src="assets/logo-atenea-transparente.png" alt="Fundación Atenea"></a>
-    <nav aria-label="Principal"><ul>
-      <li><a href="#programas">Programas</a></li>
-      <li><a href="#momentos">Momentos</a></li>
-      <li><a href="#estatuto">Estatuto</a></li>
-      <li><a href="#transparencia">Transparencia</a></li>
-    </ul></nav>
-    <a class="btn btn-main nav-cta" href="#contacto">Contacto</a>
+    <a class="logo" href="index.html" aria-label="Fundación Atenea, inicio"><img src="assets/logo-atenea-transparente.png" alt="Fundación Atenea" width="151" height="58"></a>
+    <nav aria-label="Principal"><ul class="nav"><li><a href="nosotros.html">Nosotros</a></li><li><a href="programas.html">Programas</a></li><li><a href="historias.html">Historias</a></li><li><a href="involucrate.html">Involúcrate</a></li><li><a href="transparencia.html">Transparencia</a></li><li><a href="contacto.html">Contacto</a></li></ul></nav>
+    <a class="btn btn-mag" href="involucrate.html#donar">Donar</a>
+    <details class="menu"><summary>Menú</summary><ul><li><a href="nosotros.html">Nosotros</a></li><li><a href="programas.html">Programas</a></li><li><a href="historias.html">Historias</a></li><li><a href="involucrate.html">Involúcrate</a></li><li><a href="transparencia.html">Transparencia</a></li><li><a href="contacto.html">Contacto</a></li><li><a href="involucrate.html#donar">Donar</a></li></ul></details>
   </div>
 </header>
+<main id="contenido">
 
-<main id="inicio">
+<section class="phero" style="padding-top:96px"><div class="wrap">
+  <h1 style="font-size:clamp(56px,10.4vw,168px);line-height:.88;letter-spacing:-.055em;max-width:none">Nadie debería <span class="ital mag">cargar sola</span> lo que puede cargarse entre todas.</h1>
+  <div class="meta">
+    <p class="lead">Somos una fundación sin fines de lucro con sede en Piura. Acompañamos a mujeres, niñas y niños que enfrentan violencia, enfermedad o pobreza, con apoyo concreto, cercano y sostenido en el tiempo.</p>
+    <div class="side"><a class="btn btn-main" href="contacto.html">Necesito ayuda →</a><a class="btn btn-line" href="involucrate.html">Quiero ayudar</a></div>
+  </div>
+  <div style="margin-top:88px;display:grid;grid-template-columns:5fr 3fr 4fr;min-height:460px" class="heroband">
+    <div class="bg-ink" style="padding:40px;display:flex;flex-direction:column;justify-content:space-between;gap:40px">
+      <p class="eyebrow"><b>Momento 014</b> Castilla, Piura</p>
+      <div><p style="font:400 30px/1.25 var(--display);letter-spacing:-.02em">“Llegué con mi hija y una bolsa de ropa. Salí con un plan, un trabajo y gente que pregunta por nosotras.”</p>
+      <p style="margin-top:20px;font-size:14px;color:rgba(255,255,255,.7)">Rosa M., 34 años · Testimonio ilustrativo</p></div>
+    </div>
+    <div style="background:var(--magenta)" aria-hidden="true"><div class="tiles" data-seed="7"></div></div>
+    <figure class="photo" style="margin:0"><img src="assets/foto-abrazo.jpg" alt="Dos mujeres se abrazan" width="1400" height="1030"></figure>
+  </div>
+</div></section>
 
-<section class="hero">
-  <div class="wrap grid">
-    <h1>Nadie debería <span class="ital">cargar sola</span> lo que puede cargarse entre todas.</h1>
-    <div class="hero-meta">
-      <p class="lead">Somos una fundación sin fines de lucro con sede en Piura. Acompañamos a mujeres, niñas y niños que enfrentan violencia, enfermedad o pobreza, con apoyo concreto, cercano y sostenido en el tiempo.</p>
-      <div class="act">
-        <a class="btn btn-main" href="#contacto">Quiero ayudar <span class="arrow">→</span></a>
-        <a class="btn btn-line" href="#programas">Conocer los programas</a>
-      </div>
+<section class="sec"><div class="wrap g12">
+  <p class="eyebrow" style="grid-column:1/4"><b>01</b> Por qué existimos</p>
+  <div style="grid-column:4/13">
+    <p class="statement">En Piura, más de una de cada cuatro personas vive en pobreza. Detrás de esa cifra hay <em>mujeres que sostienen hogares solas</em>, niñas y niños con anemia y familias que enfrentan una enfermedad sin red. Atenea nace para ser esa red.</p>
+    <div class="facts f3" style="margin-top:72px">
+      <div><strong>28,1 %</strong><span>de la población de Piura en pobreza monetaria; el promedio nacional es 25,7 %.</span><small>INEI, 2025</small></div>
+      <div><strong>4 578</strong><span>casos de violencia atendidos por los CEM de Piura entre enero y julio de 2026.</span><small>MIMP, Programa Warmi Ñan</small></div>
+      <div><strong>43,7 %</strong><span>de niñas y niños de 6 a 35 meses en Piura tiene anemia.</span><small>INEI, ENDES 2025</small></div>
     </div>
   </div>
-  <div class="wrap">
-    <div class="hero-band">
-      <div class="b1">
-        <span class="eyebrow" style="color:rgba(255,255,255,.6)"><b style="color:var(--butter)">Momento 014</b> Castilla, Piura</span>
-        <div>
-          <q>Llegué con mi hija y una bolsa de ropa. Salí con un plan, un trabajo y gente que pregunta por nosotras.</q>
-          <small style="display:block;margin-top:20px">Rosa M., 34 años · Testimonio ilustrativo</small>
-        </div>
-      </div>
-      <div class="b2" aria-hidden="true"><div class="tiles" id="t1"></div></div>
-      <div class="b3" aria-hidden="false"><div class="tiles" id="t2" aria-hidden="true"></div>
-        <p class="cap">Espacio reservado para fotografía real de actividades, tomada con consentimiento informado.</p></div>
+</div></section>
+
+<section class="sec bg-white"><div class="wrap">
+  <div class="shead"><div><p class="eyebrow"><b>02</b> Programas</p><h2 class="h2">Cinco frentes, <span class="ital">una misma familia.</span></h2></div><p class="lead">Cada caso entra por una puerta, pero se atiende completo: una madre que llega por violencia suele necesitar también salud, escuela para sus hijos y un ingreso propio.</p></div>
+  <div class="rows"><a class="row" href="programa-mujeres.html"><span class="n">01</span><h3>Mujeres que avanzan</h3><p class="body">Acompañamiento a mujeres en situación de violencia, abandono o jefatura de hogar, hasta su autonomía económica.</p><span class="go">Ver programa →</span></a><a class="row" href="programa-ninez.html"><span class="n">02</span><h3>Niñez protegida</h3><p class="body">Nutrición, refuerzo escolar y espacios de cuidado para niñas y niños mientras sus familias se recuperan.</p><span class="go">Ver programa →</span></a><a class="row" href="programa-salud.html"><span class="n">03</span><h3>Salud y acompañamiento</h3><p class="body">Medicamentos, exámenes, traslados y compañía para personas enfermas sin recursos.</p><span class="go">Ver programa →</span></a><a class="row" href="programa-orientacion.html"><span class="n">04</span><h3>Orientación gratuita</h3><p class="body">Asesoría legal, psicológica y social, presencial o a distancia, con profesionales habilitados.</p><span class="go">Ver programa →</span></a><a class="row" href="programa-ayuda.html"><span class="n">05</span><h3>Ayuda humanitaria</h3><p class="body">Kits, salud y reconstrucción para familias afectadas por lluvias y emergencias en la región.</p><span class="go">Ver programa →</span></a></div>
+</div></section>
+
+<section class="sec bg-ink"><div class="wrap">
+  <div class="shead"><div><p class="eyebrow"><b>03</b> Momentos</p><h2 class="h2">Lo que cambia <span class="ital cor">cuando alguien se queda.</span></h2></div></div>
+  <div class="moms">
+    <figure class="mom mag big w7"><q>Mi hijo pasó de no querer ir al colegio a pedirme que lo despierte temprano. Dice que allá lo esperan.</q><figcaption><span><b>Carmen L.</b>Madre · Veintiséis de Octubre</span><span class="yr">2026</span></figcaption></figure>
+    <figure class="mom w5"><q>Durante la quimio nunca fui sola al hospital. Eso no tiene precio.</q><figcaption><span><b>Julia P.</b>Salud y acompañamiento · Piura</span><span class="yr">2026</span></figcaption></figure>
+    <figure class="mom w4"><q>Aprendí repostería y hoy vendo en mi barrio. Ya no pido permiso para comprar.</q><figcaption><span><b>Milagros T.</b>Mujeres que avanzan · Sullana</span><span class="yr">2026</span></figcaption></figure>
+    <figure class="mom but w4"><q>Fui voluntaria un sábado y me quedé. Aquí entendí lo que significa la palabra comunidad.</q><figcaption><span><b>Andrea V.</b>Voluntaria</span><span class="yr">2026</span></figcaption></figure>
+    <figure class="mom w4"><q>Mi hija ya no tiene anemia. La enfermera nos visitó cada mes, sin falta.</q><figcaption><span><b>Luz C.</b>Niñez protegida · Catacaos</span><span class="yr">2026</span></figcaption></figure>
+  </div>
+  <p class="note">Testimonios ilustrativos. Se reemplazarán por relatos reales con autorización expresa; los nombres podrán cambiarse para proteger la identidad. <a class="tlink" href="historias.html" style="color:#fff;margin-left:8px">Ver más historias →</a></p>
+</div></section>
+
+<section class="sec"><div class="wrap">
+  <div class="shead"><div><p class="eyebrow"><b>04</b> Bitácora</p><h2 class="h2">Lo que hicimos <span class="ital">este mes.</span></h2></div><p class="lead">Registro breve de actividades. Ilustrativo hasta la primera actividad oficial.</p></div>
+  <div class="log">
+    <div class="lr"><time datetime="2026-10-05">05 OCT 2026</time><h4>Campaña de tamizaje de anemia</h4><p>48 niñas y niños evaluados junto a un centro de salud de Castilla.</p><span>Niñez</span></div>
+    <div class="lr"><time datetime="2026-09-21">21 SET 2026</time><h4>Taller «Mi primer negocio»</h4><p>Doce mujeres terminaron el módulo de costos y precios.</p><span>Mujeres</span></div>
+    <div class="lr"><time datetime="2026-09-08">08 SET 2026</time><h4>Entrega de kits oncológicos</h4><p>Veinte kits de cuidado para pacientes en tratamiento.</p><span>Salud</span></div>
+    <div class="lr"><time datetime="2026-08-30">30 AGO 2026</time><h4>Primera jornada de voluntariado</h4><p>Treinta y cinco voluntarias y voluntarios se sumaron a la red.</p><span>Comunidad</span></div>
+  </div>
+</div></section>
+
+<section class="sec bg-sand"><div class="wrap split">
+  <div class="l">
+    <p class="eyebrow"><b>05</b> Estatuto y transparencia</p>
+    <h2 class="h2" style="margin-top:28px">Las reglas <span class="ital">que nos damos.</span></h2>
+  </div>
+  <div class="r">
+    <p class="lead" style="color:var(--ink)">La Fundación Atenea es una persona jurídica sin fines de lucro, con domicilio en Piura, sujeta al Código Civil y al Consejo de Supervigilancia de Fundaciones. Su patrimonio se destina solo a sus fines y cada año rinde cuentas.</p>
+    <div class="btns" style="margin-top:36px"><a class="btn btn-main" href="transparencia.html#estatuto">Leer el estatuto</a><a class="btn btn-line" href="transparencia.html">Transparencia</a></div>
+  </div>
+</div></section>
+
+<section class="sec bg-white"><div class="wrap split">
+  <div class="l">
+    <p class="eyebrow"><b>06</b> Contacto</p>
+    <h2 class="h2" style="margin-top:28px">Escríbenos. <span class="ital mag">Respondemos.</span></h2>
+    <dl class="kv" style="margin-top:48px">
+      <div><dt>WhatsApp</dt><dd><a href="https://wa.me/51900000000">+51 900 000 000</a></dd></div>
+      <div><dt>Correo</dt><dd><a href="mailto:contacto@fundacionatenea.org">contacto@fundacionatenea.org</a></dd></div>
+      <div><dt>Sede</dt><dd>Jr. Circunvalación 1384, Piura · Perú</dd></div>
+      <div><dt>Atención</dt><dd>Lunes a viernes, 9:00 a 18:00</dd></div>
+    </dl>
+  </div>
+  <div class="r"><form class="form" data-mail="Consulta desde la web" novalidate>
+  <div class="f full"><span class="flabel" id="motivo-l">Motivo</span>
+    <div class="chips" role="radiogroup" aria-labelledby="motivo-l">
+      <input type="radio" name="motivo" id="m1" value="Necesito ayuda" checked><label for="m1">Necesito ayuda</label>
+      <input type="radio" name="motivo" id="m2" value="Quiero donar"><label for="m2">Donar</label>
+      <input type="radio" name="motivo" id="m3" value="Voluntariado"><label for="m3">Voluntariado</label>
+      <input type="radio" name="motivo" id="m4" value="Alianza o consultoría"><label for="m4">Alianza o consultoría</label>
+      <input type="radio" name="motivo" id="m5" value="Prensa"><label for="m5">Prensa</label>
     </div>
   </div>
-</section>
-
-<section class="sec manifesto">
-  <div class="wrap grid">
-    <p class="eyebrow"><b>01</b> Por qué existimos</p>
-    <p class="big">En Piura, una de cada cuatro personas vive en pobreza. Detrás de esa cifra hay <em>mujeres que sostienen hogares solas</em>, niñas y niños con anemia, y familias que enfrentan una enfermedad sin red. Atenea nace para ser esa red.</p>
-    <div class="facts">
-      <div><strong>28,1 %</strong><span>de la población de Piura en pobreza monetaria (INEI, 2025).</span></div>
-      <div><strong>3</strong><span>programas: mujeres, niñez y salud, articulados en una sola ruta de atención.</span></div>
-      <div><strong>1</strong><span>principio: no soltar la mano hasta que la familia pueda caminar sola.</span></div>
-    </div>
-  </div>
-</section>
-
-<section class="sec programs" id="programas">
-  <div class="wrap">
-    <div class="prog-head">
-      <div style="grid-column:1/8"><p class="eyebrow"><b>02</b> Programas</p><h2 class="h2" style="margin-top:28px">Tres frentes, <span class="ital">una misma familia.</span></h2></div>
-      <p class="lead" style="font-size:18px">Cada caso entra por una puerta, pero se atiende completo: una madre que llega por violencia suele necesitar también salud, escuela para sus hijos y un ingreso propio.</p>
-    </div>
-
-    <article class="prog">
-      <span class="n">2.1</span>
-      <h3>Mujeres que se levantan</h3>
-      <div style="grid-column:7/11">
-        <p>Acompañamiento a mujeres que enfrentan violencia o abandono, desde la primera escucha hasta su autonomía económica.</p>
-        <ul><li>Orientación legal y derivación a los CEM</li><li>Apoyo psicológico individual y grupal</li><li>Talleres de oficio y emprendimiento</li></ul>
-      </div>
-      <span class="sw" style="background:var(--magenta)"></span>
-    </article>
-    <article class="prog">
-      <span class="n">2.2</span>
-      <h3>Niñez protegida</h3>
-      <div style="grid-column:7/11">
-        <p>Niñas y niños que crecen sanos, aprenden y juegan en un entorno seguro mientras sus madres reconstruyen su vida.</p>
-        <ul><li>Nutrición y prevención de anemia</li><li>Refuerzo escolar y útiles</li><li>Espacios de cuidado y juego</li></ul>
-      </div>
-      <span class="sw" style="background:var(--amber)"></span>
-    </article>
-    <article class="prog">
-      <span class="n">2.3</span>
-      <h3>Salud que acompaña</h3>
-      <div style="grid-column:7/11">
-        <p>Para mujeres y familias con una enfermedad grave: que el diagnóstico no signifique enfrentarlo en soledad.</p>
-        <ul><li>Gestión de citas, SIS y traslados</li><li>Medicinas y kits de cuidado</li><li>Voluntariado de compañía hospitalaria</li></ul>
-      </div>
-      <span class="sw" style="background:var(--sky)"></span>
-    </article>
-  </div>
-</section>
-
-<section class="sec moments" id="momentos">
-  <div class="wrap">
-    <p class="eyebrow"><b style="color:var(--butter)">03</b> Momentos</p>
-    <h2 class="h2" style="margin-top:28px;max-width:12em">Lo que cambia <span class="ital" style="color:var(--coral)">cuando alguien se queda.</span></h2>
-
-    <div class="mom-grid">
-      <figure class="mom m1" style="margin:0">
-        <q>Mi hijo pasó de no querer ir al colegio a pedirme que lo despierte temprano. Dice que allá lo esperan.</q>
-        <footer><div><b>Carmen L.</b>Madre · Veintiséis de Octubre</div><span class="yr">2026</span></footer>
-      </figure>
-      <figure class="mom m2" style="margin:0">
-        <q>Durante la quimio nunca fui sola al hospital. Eso no tiene precio.</q>
-        <footer><div><b>Julia P.</b>Programa Salud · Piura</div><span class="yr">2026</span></footer>
-      </figure>
-      <figure class="mom m3" style="margin:0">
-        <q>Aprendí repostería y hoy vendo en mi barrio. Ya no pido permiso para comprar.</q>
-        <footer><div><b>Milagros T.</b>Sullana</div><span class="yr">2026</span></footer>
-      </figure>
-      <figure class="mom m4" style="margin:0">
-        <q>Fui voluntaria un sábado y me quedé. Aquí entendí lo que significa la palabra comunidad.</q>
-        <footer><div><b>Andrea V.</b>Voluntaria</div><span class="yr">2026</span></footer>
-      </figure>
-      <figure class="mom m5" style="margin:0">
-        <q>Mi hija ya no tiene anemia. La enfermera nos visitó cada mes, sin falta.</q>
-        <footer><div><b>Luz C.</b>Catacaos</div><span class="yr">2026</span></footer>
-      </figure>
-    </div>
-    <p class="note">Testimonios ilustrativos. Se reemplazarán por relatos reales con autorización expresa; los nombres podrán modificarse para proteger la identidad.</p>
-  </div>
-</section>
-
-<section class="sec">
-  <div class="wrap">
-    <div class="prog-head" style="margin-bottom:48px">
-      <div style="grid-column:1/8"><p class="eyebrow"><b>04</b> Bitácora</p><h2 class="h2" style="margin-top:28px">Lo que hicimos <span class="ital">este mes.</span></h2></div>
-      <p class="lead" style="font-size:18px">Registro breve de actividades. Ilustrativo hasta la primera actividad oficial.</p>
-    </div>
-    <div class="log-row"><time datetime="2026-10-05">05 OCT 2026</time><h4>Campaña de tamizaje de anemia</h4><p>48 niñas y niños evaluados junto a un centro de salud de Castilla.</p><span>Niñez</span></div>
-    <div class="log-row"><time datetime="2026-09-21">21 SET 2026</time><h4>Taller «Mi primer negocio»</h4><p>Doce mujeres terminaron el módulo de costos y precios.</p><span>Mujeres</span></div>
-    <div class="log-row"><time datetime="2026-09-08">08 SET 2026</time><h4>Entrega de kits oncológicos</h4><p>Veinte kits de cuidado para pacientes en tratamiento.</p><span>Salud</span></div>
-    <div class="log-row"><time datetime="2026-08-30">30 AGO 2026</time><h4>Primera jornada de voluntariado</h4><p>Treinta y cinco voluntarias y voluntarios se sumaron a la red.</p><span>Comunidad</span></div>
-  </div>
-</section>
-
-<section class="sec statute" id="estatuto">
-  <div class="wrap st-wrap">
-    <aside class="st-side">
-      <p class="eyebrow"><b>05</b> Estatuto</p>
-      <h2 class="h2" style="margin-top:28px">Las reglas <span class="ital">que nos damos.</span></h2>
-      <p class="lead">Resumen del estatuto de la Fundación Atenea, constituida conforme a los artículos 99 al 110 del Código Civil peruano y sujeta al Consejo de Supervigilancia de Fundaciones.</p>
-      <a class="btn btn-line" href="#contacto">Solicitar estatuto completo</a>
-      <p style="margin-top:20px;font-size:13px;color:var(--muted)">Borrador para revisión. El texto definitivo será el inscrito en SUNARP.</p>
-    </aside>
-    <div class="st-body">
-      <div class="art"><h3><small>Art. 1</small>Denominación y naturaleza</h3><p>La fundación se denomina «Fundación Atenea». Es una persona jurídica de derecho privado sin fines de lucro, de duración indefinida.</p></div>
-      <div class="art"><h3><small>Art. 2</small>Domicilio</h3><p>Su domicilio es la ciudad de Piura, departamento de Piura, República del Perú. Podrá establecer sedes y oficinas en otras localidades del país.</p></div>
-      <div class="art"><h3><small>Art. 3</small>Fines</h3><p>La fundación tiene como fines de beneficencia y asistencia social:</p>
-        <ol><li>Proteger y acompañar a mujeres en situación de violencia, abandono o pobreza.</li><li>Promover la salud, nutrición y educación de niñas y niños.</li><li>Asistir a personas con enfermedades graves y a sus familias.</li><li>Fomentar la autonomía económica de las mujeres.</li></ol></div>
-      <div class="art"><h3><small>Art. 4</small>Patrimonio</h3><p>Constituido por el aporte de la fundadora o fundadoras, donaciones, legados, subvenciones y rentas propias. Se destina exclusivamente al cumplimiento de los fines; ningún beneficio se reparte entre sus miembros.</p></div>
-      <div class="art"><h3><small>Art. 5</small>Consejo de Administración</h3><p>Órgano máximo de gobierno y administración, integrado por una presidenta, una secretaria y una tesorera. Sus miembros ejercen el cargo de forma ad honorem.</p></div>
-      <div class="art"><h3><small>Art. 6</small>Transparencia</h3><p>La fundación presenta cada año sus cuentas y su memoria al Consejo de Supervigilancia de Fundaciones y publica un resumen para la ciudadanía.</p></div>
-      <div class="art"><h3><small>Art. 7</small>Disolución</h3><p>En caso de disolución, el patrimonio remanente se destinará a otra entidad sin fines de lucro con fines análogos, conforme a la ley.</p></div>
-    </div>
-  </div>
-</section>
-
-<section class="sec trans" id="transparencia">
-  <div class="wrap">
-    <p class="eyebrow"><b>06</b> Transparencia</p>
-    <h2 class="h2" style="margin:28px 0 72px;max-width:13em">Cada sol, <span class="ital">a la vista.</span></h2>
-    <div class="grid">
-      <div class="tbox"><h3>Memoria anual</h3><p>Resultados, casos atendidos y aprendizajes de cada año. Primera edición al cierre del periodo 2026.</p></div>
-      <div class="tbox"><h3>Estados financieros</h3><p>Ingresos y gastos auditados, presentados al Consejo de Supervigilancia de Fundaciones.</p></div>
-      <div class="tbox"><h3>Protección de datos</h3><p>La información de las personas que atendemos es confidencial y se trata conforme a la Ley N.º 29733.</p></div>
-    </div>
-  </div>
-</section>
-
-<section class="sec contact" id="contacto">
-  <div class="wrap ct">
-    <div class="ct-info">
-      <p class="eyebrow"><b>07</b> Contacto</p>
-      <h2 style="margin-top:28px">Escríbenos. <span class="ital" style="color:var(--magenta)">Respondemos.</span></h2>
-      <dl class="ct-list">
-        <div><dt>WhatsApp</dt><dd><a href="https://wa.me/51900000000">+51 900 000 000</a></dd></div>
-        <div><dt>Correo</dt><dd><a href="mailto:hola@fundacionatenea.org">hola@fundacionatenea.org</a></dd></div>
-        <div><dt>Sede</dt><dd>Av. Grau 000, Piura · Perú</dd></div>
-        <div><dt>Atención</dt><dd>Lunes a viernes, 9:00 a 17:00</dd></div>
-        <div><dt>RUC</dt><dd>20000000000</dd></div>
-      </dl>
-    </div>
-
-    <form id="form" novalidate>
-      <div class="f full"><label>Motivo</label>
-        <div class="chips" role="radiogroup">
-          <input type="radio" name="motivo" id="m-ayuda" value="Necesito ayuda" checked><label for="m-ayuda">Necesito ayuda</label>
-          <input type="radio" name="motivo" id="m-vol" value="Quiero ser voluntaria/o"><label for="m-vol">Ser voluntaria/o</label>
-          <input type="radio" name="motivo" id="m-don" value="Quiero donar"><label for="m-don">Donar</label>
-          <input type="radio" name="motivo" id="m-ali" value="Alianza institucional"><label for="m-ali">Alianza</label>
-        </div>
-      </div>
-      <div class="f"><label for="nombre">Nombre</label><input id="nombre" name="nombre" autocomplete="name" required></div>
-      <div class="f"><label for="tel">Teléfono o correo</label><input id="tel" name="tel" autocomplete="email" required></div>
-      <div class="f full"><label for="msg">Mensaje</label><textarea id="msg" name="msg" required></textarea></div>
-      <label class="consent"><input type="checkbox" id="ok" required> Acepto que la Fundación Atenea use estos datos solo para responder mi mensaje.</label>
-      <div class="send"><button class="btn btn-main" type="submit">Enviar mensaje <span class="arrow">→</span></button><small id="status" role="status">Se abrirá tu aplicación de correo.</small></div>
-      <p class="help"><strong>¿Estás en peligro ahora?</strong> Llama a la Línea 100 (gratuita, 24 horas) o al 105 de la Policía Nacional.</p>
-    </form>
-  </div>
-</section>
-
+  <div class="f"><label for="nombre">Nombre</label><input id="nombre" name="nombre" autocomplete="name" required></div>
+  <div class="f"><label for="contacto">Teléfono o correo</label><input id="contacto" name="contacto" autocomplete="email" required></div>
+  <div class="f full"><label for="mensaje">Mensaje</label><textarea id="mensaje" name="mensaje" required></textarea></div>
+  <label class="consent"><input type="checkbox" name="ok" required> Autorizo el tratamiento de mis datos conforme a la Ley N.º 29733, solo para atender mi consulta.</label>
+  <div class="send"><button class="btn btn-main" type="submit">Enviar mensaje →</button><small role="status">Respondemos en 48 horas hábiles.</small></div>
+  <p class="callout" style="grid-column:1/-1;margin:0"><strong>¿Estás en peligro ahora?</strong> Llama a la Línea 100 (gratuita, 24 horas) o a la Policía al 105.</p>
+</form></div>
+</div></section>
 </main>
-
 <footer class="foot">
   <div class="wrap">
     <p class="big">Piura, <span>juntas</span><br>llegamos más lejos.</p>
     <div class="foot-cols">
-      <div><span class="logo-w"><img src="assets/logo-atenea-transparente.png" alt="Fundación Atenea"></span></div>
-      <div><h4>Fundación</h4><ul><li><a href="#programas">Programas</a></li><li><a href="#momentos">Momentos</a></li><li><a href="#estatuto">Estatuto</a></li></ul></div>
-      <div><h4>Participa</h4><ul><li><a href="#contacto">Voluntariado</a></li><li><a href="#contacto">Donaciones</a></li><li><a href="#contacto">Alianzas</a></li></ul></div>
-      <div><h4>Contacto</h4><ul><li>+51 900 000 000</li><li>hola@fundacionatenea.org</li><li>Piura, Perú</li></ul></div>
+      <div><span class="logo-w"><img src="assets/logo-atenea-transparente.png" alt="Fundación Atenea" width="135" height="52"></span></div>
+      <div><h4>Fundación</h4><ul><li><a href="nosotros.html">Nosotros</a></li><li><a href="programas.html">Programas</a></li><li><a href="historias.html">Historias</a></li><li><a href="transparencia.html">Transparencia y estatuto</a></li><li><a href="consultorias.html">Consultorías</a></li></ul></div>
+      <div><h4>Participa</h4><ul><li><a href="involucrate.html#donar">Donar</a></li><li><a href="involucrate.html#voluntariado">Voluntariado</a></li><li><a href="involucrate.html#alianzas">Alianzas</a></li><li><a href="contacto.html">Contacto</a></li></ul></div>
+      <div><h4>Contacto</h4><ul><li><a href="https://wa.me/51900000000">+51 900 000 000</a></li><li><a href="mailto:contacto@fundacionatenea.org">contacto@fundacionatenea.org</a></li><li>Jr. Circunvalación 1384, Piura</li><li>Lunes a viernes, 9:00 a 18:00</li></ul></div>
     </div>
-    <div class="legal"><span>© 2026 Fundación Atenea · RUC 20000000000</span><span>Datos de contacto ilustrativos</span></div>
+    <div class="legal">
+      <span>© 2026 Fundación Atenea · RUC 20000000000 · Datos ilustrativos</span>
+      <span><a href="privacidad.html">Privacidad</a> · <a href="terminos.html">Términos</a> · <a href="reclamaciones.html">Libro de Reclamaciones</a></span>
+    </div>
   </div>
 </footer>
-
-<script>
-// Mosaico del logo: cuadros estáticos en la paleta de la marca
-(function(){
-  var pal=['#C81E73','#EE827C','#F3BC81','#F6E08A','#A3CDF5','#69184B','#8A2BB0'];
-  function draw(id,base,seed){
-    var el=document.getElementById(id); if(!el) return;
-    var s=seed; function r(){s=(s*9301+49297)%233280;return s/233280}
-    for(var i=0;i<64;i++){
-      var t=document.createElement('i');
-      var v=r();
-      t.style.background=v<.45?'transparent':pal[Math.floor(r()*pal.length)];
-      t.style.opacity=v<.45?1:(.35+r()*.65).toFixed(2);
-      el.appendChild(t);
-    }
-  }
-  draw('t1','',7); draw('t2','',23);
-})();
-// Formulario: arma un correo (sin servidor en esta versión)
-document.getElementById('form').addEventListener('submit',function(e){
-  e.preventDefault();
-  var f=e.target, st=document.getElementById('status');
-  if(!f.nombre.value.trim()||!f.tel.value.trim()||!f.msg.value.trim()||!f.ok.checked){
-    st.textContent='Completa los campos y acepta el uso de datos.'; st.style.color='#C81E73'; return;
-  }
-  var m=f.querySelector('input[name=motivo]:checked').value;
-  var body='Nombre: '+f.nombre.value+'\nContacto: '+f.tel.value+'\n\n'+f.msg.value;
-  location.href='mailto:hola@fundacionatenea.org?subject='+encodeURIComponent(m)+'&body='+encodeURIComponent(body);
-  st.textContent='Abriendo tu correo…'; st.style.color='';
-});
-</script>
+<a class="wa" href="https://wa.me/51900000000" aria-label="Escríbenos por WhatsApp"><i></i><span>WhatsApp</span></a>
+<script src="assets/atenea.js"></script>
 </body>
 </html>

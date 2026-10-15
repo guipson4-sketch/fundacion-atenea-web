@@ -35,7 +35,11 @@ Sitio estático: se puede publicar en GitHub Pages, Netlify o Vercel sin compila
 
 ## Pendientes
 
-- WhatsApp y correo oficiales (pie de página).
+- Reemplazar datos ilustrativos: WhatsApp, correo, dirección, RUC, cuentas de donación,
+  nombres del equipo y testimonios (todos marcados como ilustrativos).
+- Quitar la franja amarilla «Versión de muestra» al publicar los datos oficiales.
+- Sustituir el resumen del estatuto por el texto inscrito en SUNARP.
+- Conectar los formularios a un servicio (Netlify Forms o Formspree); hoy abren el correo.
 - Canales de donación (Yape, Plin, cuenta bancaria) al concluir la inscripción.
 - Logo en SVG con fondo transparente y favicon.
 - Fotografías reales de las actividades (con consentimiento informado).
