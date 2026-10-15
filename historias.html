@@ -11,6 +11,8 @@
 <meta property="og:locale" content="es_PE">
 <meta name="theme-color" content="#3E0D2C">
 <link rel="icon" href="assets/logo-atenea-transparente.png">
+<link rel="canonical" href="https://ateneapiuraperu.org/historias">
+<meta property="og:url" content="https://ateneapiuraperu.org/historias">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&amp;display=swap" rel="stylesheet">
@@ -73,7 +75,8 @@
 
 <section class="sec bg-ink"><div class="wrap split">
   <div class="l"><p class="eyebrow"><b>·</b> Boletín</p><h2 class="h2-s" style="margin-top:28px">Buenas noticias <span class="ital cor">desde Piura.</span></h2><p class="lead" style="margin-top:24px">Una vez al mes: historias, avances y formas concretas de ayudar. Sin spam.</p></div>
-  <div class="r"><form class="form inline-form" data-mail="Suscripción al boletín" novalidate>
+  <div class="r"><form class="form inline-form" name="boletin" method="POST" data-netlify="true" netlify-honeypot="bot-field" data-mail="Suscripción al boletín" novalidate>
+    <input type="hidden" name="form-name" value="boletin"><p hidden><label>No llenar: <input name="bot-field"></label></p>
     <div class="f"><label for="bn">Nombre</label><input id="bn" name="nombre" autocomplete="name" required></div>
     <div class="f"><label for="be">Correo</label><input id="be" name="correo" type="email" autocomplete="email" required></div>
     <button class="btn btn-main" type="submit">Suscribirme</button>
@@ -89,7 +92,7 @@
       <div><span class="logo-w"><img src="assets/logo-atenea-blanco.png" alt="Fundación Atenea" width="166" height="64"></span></div>
       <div><h4>Fundación</h4><ul><li><a href="nosotros.html">Nosotros</a></li><li><a href="programas.html">Programas</a></li><li><a href="historias.html">Historias</a></li><li><a href="transparencia.html">Transparencia y estatuto</a></li><li><a href="consultorias.html">Consultorías</a></li></ul></div>
       <div><h4>Participa</h4><ul><li><a href="involucrate.html#donar">Donar</a></li><li><a href="involucrate.html#voluntariado">Voluntariado</a></li><li><a href="involucrate.html#alianzas">Alianzas</a></li><li><a href="contacto.html">Contacto</a></li></ul></div>
-      <div><h4>Contacto</h4><ul><li><a href="https://wa.me/51900000000">+51 900 000 000</a></li><li><a href="mailto:contacto@fundacionatenea.org">contacto@fundacionatenea.org</a></li><li>Jr. Circunvalación 1384, Piura</li><li>Lunes a viernes, 9:00 a 18:00</li></ul></div>
+      <div><h4>Contacto</h4><ul><li><a href="https://wa.me/51900000000">+51 900 000 000</a></li><li><a href="mailto:contacto@ateneapiuraperu.org">contacto@ateneapiuraperu.org</a></li><li>Jr. Circunvalación 1384, Piura</li><li>Lunes a viernes, 9:00 a 18:00</li></ul></div>
     </div>
     <div class="legal">
       <span>© 2026 Fundación Atenea · RUC 20000000000 · Datos ilustrativos</span>

@@ -11,6 +11,8 @@
 <meta property="og:locale" content="es_PE">
 <meta name="theme-color" content="#3E0D2C">
 <link rel="icon" href="assets/logo-atenea-transparente.png">
+<link rel="canonical" href="https://ateneapiuraperu.org/involucrate">
+<meta property="og:url" content="https://ateneapiuraperu.org/involucrate">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&amp;display=swap" rel="stylesheet">
@@ -45,6 +47,22 @@
     <div class="col"><span class="k">Transferencia BCP</span><h3 class="mono" style="font-size:22px">000-0000000-0-00</h3><p>Cuenta en soles<br>CCI <span class="mono">000-000-000000000000-00</span><br>Titular: Fundación Atenea</p></div>
     <div class="col"><span class="k">Constancia</span><h3>Envíanos tu comprobante</h3><p>Por WhatsApp o correo, con tu nombre y DNI o RUC, y te enviamos tu constancia.</p><p><a class="tlink" href="https://wa.me/51900000000">Enviar comprobante →</a></p></div>
   </div>
+  <div class="donate" id="donar-tarjeta">
+    <div><p class="eyebrow"><b>En línea</b> Tarjeta, Yape o PagoEfectivo</p><h3 class="h2-s" style="margin-top:16px">Dona en un minuto, <span class="ital">de forma segura.</span></h3>
+    <p class="muted" style="margin-top:16px">El pago se procesa en Mercado Pago; la fundación nunca ve los datos de tu tarjeta.</p></div>
+    <form class="form donate-form" novalidate>
+      <div class="f full"><span class="flabel" id="monto-l">Monto (S/)</span><div class="chips" role="radiogroup" aria-labelledby="monto-l">
+        <input type="radio" name="monto" id="d30" value="30"><label for="d30">S/ 30</label>
+        <input type="radio" name="monto" id="d60" value="60" checked><label for="d60">S/ 60</label>
+        <input type="radio" name="monto" id="d120" value="120"><label for="d120">S/ 120</label>
+        <input type="radio" name="monto" id="d250" value="250"><label for="d250">S/ 250</label>
+        <input type="radio" name="monto" id="dotro" value="otro"><label for="dotro">Otro</label></div></div>
+      <div class="f full otro" hidden><label for="dmonto">Otro monto (S/)</label><input id="dmonto" name="otro" type="number" min="5" max="20000" step="1" inputmode="numeric"></div>
+      <div class="f"><label for="dnombre">Nombre (opcional)</label><input id="dnombre" name="nombre" autocomplete="name"></div>
+      <div class="f"><label for="demail">Correo para tu constancia</label><input id="demail" name="email" type="email" autocomplete="email"></div>
+      <div class="send"><button class="btn btn-main" type="submit">Donar ahora →</button><small role="status"></small></div>
+    </form>
+  </div>
   <p class="callout"><strong>Aviso:</strong> no pedimos donaciones por llamadas ni a cuentas personales. Números de cuenta ilustrativos.</p>
 </div></section>
 
@@ -76,7 +94,8 @@
 </div></section>
 <section class="sec bg-ink"><div class="wrap split">
   <div class="l"><p class="eyebrow"><b>·</b> Boletín</p><h2 class="h2-s" style="margin-top:28px">Buenas noticias <span class="ital cor">desde Piura.</span></h2><p class="lead" style="margin-top:24px">Una vez al mes: historias, avances y formas concretas de ayudar. Sin spam.</p></div>
-  <div class="r"><form class="form inline-form" data-mail="Suscripción al boletín" novalidate>
+  <div class="r"><form class="form inline-form" name="boletin" method="POST" data-netlify="true" netlify-honeypot="bot-field" data-mail="Suscripción al boletín" novalidate>
+    <input type="hidden" name="form-name" value="boletin"><p hidden><label>No llenar: <input name="bot-field"></label></p>
     <div class="f"><label for="bn">Nombre</label><input id="bn" name="nombre" autocomplete="name" required></div>
     <div class="f"><label for="be">Correo</label><input id="be" name="correo" type="email" autocomplete="email" required></div>
     <button class="btn btn-main" type="submit">Suscribirme</button>
@@ -92,7 +111,7 @@
       <div><span class="logo-w"><img src="assets/logo-atenea-blanco.png" alt="Fundación Atenea" width="166" height="64"></span></div>
       <div><h4>Fundación</h4><ul><li><a href="nosotros.html">Nosotros</a></li><li><a href="programas.html">Programas</a></li><li><a href="historias.html">Historias</a></li><li><a href="transparencia.html">Transparencia y estatuto</a></li><li><a href="consultorias.html">Consultorías</a></li></ul></div>
       <div><h4>Participa</h4><ul><li><a href="involucrate.html#donar">Donar</a></li><li><a href="involucrate.html#voluntariado">Voluntariado</a></li><li><a href="involucrate.html#alianzas">Alianzas</a></li><li><a href="contacto.html">Contacto</a></li></ul></div>
-      <div><h4>Contacto</h4><ul><li><a href="https://wa.me/51900000000">+51 900 000 000</a></li><li><a href="mailto:contacto@fundacionatenea.org">contacto@fundacionatenea.org</a></li><li>Jr. Circunvalación 1384, Piura</li><li>Lunes a viernes, 9:00 a 18:00</li></ul></div>
+      <div><h4>Contacto</h4><ul><li><a href="https://wa.me/51900000000">+51 900 000 000</a></li><li><a href="mailto:contacto@ateneapiuraperu.org">contacto@ateneapiuraperu.org</a></li><li>Jr. Circunvalación 1384, Piura</li><li>Lunes a viernes, 9:00 a 18:00</li></ul></div>
     </div>
     <div class="legal">
       <span>© 2026 Fundación Atenea · RUC 20000000000 · Datos ilustrativos</span>

@@ -114,3 +114,11 @@ Las actuales son de banco de imágenes y provisionales.
 
 Fotografías de muestra: Unsplash (licencia Unsplash, uso libre). Sustituir por fotos propias con
 consentimiento informado antes del lanzamiento oficial.
+
+## Dominio, formularios y donaciones
+
+- Dominio oficial: **ateneapiuraperu.org** (DNS en Squarespace Domains; correo en Google Workspace).
+- Formularios (contacto, boletín, reclamaciones): **Netlify Forms** → panel de Netlify > Forms, con aviso por correo.
+- Donaciones en línea: **Mercado Pago Checkout Pro** (`netlify/functions/donar.mjs`). Requiere la variable
+  `MP_ACCESS_TOKEN` (credencial de producción de la cuenta de Mercado Pago de la fundación). Sin ella, el
+  formulario indica usar Yape, Plin o transferencia.

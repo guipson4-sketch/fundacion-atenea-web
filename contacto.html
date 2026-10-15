@@ -11,6 +11,8 @@
 <meta property="og:locale" content="es_PE">
 <meta name="theme-color" content="#3E0D2C">
 <link rel="icon" href="assets/logo-atenea-transparente.png">
+<link rel="canonical" href="https://ateneapiuraperu.org/contacto">
+<meta property="og:url" content="https://ateneapiuraperu.org/contacto">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&amp;display=swap" rel="stylesheet">
@@ -43,14 +45,15 @@
     <p class="eyebrow"><b>01</b> Datos de contacto</p>
     <dl class="kv" style="margin-top:32px">
       <div><dt>WhatsApp</dt><dd><a href="https://wa.me/51900000000">+51 900 000 000</a></dd></div>
-      <div><dt>Correo</dt><dd><a href="mailto:contacto@fundacionatenea.org">contacto@fundacionatenea.org</a></dd></div>
+      <div><dt>Correo</dt><dd><a href="mailto:contacto@ateneapiuraperu.org">contacto@ateneapiuraperu.org</a></dd></div>
       <div><dt>Sede</dt><dd>Jr. Circunvalación 1384, Piura · Perú</dd></div>
       <div><dt>Atención</dt><dd>Lunes a viernes, 9:00 a 18:00</dd></div>
       <div><dt>RUC</dt><dd class="mono">20000000000</dd></div>
     </dl>
     <p class="note">Datos ilustrativos de la versión de muestra.</p>
   </div>
-  <div class="r"><p class="eyebrow" style="margin-bottom:32px"><b>02</b> Formulario</p><form class="form" data-mail="Consulta desde la web" novalidate>
+  <div class="r"><p class="eyebrow" style="margin-bottom:32px"><b>02</b> Formulario</p><form class="form" name="contacto" method="POST" data-netlify="true" netlify-honeypot="bot-field" data-mail="Consulta desde la web" novalidate>
+  <input type="hidden" name="form-name" value="contacto"><p hidden><label>No llenar: <input name="bot-field"></label></p>
   <div class="f full"><span class="flabel" id="motivo-l">Motivo</span>
     <div class="chips" role="radiogroup" aria-labelledby="motivo-l">
       <input type="radio" name="motivo" id="m1" value="Necesito ayuda" checked><label for="m1">Necesito ayuda</label>
@@ -63,7 +66,7 @@
   <div class="f"><label for="nombre">Nombre</label><input id="nombre" name="nombre" autocomplete="name" required></div>
   <div class="f"><label for="contacto">Teléfono o correo</label><input id="contacto" name="contacto" autocomplete="email" required></div>
   <div class="f full"><label for="mensaje">Mensaje</label><textarea id="mensaje" name="mensaje" required></textarea></div>
-  <label class="consent"><input type="checkbox" name="ok" required> Autorizo el tratamiento de mis datos conforme a la Ley N.º 29733, solo para atender mi consulta.</label>
+  <label class="consent"><input type="checkbox" name="autorizo" value="si" required> Autorizo el tratamiento de mis datos conforme a la Ley N.º 29733, solo para atender mi consulta.</label>
   <div class="send"><button class="btn btn-main" type="submit">Enviar mensaje →</button><small role="status">Respondemos en 48 horas hábiles.</small></div>
   <p class="callout" style="grid-column:1/-1;margin:0"><strong>¿Estás en peligro ahora?</strong> Llama a la Línea 100 (gratuita, 24 horas) o a la Policía al 105.</p>
 </form></div>
@@ -76,7 +79,7 @@
       <div><span class="logo-w"><img src="assets/logo-atenea-blanco.png" alt="Fundación Atenea" width="166" height="64"></span></div>
       <div><h4>Fundación</h4><ul><li><a href="nosotros.html">Nosotros</a></li><li><a href="programas.html">Programas</a></li><li><a href="historias.html">Historias</a></li><li><a href="transparencia.html">Transparencia y estatuto</a></li><li><a href="consultorias.html">Consultorías</a></li></ul></div>
       <div><h4>Participa</h4><ul><li><a href="involucrate.html#donar">Donar</a></li><li><a href="involucrate.html#voluntariado">Voluntariado</a></li><li><a href="involucrate.html#alianzas">Alianzas</a></li><li><a href="contacto.html">Contacto</a></li></ul></div>
-      <div><h4>Contacto</h4><ul><li><a href="https://wa.me/51900000000">+51 900 000 000</a></li><li><a href="mailto:contacto@fundacionatenea.org">contacto@fundacionatenea.org</a></li><li>Jr. Circunvalación 1384, Piura</li><li>Lunes a viernes, 9:00 a 18:00</li></ul></div>
+      <div><h4>Contacto</h4><ul><li><a href="https://wa.me/51900000000">+51 900 000 000</a></li><li><a href="mailto:contacto@ateneapiuraperu.org">contacto@ateneapiuraperu.org</a></li><li>Jr. Circunvalación 1384, Piura</li><li>Lunes a viernes, 9:00 a 18:00</li></ul></div>
     </div>
     <div class="legal">
       <span>© 2026 Fundación Atenea · RUC 20000000000 · Datos ilustrativos</span>

@@ -13,22 +13,50 @@
     }
   });
 
-  // Formularios: en esta versión no hay servidor; se arma un correo.
-  var MAIL='contacto@fundacionatenea.org';
+  // Formularios: se guardan en Netlify Forms (panel + aviso por correo).
+  // Si el envío falla (p. ej. al abrir el archivo localmente), se ofrece el correo como respaldo.
+  var MAIL='contacto@ateneapiuraperu.org';
   document.querySelectorAll('form[data-mail]').forEach(function(f){
     f.addEventListener('submit',function(e){
       e.preventDefault();
-      var st=f.querySelector('[role=status]');
+      var st=f.querySelector('[role=status]'), btn=f.querySelector('button[type=submit]');
       if(!f.checkValidity()){
-        if(st){st.textContent='Completa los campos obligatorios.';st.style.color='#C81E73'}
+        if(st){st.textContent='Completa los campos obligatorios.';st.style.color='#D6287F'}
         f.reportValidity(); return;
       }
-      var lines=[];
-      new FormData(f).forEach(function(v,k){ if(k!=='ok') lines.push(k+': '+v) });
-      var subject=f.getAttribute('data-mail');
-      var m=f.querySelector('input[name=motivo]:checked'); if(m) subject=m.value;
-      location.href='mailto:'+MAIL+'?subject='+encodeURIComponent(subject)+'&body='+encodeURIComponent(lines.join('\n'));
-      if(st){st.textContent='Abriendo tu aplicación de correo…';st.style.color=''}
+      var data=new FormData(f);
+      if(btn) btn.disabled=true;
+      if(st){st.textContent='Enviando…';st.style.color=''}
+      fetch('/',{method:'POST',headers:{'Content-Type':'application/x-www-form-urlencoded'},body:new URLSearchParams(data).toString()})
+        .then(function(r){
+          if(!r.ok) throw new Error(r.status);
+          f.reset();
+          if(st){st.textContent='¡Gracias! Recibimos tu mensaje y te responderemos pronto.';st.style.color='#1F7A4D'}
+        })
+        .catch(function(){
+          var lines=[]; data.forEach(function(v,k){ if(['form-name','bot-field','autorizo'].indexOf(k)<0) lines.push(k+': '+v) });
+          var subject=f.getAttribute('data-mail'), m=f.querySelector('input[name=motivo]:checked'); if(m) subject=m.value;
+          location.href='mailto:'+MAIL+'?subject='+encodeURIComponent(subject)+'&body='+encodeURIComponent(lines.join('\n'));
+          if(st){st.textContent='Abriendo tu aplicación de correo…'}
+        })
+        .finally(function(){ if(btn) btn.disabled=false });
+    });
+  });
+
+  // Donaciones en línea (Mercado Pago vía /api/donar)
+  document.querySelectorAll('.donate-form').forEach(function(f){
+    var otro=f.querySelector('.otro');
+    f.addEventListener('change',function(){ var c=f.querySelector('input[name=monto]:checked'); otro.hidden=!(c&&c.value==='otro') });
+    f.addEventListener('submit',function(e){
+      e.preventDefault();
+      var st=f.querySelector('[role=status]'), btn=f.querySelector('button');
+      var c=f.querySelector('input[name=monto]:checked'), monto=c&&c.value==='otro'?f.otro.value:(c&&c.value);
+      if(!monto||Number(monto)<5){ st.textContent='Elige o escribe un monto desde S/ 5.'; st.style.color='#D6287F'; return }
+      btn.disabled=true; st.textContent='Conectando con la pasarela segura…'; st.style.color='';
+      fetch('/api/donar',{method:'POST',headers:{'content-type':'application/json'},body:JSON.stringify({monto:monto,nombre:f.nombre.value,email:f.email.value})})
+        .then(function(r){return r.json().catch(function(){return {}}).then(function(d){return {ok:r.ok,d:d}})})
+        .then(function(x){ if(x.ok&&x.d.url){location.href=x.d.url;return} st.textContent=(x.d&&x.d.error)||'No pudimos iniciar el pago. Intenta de nuevo o dona por Yape.'; st.style.color='#D6287F'; btn.disabled=false })
+        .catch(function(){ st.textContent='Sin conexión. Intenta de nuevo o dona por Yape.'; st.style.color='#D6287F'; btn.disabled=false });
     });
   });
 })();

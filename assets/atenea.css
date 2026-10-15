@@ -599,3 +599,8 @@ html.anim .phero h1{animation:hero-up .9s cubic-bezier(.2,.7,.2,1) .05s both}
 .top{transition:box-shadow .3s}
 .top.scrolled{box-shadow:0 10px 30px -18px rgba(105,24,75,.35)}
 @media (prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}}
+/* donación en línea */
+.donate{margin-top:48px;display:grid;grid-template-columns:5fr 7fr;gap:48px;align-items:start;background:#fff;border:1px solid var(--line);border-radius:var(--r);box-shadow:var(--shadow);padding:40px;position:relative;overflow:hidden}
+.donate::before{content:"";position:absolute;left:0;right:0;top:0;height:4px;background:var(--mosaico-full)}
+.donate .send small{font-size:14px}
+@media (max-width:960px){.donate{grid-template-columns:1fr;padding:28px;gap:28px}}
