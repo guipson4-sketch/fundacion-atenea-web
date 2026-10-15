@@ -73,7 +73,11 @@ El chat de la esquina inferior derecha responde dudas sobre la fundación con la
 La clave **nunca** llega al navegador: la página llama a `/api/chat`, una función de Netlify
 (`netlify/functions/chat.mjs`) que añade la clave y consulta a Gemini.
 
-Puesta en marcha:
+Publicado en https://fundacion-atenea.netlify.app. Hoy funciona con **Netlify AI Gateway**: Netlify
+inyecta la clave de Gemini automáticamente y el consumo se descuenta de los créditos gratuitos de
+Netlify. Para usar en su lugar el plan gratuito de Google, añade tu propia `GEMINI_API_KEY`.
+
+Puesta en marcha con clave propia:
 1. Crea una clave gratuita en Google AI Studio (aistudio.google.com → Get API key).
 2. Publica el repositorio en Netlify (Add new site → Import from GitHub). `netlify.toml` ya está configurado.
 3. En Netlify → Site configuration → Environment variables, añade:
