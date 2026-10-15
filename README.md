@@ -111,3 +111,6 @@ el archivo conservando el nombre (JPG horizontal 3:2, mínimo 1600 px de ancho):
 | `voluntariado.jpg` | Nosotros, Involúcrate |
 
 Las actuales son de banco de imágenes y provisionales.
+
+Fotografías de muestra: Unsplash (licencia Unsplash, uso libre). Sustituir por fotos propias con
+consentimiento informado antes del lanzamiento oficial.
