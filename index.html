@@ -15,670 +15,703 @@
 <meta name="theme-color" content="#4A1035">
 <link rel="icon" href="assets/logo-atenea.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700;12..96,800&amp;family=Hanken+Grotesk:wght@400;500;600;700&amp;display=swap" rel="stylesheet">
 <style>
-body{margin:0;background:#FFF6FA}
-a{color:#4A1035}a:hover{color:#C81E73}
-.nav-link{color:#4A1035;text-decoration:none;font-size:15px;letter-spacing:.02em;padding:10px 4px;border-bottom:2px solid transparent}
-.nav-link:hover{color:#4A1035;border-bottom-color:#C81E73}
-.btn{display:inline-flex;align-items:center;justify-content:center;gap:10px;min-height:52px;padding:0 28px;font-family:'Hanken Grotesk',sans-serif;font-weight:350;font-size:16px;letter-spacing:.06em;text-transform:uppercase;text-decoration:none;border-radius:20px;transition:transform .2s ease,background .2s ease}
-.btn:hover{transform:translateY(-2px)}
-.btn-primary{background:#C81E73;color:#FFFFFF}.btn-primary:hover{background:#2E0A22;color:#FFFFFF}
-.btn-outline{background:transparent;color:#4A1035;box-shadow:inset 0 0 0 2px #4A1035}.btn-outline:hover{background:#4A1035;color:#FFFFFF}
-.btn-light{background:#FFFFFF;color:#4A1035}.btn-light:hover{background:#C81E73;color:#2E0A22}
-.card{border-radius:20px;transition:transform .25s ease,box-shadow .25s ease}
-.btn{border-radius:20px}
-.teaser img{transition:transform .3s ease}.teaser:hover img{transform:scale(1.03)}
-@media (max-width:640px){.hero-photo{inset:0!important;width:100%!important;border-radius:20px}.hero-stat{width:200px!important;padding:16px!important}.hero-stat p{font-size:13px!important}.hero-stat div{font-size:42px!important}.teaser{flex-direction:column;align-items:flex-start!important}.teaser img{width:100%!important}}
-.card:hover{transform:translateY(-4px);box-shadow:none}
-.link-arrow{font-weight:600;text-decoration:none;letter-spacing:.04em}
-.foot-link{color:#F7E6EF;text-decoration:none}.foot-link:hover{color:#C81E73}
-</style>
-<style>html{scroll-behavior:smooth}img{max-width:100%}</style>
-<style>
-.menu-btn{display:none;background:none;border:0;padding:10px;cursor:pointer;color:#4A1035}
-@media (max-width:1100px){.menu-btn{display:block}.main-nav,.head-cta{display:none!important;width:100%}
-header.open .main-nav{display:flex!important;flex-direction:column;align-items:stretch!important;padding:8px 0}
-header.open .head-cta{display:flex!important;padding-bottom:12px}
-header.open .main-nav .nav-link{padding:14px 4px;border-bottom:1px solid #EFD9E6}}
-.reveal{opacity:0;transform:translateY(24px);transition:opacity .7s ease,transform .7s ease}.reveal.is-in{opacity:1;transform:none}
-@media (prefers-reduced-motion:reduce){.reveal{opacity:1;transform:none;transition:none}html{scroll-behavior:auto}}
-.tag{display:inline-block;font-size:12px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:#C81E73}
-.story img{transition:transform .4s ease}.story:hover img{transform:scale(1.04)}
-details.faq{border-bottom:1px solid #EFD9E6;padding:6px 0}
-details.faq summary{list-style:none;cursor:pointer;display:flex;justify-content:space-between;gap:24px;align-items:center;padding:20px 0;font-family:'Bricolage Grotesque',serif;font-size:26px;font-weight:350;color:#4A1035}
-details.faq summary::-webkit-details-marker{display:none}
-details.faq summary::after{content:"+";font-family:'Hanken Grotesk',sans-serif;font-size:28px;color:#C81E73;transition:transform .25s}
-details.faq[open] summary::after{transform:rotate(45deg)}
-details.faq p,details.story-more p{margin:0 0 20px;font-size:17px;line-height:1.7;color:#5A3550}
-details.story-more summary{cursor:pointer;font-weight:350;color:#4A1035;letter-spacing:.04em;list-style:none;border-bottom:2px solid #C81E73;display:inline-block;margin-top:8px}
-details.story-more summary::-webkit-details-marker{display:none}
-details.story-more[open] summary{margin-bottom:14px}
-.news-input{height:52px;padding:0 16px;border:1px solid #E5CBDA;border-radius:20px;font-family:'Hanken Grotesk',sans-serif;font-size:16px;background:#fff;width:100%;box-sizing:border-box}
-.to-top{position:fixed;right:20px;bottom:20px;width:48px;height:48px;border-radius:50%;border:0;background:#4A1035;color:#fff;font-size:22px;cursor:pointer;opacity:0;pointer-events:none;transition:opacity .3s;z-index:20;box-shadow:none}
-.to-top.show{opacity:1;pointer-events:auto}
-:focus-visible{outline:3px solid #C81E73;outline-offset:3px}
-
-.draft-bar{background:#C81E73;color:#2E0A22;text-align:center;font-size:13px;letter-spacing:.04em;padding:7px 16px}
-.wa-float{font-family:'Hanken Grotesk',sans-serif;position:fixed;left:20px;bottom:20px;z-index:20;display:flex;align-items:center;gap:10px;background:#4A1035;color:#fff;text-decoration:none;font-weight:700;padding:12px 18px 12px 14px;border-radius:999px;box-shadow:none}
-.wa-float:hover{color:#fff;transform:translateY(-2px)}
-@media (max-width:640px){.wa-float span{display:none}.wa-float{padding:14px}}
-.social a{width:40px;height:40px;border-radius:50%;display:inline-flex;align-items:center;justify-content:center;background:rgba(255,255,255,.08);color:#F7E6EF}
-.social a:hover{background:#4A1035;color:#fff}
-.stat-n{font-family:'Bricolage Grotesque',serif;font-weight:350;font-size:clamp(48px,5vw,72px);line-height:1;color:#4A1035}
-.member img{transition:transform .4s ease}.member:hover img{transform:scale(1.04)}
-.partner{height:96px;border:1px solid #EFD9E6;border-radius:20px;display:flex;align-items:center;justify-content:center;gap:10px;color:#6E4A62;font-weight:350;letter-spacing:.06em;font-size:14px;text-transform:uppercase;background:#fff;filter:grayscale(1);transition:filter .3s,color .3s}
-.partner:hover{filter:none;color:#4A1035}
-.legal h2{font-family:'Bricolage Grotesque',serif;font-size:32px;color:#4A1035;margin:40px 0 12px}
-.legal p,.legal li{font-size:17px;line-height:1.75;color:#4A1035}
-.prog{position:relative;background:#fff;border:1px solid #EFD9E6;border-radius:20px;overflow:hidden;display:flex;flex-direction:column;transition:transform .3s ease,box-shadow .3s ease}
-.prog:hover{transform:translateY(-6px);box-shadow:none}
-.prog-media{position:relative;aspect-ratio:16/11;overflow:hidden}
-.prog-media img{width:100%;height:100%;object-fit:cover;display:block;transition:transform .5s ease}
-.prog:hover .prog-media img{transform:scale(1.06)}
-.prog-media::after{content:"";position:absolute;inset:0;background:linear-gradient(200deg,rgba(74,16,53,.55) 0%,rgba(74,16,53,0) 35%)}
-.prog-num{position:absolute;right:16px;top:14px;z-index:1;font-family:'Bricolage Grotesque',serif;font-size:30px;font-weight:350;color:#fff;text-shadow:0 2px 10px rgba(0,0,0,.35)}
-.prog-icon{position:relative;margin:-32px 0 0 24px;flex-shrink:0;width:64px;height:64px;border-radius:20px;display:flex;align-items:center;justify-content:center;color:#fff;background:var(--c);box-shadow:none;z-index:2;transition:transform .3s ease}
-.prog:hover .prog-icon{transform:rotate(-6deg) scale(1.05)}
-.prog-body{padding:20px 26px 28px;display:flex;flex-direction:column;gap:12px;flex-grow:1}
-.prog-body h3{font-family:'Bricolage Grotesque',serif;font-size:29px;line-height:1.1;font-weight:350;color:#4A1035;margin:0}
-.prog-body p{margin:0;font-size:16px;line-height:1.65;color:#5A3550;flex-grow:1}
-.prog-link{display:inline-flex;align-items:center;gap:8px;font-weight:600;letter-spacing:.04em;text-decoration:none;color:#4A1035;margin-top:6px}
-.prog-link svg{transition:transform .25s}.prog:hover .prog-link svg{transform:translateX(5px)}
-.ico{flex-shrink:0;width:48px;height:48px;border-radius:20px;display:inline-flex;align-items:center;justify-content:center;color:var(--c);background:color-mix(in srgb,var(--c) 12%,#fff);box-shadow:inset 0 0 0 1px color-mix(in srgb,var(--c) 18%,transparent)}
-.ico-lg{width:60px;height:60px;border-radius:20px}
-.ico-sm{width:30px;height:30px;border-radius:20px}.ico-sm svg{width:17px;height:17px}
-.a11y{display:inline-flex;align-items:center;gap:6px}
-.a11y button{background:transparent;border:1px solid rgba(255,255,255,.35);color:#fff;border-radius:20px;min-width:34px;height:28px;padding:0 8px;font:600 13px 'Hanken Grotesk',sans-serif;cursor:pointer}
-.a11y button:hover,.a11y button[aria-pressed="true"]{background:#C81E73;color:#2E0A22;border-color:#C81E73}
-html.hc #site{filter:contrast(1.35) saturate(.85)}
-html.hc #site p,html.hc #site li{color:#2E0A22!important}
-.step-n{font-family:'Bricolage Grotesque',serif;font-size:44px;line-height:1;color:#C81E73}
-#mapa{height:460px;border-radius:20px;z-index:0}
-.leaflet-popup-content{font-family:'Hanken Grotesk',sans-serif}
-.hero-v{position:relative;overflow:hidden;min-height:min(92vh,860px);display:flex;align-items:center;background:#4A1035;color:#fff}
-.hero-video{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
-.hero-shade{position:absolute;inset:0;background:linear-gradient(90deg,rgba(74,16,53,.92) 0%,rgba(74,16,53,.72) 45%,rgba(74,16,53,.25) 100%)}
-.hero-inner{position:relative;z-index:1;width:100%;max-width:1200px;margin:0 auto;padding:96px 32px 112px;display:flex;flex-wrap:wrap;gap:48px;align-items:center;justify-content:space-between;box-sizing:border-box}
-.hero-copy{flex:1 1 520px;min-width:0;max-width:640px}
-.hero-eyebrow{display:inline-flex;align-items:center;gap:12px;font-size:14px;font-weight:350;letter-spacing:.18em;text-transform:uppercase;color:#C81E73;margin-bottom:26px}
-.hero-eyebrow .dots{display:inline-flex;gap:4px}.hero-eyebrow i{width:10px;height:10px;display:block}
-.hero-v h1{font-family:'Bricolage Grotesque',serif;font-weight:350;font-size:clamp(42px,5.4vw,76px);line-height:1.02;letter-spacing:-.01em;margin:0 0 26px;color:#fff}
-.hero-v .hero-copy>p{font-size:20px;line-height:1.6;color:#F7E6EF;margin:0 0 38px;max-width:560px}
-.btn-ghost{background:transparent;color:#fff;box-shadow:inset 0 0 0 2px rgba(255,255,255,.75)}.btn-ghost:hover{background:#fff;color:#4A1035}
-.hero-trust{display:flex;flex-wrap:wrap;gap:10px 28px;margin-top:40px;padding-top:24px;border-top:1px solid rgba(255,255,255,.2);font-size:15px;color:#F7E6EF}
-.hero-cards{flex:0 1 320px;display:flex;flex-direction:column;gap:18px}
-.hero-card{background:rgba(255,255,255,.94);color:#4A1035;border-radius:20px;padding:24px 26px 20px;border-top:4px solid #C81E73;box-shadow:none;backdrop-filter:blur(6px)}
-.hero-card.dark{background:rgba(74,16,53,.88);color:#fff;border-top-color:#C81E73}
-.hero-card div{font-size:52px!important;margin:8px 0 6px!important}
-.hero-toggle{position:absolute;right:24px;bottom:24px;z-index:2;width:40px;height:40px;border-radius:50%;border:1px solid rgba(255,255,255,.5);background:rgba(0,0,0,.25);color:#fff;cursor:pointer;display:flex;align-items:center;justify-content:center}
-.hero-scroll{position:absolute;left:50%;bottom:20px;transform:translateX(-50%);z-index:2;color:#fff;opacity:.8;animation:bob 2s ease-in-out infinite}
-@keyframes bob{50%{transform:translate(-50%,6px)}}
-@media (max-width:700px){.hero-cards{flex-basis:100%}.hero-shade{background:linear-gradient(180deg,rgba(74,16,53,.85),rgba(74,16,53,.8))}.hero-inner{padding:64px 20px 96px}}
-@media (prefers-reduced-motion:reduce){.hero-scroll{animation:none}}
-/* === Ajustes para celulares === */
-@media (max-width:640px){
-.draft-bar{font-size:11px;padding:5px 12px}
-.hide-m,.a11y>span:first-child{display:none!important}
-#site>div:nth-of-type(2)>div{padding:8px 16px!important;font-size:13px!important;gap:6px 12px!important}
-header>div{padding:8px 16px!important}header img{height:52px!important}
-section>div{padding-left:18px!important;padding-right:18px!important}
-[style*="padding: 112px"],[style*="padding: 104px"],[style*="padding: 120px"],[style*="padding: 96px"],[style*="padding: 88px"],[style*="padding:96px"],[style*="padding:88px"],[style*="padding:80px"]{padding-top:60px!important;padding-bottom:60px!important}
-[style*="margin-bottom: 56px"]{margin-bottom:32px!important}
-h2{font-size:clamp(30px,8.4vw,40px)!important}
-[style*="minmax(180px, 1fr)"],[style*="minmax(170px, 1fr)"]{grid-template-columns:1fr 1fr!important;gap:14px!important}
-.partner{height:72px;font-size:11px;padding:0 8px;text-align:center}
-.stat-n{font-size:44px}
-[style*="minmax(240px, 1fr)); gap: 2px"]{grid-template-columns:1fr 1fr!important}
-[style*="minmax(240px, 1fr)); gap: 2px"]>div{padding:22px 14px!important}[style*="minmax(240px, 1fr)); gap: 2px"] p{font-size:13.5px!important}
-[style*="minmax(240px, 1fr)); gap: 2px"]>div [style*="font-size: 64px"]{font-size:40px!important}
-.hero-v{min-height:auto}
-.hero-inner{padding:48px 18px 84px!important;gap:28px!important}
-.hero-v h1{font-size:38px}
-.hero-v .hero-copy>p{font-size:17px;margin-bottom:28px}
-.hero-v .btn{flex:1 1 100%}
-.hero-trust{margin-top:28px;font-size:14px}
-.hero-cards{display:grid!important;grid-template-columns:1fr 1fr;gap:10px!important}
-.hero-card{padding:16px 14px 14px;border-radius:20px}
-.hero-card div{font-size:34px!important;margin:6px 0 4px!important}
-.hero-card p{font-size:12.5px!important;line-height:1.4!important;margin:0!important}
-.hero-card>span:last-child{display:none}
-.hero-card>span:first-child{font-size:10px!important;letter-spacing:.1em!important}
-.prog-body h3{font-size:26px}
-.btn{min-height:48px;padding:0 20px;font-size:14px}
-.wa-float{left:14px;bottom:14px}.to-top{right:14px;bottom:14px}
-details.faq summary{font-size:21px}
-#mapa{height:340px}
-[style*="repeat(2, minmax(0, 1fr)); gap: 20px"]{grid-template-columns:1fr!important}
-#equipo [style*="minmax(240px, 1fr)); gap: 32px"]{grid-template-columns:1fr 1fr!important;gap:18px!important}
-#equipo h3{font-size:20px!important}#equipo .member p{font-size:13px!important}
-img[style*="height: 520px"]{height:260px!important;border-radius:20px}
-.legal{padding-top:40px!important}
+:root{
+  --ink:#2E0A22; --plum:#4A1035; --brand:#69184B; --magenta:#C81E73; --violet:#8A2BB0;
+  --coral:#EE827C; --amber:#F3BC81; --butter:#F6E08A; --sky:#A3CDF5;
+  --paper:#FFFFFF; --blush:#FFF6FA; --wash:#F7E6EF; --lilac:#EBD6F3; --peach:#FBE3CC; --skywash:#DCEBFB;
+  --text:#3A1530; --muted:#5A3550; --line:rgba(74,16,53,.14);
+  --display:'Bricolage Grotesque',ui-sans-serif,system-ui,sans-serif;
+  --body:'Hanken Grotesk',ui-sans-serif,system-ui,sans-serif;
+  --r-card:28px; --r-pill:9999px;
 }
-.nav-link.active{color:#C81E73;border-bottom-color:#C81E73}
-</style>
-<style id="tema-editorial">
-:root{--ink:#4A1035;--paper:#ffffff;--cream:#F7E6EF;--linen:#FFF6FA;--stone:#D9BCCD;--hair:#EFD9E6;--espresso:#2E0A22;--cobble:#E5CBDA;--orange:#C81E73}
-html,body{background:var(--cream)}
-body{color:var(--ink);font-family:'Hanken Grotesk',system-ui,sans-serif;letter-spacing:.01em;-webkit-font-smoothing:antialiased}
-#site{background:var(--cream)!important;font-family:'Hanken Grotesk',system-ui,sans-serif!important}
-h1,h2,h3,blockquote{font-variation-settings:"opsz" 96}
-h1,h2{font-weight:350!important;letter-spacing:-.01em}
-h3[style*="Bricolage"],.prog-body h3,.stat-n{font-weight:400!important}
-a{color:var(--ink);text-decoration-color:var(--orange)}a:hover{color:var(--ink)}
-.link-arrow,.prog-link{color:var(--ink)!important;text-decoration:underline;text-decoration-color:var(--orange);text-underline-offset:5px;text-decoration-thickness:1px}
-/* botones: tinta plana, sin elevación */
-.btn{font-family:'Hanken Grotesk',sans-serif!important;font-weight:500!important;font-size:14px!important;letter-spacing:.01em!important;text-transform:none!important;border-radius:20px!important;min-height:46px;padding:0 20px;transition:background .2s,color .2s!important}
-.btn:hover{transform:none!important}
-.btn-primary{background:var(--ink)!important;color:#fff!important}.btn-primary:hover{background:#2E0A22!important}
-.btn-outline{background:transparent!important;color:var(--ink)!important;box-shadow:inset 0 0 0 1px var(--ink)!important}.btn-outline:hover{box-shadow:inset 0 0 0 1px var(--orange)!important}
-.btn-light{background:#fff!important;color:var(--ink)!important}.btn-light:hover{box-shadow:inset 0 0 0 1px var(--orange)!important}
-.btn-ghost{background:transparent!important;color:var(--ink)!important;box-shadow:inset 0 0 0 1px var(--ink)!important}
-/* tarjetas planas sobre papel */
-.card,.prog,.member,.partner,.hero-card,article.card{box-shadow:none!important;transform:none!important}
-.card:hover,.prog:hover{transform:none!important;box-shadow:none!important;border-color:var(--orange)!important}
-.prog{border:1px solid var(--hair)!important;border-radius:0!important}
-.prog:hover .prog-media img,.story:hover img,.member:hover img,.teaser:hover img{transform:none!important}
-.prog-media::after{background:none!important}
-.prog-num{color:#fff;font-family:'Bricolage Grotesque',serif!important;font-weight:350!important}
-.prog-icon{background:#fff!important;color:var(--ink)!important;border:1px solid var(--orange);box-shadow:none!important;border-radius:20px!important;transform:none!important}
-.ico{background:#fff!important;color:var(--ink)!important;box-shadow:none!important;border:1px solid var(--orange);border-radius:20px!important}
-.ico-sm{border-color:var(--hair)}
-.partner{filter:none;border:1px solid var(--hair)!important;border-radius:0!important;color:var(--stone)}.partner:hover{color:var(--ink);border-color:var(--orange)!important}
-/* barras superiores */
-.draft-bar{background:var(--espresso)!important;color:var(--orange)!important;border-bottom:1px solid #5A1D45}
-#site>div:nth-of-type(2){background:var(--espresso)!important}
-#site>div:nth-of-type(2) strong{color:var(--orange)}
-.a11y button{border-color:#5A3550!important}.a11y button:hover,.a11y button[aria-pressed="true"]{background:#fff!important;color:var(--ink)!important;border-color:#fff!important}
-header{background:var(--linen)!important;border-bottom:1px solid var(--hair)!important}
-.nav-link{font-family:'Hanken Grotesk',sans-serif;font-size:14px!important;color:var(--ink)!important;letter-spacing:.01em}
-.nav-link:hover,.nav-link.active{border-bottom-color:var(--orange)!important;color:var(--ink)!important}
-header img{mix-blend-mode:multiply}
-/* decoraciones de color: fuera */
-span[aria-hidden="true"][style*="position: absolute"],span[aria-hidden="true"][style*="position:absolute"]{display:none!important}
-.stripe-hair{height:1px;background:var(--hair)}
-/* portada editorial */
-.hero-v{background:var(--cream)!important;color:var(--ink)!important;align-items:flex-end!important}
-.hero-shade{background:linear-gradient(100deg,rgba(247,230,239,.97) 0%,rgba(247,230,239,.9) 36%,rgba(247,230,239,.35) 62%,rgba(247,230,239,0) 80%)!important}
-.hero-v h1{color:var(--ink)!important;font-weight:350!important;font-size:clamp(46px,7vw,96px)!important;line-height:1!important;letter-spacing:-.01em!important}
-.hero-v h1 em{color:var(--ink)!important;text-decoration:underline;text-decoration-color:var(--orange);text-decoration-thickness:3px;text-underline-offset:10px}
-.hero-v .hero-copy>p{color:#3A1530!important}
-.hero-eyebrow{color:var(--ink)!important;font-size:12px!important;letter-spacing:.08em!important}
-.hero-eyebrow i{background:var(--orange)!important}
-.hero-trust{color:#3A1530!important;border-top-color:var(--hair)!important}
-.hero-card{background:#fff!important;color:var(--ink)!important;border:1px solid var(--hair)!important;border-top:1px solid var(--hair)!important;border-radius:0!important;backdrop-filter:none!important}
-.hero-card.dark{background:var(--ink)!important;color:#fff!important;border-color:var(--ink)!important}
-.hero-card.dark span{color:var(--orange)!important}.hero-card.dark p{color:#F7E6EF!important}
-.hero-card div{font-family:'Bricolage Grotesque',serif!important;font-weight:350!important}
-.hero-toggle{border-color:var(--ink)!important;color:var(--ink)!important;background:rgba(255,255,255,.6)!important;border-radius:20px!important}
-.hero-scroll{color:var(--ink)!important}
-@media (max-width:700px){.hero-shade{background:linear-gradient(180deg,rgba(247,230,239,.55) 0%,rgba(247,230,239,.94) 38%,rgba(247,230,239,1) 100%)!important}}
-/* formularios */
-.news-input,input,select,textarea{border-radius:20px!important;border:1px solid var(--cobble)!important;font-family:'Hanken Grotesk',sans-serif!important;background:#fff}
-input:focus,select:focus,textarea:focus{outline:1px solid var(--orange);border-color:var(--orange)!important}
-details.faq{border-bottom-color:var(--hair)!important}
-details.faq summary{font-family:'Bricolage Grotesque',serif!important;font-weight:350!important;color:var(--ink)!important}
-details.faq summary::after{color:var(--orange)!important;font-family:'Hanken Grotesk',sans-serif}
-.tag{color:var(--orange)!important;font-size:11px!important;letter-spacing:.08em!important}
-.step-n{color:var(--orange)!important;font-weight:350}
-.wa-float{background:var(--ink)!important;border-radius:20px!important;box-shadow:none!important;font-family:'Hanken Grotesk',sans-serif!important;font-weight:500!important}
-.wa-float svg{color:var(--orange)}
-.to-top{background:var(--ink)!important;border-radius:20px!important;box-shadow:none!important}
-.social a{border-radius:20px!important;background:transparent!important;border:1px solid #5A1D45}.social a:hover{border-color:var(--orange);color:var(--orange)!important}
-.foot-link:hover{color:var(--orange)!important}
-.leaflet-container{font-family:'Hanken Grotesk',sans-serif}
-#mapa{border-radius:0!important;border:1px solid var(--hair)}
-:focus-visible{outline:2px solid var(--orange)!important}
-html.hc #site{filter:contrast(1.25)}
-section em,blockquote em{color:inherit!important;text-decoration:underline;text-decoration-color:var(--orange);text-decoration-thickness:2px;text-underline-offset:6px}
-[style*="background: #4A1035"] .btn-primary,[style*="background: #2E0A22"] .btn-primary,[style*="background:#4A1035"] .btn-primary{background:#fff!important;color:var(--ink)!important}
-[style*="background: #4A1035"] .btn-light,[style*="background: #2E0A22"] .btn-light{background:transparent!important;color:#fff!important;box-shadow:inset 0 0 0 1px #fff!important}
-[style*="background: #4A1035"] .btn-outline,[style*="background: #2E0A22"] .btn-outline,[style*="background:#4A1035"] .btn-outline,[style*="background: #4A1035"] .btn:not(.btn-primary):not(.btn-light){color:#fff!important;box-shadow:inset 0 0 0 1px #fff!important}
-[style*="background: #4A1035"] .link-arrow,[style*="background: #2E0A22"] .link-arrow{color:#fff!important}
-footer button{background:transparent!important;border:1px solid var(--orange)!important;color:#fff!important;border-radius:20px}
-footer input{border-color:#5A1D45!important}
-</style>
-<style>
-/* Rediseño con la paleta del logo */
-:root{--pl-ink:#4A1035;--pl-mag:#C81E73;--pl-butter:#F6E08A}
-[style*="Bricolage"],[style*="Bricolage"]{font-weight:800!important;letter-spacing:-.03em!important;font-style:normal!important;line-height:1.02}
-.btn,.btn-primary,.btn-outline,.btn-light{border-radius:9999px!important;text-transform:none!important;letter-spacing:0!important;font-weight:600!important}
-.btn-light:hover{background:#F6E08A!important;color:#4A1035!important}
-.news-input{border-radius:9999px!important;padding:0 22px!important}
-.card,.teaser,.story{border-radius:24px}
-.pl-strip{display:grid;grid-template-columns:repeat(12,1fr);height:10px}
-.pl-strip span{display:block}
-footer a,footer .tag,[style*="background:#2E0A22"] .tag,[style*="background: #2E0A22"] .tag,[style*="background:#4A1035"] .tag,[style*="background: #4A1035"] .tag{color:#F6E08A}
-</style>
-<style>
-section[style*="color: #FFFFFF"] [style*="#C81E73"],section[style*="color:#FFFFFF"] [style*="#C81E73"],section[style*="color: #FFFFFF"] .tag,footer [style*="#C81E73"],.draft-bar{--x:0}
-section[style*="color: #FFFFFF"] [style*="color: #C81E73"],section[style*="color:#FFFFFF"] [style*="color:#C81E73"],section[style*="color: #FFFFFF"] a[style*="color: #C81E73"],footer [style*="color: #C81E73"],section[style*="color: #FFFFFF"] .tag{color:#F6E08A!important}
-[style*="background: #2E0A22"] [style*="color: #C81E73"],[style*="background:#2E0A22"] [style*="color:#C81E73"],[style*="background: #4A1035"] [style*="color: #C81E73"],[style*="background:#4A1035"] [style*="color:#C81E73"]{color:#F6E08A!important}
-.draft-bar{background:#F6E08A!important;color:#4A1035!important}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth;scroll-padding-top:88px}
+body{margin:0;background:var(--paper);color:var(--text);font-family:var(--body);font-size:18px;line-height:1.55;letter-spacing:-.006em;-webkit-font-smoothing:antialiased}
+img,svg{max-width:100%}
+a{color:inherit}
+h1,h2,h3{margin:0;font-family:var(--display);font-weight:800;color:var(--brand)}
+p{margin:0}
+:focus-visible{outline:3px solid var(--magenta);outline-offset:3px;border-radius:6px}
+.dark :focus-visible{outline-color:var(--butter)}
+.wrap{max-width:1200px;margin:0 auto;padding:0 32px}
+.sec{padding:112px 0}
+.h2{font-size:clamp(38px,5.2vw,68px);line-height:.98;letter-spacing:-.035em}
+.lead{font-size:20px;line-height:1.6;color:var(--muted);max-width:34em}
+.src{font-size:13px;line-height:1.4}
+
+/* botones: píldora, siempre */
+.btn{white-space:nowrap;display:inline-flex;align-items:center;justify-content:center;gap:10px;min-height:52px;padding:0 28px;border-radius:var(--r-pill);font:600 16px/1 var(--body);text-decoration:none;border:0;cursor:pointer;transition:background .18s,color .18s,transform .18s}
+.btn:active{transform:scale(.97)}
+.btn-main{background:var(--magenta);color:#fff}.btn-main:hover{background:#A3165D}
+.btn-line{background:#fff;color:var(--brand);box-shadow:inset 0 0 0 1.5px var(--brand)}.btn-line:hover{background:var(--brand);color:#fff}
+.dark .btn-main,.btn-on{background:var(--butter);color:var(--plum)}
+.dark .btn-main:hover,.btn-on:hover{background:#fff;color:var(--plum)}
+.dark .btn-line{background:transparent;color:#fff;box-shadow:inset 0 0 0 1.5px rgba(255,255,255,.6)}
+.dark .btn-line:hover{background:#fff;color:var(--plum)}
+.tlink{font-weight:600;color:var(--brand);text-decoration:underline;text-underline-offset:4px;text-decoration-thickness:2px}
+.tlink:hover{color:var(--magenta)}
+.dark .tlink{color:var(--butter)}
+.pill{display:inline-flex;align-items:center;gap:8px;border-radius:var(--r-pill);padding:8px 14px;font-size:14px;font-weight:600;background:var(--wash);color:var(--brand)}
+
+/* aviso y cabecera */
+.draft-bar{background:#F6E08A;color:#4A1035;text-align:center;font-size:13px;padding:7px 16px}
+.wa{position:fixed;left:16px;bottom:16px;z-index:30;display:inline-flex;align-items:center;gap:8px;background:var(--plum);color:#fff;border-radius:9999px;padding:12px 18px;font-weight:600;font-size:15px;text-decoration:none}
+.wa:hover{background:var(--magenta)}
+.prog .ph{margin:-32px -28px 4px;height:170px;border-radius:var(--r-card) var(--r-card) 0 0;overflow:hidden}
+.prog .ph img{width:100%;height:100%;object-fit:cover;display:block}
+.prog .more{font-weight:600;color:var(--plum);text-decoration:underline;text-underline-offset:4px}
+.alert{background:var(--ink);color:#fff;font-size:14px}
+.alert .wrap{display:flex;flex-wrap:wrap;gap:6px 24px;justify-content:space-between;padding-top:10px;padding-bottom:10px}
+.alert strong{color:var(--butter)}
+header.top{position:sticky;top:0;z-index:20;background:rgba(255,255,255,.96);backdrop-filter:blur(6px);border-bottom:1px solid var(--line)}
+header.top .wrap{display:flex;align-items:center;justify-content:space-between;gap:20px;height:80px}
+.logo img{height:60px;width:auto;display:block}
+.seg{display:flex;gap:2px;padding:4px;border-radius:var(--r-pill);background:var(--wash)}
+.seg a{white-space:nowrap;padding:9px 13px;border-radius:var(--r-pill);font-size:15px;font-weight:600;color:var(--brand);text-decoration:none}
+.seg a:hover{background:var(--brand);color:#fff}
+.top-cta{display:flex;gap:10px}
+.top-cta .btn{min-height:44px;padding:0 20px;font-size:15px}
+.menu{display:none}
+.menu summary{list-style:none;cursor:pointer;width:44px;height:44px;border-radius:50%;background:var(--wash);display:grid;place-items:center}
+.menu summary::-webkit-details-marker{display:none}
+.menu nav{position:absolute;left:16px;right:16px;top:84px;background:#fff;border-radius:var(--r-card);padding:12px;box-shadow:0 0 0 1px var(--line),0 10px 32px rgba(0,0,0,.15);display:flex;flex-direction:column}
+.menu nav a{padding:14px 16px;border-radius:16px;font-weight:600;color:var(--brand);text-decoration:none}
+.menu nav a:hover{background:var(--wash)}
+
+/* portada */
+.hero{position:relative;overflow:hidden;background:var(--blush)}
+.hero .wrap{position:relative;z-index:2;padding-top:88px;padding-bottom:140px}
+.hero h1{font-size:clamp(52px,8.4vw,118px);line-height:.92;letter-spacing:-.035em;color:var(--plum);max-width:9.4em}
+.hero .lead{margin:32px 0 40px;max-width:25em}
+.hero .acts{display:flex;flex-wrap:wrap;gap:12px 22px;align-items:center}
+.hero-art{position:absolute;right:-90px;bottom:-40px;width:min(54vw,720px);z-index:1}
+.hero-art svg{display:block;width:100%;height:auto}
+.mos rect{animation:pop .7s cubic-bezier(.2,.7,.2,1) backwards;animation-delay:var(--d);transform-box:fill-box;transform-origin:center}
+@keyframes pop{from{opacity:0;transform:scale(.2)}}
+.strip{display:grid;grid-template-columns:repeat(12,1fr);height:12px}
+
+/* cifras de Piura, sección invertida */
+.dark{background:var(--plum);color:#fff}
+.dark h2,.dark h3{color:#fff}
+.dark .lead{color:#F2DDE9}
+.facts{margin-top:64px;display:grid;grid-template-columns:repeat(4,1fr);gap:40px 32px}
+.fact{border-top:1.5px solid rgba(255,255,255,.28);padding-top:24px;display:flex;flex-direction:column;gap:14px}
+.fact b{font:800 clamp(52px,6vw,84px)/.9 var(--display);letter-spacing:-.045em;color:var(--butter)}
+.fact p{font-size:16px;line-height:1.5;color:#F2DDE9;flex-grow:1}
+.fact .src{color:#D9BCCD}
+.head2{display:flex;flex-wrap:wrap;gap:24px 64px;justify-content:space-between;align-items:flex-end}
+.head2 .h2{flex:1 1 520px}
+.head2 .lead,.head2 p{flex:1 1 340px}
+
+/* quiénes somos */
+.about{display:grid;grid-template-columns:1.05fr 1fr;gap:64px;align-items:start}
+.about .big{font:600 clamp(24px,2.6vw,34px)/1.25 var(--display);letter-spacing:-.02em;color:var(--plum)}
+.mv{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-top:32px}
+.mv div{border-radius:var(--r-card);padding:28px}
+.mv h3{font-size:28px;letter-spacing:-.02em;margin-bottom:10px}
+.mv p{font-size:16px;line-height:1.6}
+.vals{list-style:none;margin:20px 0 0;padding:0;display:flex;flex-wrap:wrap;gap:10px}
+.vals li{display:flex;align-items:center;gap:10px;border-radius:var(--r-pill);padding:10px 18px;background:#fff;box-shadow:inset 0 0 0 1.5px var(--line);font-weight:600;color:var(--plum)}
+.vals i{width:12px;height:12px;border-radius:3px;display:block}
+
+/* programas */
+.cards4{margin-top:56px;display:grid;grid-template-columns:repeat(4,1fr);gap:20px}
+.prog{border-radius:var(--r-card);padding:32px 28px;display:flex;flex-direction:column;gap:16px;min-height:380px;transition:transform .2s}
+.prog:hover{transform:translateY(-4px)}
+.prog .ic{width:64px;height:64px;border-radius:50%;background:#fff;display:grid;place-items:center}
+.prog h3{font-size:30px;line-height:1;letter-spacing:-.03em;color:var(--plum);margin-top:auto}
+.prog p{font-size:16px;line-height:1.55;color:var(--text)}
+
+/* cómo ayudamos */
+.steps{list-style:none;margin:64px 0 48px;padding:0;display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+.steps li{background:var(--brand);border-radius:var(--r-card);padding:36px 32px}
+.steps b{font:800 72px/1 var(--display);letter-spacing:-.05em;color:var(--butter);display:block}
+.steps h3{font-size:30px;line-height:1.05;letter-spacing:-.03em;margin:20px 0 10px}
+.steps p{font-size:16px;line-height:1.6;color:#F2DDE9}
+.acts2{display:flex;flex-wrap:wrap;gap:12px 16px;align-items:center}
+.acts2 span{font-size:15px;color:#F2DDE9;margin-left:8px}
+.help{position:relative;overflow:hidden}
+.help .wrap{position:relative;z-index:2}
+
+/* hoja de ruta */
+.road{background:var(--blush)}
+.stages{list-style:none;margin:64px 0 0;padding:0;display:grid;grid-template-columns:repeat(4,1fr);gap:0;position:relative}
+.stages:before{content:"";position:absolute;left:0;right:0;top:11px;height:3px;background:var(--line)}
+.stages li{position:relative;padding:48px 28px 0 0}
+.stages li:before{content:"";position:absolute;top:0;left:0;width:26px;height:26px;border-radius:7px;background:var(--c)}
+.stages li:first-child:before{box-shadow:0 0 0 6px var(--wash)}
+.tag{display:inline-block;border-radius:var(--r-pill);padding:6px 12px;font-size:13px;font-weight:700;margin-bottom:14px}
+.stages h3{font-size:28px;line-height:1.05;letter-spacing:-.03em;color:var(--plum);margin-bottom:10px}
+.stages p{font-size:16px;line-height:1.6;color:var(--muted)}
+
+/* consultorías */
+.cons{background:var(--skywash)}
+.cons .wrap{display:grid;grid-template-columns:1fr 1.5fr;gap:64px;align-items:start}
+.cons .h2{margin-bottom:20px}
+.cons .lead{margin-bottom:32px}
+.svc{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+.svc div{background:#fff;border-radius:20px;padding:26px 24px}
+.svc i{display:block;width:34px;height:12px;border-radius:6px;margin-bottom:16px}
+.svc h3{font:700 19px/1.25 var(--body);letter-spacing:-.01em;color:var(--plum);margin-bottom:8px}
+.svc p{font-size:15px;line-height:1.55;color:var(--muted)}
+
+/* involúcrate */
+.join{margin-top:56px;display:grid;grid-template-columns:1.2fr 1fr 1fr;gap:20px}
+.join>div{border-radius:var(--r-card);padding:40px 34px;display:flex;flex-direction:column;gap:18px}
+.join h3{font-size:clamp(30px,3vw,40px);line-height:1;letter-spacing:-.035em}
+.join p{font-size:16px;line-height:1.6;flex-grow:1}
+.join .note{font-size:13px;flex-grow:0;opacity:.85}
+.chips{display:flex;flex-wrap:wrap;gap:8px}
+.chips span{border-radius:var(--r-pill);padding:7px 14px;font-size:14px;font-weight:600;box-shadow:inset 0 0 0 1.5px rgba(255,255,255,.4)}
+
+/* transparencia */
+.trans{background:var(--wash)}
+.trans .wrap{display:grid;grid-template-columns:1fr 1.3fr;gap:56px;align-items:center}
+.trans .h2{font-size:clamp(34px,4.2vw,56px);margin-bottom:18px}
+.docs{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.docs a{background:#fff;border-radius:20px;padding:22px;display:flex;gap:16px;align-items:center;text-decoration:none;transition:transform .2s}
+.docs a:hover{transform:translateY(-3px)}
+.docs strong{display:block;font-size:17px;color:var(--plum)}
+.docs span{font-size:14px;color:var(--muted)}
+
+/* cierre */
+.final{background:var(--paper);padding:0 0 96px}
+.final .box{position:relative;overflow:hidden;border-radius:40px;background:var(--plum);padding:88px 56px;min-height:420px}
+.final .art{position:absolute;right:-40px;bottom:-10px;width:min(62%,760px);opacity:.95}
+.final .art svg{display:block;width:100%;height:auto}
+.final h2{position:relative;z-index:2;font-size:clamp(42px,6.4vw,92px);line-height:.92;letter-spacing:-.045em;color:var(--butter);max-width:9.6em}
+.final .acts{position:relative;z-index:2;display:flex;flex-wrap:wrap;gap:12px 16px;margin-top:40px}
+
+/* pie */
+footer{background:var(--ink);color:#F2DDE9}
+footer .wrap{padding-top:80px;padding-bottom:36px;display:flex;flex-wrap:wrap;gap:48px}
+footer .col{flex:1 1 200px;min-width:0}
+footer .col:first-child{flex-basis:300px}
+footer h3{font:700 16px/1.2 var(--body);letter-spacing:0;color:#fff;margin-bottom:18px}
+footer ul{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:12px;font-size:15px}
+footer a{text-decoration:none;color:#F2DDE9}footer a:hover{color:var(--butter);text-decoration:underline}
+footer .mini{display:flex;gap:4px;margin:18px 0 20px}
+footer .mini i{width:12px;height:12px;border-radius:3px;display:block}
+.sub{display:flex;gap:8px}
+.sub input{flex:1;min-width:0;height:48px;padding:0 20px;border:0;border-radius:var(--r-pill);font:400 15px var(--body);color:var(--text)}
+.sub input:focus-visible{outline-color:var(--butter)}
+.legal{border-top:1px solid rgba(255,255,255,.14)}
+.legal .wrap{padding-top:22px;padding-bottom:22px;gap:12px 28px;justify-content:space-between;font-size:13px;color:#D9BCCD}
+.legal .wrap.two{padding-top:0;padding-bottom:28px}
+.legal .links{display:flex;flex-wrap:wrap;gap:8px 20px}
+
+@media (max-width:1180px){.seg,.top-cta .btn-line{display:none}.menu{display:block}}
+@media (max-width:1020px){
+  .facts,.cards4{grid-template-columns:1fr 1fr}
+  .about,.cons .wrap,.trans .wrap{grid-template-columns:1fr;gap:40px}
+  .join{grid-template-columns:1fr}
+  .stages{grid-template-columns:1fr 1fr;row-gap:40px}
+  .hero-art{width:80vw;right:-20vw;opacity:.55}
+}
+@media (max-width:700px){
+  body{font-size:17px}
+  .wrap{padding:0 20px}
+  .sec{padding:72px 0}
+  .hero .wrap{padding-top:56px;padding-bottom:110px}
+  .facts,.cards4,.steps,.stages,.svc,.mv,.docs{grid-template-columns:1fr}
+  .prog{min-height:0}
+  .final .box{padding:56px 24px;border-radius:28px;min-height:0}
+  .final .art{width:100%;opacity:.4}
+  .logo img{height:48px}
+  .top-cta .btn-main{padding:0 16px}
+  .alert .wrap span:last-child{display:none}
+}
+@media (prefers-reduced-motion:reduce){
+  .mos rect{animation:none}
+  html{scroll-behavior:auto}
+  *{transition:none!important}
+}
 </style>
 </head>
 <body>
-<div id="site" style="font-family: 'Hanken Grotesk', sans-serif; color: #4A1035; background: #FFF6FA; min-height: 100vh">
 
 <div class="draft-bar" role="note">Boceto en revisión · Nombres, fotos, cifras y datos de contacto son de ejemplo</div>
-<!-- AVISO SUPERIOR -->
-<div style="background: #2E0A22; color: #FFFFFF; font-size: 14px; letter-spacing: .03em">
-<div style="max-width: 1200px; margin: 0 auto; padding: 10px 32px; display: flex; flex-wrap: wrap; gap: 8px 24px; justify-content: space-between; align-items: center">
+<div class="alert"><div class="wrap">
 <span>¿Estás en peligro? Llama gratis a la <strong>Línea 100</strong> · las 24 horas</span>
-<span style="display:inline-flex;flex-wrap:wrap;gap:8px 20px;align-items:center"><span class="hide-m">Jr. Circunvalación 1384, Piura · Perú</span><span class="a11y" role="group" aria-label="Accesibilidad"><span style="opacity:.8;margin-right:2px">Accesibilidad:</span><button type="button" data-fs="-1" aria-label="Reducir texto">A−</button><button type="button" data-fs="0" aria-label="Texto normal">A</button><button type="button" data-fs="1" aria-label="Agrandar texto">A+</button><button type="button" data-hc aria-pressed="false" aria-label="Alto contraste"><svg width="14" height="14" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9" fill="none" stroke="currentColor" stroke-width="2"/><path d="M12 3a9 9 0 0 1 0 18z" fill="currentColor"/></svg></button></span></span>
-</div>
-</div>
+<span>Jr. Circunvalación 1384, Piura · Perú</span>
+</div></div>
 
-<!-- CABECERA -->
-<header style="background: #FFFFFF; border-bottom: 1px solid #EFD9E6; position: sticky; top: 0; z-index: 10">
-<div style="max-width: 1240px; margin: 0 auto; padding: 12px 32px; display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 16px">
-<a href="index.html" aria-label="Fundación Atenea, inicio" style="display: flex; align-items: center"><img src="assets/logo-atenea.png" alt="Fundación Atenea" style="height: 68px; width: auto; display: block"></a>
-<button class="menu-btn" aria-label="Abrir menú" aria-expanded="false" onclick="var h=this.closest('header');var o=h.classList.toggle('open');this.setAttribute('aria-expanded',o)"><svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h16"></path></svg></button>
-<nav class="main-nav" aria-label="Principal" style="display: flex; flex-wrap: wrap; gap: 4px 20px; align-items: center">
-<a class="nav-link" href="nosotros.html">Nosotros</a>
-<a class="nav-link" href="programas.html">Programas</a>
-<a class="nav-link" href="consultorias.html">Consultorías</a>
-<a class="nav-link" href="historias.html">Historias</a>
-<a class="nav-link" href="transparencia.html">Transparencia</a>
-<a class="nav-link" href="contacto.html">Contacto</a>
-</nav>
-<div class="head-cta" style="display: flex; gap: 12px; flex-wrap: wrap">
-<a class="btn btn-outline" href="programas.html#ayuda" style="min-height: 46px; padding: 0 20px; font-size: 14px">Necesito ayuda</a>
-<a class="btn btn-primary" href="involucrate.html" style="min-height: 46px; padding: 0 22px; font-size: 14px">Dona ahora</a>
+<header class="top"><div class="wrap">
+<a class="logo" href="index.html" aria-label="Fundación Atenea, inicio"><img src="assets/logo-atenea.png" alt="Fundación Atenea"></a>
+<nav class="seg" aria-label="Principal"><a href="nosotros.html">Nosotros</a><a href="programas.html">Programas</a><a href="consultorias.html">Consultorías</a><a href="historias.html">Historias</a><a href="transparencia.html">Transparencia</a><a href="contacto.html">Contacto</a></nav>
+<div class="top-cta">
+<a class="btn btn-line" href="#ayuda">Necesito ayuda</a>
+<a class="btn btn-main" href="involucrate.html">Dona ahora</a>
+<details class="menu"><summary aria-label="Abrir menú"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#69184B" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h16"/></svg></summary>
+<nav aria-label="Menú móvil"><a href="nosotros.html">Nosotros</a><a href="programas.html">Programas</a><a href="consultorias.html">Consultorías</a><a href="historias.html">Historias</a><a href="transparencia.html">Transparencia</a><a href="involucrate.html">Involúcrate</a><a href="contacto.html">Contacto</a><a href="#ayuda">Necesito ayuda</a></nav></details>
 </div>
-</div>
-</header>
-<div class="pl-strip" aria-hidden="true"><span style="background:#8A2BB0"></span><span style="background:#B54DD0"></span><span style="background:#C81E73"></span><span style="background:#E23B8C"></span><span style="background:#EA7081"></span><span style="background:#EE827C"></span><span style="background:#F3BC81"></span><span style="background:#F6E08A"></span><span style="background:#E4E4C2"></span><span style="background:#B1CCE7"></span><span style="background:#A3CDF5"></span><span style="background:#8FB8EE"></span></div>
+</div></header>
 
-<!-- HERO (video a pantalla completa) -->
-<section id="inicio" class="hero-v">
-<video class="hero-video" autoplay muted loop playsinline preload="auto" poster="assets/video-portada.jpg" aria-hidden="true">
-<source src="assets/video-portada.webm" type="video/webm">
-<source src="assets/video-portada.mp4" type="video/mp4">
-</video>
-<div class="hero-shade" aria-hidden="true"></div>
-<div class="hero-inner">
-<div class="hero-copy">
-<span class="hero-eyebrow"><span class="dots"><i style="background:#C81E73"></i><i style="background:#E5CBDA"></i><i style="background:#E5CBDA"></i></span>Piura, Perú · Fundación sin fines de lucro</span>
-<h1>Ninguna mujer debería enfrentar <em style="font-style: italic; color: #C81E73">sola</em> la enfermedad, la violencia o la pobreza.</h1>
-<p>Acompañamos a personas enfermas, mujeres y familias en situación de vulnerabilidad en Piura con ayuda concreta, orientación gratuita y oportunidades para salir adelante.</p>
-<div style="display: flex; flex-wrap: wrap; gap: 16px">
-<a class="btn btn-primary" href="involucrate.html">Quiero donar <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"></path></svg></a>
-<a class="btn btn-ghost" href="programas.html#ayuda">Necesito ayuda</a>
-</div>
-<div class="hero-trust"><span>✓ 100 % de lo recibido va a nuestros fines</span><span>✓ Rendimos cuentas públicas cada año</span></div>
-</div>
-<div class="hero-cards">
-<div class="hero-card">
-<span style="font-size: 12px; font-weight: 700; letter-spacing: .08em; text-transform: uppercase; color: #C81E73">Violencia en Piura</span>
-<div style="font-family: 'Bricolage Grotesque', serif; font-size: 58px; font-weight: 350; line-height: 1; color: #4A1035; margin: 10px 0 8px">4 578</div>
-<p style="margin: 0 0 12px; font-size: 15px; line-height: 1.5; color: #4A1035">casos atendidos por los Centros Emergencia Mujer entre enero y julio de 2026. El 87,7 % fueron mujeres.</p>
-<span style="font-size: 12px; color: #6E4A62">Fuente: MIMP – Programa Warmi Ñan</span></div>
-<div class="hero-card dark">
-<span style="font-size: 12px; font-weight: 700; letter-spacing: .08em; text-transform: uppercase; color: #C81E73">Pobreza en Piura</span>
-<div style="font-family: 'Bricolage Grotesque', serif; font-size: 58px; font-weight: 350; line-height: 1; margin: 10px 0 8px">28,1 %</div>
-<p style="margin: 0 0 12px; font-size: 15px; line-height: 1.5; color: #F7E6EF">de la población de Piura vive en pobreza monetaria, por encima del promedio nacional (25,7 %).</p>
-<span style="font-size: 12px; color: #E5CBDA">Fuente: INEI, 2025</span></div>
+<main>
+<section class="hero" id="inicio">
+<div class="wrap">
+<h1>Ninguna mujer debería enfrentarlo sola.</h1>
+<p class="lead">Acompañamos a personas enfermas, mujeres y familias en situación de vulnerabilidad en Piura, frente a la enfermedad, la violencia y la pobreza, con ayuda concreta, orientación gratuita y oportunidades para salir adelante.</p>
+<div class="acts">
+<a class="btn btn-main" href="involucrate.html">Quiero donar</a>
+<a class="tlink" href="#ayuda">Necesito ayuda</a>
 </div>
 </div>
-<button class="hero-toggle" type="button" aria-label="Pausar video" aria-pressed="false"><svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path class="i-pause" d="M7 5h4v14H7zM13 5h4v14h-4z"/><path class="i-play" d="M8 5l12 7-12 7z" style="display:none"/></svg></button>
-<a href="#mision" class="hero-scroll" aria-label="Bajar"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg></a>
+<div class="hero-art" aria-hidden="true">
+<svg class="mos" viewBox="0 0 720 640" xmlns="http://www.w3.org/2000/svg">
+<rect x="479.4" y="49.3" width="10.9" height="10.9" fill="#F3C182" fill-opacity="0.29" style="--d:1.04s"/>
+<rect x="369.2" y="80.5" width="19.6" height="19.6" fill="#EB7581" fill-opacity="0.37" style="--d:0.93s"/>
+<rect x="656.9" y="82.3" width="19.3" height="19.3" fill="#A1CBF4" fill-opacity="0.30" style="--d:1.21s"/>
+<rect x="226.8" y="120.7" width="13.5" height="13.5" fill="#B92182" fill-opacity="0.31" style="--d:0.63s"/>
+<rect x="369.0" y="119.1" width="16.9" height="16.9" fill="#E96E81" fill-opacity="0.51" style="--d:0.67s"/>
+<rect x="406.9" y="119.4" width="14.0" height="14.0" fill="#EC8381" fill-opacity="0.47" style="--d:0.84s"/>
+<rect x="442.0" y="116.9" width="19.7" height="19.7" fill="#F3B981" fill-opacity="0.51" style="--d:1.03s"/>
+<rect x="474.4" y="114.8" width="25.4" height="25.4" fill="#F4C383" fill-opacity="0.54" style="--d:0.94s"/>
+<rect x="509.9" y="113.9" width="20.8" height="20.8" fill="#F4CB85" fill-opacity="0.47" style="--d:0.97s"/>
+<rect x="551.6" y="119.4" width="10.1" height="10.1" fill="#F5D587" fill-opacity="0.46" style="--d:1.29s"/>
+<rect x="622.4" y="118.5" width="14.0" height="14.0" fill="#A2CCF5" fill-opacity="0.39" style="--d:1.46s"/>
+<rect x="194.6" y="156.9" width="10.4" height="10.4" fill="#A82592" fill-opacity="0.36" style="--d:0.32s"/>
+<rect x="368.1" y="154.5" width="17.1" height="17.1" fill="#ED8A81" fill-opacity="0.63" style="--d:0.74s"/>
+<rect x="403.0" y="150.4" width="25.9" height="25.9" fill="#F0A781" fill-opacity="0.69" style="--d:1.00s"/>
+<rect x="439.3" y="150.0" width="20.3" height="20.3" fill="#F1AA81" fill-opacity="0.59" style="--d:0.82s"/>
+<rect x="471.3" y="149.2" width="29.0" height="29.0" fill="#F5CE86" fill-opacity="0.74" style="--d:0.92s"/>
+<rect x="513.5" y="153.6" width="14.5" height="14.5" fill="#F6DA89" fill-opacity="0.67" style="--d:1.22s"/>
+<rect x="547.9" y="149.0" width="22.6" height="22.6" fill="#E3DCA3" fill-opacity="0.65" style="--d:1.24s"/>
+<rect x="624.5" y="154.7" width="13.3" height="13.3" fill="#A0CAF4" fill-opacity="0.59" style="--d:1.16s"/>
+<rect x="653.9" y="147.6" width="26.1" height="26.1" fill="#A5CDF2" fill-opacity="0.46" style="--d:1.47s"/>
+<rect x="230.7" y="193.4" width="10.3" height="10.3" fill="#C81E73" fill-opacity="0.58" style="--d:0.57s"/>
+<rect x="333.5" y="189.2" width="15.4" height="15.4" fill="#DF567D" fill-opacity="0.76" style="--d:0.73s"/>
+<rect x="362.5" y="182.9" width="29.9" height="29.9" fill="#EE8F81" fill-opacity="0.79" style="--d:0.79s"/>
+<rect x="439.1" y="185.1" width="21.9" height="21.9" fill="#F0A681" fill-opacity="0.79" style="--d:0.69s"/>
+<rect x="478.9" y="191.9" width="13.9" height="13.9" fill="#F3C182" fill-opacity="0.81" style="--d:1.00s"/>
+<rect x="506.7" y="184.5" width="27.5" height="27.5" fill="#F4CD85" fill-opacity="0.74" style="--d:1.18s"/>
+<rect x="547.9" y="188.5" width="22.4" height="22.4" fill="#F3DF8E" fill-opacity="0.77" style="--d:1.11s"/>
+<rect x="581.4" y="185.7" width="24.9" height="24.9" fill="#BED3D2" fill-opacity="0.74" style="--d:1.26s"/>
+<rect x="693.5" y="189.1" width="20.5" height="20.5" fill="#9AC4F2" fill-opacity="0.54" style="--d:1.29s"/>
+<rect x="9.6" y="228.0" width="13.3" height="13.3" fill="#7720A7" fill-opacity="0.32" style="--d:0.10s"/>
+<rect x="115.4" y="220.4" width="25.0" height="25.0" fill="#8629AE" fill-opacity="0.55" style="--d:0.44s"/>
+<rect x="224.5" y="223.8" width="19.2" height="19.2" fill="#B52286" fill-opacity="0.68" style="--d:0.72s"/>
+<rect x="258.6" y="220.9" width="22.3" height="22.3" fill="#CE2D75" fill-opacity="0.76" style="--d:0.67s"/>
+<rect x="290.9" y="219.6" width="32.5" height="32.5" fill="#D33978" fill-opacity="0.74" style="--d:0.49s"/>
+<rect x="332.3" y="225.5" width="16.4" height="16.4" fill="#EA7081" fill-opacity="0.95" style="--d:0.65s"/>
+<rect x="362.4" y="219.0" width="31.7" height="31.7" fill="#E76A80" fill-opacity="0.77" style="--d:0.92s"/>
+<rect x="409.9" y="228.6" width="11.8" height="11.8" fill="#ED8781" fill-opacity="0.95" style="--d:1.06s"/>
+<rect x="434.6" y="218.1" width="30.5" height="30.5" fill="#F3C182" fill-opacity="0.89" style="--d:0.82s"/>
+<rect x="473.7" y="221.2" width="22.6" height="22.6" fill="#F3BB81" fill-opacity="0.80" style="--d:0.84s"/>
+<rect x="514.4" y="224.5" width="17.3" height="17.3" fill="#F4CB85" fill-opacity="0.88" style="--d:0.97s"/>
+<rect x="548.1" y="226.9" width="16.0" height="16.0" fill="#F5D888" fill-opacity="0.88" style="--d:1.09s"/>
+<rect x="589.0" y="227.5" width="12.6" height="12.6" fill="#C4D5CA" fill-opacity="0.86" style="--d:1.10s"/>
+<rect x="619.0" y="220.5" width="25.8" height="25.8" fill="#A9CEED" fill-opacity="0.91" style="--d:1.28s"/>
+<rect x="655.3" y="223.6" width="17.8" height="17.8" fill="#9AC4F2" fill-opacity="0.71" style="--d:1.15s"/>
+<rect x="697.4" y="229.5" width="11.9" height="11.9" fill="#97C1F1" fill-opacity="0.78" style="--d:1.19s"/>
+<rect x="80.0" y="262.8" width="18.1" height="18.1" fill="#8126AC" fill-opacity="0.62" style="--d:0.26s"/>
+<rect x="151.2" y="260.7" width="17.6" height="17.6" fill="#9429A6" fill-opacity="0.73" style="--d:0.35s"/>
+<rect x="192.0" y="263.3" width="10.2" height="10.2" fill="#9928A1" fill-opacity="0.78" style="--d:0.31s"/>
+<rect x="226.6" y="262.4" width="15.5" height="15.5" fill="#BF207C" fill-opacity="0.91" style="--d:0.72s"/>
+<rect x="259.7" y="262.3" width="19.3" height="19.3" fill="#D03176" fill-opacity="0.79" style="--d:0.73s"/>
+<rect x="292.6" y="255.5" width="29.9" height="29.9" fill="#DE537C" fill-opacity="0.94" style="--d:0.54s"/>
+<rect x="332.3" y="260.2" width="22.0" height="22.0" fill="#E6657F" fill-opacity="0.96" style="--d:0.97s"/>
+<rect x="363.7" y="254.9" width="26.4" height="26.4" fill="#EB7881" fill-opacity="0.79" style="--d:0.63s"/>
+<rect x="402.9" y="258.9" width="23.2" height="23.2" fill="#EF9881" fill-opacity="0.90" style="--d:0.63s"/>
+<rect x="436.2" y="256.4" width="27.5" height="27.5" fill="#F0A181" fill-opacity="0.89" style="--d:1.06s"/>
+<rect x="479.2" y="265.0" width="11.8" height="11.8" fill="#F4CA84" fill-opacity="0.79" style="--d:1.23s"/>
+<rect x="512.4" y="261.2" width="19.0" height="19.0" fill="#F5D487" fill-opacity="0.92" style="--d:1.12s"/>
+<rect x="550.2" y="264.2" width="13.5" height="13.5" fill="#F6E08A" fill-opacity="0.83" style="--d:0.86s"/>
+<rect x="586.5" y="262.5" width="16.4" height="16.4" fill="#E2DCA3" fill-opacity="0.92" style="--d:1.17s"/>
+<rect x="617.9" y="261.0" width="21.2" height="21.2" fill="#A0CAF4" fill-opacity="0.81" style="--d:1.43s"/>
+<rect x="656.8" y="261.4" width="20.9" height="20.9" fill="#A2CCF5" fill-opacity="0.87" style="--d:1.12s"/>
+<rect x="694.8" y="261.1" width="15.0" height="15.0" fill="#8FB8EE" fill-opacity="0.86" style="--d:1.14s"/>
+<rect x="41.2" y="291.4" width="27.1" height="27.1" fill="#7A22A8" fill-opacity="0.69" style="--d:0.09s"/>
+<rect x="79.6" y="295.0" width="20.3" height="20.3" fill="#7F24AB" fill-opacity="0.66" style="--d:0.30s"/>
+<rect x="121.9" y="302.3" width="10.1" height="10.1" fill="#8E2AAD" fill-opacity="0.72" style="--d:0.55s"/>
+<rect x="153.1" y="297.2" width="16.8" height="16.8" fill="#9628A4" fill-opacity="0.96" style="--d:0.43s"/>
+<rect x="187.9" y="296.1" width="16.6" height="16.6" fill="#A0269A" fill-opacity="0.96" style="--d:0.77s"/>
+<rect x="225.9" y="296.6" width="16.4" height="16.4" fill="#C81F73" fill-opacity="0.85" style="--d:0.80s"/>
+<rect x="259.2" y="295.3" width="24.9" height="24.9" fill="#D03176" fill-opacity="0.88" style="--d:0.44s"/>
+<rect x="296.8" y="296.4" width="20.4" height="20.4" fill="#CF2F76" fill-opacity="0.79" style="--d:0.93s"/>
+<rect x="331.0" y="294.9" width="20.7" height="20.7" fill="#EB7781" fill-opacity="0.86" style="--d:0.65s"/>
+<rect x="369.9" y="297.2" width="16.7" height="16.7" fill="#E96F81" fill-opacity="0.72" style="--d:0.68s"/>
+<rect x="444.2" y="300.6" width="14.8" height="14.8" fill="#F0A481" fill-opacity="0.74" style="--d:0.78s"/>
+<rect x="475.7" y="296.3" width="17.4" height="17.4" fill="#F4C684" fill-opacity="0.70" style="--d:1.19s"/>
+<rect x="512.2" y="296.6" width="19.0" height="19.0" fill="#F5CF86" fill-opacity="0.74" style="--d:0.83s"/>
+<rect x="540.9" y="290.4" width="31.2" height="31.2" fill="#E5DC9F" fill-opacity="0.80" style="--d:0.96s"/>
+<rect x="585.8" y="298.0" width="15.6" height="15.6" fill="#C4D4CB" fill-opacity="0.90" style="--d:1.34s"/>
+<rect x="625.4" y="302.2" width="10.8" height="10.8" fill="#AFD0E5" fill-opacity="0.83" style="--d:0.96s"/>
+<rect x="651.4" y="291.6" width="31.7" height="31.7" fill="#A2CCF5" fill-opacity="0.97" style="--d:1.07s"/>
+<rect x="691.5" y="296.5" width="22.5" height="22.5" fill="#92BBEF" fill-opacity="0.93" style="--d:1.45s"/>
+<rect x="5.5" y="332.5" width="21.3" height="21.3" fill="#7820A8" fill-opacity="0.65" style="--d:0.35s"/>
+<rect x="46.6" y="336.1" width="12.9" height="12.9" fill="#761FA7" fill-opacity="0.82" style="--d:0.12s"/>
+<rect x="77.8" y="329.1" width="23.5" height="23.5" fill="#7B22A9" fill-opacity="0.87" style="--d:0.29s"/>
+<rect x="110.2" y="327.1" width="32.8" height="32.8" fill="#8428AD" fill-opacity="0.87" style="--d:0.32s"/>
+<rect x="147.8" y="326.7" width="26.8" height="26.8" fill="#9928A1" fill-opacity="0.88" style="--d:0.46s"/>
+<rect x="186.9" y="328.1" width="25.6" height="25.6" fill="#A22698" fill-opacity="0.75" style="--d:0.51s"/>
+<rect x="227.9" y="335.7" width="14.5" height="14.5" fill="#B12389" fill-opacity="0.82" style="--d:0.84s"/>
+<rect x="255.0" y="327.0" width="27.8" height="27.8" fill="#C71E74" fill-opacity="0.81" style="--d:0.89s"/>
+<rect x="297.9" y="334.7" width="14.0" height="14.0" fill="#E1597D" fill-opacity="0.74" style="--d:0.54s"/>
+<rect x="336.7" y="333.4" width="14.3" height="14.3" fill="#DB4D7B" fill-opacity="0.60" style="--d:0.72s"/>
+<rect x="552.9" y="336.2" width="13.6" height="13.6" fill="#F0DF91" fill-opacity="0.56" style="--d:1.04s"/>
+<rect x="584.4" y="331.7" width="16.7" height="16.7" fill="#DFDBA8" fill-opacity="0.63" style="--d:1.39s"/>
+<rect x="613.9" y="326.5" width="29.9" height="29.9" fill="#A3CDF5" fill-opacity="0.76" style="--d:1.18s"/>
+<rect x="655.4" y="333.6" width="20.2" height="20.2" fill="#A0CAF4" fill-opacity="0.70" style="--d:1.47s"/>
+<rect x="693.6" y="333.4" width="19.3" height="19.3" fill="#9BC5F2" fill-opacity="0.71" style="--d:1.10s"/>
+<rect x="11.0" y="371.6" width="15.9" height="15.9" fill="#711DA4" fill-opacity="0.79" style="--d:0.51s"/>
+<rect x="46.7" y="369.1" width="16.3" height="16.3" fill="#751FA6" fill-opacity="0.82" style="--d:0.46s"/>
+<rect x="79.2" y="363.5" width="25.1" height="25.1" fill="#8025AB" fill-opacity="0.82" style="--d:0.62s"/>
+<rect x="115.5" y="368.2" width="19.1" height="19.1" fill="#8E2AAC" fill-opacity="0.86" style="--d:0.28s"/>
+<rect x="150.0" y="365.8" width="26.7" height="26.7" fill="#8E2AAC" fill-opacity="0.83" style="--d:0.41s"/>
+<rect x="182.9" y="363.4" width="26.7" height="26.7" fill="#9F279B" fill-opacity="0.79" style="--d:0.33s"/>
+<rect x="222.7" y="369.3" width="21.2" height="21.2" fill="#C92073" fill-opacity="0.74" style="--d:0.49s"/>
+<rect x="264.0" y="372.9" width="11.9" height="11.9" fill="#C61F75" fill-opacity="0.61" style="--d:0.62s"/>
+<rect x="473.4" y="366.5" width="23.5" height="23.5" fill="#F4CA84" fill-opacity="0.44" style="--d:0.84s"/>
+<rect x="513.6" y="372.5" width="14.0" height="14.0" fill="#F5CE86" fill-opacity="0.47" style="--d:1.00s"/>
+<rect x="618.4" y="367.7" width="24.5" height="24.5" fill="#B6D1DD" fill-opacity="0.50" style="--d:1.37s"/>
+<rect x="7.9" y="404.2" width="17.1" height="17.1" fill="#741EA6" fill-opacity="0.99" style="--d:0.49s"/>
+<rect x="38.6" y="397.8" width="30.5" height="30.5" fill="#7E24AB" fill-opacity="0.93" style="--d:0.14s"/>
+<rect x="76.8" y="401.4" width="24.1" height="24.1" fill="#7D24AA" fill-opacity="0.75" style="--d:0.26s"/>
+<rect x="112.8" y="400.0" width="24.1" height="24.1" fill="#892AAF" fill-opacity="0.72" style="--d:0.29s"/>
+<rect x="156.1" y="407.1" width="14.1" height="14.1" fill="#892AB0" fill-opacity="0.60" style="--d:0.45s"/>
+<rect x="185.4" y="401.7" width="21.9" height="21.9" fill="#A42596" fill-opacity="0.62" style="--d:0.44s"/>
+<rect x="220.0" y="401.0" width="26.6" height="26.6" fill="#B82183" fill-opacity="0.51" style="--d:0.79s"/>
+<rect x="330.4" y="401.6" width="20.9" height="20.9" fill="#E25E7E" fill-opacity="0.41" style="--d:0.93s"/>
+<rect x="481.1" y="409.4" width="10.3" height="10.3" fill="#F3BD81" fill-opacity="0.36" style="--d:1.05s"/>
+<rect x="587.0" y="408.6" width="14.3" height="14.3" fill="#D7D9B1" fill-opacity="0.36" style="--d:1.31s"/>
+<rect x="661.7" y="409.8" width="12.1" height="12.1" fill="#AACFEB" fill-opacity="0.45" style="--d:1.48s"/>
+<rect x="689.7" y="402.5" width="25.5" height="25.5" fill="#8FB8EE" fill-opacity="0.48" style="--d:1.18s"/>
+<rect x="4.5" y="433.9" width="29.6" height="29.6" fill="#721DA5" fill-opacity="0.78" style="--d:0.29s"/>
+<rect x="46.6" y="444.5" width="12.8" height="12.8" fill="#751FA6" fill-opacity="0.85" style="--d:0.36s"/>
+<rect x="111.6" y="437.5" width="25.8" height="25.8" fill="#882AAF" fill-opacity="0.61" style="--d:0.35s"/>
+<rect x="151.7" y="440.6" width="20.1" height="20.1" fill="#9229A8" fill-opacity="0.51" style="--d:0.26s"/>
+<rect x="586.1" y="440.2" width="15.9" height="15.9" fill="#EEDE94" fill-opacity="0.30" style="--d:1.27s"/>
+<rect x="692.7" y="443.0" width="17.5" height="17.5" fill="#8FB8EE" fill-opacity="0.36" style="--d:1.57s"/>
+<rect x="3.2" y="474.4" width="27.1" height="27.1" fill="#7821A8" fill-opacity="0.72" style="--d:0.49s"/>
+<rect x="43.1" y="471.7" width="25.2" height="25.2" fill="#7C23AA" fill-opacity="0.61" style="--d:0.16s"/>
+<rect x="113.0" y="474.4" width="23.2" height="23.2" fill="#8427AD" fill-opacity="0.49" style="--d:0.32s"/>
+<rect x="226.4" y="481.5" width="12.5" height="12.5" fill="#C71E74" fill-opacity="0.31" style="--d:0.44s"/>
+<rect x="41.1" y="508.2" width="26.4" height="26.4" fill="#7921A8" fill-opacity="0.50" style="--d:0.17s"/>
+<rect x="114.2" y="511.8" width="21.6" height="21.6" fill="#882AAF" fill-opacity="0.36" style="--d:0.52s"/>
+<rect x="8.8" y="547.2" width="19.2" height="19.2" fill="#731EA5" fill-opacity="0.43" style="--d:0.09s"/>
+<rect x="8.9" y="584.3" width="17.4" height="17.4" fill="#7620A7" fill-opacity="0.31" style="--d:0.03s"/>
+</svg>
+</div>
+</section>
+<div class="strip" aria-hidden="true"><span style="background:#8A2BB0"></span><span style="background:#B54DD0"></span><span style="background:#C81E73"></span><span style="background:#E23B8C"></span><span style="background:#EA7081"></span><span style="background:#EE827C"></span><span style="background:#F3BC81"></span><span style="background:#F6E08A"></span><span style="background:#E4E4C2"></span><span style="background:#B1CCE7"></span><span style="background:#A3CDF5"></span><span style="background:#8FB8EE"></span></div>
+
+<section class="sec dark" id="piura">
+<div class="wrap">
+<div class="head2">
+<h2 class="h2">Piura en cifras: la realidad que queremos cambiar.</h2>
+<p class="lead">Más de la mitad de las y los piuranos vive en pobreza o en riesgo de caer en ella. Detrás de cada cifra hay una mujer, una familia o un paciente que necesita apoyo.</p>
+</div>
+<div class="facts">
+<div class="fact"><b>28,1 %</b><p>de la población de Piura vive en pobreza monetaria, por encima del promedio nacional de 25,7 %.</p><span class="src">Fuente: INEI, 2025</span></div>
+<div class="fact"><b>4 578</b><p>casos de violencia atendidos por los Centros Emergencia Mujer de Piura entre enero y julio de 2026. El 87,7 % fueron mujeres.</p><span class="src">Fuente: MIMP – Programa Warmi Ñan, 2026</span></div>
+<div class="fact"><b>48,6 %</b><p>de las mujeres de Piura que han tenido pareja sufrió violencia por parte de ella alguna vez.</p><span class="src">Fuente: MIMP – Programa Warmi Ñan</span></div>
+<div class="fact"><b>43,7 %</b><p>de niñas y niños de 6 a 35 meses en Piura tiene anemia.</p><span class="src">Fuente: INEI – ENDES 2025</span></div>
+</div>
+</div>
 </section>
 
-<!-- FRANJA DEGRADADO MOSAICO -->
-<div aria-hidden="true" class="stripe-hair"></div>
-
-
-<!-- IMPACTO -->
-<section style="background: #F7E6EF">
-<div style="max-width: 1200px; margin: 0 auto; padding: 104px 32px 0">
-<div style="background: #FFF6FA; border-radius:20px; padding: clamp(36px, 5vw, 64px)">
-<div style="display: flex; flex-wrap: wrap; justify-content: space-between; align-items: flex-end; gap: 16px; margin-bottom: 40px">
-<h2 style="font-family: 'Bricolage Grotesque', serif; font-weight: 350; font-size: clamp(36px, 4vw, 54px); color: #4A1035; margin: 0">Nuestro impacto</h2>
-<a class="link-arrow" href="transparencia.html">Ver memoria anual →</a>
+<section class="sec" id="nosotros">
+<div class="wrap about">
+<div>
+<h2 class="h2">Cada persona es una pieza. Juntas formamos algo más grande.</h2>
 </div>
-<p style="margin: -24px 0 40px; color: #5A3550">Resultados acumulados al cierre del último año.</p>
-<div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 32px; text-align: center">
-<div><div class="stat-n" data-count="1250">1250</div><div style="margin-top: 10px; font-size: 17px; color: #5A3550">personas atendidas</div></div><div><div class="stat-n" data-count="480">480</div><div style="margin-top: 10px; font-size: 17px; color: #5A3550">mujeres acompañadas</div></div><div><div class="stat-n" data-count="36">36</div><div style="margin-top: 10px; font-size: 17px; color: #5A3550">campañas de salud</div></div><div><div class="stat-n" data-count="120">120</div><div style="margin-top: 10px; font-size: 17px; color: #5A3550">voluntarios activos</div></div><div><div class="stat-n" data-count="15">15</div><div style="margin-top: 10px; font-size: 17px; color: #5A3550">instituciones aliadas</div></div>
+<div>
+<p class="big">La Fundación Atenea nace en Piura para estar al lado de quienes atraviesan sus momentos más difíciles: una enfermedad sin recursos para tratarla, una situación de violencia, el abandono o la pobreza.</p>
+<p class="lead" style="margin-top:22px">Como el mosaico de nuestro logo, creemos que cada persona que ayudamos, cada voluntaria y cada aliado suman color a una misma causa: que nadie enfrente sola lo que puede enfrentarse acompañada.</p>
+<div class="mv">
+<div style="background:var(--wash)"><h3>Misión</h3><p>Brindar apoyo, acompañamiento y oportunidades a personas enfermas, mujeres y familias en situación de vulnerabilidad en Piura.</p></div>
+<div style="background:var(--lilac)"><h3>Visión</h3><p>Ser la fundación referente del norte del Perú en asistencia social cercana, transparente y con impacto medible.</p></div>
 </div>
-</div>
-</div>
-</section>
-
-<!-- MISIÓN (declaración) -->
-<section id="mision" style="background: #F7E6EF">
-<div style="max-width: 1100px; margin: 0 auto; padding: 120px 32px 96px; text-align: center">
-<p style="font-family: 'Bricolage Grotesque', serif; font-weight: 350; font-size: clamp(34px, 4.6vw, 62px); line-height: 1.12; color: #4A1035; margin: 0 0 40px">Trabajamos por una Piura donde <em style="color: #C81E73">cada</em> mujer, cada paciente y cada familia pueda vivir con <em style="color: #C81E73">dignidad</em>, salud y oportunidades.</p>
-<a class="btn btn-outline" href="nosotros.html">Conoce nuestra misión</a>
-</div>
-<div style="max-width: 1200px; margin: 0 auto; padding: 0 32px 120px; display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 48px">
-<a href="programas.html" class="teaser" style="display: flex; gap: 28px; align-items: center; text-decoration: none; color: #4A1035">
-<img src="assets/foto-salud.jpg" alt="Una cuidadora conversa sonriente con una paciente mayor" loading="lazy" style="width: 46%; aspect-ratio: 4/3; object-fit: cover; border-radius:20px; flex-shrink: 0">
-<span><strong style="display: block; font-family: 'Bricolage Grotesque', serif; font-size: 32px; font-weight: 350; color: #4A1035; margin-bottom: 10px">Nuestro <em>trabajo</em></strong>
-<span style="display: block; font-size: 16px; line-height: 1.6; color: #5A3550; margin-bottom: 14px">Salud, acompañamiento, ayuda humanitaria y orientación gratuita para quienes más lo necesitan.</span>
-<span class="link-arrow" style="color: #4A1035; font-size: 15px; border-bottom: 2px solid #C81E73">Ver lo que hacemos →</span></span>
-</a>
-<a href="nosotros.html#ruta" class="teaser" style="display: flex; gap: 28px; align-items: center; text-decoration: none; color: #4A1035">
-<img src="assets/foto-mujeres.jpg" alt="Grupo de mujeres sonriendo juntas al aire libre" loading="lazy" style="width: 46%; aspect-ratio: 4/3; object-fit: cover; border-radius:20px; flex-shrink: 0">
-<span><strong style="display: block; font-family: 'Bricolage Grotesque', serif; font-size: 32px; font-weight: 350; color: #4A1035; margin-bottom: 10px">Nuestra <em>historia</em></strong>
-<span style="display: block; font-size: 16px; line-height: 1.6; color: #5A3550; margin-bottom: 14px">Una fundación piurana, formalmente constituida, que trabaja con transparencia y resultados verificables.</span>
-<span class="link-arrow" style="color: #4A1035; font-size: 15px; border-bottom: 2px solid #C81E73">Conoce nuestro camino →</span></span>
-</a>
-</div>
-</section>
-
-
-<!-- AYUDA HUMANITARIA (bloque con foto) -->
-<section style="background: #FFF6FA">
-<div style="display: flex; flex-wrap: wrap; align-items: center">
-<div style="flex: 1 1 480px; min-width: 0">
-<img src="assets/foto-ayuda.jpg" alt="Voluntarias preparan bolsas con alimentos para familias" loading="lazy" style="display: block; width: 100%; height: 520px; object-fit: cover; border-radius:20px">
-</div>
-<div style="flex: 1 1 420px; min-width: 0; padding: 64px clamp(32px, 6vw, 96px); text-align: center">
-<p style="font-family: 'Bricolage Grotesque', serif; font-style: italic; font-weight: 350; font-size: clamp(38px, 4vw, 56px); line-height: 1.05; color: #4A1035; margin: 0 0 24px">Nadie sale adelante solo</p>
-<p style="font-size: 18px; line-height: 1.65; color: #5A3550; margin: 0 auto 32px; max-width: 460px">Detrás de cada bolsa de alimentos, cada traslado al hospital y cada consulta gratuita hay voluntarios, aliados y donantes que deciden estar presentes.</p>
-<a class="btn btn-primary" href="involucrate.html">Súmate</a>
+<h3 style="font-size:24px;letter-spacing:-.02em;margin:36px 0 0;color:var(--plum)">Nuestros valores</h3>
+<ul class="vals">
+<li><i style="background:#C81E73"></i>Empatía</li><li><i style="background:#8A2BB0"></i>Dignidad</li><li><i style="background:#EE827C"></i>Transparencia</li><li><i style="background:#F3BC81"></i>Compromiso</li><li><i style="background:#6FA8E6"></i>Sororidad</li>
+</ul>
 </div>
 </div>
 </section>
 
-
-<!-- POR QUÉ EXISTIMOS -->
-<section id="piura" style="background: #F7E6EF">
-<div style="max-width: 1200px; margin: 0 auto; padding: 104px 32px 96px">
-<div style="display: flex; flex-wrap: wrap; gap: 32px 64px; align-items: flex-end; margin-bottom: 56px">
-<div style="flex: 1 1 460px; min-width: 0">
-<span style="font-size: 14px; font-weight: 600; letter-spacing: .08em; text-transform: uppercase; color: #C81E73">Por qué existimos</span>
-<h2 style="font-family: 'Bricolage Grotesque', serif; font-weight: 350; font-size: clamp(36px, 4vw, 54px); line-height: 1.08; color: #4A1035; margin: 16px 0 0">Piura en cifras: la realidad que queremos cambiar</h2>
+<section class="sec" id="que-hacemos" style="background:var(--blush)">
+<div class="wrap">
+<div class="head2">
+<h2 class="h2">Cuatro formas de estar presentes.</h2>
+<p class="lead">Atendemos con ayuda directa y con orientación profesional, sin costo para quien lo necesita.</p>
 </div>
-<p style="flex: 1 1 380px; min-width: 0; font-size: 18px; line-height: 1.7; color: #5A3550; margin: 0">Más de la mitad de las y los piuranos vive en pobreza o en riesgo de caer en ella. Detrás de cada cifra hay una mujer, una familia o un paciente que necesita apoyo.</p>
-</div>
-<div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 2px; background: #EFD9E6">
-
-<div style="background: #FFFFFF; padding: 40px 30px 32px; display: flex; flex-direction: column; gap: 14px">
-<div style="display: flex; gap: 4px"><span style="width: 10px; height: 10px; background: #C81E73"></span><span style="width: 10px; height: 10px; background: #E5CBDA"></span></div>
-<div style="font-family: 'Bricolage Grotesque', serif; font-size: 64px; font-weight: 350; line-height: 1; color: #4A1035">28,1 %</div>
-<p style="margin: 0; font-size: 16px; line-height: 1.55; color: #4A1035; flex-grow: 1">de la población de Piura vive en pobreza monetaria, por encima del promedio nacional de 25,7 %.</p>
-<span style="font-size: 13px; line-height: 1.4; color: #6E4A62; border-top: 1px solid #EFD9E6; padding-top: 12px">Fuente: INEI, 2025</span>
-</div>
-
-<div style="background: #FFFFFF; padding: 40px 30px 32px; display: flex; flex-direction: column; gap: 14px">
-<div style="display: flex; gap: 4px"><span style="width: 10px; height: 10px; background: #C81E73"></span><span style="width: 10px; height: 10px; background: #C81E73"></span></div>
-<div style="font-family: 'Bricolage Grotesque', serif; font-size: 64px; font-weight: 350; line-height: 1; color: #4A1035">4 578</div>
-<p style="margin: 0; font-size: 16px; line-height: 1.55; color: #4A1035; flex-grow: 1">casos de violencia atendidos por los Centros Emergencia Mujer de Piura entre enero y julio de 2026.</p>
-<span style="font-size: 13px; line-height: 1.4; color: #6E4A62; border-top: 1px solid #EFD9E6; padding-top: 12px">Fuente: MIMP – Programa Warmi Ñan, 2026</span>
-</div>
-
-<div style="background: #FFFFFF; padding: 40px 30px 32px; display: flex; flex-direction: column; gap: 14px">
-<div style="display: flex; gap: 4px"><span style="width: 10px; height: 10px; background: #E5CBDA"></span><span style="width: 10px; height: 10px; background: #C81E73"></span></div>
-<div style="font-family: 'Bricolage Grotesque', serif; font-size: 64px; font-weight: 350; line-height: 1; color: #4A1035">48,6 %</div>
-<p style="margin: 0; font-size: 16px; line-height: 1.55; color: #4A1035; flex-grow: 1">de las mujeres de Piura que han tenido pareja sufrió violencia por parte de ella alguna vez.</p>
-<span style="font-size: 13px; line-height: 1.4; color: #6E4A62; border-top: 1px solid #EFD9E6; padding-top: 12px">Fuente: MIMP – Programa Warmi Ñan</span>
-</div>
-
-<div style="background: #FFFFFF; padding: 40px 30px 32px; display: flex; flex-direction: column; gap: 14px">
-<div style="display: flex; gap: 4px"><span style="width: 10px; height: 10px; background: #E5CBDA"></span><span style="width: 10px; height: 10px; background: #C81E73"></span></div>
-<div style="font-family: 'Bricolage Grotesque', serif; font-size: 64px; font-weight: 350; line-height: 1; color: #4A1035">43,7 %</div>
-<p style="margin: 0; font-size: 16px; line-height: 1.55; color: #4A1035; flex-grow: 1">de niñas y niños de 6 a 35 meses en Piura tiene anemia.</p>
-<span style="font-size: 13px; line-height: 1.4; color: #6E4A62; border-top: 1px solid #EFD9E6; padding-top: 12px">Fuente: INEI – ENDES 2025</span>
-</div>
-
-</div>
-</div>
-</section>
-
-
-<!-- QUÉ HACEMOS -->
-<section id="que-hacemos" style="background: #F7E6EF">
-<div style="max-width: 1200px; margin: 0 auto; padding: 112px 32px">
-<div style="display: flex; flex-wrap: wrap; justify-content: space-between; align-items: flex-end; gap: 24px; margin-bottom: 56px">
-<div style="max-width: 640px">
-<span style="font-size: 14px; font-weight: 600; letter-spacing: .08em; text-transform: uppercase; color: #C81E73">Qué hacemos</span>
-<h2 style="font-family: 'Bricolage Grotesque', serif; font-weight: 350; font-size: clamp(36px, 4vw, 54px); line-height: 1.08; color: #4A1035; margin: 16px 0 0">Cuatro formas de estar presentes</h2>
-</div>
-<a class="link-arrow" href="programas.html" style="font-size: 16px">Ver todos los programas →</a>
-</div>
-<div class="prog-grid" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 24px">
-<article class="prog">
-<div class="prog-media"><img src="assets/foto-salud.jpg" alt="Cuidadora acompañando a una paciente" loading="lazy"><span class="prog-num">01</span></div>
-<span class="prog-icon" style="--c: #C81E73"><svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M19.5 12.6 12 20l-7.5-7.4A4.8 4.8 0 0 1 12 6.3a4.8 4.8 0 0 1 7.5 6.3z"/><path d="M12 10v5M9.5 12.5h5"/></svg></span>
-<div class="prog-body">
+<div class="cards4">
+<article class="prog" style="background:#F9D6E6">
+<div class="ph"><img src="assets/foto-salud.jpg" alt="" loading="lazy"></div>
+<span class="ic"><svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="#4A1035" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 21s-7-4.5-9.5-9A5.5 5.5 0 0 1 12 6a5.5 5.5 0 0 1 9.5 6C19 16.5 12 21 12 21zM9 12h6M12 9v6"/></svg></span>
 <h3>Salud y acompañamiento</h3>
 <p>Medicamentos, exámenes, traslados y acompañamiento a personas enfermas sin recursos para afrontar su tratamiento.</p>
-<a class="prog-link" href="programa-salud.html">Conocer más <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
-</div>
+<a class="more" href="programa-salud.html">Conocer más</a>
 </article>
-<article class="prog">
-<div class="prog-media"><img src="assets/foto-mujeres.jpg" alt="Grupo de mujeres sonriendo juntas" loading="lazy"><span class="prog-num">02</span></div>
-<span class="prog-icon" style="--c: #C81E73"><svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="8" r="3.2"/><path d="M5.5 20a6.5 6.5 0 0 1 13 0"/><path d="M17 4.5l1.2 1.2M19.5 9H21M7 4.5 5.8 5.7M4.5 9H3"/></svg></span>
-<div class="prog-body">
+<article class="prog" style="background:var(--lilac)">
+<div class="ph"><img src="assets/foto-mujeres.jpg" alt="" loading="lazy"></div>
+<span class="ic"><svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="#4A1035" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 13a4 4 0 1 0 0-8 4 4 0 0 0 0 8zM12 13v8M9 18h6"/></svg></span>
 <h3>Mujeres que avanzan</h3>
 <p>Apoyo a mujeres en situación de violencia, abandono o jefatura de hogar, con capacitación y emprendimiento.</p>
-<a class="prog-link" href="programa-mujeres.html">Conocer más <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
-</div>
+<a class="more" href="programa-mujeres.html">Conocer más</a>
 </article>
-<article class="prog">
-<div class="prog-media"><img src="assets/foto-ayuda.jpg" alt="Voluntarias preparando bolsas de alimentos" loading="lazy"><span class="prog-num">03</span></div>
-<span class="prog-icon" style="--c: #C81E73"><svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 9.5 12 4l9 5.5"/><path d="M5 8.5V20h14V8.5"/><path d="M9 20v-4.5a3 3 0 0 1 6 0V20"/><path d="M12 9.2c-.9-1-2.6-.6-2.6.8 0 1.2 2.6 2.6 2.6 2.6s2.6-1.4 2.6-2.6c0-1.4-1.7-1.8-2.6-.8z"/></svg></span>
-<div class="prog-body">
+<article class="prog" style="background:var(--peach)">
+<div class="ph"><img src="assets/foto-ayuda.jpg" alt="" loading="lazy"></div>
+<span class="ic"><svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="#4A1035" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 10l9-6 9 6v10H3zM9 20v-6h6v6"/></svg></span>
 <h3>Ayuda humanitaria</h3>
 <p>Alimentos, ropa, higiene y ayuda a familias afectadas por emergencias y desastres naturales en la región.</p>
-<a class="prog-link" href="programa-ayuda.html">Conocer más <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
-</div>
+<a class="more" href="programa-ayuda.html">Conocer más</a>
 </article>
-<article class="prog">
-<div class="prog-media"><img src="assets/foto-orientacion.jpg" alt="Dos mujeres conversando en una asesoría" loading="lazy"><span class="prog-num">04</span></div>
-<span class="prog-icon" style="--c: #C81E73"><svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 5h11v8H8l-4 3.5z"/><path d="M15 9h5v8.5L17 15h-6v-2"/><path d="M7.5 9h4"/></svg></span>
-<div class="prog-body">
+<article class="prog" style="background:var(--skywash)">
+<div class="ph"><img src="assets/foto-orientacion.jpg" alt="" loading="lazy"></div>
+<span class="ic"><svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="#4A1035" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 5h16v11H8l-4 4zM8 10h8M8 13h5"/></svg></span>
 <h3>Orientación gratuita</h3>
 <p>Asesoría legal, psicológica y social gratuita, presencial o a distancia, a cargo de profesionales habilitados.</p>
-<a class="prog-link" href="programa-orientacion.html">Conocer más <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
-</div>
+<a class="more" href="programa-orientacion.html">Conocer más</a>
 </article>
 </div>
 </div>
 </section>
 
-
-<!-- TESTIMONIOS -->
-<section style="background: #4A1035; color: #FFFFFF">
-<div style="max-width: 1200px; margin: 0 auto; padding: 104px 32px">
-<div style="text-align: center; margin: 0 auto 56px; max-width: 760px"><span style="font-size: 14px; font-weight: 600; letter-spacing: .08em; text-transform: uppercase; color: #C81E73">Testimonios</span><h2 style="font-family: 'Bricolage Grotesque', serif; font-weight: 350; font-size: clamp(36px, 4vw, 54px); line-height: 1.08; color: #FFFFFF; margin: 16px 0 0">Historias que nos inspiran</h2></div>
-<div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 24px"><figure style="margin: 0; background: rgba(255,255,255,.07); border: 1px solid rgba(255,255,255,.14); border-radius:20px; padding: 32px; display: flex; flex-direction: column; gap: 24px"><blockquote style="margin: 0; font-family: 'Bricolage Grotesque', serif; font-size: 24px; line-height: 1.35; font-style: italic">“Cuando me diagnosticaron, no sabía cómo pagar los exámenes. La fundación me acompañó en cada cita. Hoy sigo mi tratamiento con esperanza.”</blockquote><figcaption style="display: flex; align-items: center; gap: 14px; margin-top: auto"><span aria-hidden="true" style="width: 52px; height: 52px; border-radius: 50%; background: #FFF6FA; color: #4A1035; border: 1px solid #C81E73; display: inline-flex; align-items: center; justify-content: center; font-weight: 700; flex-shrink: 0">R</span><span><strong style="display: block">Rosa, 52 años</strong><span style="font-size: 14px; color: #E5CBDA">Beneficiaria · Castilla</span></span></figcaption></figure><figure style="margin: 0; background: rgba(255,255,255,.07); border: 1px solid rgba(255,255,255,.14); border-radius:20px; padding: 32px; display: flex; flex-direction: column; gap: 24px"><blockquote style="margin: 0; font-family: 'Bricolage Grotesque', serif; font-size: 24px; line-height: 1.35; font-style: italic">“Llegué con miedo y sin saber a dónde ir. Me escucharon, me orientaron y hoy tengo mi propio emprendimiento.”</blockquote><figcaption style="display: flex; align-items: center; gap: 14px; margin-top: auto"><span aria-hidden="true" style="width: 52px; height: 52px; border-radius: 50%; background: #FFF6FA; color: #4A1035; border: 1px solid #C81E73; display: inline-flex; align-items: center; justify-content: center; font-weight: 700; flex-shrink: 0">TA</span><span><strong style="display: block">Testimonio anónimo</strong><span style="font-size: 14px; color: #E5CBDA">Programa Mujeres que avanzan</span></span></figcaption></figure><figure style="margin: 0; background: rgba(255,255,255,.07); border: 1px solid rgba(255,255,255,.14); border-radius:20px; padding: 32px; display: flex; flex-direction: column; gap: 24px"><blockquote style="margin: 0; font-family: 'Bricolage Grotesque', serif; font-size: 24px; line-height: 1.35; font-style: italic">“Ser voluntario en Atenea me cambió la mirada. Cada sábado aprendo más de lo que doy.”</blockquote><figcaption style="display: flex; align-items: center; gap: 14px; margin-top: auto"><span aria-hidden="true" style="width: 52px; height: 52px; border-radius: 50%; background: #FFF6FA; color: #4A1035; border: 1px solid #C81E73; display: inline-flex; align-items: center; justify-content: center; font-weight: 700; flex-shrink: 0">D</span><span><strong style="display: block">Diego, 24 años</strong><span style="font-size: 14px; color: #E5CBDA">Voluntario · Estudiante de medicina</span></span></figcaption></figure></div>
+<section class="sec dark help" id="ayuda">
+<div class="wrap">
+<div class="head2">
+<h2 class="h2">No tienes que hacerlo sola. Así te acompañamos.</h2>
+<p class="lead">Nuestra atención es gratuita y confidencial. Tus datos se protegen conforme a la Ley de Protección de Datos Personales.</p>
 </div>
-</section>
-
-<!-- HISTORIAS Y RECURSOS -->
-<section id="historias" style="background: #F7E6EF">
-<div style="max-width: 1200px; margin: 0 auto; padding: 112px 32px">
-<div class="reveal" style="display: flex; flex-wrap: wrap; justify-content: space-between; align-items: flex-end; gap: 24px; margin-bottom: 56px">
-<div style="max-width: 640px"><span style="font-size: 14px; font-weight: 600; letter-spacing: .08em; text-transform: uppercase; color: #C81E73">Historias y recursos</span>
-<h2 style="font-family: 'Bricolage Grotesque', serif; font-weight: 350; font-size: clamp(36px, 4vw, 54px); line-height: 1.08; color: #4A1035; margin: 16px 0 0">Información que acompaña</h2></div>
-<p style="max-width: 420px; margin: 0; font-size: 17px; line-height: 1.6; color: #5A3550">Guías prácticas y novedades de la fundación. Compartirlas también es una forma de ayudar.<br><a class="link-arrow" href="historias.html" style="display:inline-block;margin-top:12px">Ver todas las historias →</a></p>
-</div>
-<div class="reveal" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 40px">
-<article class="story" style="display: flex; flex-direction: column; gap: 14px">
-<div style="overflow: hidden; border-radius:20px"><img src="assets/foto-abrazo.jpg" alt="Mujeres abrazándose" loading="lazy" style="display: block; width: 100%; aspect-ratio: 3/2; object-fit: cover"></div>
-<span class="tag">Guía · Violencia</span>
-<h3 style="font-family: 'Bricolage Grotesque', serif; font-size: 28px; line-height: 1.15; font-weight: 350; color: #4A1035; margin: 0">¿Sufres violencia? Estos son tus canales de ayuda gratuitos</h3>
-<p style="margin: 0; font-size: 16px; line-height: 1.65; color: #5A3550">Nadie tiene que enfrentar la violencia sola. En el Perú existen servicios gratuitos y confidenciales disponibles todos los días.</p>
-<details class="story-more"><summary>Leer más →</summary><p><strong>Línea 100:</strong> llamada gratuita, las 24 horas, para orientación y derivación inmediata.</p><p><strong>Centros Emergencia Mujer (CEM):</strong> brindan atención legal, psicológica y social gratuita. En Piura hay CEM en varios distritos de la región.</p><p><strong>En una emergencia:</strong> llama a la Policía al 105. También puedes escribirnos y te ayudaremos a dar el siguiente paso.</p></details>
-</article>
-<article class="story" style="display: flex; flex-direction: column; gap: 14px">
-<div style="overflow: hidden; border-radius:20px"><img src="assets/foto-salud.jpg" alt="Cuidadora acompañando a una paciente" loading="lazy" style="display: block; width: 100%; aspect-ratio: 3/2; object-fit: cover"></div>
-<span class="tag">Guía · Salud</span>
-<h3 style="font-family: 'Bricolage Grotesque', serif; font-size: 28px; line-height: 1.15; font-weight: 350; color: #4A1035; margin: 0">Cómo acompañar a un familiar durante un tratamiento</h3>
-<p style="margin: 0; font-size: 16px; line-height: 1.65; color: #5A3550">Una enfermedad cambia la vida de toda la familia. Estos consejos pueden hacer el camino un poco más llevadero.</p>
-<details class="story-more"><summary>Leer más →</summary><p><strong>Organiza la información:</strong> guarda en una carpeta las recetas, resultados y citas médicas.</p><p><strong>Pregunta por tus derechos:</strong> si cuentas con SIS, consulta qué medicamentos y exámenes están cubiertos.</p><p><strong>Cuida también de ti:</strong> pide ayuda y comparte las tareas. Si necesitas apoyo con medicamentos o traslados, escríbenos.</p></details>
-</article>
-<article class="story" style="display: flex; flex-direction: column; gap: 14px">
-<div style="overflow: hidden; border-radius:20px"><img src="assets/foto-mujeres.jpg" alt="Grupo de mujeres sonriendo juntas" loading="lazy" style="display: block; width: 100%; aspect-ratio: 3/2; object-fit: cover"></div>
-<span class="tag">Noticias · Fundación</span>
-<h3 style="font-family: 'Bricolage Grotesque', serif; font-size: 28px; line-height: 1.15; font-weight: 350; color: #4A1035; margin: 0">Fundación Atenea: compromiso con Piura</h3>
-<p style="margin: 0; font-size: 16px; line-height: 1.65; color: #5A3550">Trabajamos en Piura con un compromiso firme: rendir cuentas de cada sol y de cada acción.</p>
-<details class="story-more"><summary>Leer más →</summary><p>Somos una fundación formalmente constituida e inscrita, y contamos con una red de aliados, voluntarios y profesionales comprometidos con Piura.</p><p>Publicamos aquí cada avance, con resultados verificables. Suscríbete a nuestro boletín para enterarte primero.</p></details>
-</article>
+<ol class="steps">
+<li><b>1</b><h3>Nos cuentas tu caso</h3><p>Escríbenos por WhatsApp, llámanos o visítanos. Te escuchamos sin juicios y con total reserva.</p></li>
+<li><b>2</b><h3>Evaluamos tu situación</h3><p>Nuestro equipo identifica qué necesitas: salud, orientación, ayuda material o acompañamiento.</p></li>
+<li><b>3</b><h3>Te acompañamos</h3><p>Te brindamos apoyo directo y te conectamos con los servicios públicos y privados que correspondan.</p></li>
+</ol>
+<div class="acts2">
+<a class="btn btn-main" href="contacto.html">Solicitar apoyo</a>
+<a class="tlink" href="https://wa.me/51900000000?text=Hola%2C%20quisiera%20informaci%C3%B3n%20sobre%20la%20Fundaci%C3%B3n%20Atenea">Escríbenos por WhatsApp</a>
+<span>En emergencias: Línea 100 · Policía 105</span>
 </div>
 </div>
 </section>
 
-
-<!-- BOLETÍN -->
-<section style="background: linear-gradient(#F7E6EF 50%, #FFF6FA 50%)">
-<div class="reveal" style="max-width: 1200px; margin: 0 auto; padding: 0 32px">
-<div style="background: #FFFFFF; border: 1px solid #EFD9E6; border-radius:20px; padding: clamp(40px, 6vw, 72px); display: flex; flex-wrap: wrap; gap: 40px; align-items: center">
-<div style="flex: 1 1 380px; min-width: 0">
-<h2 style="font-family: 'Bricolage Grotesque', serif; font-weight: 350; font-size: clamp(34px, 3.6vw, 50px); line-height: 1.08; color: #2E0A22; margin: 0 0 16px">Recibe buenas noticias desde Piura</h2>
-<p style="margin: 0; font-size: 18px; line-height: 1.6; color: #2E0A22">Una vez al mes: historias, avances y formas concretas de ayudar. Sin spam, puedes darte de baja cuando quieras.</p>
+<section class="sec road" id="ruta">
+<div class="wrap">
+<div class="head2">
+<h2 class="h2">Estamos empezando. Y queremos que seas parte desde el inicio.</h2>
+<div style="flex:1 1 340px"><p class="lead" style="margin-bottom:24px">Esta es nuestra hoja de ruta. Cada etapa cumplida la publicaremos aquí, con resultados verificables.</p><a class="btn btn-main" href="involucrate.html">Sé parte desde el inicio</a></div>
 </div>
-<form id="boletin" style="flex: 1 1 360px; min-width: 0; display: flex; flex-direction: column; gap: 12px" onsubmit="event.preventDefault();this.innerHTML='<p style=&quot;font-size:18px;color:#2E0A22;margin:0&quot;><strong>¡Gracias!</strong> Registramos tu interés. Te escribiremos en cuanto lancemos el boletín.</p>'">
-<label for="b-nombre" style="font-weight: 600; color: #2E0A22">Nombre</label>
-<input id="b-nombre" class="news-input" type="text" autocomplete="given-name" required placeholder="Tu nombre">
-<label for="b-correo" style="font-weight: 600; color: #2E0A22">Correo electrónico</label>
-<input id="b-correo" class="news-input" type="email" autocomplete="email" required placeholder="nombre@correo.com">
-<button class="btn" type="submit" style="background: #2E0A22; color: #FFFFFF; border: 0; cursor: pointer; margin-top: 6px; align-self: flex-start">Suscribirme</button>
-</form>
+<ol class="stages">
+<li style="--c:#C81E73"><span class="tag" style="background:#C81E73;color:#fff">En curso</span><h3>Constitución e inscripción</h3><p>Escritura pública, inscripción en SUNARP y en el registro del Consejo de Supervigilancia de Fundaciones.</p></li>
+<li style="--c:#B54DD0"><span class="tag" style="background:var(--wash);color:var(--brand)">Próximamente</span><h3>Red de aliados y voluntariado</h3><p>Convenios con universidades, profesionales voluntarios, empresas e instituciones de Piura.</p></li>
+<li style="--c:#EE827C"><span class="tag" style="background:var(--wash);color:var(--brand)">Próximamente</span><h3>Primeras campañas</h3><p>Campañas de salud, entrega de ayuda humanitaria y orientación gratuita para mujeres y familias.</p></li>
+<li style="--c:#F3BC81"><span class="tag" style="background:var(--wash);color:var(--brand)">Próximamente</span><h3>Primer informe público</h3><p>Resultados, personas atendidas y estados financieros, publicados en esta web.</p></li>
+</ol>
+</div>
+</section>
+
+<section class="sec cons" id="consultorias">
+<div class="wrap">
+<div>
+<span class="pill" style="background:#fff;color:#0B4C72">Para empresas e instituciones</span>
+<h2 class="h2" style="margin-top:20px">Tu organización también puede transformar Piura.</h2>
+<p class="lead">Ofrecemos consultorías y capacitaciones especializadas en temas sociales. Todo lo que recibimos por estos servicios se destina íntegramente a nuestros programas.</p>
+<a class="btn btn-main" href="contacto.html">Solicitar propuesta</a>
+</div>
+<div class="svc">
+<div><i style="background:#C81E73"></i><h3>Prevención del hostigamiento sexual</h3><p>Capacitaciones para empresas e instituciones conforme a la Ley N.º 27942.</p></div>
+<div><i style="background:#8A2BB0"></i><h3>Igualdad de género</h3><p>Talleres y asesoría para entornos laborales más justos y seguros.</p></div>
+<div><i style="background:#EE827C"></i><h3>Inclusión laboral</h3><p>Acompañamiento a empresas en la inclusión de personas con discapacidad.</p></div>
+<div><i style="background:#F3BC81"></i><h3>Diagnósticos y estudios sociales</h3><p>Líneas de base, investigación e indicadores sociales para Piura.</p></div>
+<div><i style="background:#6FA8E6"></i><h3>Proyectos y responsabilidad social</h3><p>Diseño, ejecución y evaluación de programas dirigidos a poblaciones vulnerables.</p></div>
+<div><i style="background:#B54DD0"></i><h3>Asistencia técnica a gobiernos locales</h3><p>Apoyo técnico, no partidario, en programas sociales municipales y regionales.</p></div>
 </div>
 </div>
 </section>
 
-
-<!-- ALIADOS -->
-<section style="background: #F7E6EF">
-<div style="max-width: 1200px; margin: 0 auto; padding: 96px 32px">
-<div style="text-align: center; margin: 0 auto 56px; max-width: 760px"><span style="font-size: 14px; font-weight: 600; letter-spacing: .08em; text-transform: uppercase; color: #C81E73">Aliados</span><h2 style="font-family: 'Bricolage Grotesque', serif; font-weight: 350; font-size: clamp(36px, 4vw, 54px); line-height: 1.08; color: #4A1035; margin: 16px 0 0">Trabajamos junto a</h2><p style="margin: 18px 0 0; font-size: 18px; line-height: 1.65; color: #5A3550">Instituciones que confían en nuestro trabajo y suman esfuerzos por Piura.</p></div>
-<div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(170px, 1fr)); gap: 16px"><div class="partner"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linejoin="round" aria-hidden="true"><path d="M4 10l8-5 8 5-8 5zM6 12v5c3 2 9 2 12 0v-5"/></svg>Universidad</div><div class="partner"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linejoin="round" aria-hidden="true"><path d="M3 21h18M5 21V10l7-5 7 5v11M9 21v-6h6v6"/></svg>Municipalidad</div><div class="partner"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linejoin="round" aria-hidden="true"><path d="M12 3l8 4v5c0 5-4 8-8 9-4-1-8-4-8-9V7z"/></svg>Colegio profesional</div><div class="partner"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linejoin="round" aria-hidden="true"><path d="M3 21V8l6-4v17M9 21h12V10l-6-3"/></svg>Empresa aliada</div><div class="partner"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linejoin="round" aria-hidden="true"><path d="M10 3h4v7h7v4h-7v7h-4v-7H3v-4h7z"/></svg>Red de salud</div><div class="partner"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linejoin="round" aria-hidden="true"><path d="M4 5h16v12H4zM8 21h8M12 17v4"/></svg>Medio de comunicación</div></div>
+<section class="sec" id="donar">
+<div class="wrap">
+<h2 class="h2" style="max-width:12em">Suma tu color al mosaico.</h2>
+<div class="join">
+<div class="dark" style="background:var(--brand)">
+<h3 style="color:var(--butter)">Tu aporte se convierte en ayuda concreta</h3>
+<p style="color:#F2DDE9">Medicamentos, traslados, alimentos y acompañamiento para quien más lo necesita.</p>
+<div class="chips"><span>Yape</span><span>Plin</span><span>Transferencia</span><span>Tarjeta</span></div>
+<p class="note" style="color:#E7C6D8">Nuestros canales oficiales de donación se habilitarán al concluir la inscripción de la fundación.</p>
+<div><a class="btn btn-on" href="contacto.html">Avísame cuando pueda donar</a></div>
 </div>
-</section>
-
-<!-- CTA FINAL -->
-<section style="background: #F7E6EF">
-<div style="max-width: 1200px; margin: 0 auto; padding: 96px 32px">
-<div style="position: relative; overflow: hidden; background: #2E0A22; padding: 72px 56px; display: flex; flex-wrap: wrap; gap: 32px; align-items: center; justify-content: space-between">
-
-<span aria-hidden="true" style="position: absolute; left:91.0%;top:86.3%;width:37px;height:37px;background:#C81E73;opacity:0.24"></span>
-
-<span aria-hidden="true" style="position: absolute; left:81.2%;top:4.9%;width:32px;height:32px;background:#C81E73;opacity:0.30"></span>
-
-<span aria-hidden="true" style="position: absolute; left:69.1%;top:66.7%;width:31px;height:31px;background:#E5CBDA;opacity:0.35"></span>
-
-<span aria-hidden="true" style="position: absolute; left:63.0%;top:12.1%;width:37px;height:37px;background:#C81E73;opacity:0.31"></span>
-
-<span aria-hidden="true" style="position: absolute; left:74.4%;top:28.1%;width:15px;height:15px;background:#E5CBDA;opacity:0.27"></span>
-
-<span aria-hidden="true" style="position: absolute; left:79.0%;top:68.2%;width:11px;height:11px;background:#E5CBDA;opacity:0.28"></span>
-
-<span aria-hidden="true" style="position: absolute; left:94.9%;top:42.8%;width:14px;height:14px;background:#C81E73;opacity:0.32"></span>
-
-<span aria-hidden="true" style="position: absolute; left:70.0%;top:68.7%;width:16px;height:16px;background:#C81E73;opacity:0.11"></span>
-
-<span aria-hidden="true" style="position: absolute; left:63.1%;top:59.6%;width:39px;height:39px;background:#E5CBDA;opacity:0.18"></span>
-
-<span aria-hidden="true" style="position: absolute; left:58.2%;top:5.7%;width:30px;height:30px;background:#E5CBDA;opacity:0.30"></span>
-
-<span aria-hidden="true" style="position: absolute; left:71.6%;top:44.0%;width:36px;height:36px;background:#C81E73;opacity:0.34"></span>
-
-<span aria-hidden="true" style="position: absolute; left:69.2%;top:48.2%;width:28px;height:28px;background:#E5CBDA;opacity:0.30"></span>
-
-<span aria-hidden="true" style="position: absolute; left:88.6%;top:88.4%;width:27px;height:27px;background:#E5CBDA;opacity:0.26"></span>
-
-<span aria-hidden="true" style="position: absolute; left:82.8%;top:51.7%;width:19px;height:19px;background:#C81E73;opacity:0.22"></span>
-
-<h2 style="position: relative; font-family: 'Bricolage Grotesque', serif; font-weight: 350; font-size: clamp(34px, 3.8vw, 52px); line-height: 1.08; color: #FFFFFF; margin: 0; max-width: 640px">Hoy alguien en Piura necesita que no la dejemos sola.</h2>
-<div style="position: relative; display: flex; flex-wrap: wrap; gap: 14px">
-<a class="btn btn-primary" href="involucrate.html">Dona ahora</a>
-<a class="btn btn-light" href="contacto.html">Contáctanos</a>
+<div style="background:var(--wash)">
+<h3 style="color:var(--plum)">Dona tu tiempo y tu talento</h3>
+<p style="color:var(--muted)">Profesionales y estudiantes de salud, derecho, psicología, comunicación y más pueden sumarse a nuestras campañas y asesorías gratuitas.</p>
+<div><a class="btn btn-line" href="contacto.html">Quiero ser voluntario/a</a></div>
+</div>
+<div style="background:var(--peach)">
+<h3 style="color:var(--plum)">Empresas con propósito</h3>
+<p style="color:var(--text)">Construyamos juntos programas de responsabilidad social con impacto real y medible en Piura.</p>
+<div><a class="btn btn-line" href="involucrate.html">Ser aliado</a></div>
 </div>
 </div>
 </div>
 </section>
 
+<section class="sec trans" id="transparencia">
+<div class="wrap">
+<div>
+<h2 class="h2">Cuentas claras, confianza que crece.</h2>
+<p class="lead">Desde el primer día asumimos un compromiso: publicar nuestra información institucional y financiera para que sepas exactamente cómo usamos cada sol.</p>
+</div>
+<div class="docs">
+<a href="transparencia.html"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#C81E73" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14 3H6v18h12V7z"/><path d="M14 3v4h4M9 13h6M9 17h6"/></svg><span><strong>Estatuto de la fundación</strong><span>Disponible tras la inscripción</span></span></a>
+<a href="transparencia.html"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#C81E73" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14 3H6v18h12V7z"/><path d="M14 3v4h4M9 13h6M9 17h6"/></svg><span><strong>Consejo de Administración</strong><span>Quiénes dirigen la fundación</span></span></a>
+<a href="transparencia.html"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#C81E73" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14 3H6v18h12V7z"/><path d="M14 3v4h4M9 13h6M9 17h6"/></svg><span><strong>Estados financieros</strong><span>Publicación anual</span></span></a>
+<a href="transparencia.html"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#C81E73" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14 3H6v18h12V7z"/><path d="M14 3v4h4M9 13h6M9 17h6"/></svg><span><strong>Memoria anual</strong><span>Actividades y resultados</span></span></a>
+</div>
+</div>
+</section>
 
-<!-- PIE -->
-<footer style="background: #4A1035; color: #F7E6EF">
-<div style="max-width: 1200px; margin: 0 auto; padding: 80px 32px 40px; display: flex; flex-wrap: wrap; gap: 48px">
-<div style="flex: 1 1 300px; min-width: 0">
-<div style="font-family: 'Bricolage Grotesque', serif; font-size: 40px; font-weight: 350; color: #FFFFFF; letter-spacing: .04em; line-height: 1"><span style="font-family: 'Hanken Grotesk', sans-serif; font-size: 16px; font-weight: 400; letter-spacing: .08em; display: block; margin-bottom: 4px">Fundación</span>ATENEA</div>
-<div style="display: flex; gap: 4px; margin: 18px 0 20px"><span style="width: 10px; height: 10px; background: #C81E73"></span><span style="width: 10px; height: 10px; background: #C81E73"></span><span style="width: 10px; height: 10px; background: #E5CBDA"></span><span style="width: 10px; height: 10px; background: #E5CBDA"></span><span style="width: 10px; height: 10px; background: #C81E73"></span><span style="width: 10px; height: 10px; background: #E5CBDA"></span></div>
-<p style="margin: 0; font-size: 15px; line-height: 1.7; max-width: 320px">Fundación sin fines de lucro dedicada a la beneficencia y asistencia social en Piura, Perú.</p>
-<p style="margin: 14px 0 0; font-size: 13px; line-height: 1.7; color: #E5CBDA">RUC 20XXXXXXXXX · Partida registral N.° XXXXXXXX<br>Zona Registral N.° I – Sede Piura</p>
-<div class="social" style="display: flex; gap: 10px; margin-top: 24px"><a href="#" aria-label="Facebook"><svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M14 8h3V4h-3a4 4 0 0 0-4 4v2H8v4h2v8h4v-8h3l1-4h-4V8z"/></svg></a><a href="#" aria-label="Instagram"><svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="5" fill="none" stroke="currentColor" stroke-width="2"/><circle cx="12" cy="12" r="4" fill="none" stroke="currentColor" stroke-width="2"/><circle cx="17.5" cy="6.5" r="1.2"/></svg></a><a href="#" aria-label="TikTok"><svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M16 3c.4 2.4 1.9 3.9 4 4v3.2a7.5 7.5 0 0 1-4-1.2V15a6 6 0 1 1-6-6v3.3a2.8 2.8 0 1 0 2.8 2.8V3z"/></svg></a><a href="#" aria-label="LinkedIn"><svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M4 9h4v12H4zM6 3a2 2 0 1 1 0 4 2 2 0 0 1 0-4zM10 9h4v1.7A4.3 4.3 0 0 1 18 9c3 0 4 2 4 5v7h-4v-6c0-1.5-.3-3-2-3s-2 1.3-2 3v6h-4z"/></svg></a><a href="#" aria-label="YouTube"><svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M22 8a3 3 0 0 0-2-2c-2-.5-8-.5-8-.5s-6 0-8 .5A3 3 0 0 0 2 8a31 31 0 0 0 0 8 3 3 0 0 0 2 2c2 .5 8 .5 8 .5s6 0 8-.5a3 3 0 0 0 2-2 31 31 0 0 0 0-8zM10 15V9l5 3z"/></svg></a></div>
+<section class="final dark">
+<div class="wrap">
+<div class="box">
+<div class="art" aria-hidden="true"><svg class="mos" viewBox="0 0 760 320" xmlns="http://www.w3.org/2000/svg">
+<rect x="636.2" y="6.7" width="14.2" height="14.2" fill="#E0DBA6" fill-opacity="0.28" style="--d:1.17s"/>
+<rect x="581.2" y="39.4" width="10.9" height="10.9" fill="#F6DB89" fill-opacity="0.39" style="--d:0.88s"/>
+<rect x="669.6" y="42.1" width="9.5" height="9.5" fill="#C0D4CF" fill-opacity="0.45" style="--d:1.10s"/>
+<rect x="701.6" y="39.1" width="9.2" height="9.2" fill="#9EC8F3" fill-opacity="0.45" style="--d:1.12s"/>
+<rect x="5.3" y="66.6" width="16.2" height="16.2" fill="#701CA4" fill-opacity="0.36" style="--d:0.51s"/>
+<rect x="460.6" y="69.2" width="9.5" height="9.5" fill="#F1A781" fill-opacity="0.38" style="--d:0.90s"/>
+<rect x="611.2" y="70.9" width="10.8" height="10.8" fill="#F3DF8E" fill-opacity="0.57" style="--d:1.26s"/>
+<rect x="664.6" y="63.4" width="23.9" height="23.9" fill="#C1D4CE" fill-opacity="0.64" style="--d:1.00s"/>
+<rect x="724.0" y="66.3" width="20.0" height="20.0" fill="#99C2F1" fill-opacity="0.68" style="--d:1.15s"/>
+<rect x="39.4" y="100.6" width="11.7" height="11.7" fill="#751FA6" fill-opacity="0.53" style="--d:0.52s"/>
+<rect x="69.8" y="100.5" width="8.6" height="8.6" fill="#7921A8" fill-opacity="0.43" style="--d:0.29s"/>
+<rect x="130.1" y="100.5" width="12.9" height="12.9" fill="#892AB0" fill-opacity="0.40" style="--d:0.49s"/>
+<rect x="158.7" y="102.2" width="8.8" height="8.8" fill="#9F279B" fill-opacity="0.38" style="--d:0.25s"/>
+<rect x="338.3" y="99.0" width="15.2" height="15.2" fill="#E35F7E" fill-opacity="0.41" style="--d:0.90s"/>
+<rect x="397.7" y="97.6" width="17.7" height="17.7" fill="#EE8E81" fill-opacity="0.46" style="--d:1.02s"/>
+<rect x="486.6" y="94.4" width="17.8" height="17.8" fill="#F4C984" fill-opacity="0.65" style="--d:1.16s"/>
+<rect x="518.5" y="97.8" width="15.0" height="15.0" fill="#F5D086" fill-opacity="0.68" style="--d:0.80s"/>
+<rect x="550.9" y="100.5" width="8.9" height="8.9" fill="#F5D788" fill-opacity="0.69" style="--d:1.05s"/>
+<rect x="571.4" y="90.4" width="25.2" height="25.2" fill="#F3DF8E" fill-opacity="0.74" style="--d:0.95s"/>
+<rect x="603.0" y="92.1" width="25.4" height="25.4" fill="#EBDE98" fill-opacity="0.89" style="--d:1.22s"/>
+<rect x="637.9" y="98.4" width="16.6" height="16.6" fill="#CDD7BF" fill-opacity="0.91" style="--d:1.23s"/>
+<rect x="669.5" y="100.8" width="11.0" height="11.0" fill="#A2CCF5" fill-opacity="0.92" style="--d:1.45s"/>
+<rect x="699.0" y="98.3" width="11.7" height="11.7" fill="#9FC9F4" fill-opacity="0.79" style="--d:1.33s"/>
+<rect x="729.1" y="99.7" width="14.5" height="14.5" fill="#9CC6F3" fill-opacity="0.84" style="--d:1.08s"/>
+<rect x="11.3" y="130.7" width="9.2" height="9.2" fill="#761FA7" fill-opacity="0.75" style="--d:0.03s"/>
+<rect x="34.9" y="128.1" width="16.4" height="16.4" fill="#741EA6" fill-opacity="0.69" style="--d:0.09s"/>
+<rect x="67.5" y="127.6" width="15.9" height="15.9" fill="#8226AC" fill-opacity="0.74" style="--d:0.45s"/>
+<rect x="95.7" y="125.0" width="16.1" height="16.1" fill="#8428AD" fill-opacity="0.64" style="--d:0.24s"/>
+<rect x="128.9" y="128.2" width="13.8" height="13.8" fill="#8A2BB0" fill-opacity="0.61" style="--d:0.39s"/>
+<rect x="214.9" y="122.5" width="22.0" height="22.0" fill="#B32288" fill-opacity="0.53" style="--d:0.78s"/>
+<rect x="248.2" y="127.8" width="16.7" height="16.7" fill="#BD207D" fill-opacity="0.59" style="--d:0.69s"/>
+<rect x="276.7" y="126.0" width="19.1" height="19.1" fill="#C51F76" fill-opacity="0.57" style="--d:0.86s"/>
+<rect x="363.7" y="126.0" width="21.2" height="21.2" fill="#E5657F" fill-opacity="0.70" style="--d:0.58s"/>
+<rect x="397.2" y="126.1" width="17.7" height="17.7" fill="#EE8F81" fill-opacity="0.61" style="--d:0.62s"/>
+<rect x="428.6" y="130.4" width="11.5" height="11.5" fill="#ED8881" fill-opacity="0.68" style="--d:0.89s"/>
+<rect x="453.8" y="124.8" width="23.9" height="23.9" fill="#F3BE81" fill-opacity="0.79" style="--d:0.72s"/>
+<rect x="484.9" y="126.7" width="18.4" height="18.4" fill="#F3BF82" fill-opacity="0.86" style="--d:1.14s"/>
+<rect x="517.3" y="129.1" width="14.5" height="14.5" fill="#F4C383" fill-opacity="0.95" style="--d:1.19s"/>
+<rect x="545.9" y="124.4" width="18.7" height="18.7" fill="#F5D387" fill-opacity="0.89" style="--d:1.11s"/>
+<rect x="571.3" y="120.8" width="27.6" height="27.6" fill="#F6DF8A" fill-opacity="0.95" style="--d:1.09s"/>
+<rect x="610.3" y="129.8" width="9.7" height="9.7" fill="#CAD6C2" fill-opacity="0.99" style="--d:1.02s"/>
+<rect x="639.3" y="130.8" width="10.9" height="10.9" fill="#C8D5C6" fill-opacity="0.96" style="--d:1.09s"/>
+<rect x="666.5" y="123.3" width="20.5" height="20.5" fill="#C6D5C8" fill-opacity="0.93" style="--d:1.07s"/>
+<rect x="693.4" y="123.5" width="21.8" height="21.8" fill="#A6CEF1" fill-opacity="0.89" style="--d:1.39s"/>
+<rect x="724.8" y="124.6" width="18.3" height="18.3" fill="#97C0F1" fill-opacity="0.87" style="--d:1.25s"/>
+<rect x="4.2" y="154.4" width="18.9" height="18.9" fill="#741EA6" fill-opacity="0.91" style="--d:0.29s"/>
+<rect x="36.2" y="153.7" width="20.5" height="20.5" fill="#7B22A9" fill-opacity="0.93" style="--d:0.52s"/>
+<rect x="69.4" y="156.6" width="14.5" height="14.5" fill="#8126AC" fill-opacity="0.97" style="--d:0.18s"/>
+<rect x="92.9" y="152.2" width="22.3" height="22.3" fill="#8126AC" fill-opacity="0.91" style="--d:0.55s"/>
+<rect x="127.8" y="155.1" width="15.9" height="15.9" fill="#892AB0" fill-opacity="0.75" style="--d:0.65s"/>
+<rect x="187.3" y="156.2" width="17.6" height="17.6" fill="#9628A4" fill-opacity="0.81" style="--d:0.32s"/>
+<rect x="220.7" y="160.5" width="9.1" height="9.1" fill="#A42596" fill-opacity="0.77" style="--d:0.42s"/>
+<rect x="245.2" y="155.0" width="23.5" height="23.5" fill="#B1238A" fill-opacity="0.68" style="--d:0.84s"/>
+<rect x="273.2" y="153.7" width="22.3" height="22.3" fill="#CA2474" fill-opacity="0.77" style="--d:0.71s"/>
+<rect x="305.7" y="153.1" width="21.3" height="21.3" fill="#DA497A" fill-opacity="0.78" style="--d:0.66s"/>
+<rect x="339.3" y="157.3" width="11.5" height="11.5" fill="#E5637F" fill-opacity="0.90" style="--d:0.85s"/>
+<rect x="364.4" y="155.2" width="20.5" height="20.5" fill="#EC8181" fill-opacity="0.84" style="--d:0.95s"/>
+<rect x="392.9" y="153.0" width="26.2" height="26.2" fill="#EC7E81" fill-opacity="0.94" style="--d:1.03s"/>
+<rect x="425.0" y="155.0" width="22.1" height="22.1" fill="#F0A181" fill-opacity="0.86" style="--d:0.66s"/>
+<rect x="454.2" y="155.6" width="17.7" height="17.7" fill="#F2B281" fill-opacity="0.92" style="--d:0.79s"/>
+<rect x="483.6" y="154.9" width="21.5" height="21.5" fill="#F3C082" fill-opacity="0.89" style="--d:0.91s"/>
+<rect x="545.2" y="156.1" width="21.6" height="21.6" fill="#F5D687" fill-opacity="0.72" style="--d:1.17s"/>
+<rect x="575.3" y="155.9" width="15.7" height="15.7" fill="#F5D587" fill-opacity="0.76" style="--d:0.97s"/>
+<rect x="638.3" y="156.7" width="17.2" height="17.2" fill="#BFD3D1" fill-opacity="0.80" style="--d:1.34s"/>
+<rect x="666.7" y="153.9" width="18.6" height="18.6" fill="#BED3D2" fill-opacity="0.77" style="--d:1.21s"/>
+<rect x="697.1" y="154.9" width="16.8" height="16.8" fill="#9FC9F4" fill-opacity="0.76" style="--d:1.28s"/>
+<rect x="726.9" y="158.3" width="14.6" height="14.6" fill="#99C3F2" fill-opacity="0.70" style="--d:1.42s"/>
+<rect x="9.7" y="188.8" width="8.7" height="8.7" fill="#751FA6" fill-opacity="0.71" style="--d:0.22s"/>
+<rect x="32.0" y="185.7" width="22.5" height="22.5" fill="#731EA6" fill-opacity="0.91" style="--d:0.52s"/>
+<rect x="68.1" y="185.2" width="17.6" height="17.6" fill="#8126AC" fill-opacity="0.85" style="--d:0.47s"/>
+<rect x="92.5" y="181.6" width="27.6" height="27.6" fill="#8327AD" fill-opacity="0.78" style="--d:0.38s"/>
+<rect x="130.4" y="188.8" width="9.4" height="9.4" fill="#892AAF" fill-opacity="0.87" style="--d:0.42s"/>
+<rect x="154.7" y="186.1" width="19.9" height="19.9" fill="#A0269A" fill-opacity="0.89" style="--d:0.72s"/>
+<rect x="186.9" y="190.0" width="13.1" height="13.1" fill="#A42697" fill-opacity="0.95" style="--d:0.46s"/>
+<rect x="214.3" y="184.4" width="22.0" height="22.0" fill="#B72284" fill-opacity="0.91" style="--d:0.42s"/>
+<rect x="242.8" y="182.6" width="27.8" height="27.8" fill="#B1238A" fill-opacity="0.77" style="--d:0.50s"/>
+<rect x="273.0" y="184.8" width="20.7" height="20.7" fill="#C11F7A" fill-opacity="0.78" style="--d:0.75s"/>
+<rect x="304.0" y="184.5" width="20.9" height="20.9" fill="#D23777" fill-opacity="0.82" style="--d:0.83s"/>
+<rect x="338.5" y="191.3" width="9.9" height="9.9" fill="#E4627F" fill-opacity="0.91" style="--d:0.61s"/>
+<rect x="369.5" y="187.7" width="13.5" height="13.5" fill="#EC8281" fill-opacity="0.90" style="--d:0.71s"/>
+<rect x="395.3" y="183.3" width="22.8" height="22.8" fill="#EA7081" fill-opacity="0.82" style="--d:1.02s"/>
+<rect x="430.3" y="190.0" width="10.0" height="10.0" fill="#EE8F81" fill-opacity="0.85" style="--d:1.02s"/>
+<rect x="459.5" y="187.2" width="12.3" height="12.3" fill="#F2B681" fill-opacity="0.73" style="--d:1.02s"/>
+<rect x="489.0" y="190.5" width="10.9" height="10.9" fill="#F2B281" fill-opacity="0.69" style="--d:1.07s"/>
+<rect x="515.0" y="184.9" width="23.5" height="23.5" fill="#F5CF86" fill-opacity="0.65" style="--d:0.91s"/>
+<rect x="549.4" y="189.2" width="14.7" height="14.7" fill="#F5D086" fill-opacity="0.57" style="--d:0.99s"/>
+<rect x="577.4" y="186.6" width="14.3" height="14.3" fill="#EDDE96" fill-opacity="0.57" style="--d:1.12s"/>
+<rect x="667.1" y="184.7" width="18.8" height="18.8" fill="#AACFEC" fill-opacity="0.43" style="--d:1.25s"/>
+<rect x="67.4" y="214.6" width="17.4" height="17.4" fill="#7F25AB" fill-opacity="0.60" style="--d:0.56s"/>
+<rect x="93.9" y="216.3" width="19.3" height="19.3" fill="#7F25AB" fill-opacity="0.73" style="--d:0.26s"/>
+<rect x="127.2" y="215.7" width="17.7" height="17.7" fill="#902AAA" fill-opacity="0.72" style="--d:0.53s"/>
+<rect x="156.8" y="216.7" width="18.2" height="18.2" fill="#8E2AAC" fill-opacity="0.86" style="--d:0.65s"/>
+<rect x="184.2" y="214.3" width="24.1" height="24.1" fill="#AE238C" fill-opacity="0.87" style="--d:0.60s"/>
+<rect x="215.4" y="213.9" width="21.6" height="21.6" fill="#A42596" fill-opacity="0.78" style="--d:0.70s"/>
+<rect x="278.1" y="219.0" width="11.5" height="11.5" fill="#D53D78" fill-opacity="0.75" style="--d:0.44s"/>
+<rect x="310.4" y="220.9" width="10.5" height="10.5" fill="#CD2975" fill-opacity="0.71" style="--d:0.69s"/>
+<rect x="330.9" y="211.2" width="24.5" height="24.5" fill="#D9487A" fill-opacity="0.69" style="--d:0.62s"/>
+<rect x="364.6" y="214.4" width="18.6" height="18.6" fill="#E25D7E" fill-opacity="0.67" style="--d:0.92s"/>
+<rect x="397.6" y="216.2" width="17.4" height="17.4" fill="#EE9381" fill-opacity="0.62" style="--d:1.04s"/>
+<rect x="428.4" y="216.5" width="16.9" height="16.9" fill="#EC8481" fill-opacity="0.56" style="--d:1.10s"/>
+<rect x="487.2" y="216.2" width="15.8" height="15.8" fill="#F4C283" fill-opacity="0.54" style="--d:0.84s"/>
+<rect x="517.2" y="218.9" width="14.6" height="14.6" fill="#F4CB85" fill-opacity="0.46" style="--d:0.84s"/>
+<rect x="547.8" y="220.3" width="12.5" height="12.5" fill="#F5D688" fill-opacity="0.40" style="--d:1.30s"/>
+<rect x="634.4" y="217.7" width="17.2" height="17.2" fill="#B5D1DE" fill-opacity="0.34" style="--d:0.97s"/>
+<rect x="728.0" y="219.9" width="13.8" height="13.8" fill="#90B9EE" fill-opacity="0.31" style="--d:1.22s"/>
+<rect x="93.9" y="245.3" width="19.8" height="19.8" fill="#7E24AB" fill-opacity="0.49" style="--d:0.57s"/>
+<rect x="126.9" y="247.8" width="12.9" height="12.9" fill="#892BB0" fill-opacity="0.52" style="--d:0.38s"/>
+<rect x="187.7" y="249.7" width="14.4" height="14.4" fill="#A52596" fill-opacity="0.61" style="--d:0.29s"/>
+<rect x="214.3" y="245.6" width="19.3" height="19.3" fill="#A0269A" fill-opacity="0.58" style="--d:0.82s"/>
+<rect x="275.3" y="245.6" width="17.7" height="17.7" fill="#C81E73" fill-opacity="0.58" style="--d:0.58s"/>
+<rect x="304.9" y="244.7" width="18.3" height="18.3" fill="#D23677" fill-opacity="0.58" style="--d:0.93s"/>
+<rect x="393.7" y="243.9" width="19.3" height="19.3" fill="#ED8A81" fill-opacity="0.41" style="--d:0.94s"/>
+<rect x="429.6" y="248.6" width="13.4" height="13.4" fill="#ED8B81" fill-opacity="0.37" style="--d:0.71s"/>
+<rect x="456.7" y="250.0" width="13.3" height="13.3" fill="#F1AD81" fill-opacity="0.35" style="--d:1.00s"/>
+<rect x="98.3" y="279.5" width="12.2" height="12.2" fill="#8126AC" fill-opacity="0.31" style="--d:0.41s"/>
+<rect x="217.7" y="276.3" width="17.9" height="17.9" fill="#AF238B" fill-opacity="0.38" style="--d:0.40s"/>
+</svg></div>
+<h2>Hoy alguien en Piura necesita que no la dejemos sola.</h2>
+<div class="acts"><a class="btn btn-main" href="involucrate.html">Dona ahora</a><a class="btn btn-line" href="contacto.html">Contáctanos</a></div>
 </div>
-<div style="flex: 1 1 180px; min-width: 0">
-<h3 style="font-size: 14px; font-weight: 700; letter-spacing: .08em; text-transform: uppercase; color: #FFFFFF; margin: 0 0 18px">Fundación</h3>
-<ul style="list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; gap: 12px; font-size: 15px">
-<li><a class="foot-link" href="nosotros.html">Nosotros</a></li>
-<li><a class="foot-link" href="programas.html">Programas</a></li>
-<li><a class="foot-link" href="consultorias.html">Consultorías</a></li>
-<li><a class="foot-link" href="historias.html">Historias</a></li>
-<li><a class="foot-link" href="transparencia.html">Transparencia</a></li>
-<li><a class="foot-link" href="involucrate.html">Involúcrate</a></li>
-<li><a class="foot-link" href="transparencia.html#preguntas">Preguntas frecuentes</a></li>
-</ul>
 </div>
-<div style="flex: 1 1 220px; min-width: 0">
-<h3 style="font-size: 14px; font-weight: 700; letter-spacing: .08em; text-transform: uppercase; color: #FFFFFF; margin: 0 0 18px">Contacto</h3>
-<ul style="list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; gap: 12px; font-size: 15px">
-<li>Jr. Circunvalación 1384, Piura, Perú</li>
-<li>WhatsApp +51 900 000 000</li>
-<li>contacto@fundacionatenea.org</li>
-</ul>
+</section>
+</main>
+
+<footer id="contacto">
+<div class="wrap">
+<div class="col">
+<img src="assets/logo-atenea.png" alt="Fundación Atenea" style="height:72px;width:auto;display:block;background:#fff;border-radius:16px;padding:6px 14px">
+<p style="margin-top:20px;font-size:15px;line-height:1.7;max-width:320px">Fundación sin fines de lucro dedicada a la beneficencia y asistencia social en Piura, Perú.</p>
+<p style="margin-top:14px;font-size:13px;color:#D9BCCD">RUC 20XXXXXXXXX · Partida registral N.° XXXXXXXX<br>Zona Registral N.° I – Sede Piura</p>
 </div>
-<div style="flex: 1 1 260px; min-width: 0">
-<h3 style="font-size: 14px; font-weight: 700; letter-spacing: .08em; text-transform: uppercase; color: #FFFFFF; margin: 0 0 18px">Recibe novedades</h3>
-<form style="display: flex; flex-direction: column; gap: 10px">
-<label for="correo" style="font-size: 14px">Tu correo electrónico</label>
-<div style="display: flex">
-<input id="correo" type="email" placeholder="nombre@correo.com" style="flex: 1 1 auto; min-width: 0; height: 48px; padding: 0 14px; border: 0; font-family: 'Hanken Grotesk', sans-serif; font-size: 15px">
-<button type="button" style="height: 48px; padding: 0 18px; border: 0; background: #C81E73; color: #FFFFFF; font-family: 'Hanken Grotesk', sans-serif; font-weight: 700; letter-spacing: .06em; cursor: pointer">Suscribirme</button>
-</div>
-</form>
+<div class="col"><h3>Fundación</h3><ul><li><a href="nosotros.html">Nosotros</a></li><li><a href="programas.html">Programas</a></li><li><a href="consultorias.html">Consultorías</a></li><li><a href="historias.html">Historias</a></li><li><a href="transparencia.html">Transparencia</a></li><li><a href="involucrate.html">Involúcrate</a></li><li><a href="contacto.html">Contacto</a></li></ul></div>
+<div class="col"><h3>Contacto</h3><ul><li>Jr. Circunvalación 1384, Piura, Perú</li><li>WhatsApp +51 900 000 000</li><li>contacto@fundacionatenea.org</li></ul></div>
+<div class="col"><h3>Recibe novedades</h3>
+<form class="sub" onsubmit="return false"><label for="correo" style="position:absolute;left:-9999px">Tu correo electrónico</label><input id="correo" type="email" placeholder="nombre@correo.com"><button type="button" class="btn btn-on" style="min-height:48px;padding:0 20px">Suscribirme</button></form>
 </div>
 </div>
-<div style="border-top: 1px solid rgba(255,255,255,.12)">
-<div style="max-width: 1200px; margin: 0 auto; padding: 22px 32px; display: flex; flex-wrap: wrap; gap: 12px 28px; justify-content: space-between; font-size: 13px; color: #E5CBDA">
-<span>© 2026 Fundación Atenea · Piura, Perú</span>
-<span style="display: flex; flex-wrap: wrap; gap: 20px"><a class="foot-link" href="privacidad.html">Política de privacidad</a><a class="foot-link" href="terminos.html">Términos de uso</a><a class="foot-link" href="reclamaciones.html" style="display:inline-flex;align-items:center;gap:6px"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M5 3h11l3 3v15H5zM9 9h6M9 13h6M9 17h4"/></svg>Libro de Reclamaciones</a></span>
-</div>
-<div style="max-width: 1200px; margin: 0 auto; padding: 0 32px 26px; font-size: 13px; color: #E5CBDA">Aviso: la Fundación Atenea solo recibe donaciones por los canales publicados en esta página.</div>
+<div class="legal">
+<div class="wrap"><span>© 2026 Fundación Atenea · Piura, Perú · Fundación en proceso de inscripción registral</span><span class="links"><a href="privacidad.html">Política de privacidad</a><a href="terminos.html">Términos de uso</a><a href="reclamaciones.html">Libro de Reclamaciones</a></span></div>
+<div class="wrap two">Aviso: la Fundación Atenea solo recibe donaciones por los canales publicados en esta página.</div>
 </div>
 </footer>
-
-</div>
-<a class="wa-float" href="https://wa.me/51900000000?text=Hola%2C%20quisiera%20informaci%C3%B3n%20sobre%20la%20Fundaci%C3%B3n%20Atenea" target="_blank" rel="noopener" aria-label="Escríbenos por WhatsApp"><svg width="26" height="26" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2zm0 18.2a8.2 8.2 0 0 1-4.2-1.2l-.3-.2-3 .8.8-2.9-.2-.3A8.2 8.2 0 1 1 12 20.2zm4.5-6.1c-.2-.1-1.5-.7-1.7-.8-.2-.1-.4-.1-.6.1l-.8 1c-.1.2-.3.2-.5.1a6.7 6.7 0 0 1-3.3-2.9c-.3-.4.3-.4.7-1.3.1-.2 0-.3 0-.4l-.8-1.8c-.2-.5-.4-.4-.6-.4h-.5a1 1 0 0 0-.7.3 3 3 0 0 0-.9 2.2 5.2 5.2 0 0 0 1.1 2.7 11.8 11.8 0 0 0 4.5 4c1.7.7 2.4.8 3.2.6.5-.1 1.5-.6 1.7-1.2.2-.6.2-1.1.2-1.2-.1-.1-.3-.2-.5-.3z"/></svg><span>WhatsApp</span></a>
-<button class="to-top" aria-label="Volver arriba" onclick="window.scrollTo({top:0,behavior:'smooth'})">↑</button>
-<script>
-(function(){var t=document.querySelector('.to-top');addEventListener('scroll',function(){t.classList.toggle('show',scrollY>900)},{passive:true});
-document.querySelectorAll('.main-nav a').forEach(function(a){a.addEventListener('click',function(){var h=document.querySelector('header');h.classList.remove('open');h.querySelector('.menu-btn').setAttribute('aria-expanded','false')})});
-document.querySelectorAll('section:not(#inicio) > div').forEach(function(d){d.classList.add('reveal')});
-if(!('IntersectionObserver' in window)){document.querySelectorAll('.reveal').forEach(function(e){e.classList.add('is-in')});return}
-var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){e.target.classList.add('is-in');io.unobserve(e.target)}})},{threshold:0,rootMargin:'0px 0px -40px 0px'});
-document.querySelectorAll('.reveal').forEach(function(e){io.observe(e)})})();
-</script>
-<script>
-(function(){var els=document.querySelectorAll('[data-count]');if(!els.length||!('IntersectionObserver' in window))return;
-var io=new IntersectionObserver(function(es){es.forEach(function(e){if(!e.isIntersecting)return;io.unobserve(e.target);var el=e.target,end=+el.dataset.count,t0=null;
-function step(t){t0=t0||t;var p=Math.min((t-t0)/1400,1);el.textContent=String(Math.round(end*(1-Math.pow(1-p,3)))).replace(/\B(?=(\d{3})+(?!\d))/g,' ');if(p<1)requestAnimationFrame(step)}requestAnimationFrame(step)})},{threshold:.4});
-els.forEach(function(e){io.observe(e)})})();
-</script>
-<script>
-(function(){var site=document.getElementById('site'),root=document.documentElement,lv=0;
-function get(k){try{return localStorage.getItem(k)}catch(e){return null}}function set(k,v){try{localStorage.setItem(k,v)}catch(e){}}
-function apply(){site.style.zoom=[0.9,1,1.15,1.3][lv+1]||1;}
-lv=+(get('a11y-fs')||0);if(get('a11y-hc')==='1')root.classList.add('hc');apply();
-document.querySelectorAll('[data-fs]').forEach(function(b){b.addEventListener('click',function(){var d=+b.dataset.fs;lv=d===0?0:Math.max(-1,Math.min(2,lv+d));set('a11y-fs',lv);apply()})});
-document.querySelectorAll('[data-hc]').forEach(function(b){b.setAttribute('aria-pressed',root.classList.contains('hc'));b.addEventListener('click',function(){var on=root.classList.toggle('hc');b.setAttribute('aria-pressed',on);set('a11y-hc',on?'1':'0')})});
-})();
-</script>
-<script>
-(function(){var v=document.querySelector('.hero-video'),b=document.querySelector('.hero-toggle');if(!v||!b)return;
-v.muted=true;v.defaultMuted=true;v.setAttribute('muted','');v.playsInline=true;var userPaused=false;
-function ui(){var p=v.paused;b.setAttribute('aria-pressed',p);b.setAttribute('aria-label',p?'Reproducir video':'Pausar video');b.querySelector('.i-pause').style.display=p?'none':'';b.querySelector('.i-play').style.display=p?'':'none'}
-function go(){if(userPaused)return;var pr=v.play();if(pr&&pr.catch)pr.catch(function(){})}
-go();v.addEventListener('loadeddata',go);v.addEventListener('canplay',go);
-['pointerdown','touchstart','scroll','keydown'].forEach(function(e){addEventListener(e,go,{once:true,passive:true})});
-document.addEventListener('visibilitychange',function(){if(!document.hidden)go()});
-b.addEventListener('click',function(){if(v.paused){userPaused=false;go()}else{userPaused=true;v.pause()}});v.addEventListener('play',ui);v.addEventListener('pause',ui);ui()})();
-</script>
+<a class="wa" href="https://wa.me/51900000000?text=Hola%2C%20quisiera%20informaci%C3%B3n%20sobre%20la%20Fundaci%C3%B3n%20Atenea" aria-label="Escríbenos por WhatsApp">WhatsApp</a>
 </body>
 </html>
