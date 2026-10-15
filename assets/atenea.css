@@ -569,3 +569,61 @@ h1,h2,h3,h4{font-family:var(--display);font-weight:900;color:#fff;letter-spacing
 @media (max-width:960px){.pimg img{height:300px}}
 .phero h1{overflow-wrap:break-word;hyphens:auto}
 @media (max-width:480px){.phero h1{font-size:44px}}
+
+/* =====================================================================
+   PALETA DEL LOGO sobre la base oscura
+   fucsia (acción) · guinda (superficies) · mosaico fucsia→coral→ámbar→amarillo→celeste
+   ===================================================================== */
+:root{
+  --fucsia:#E2408F; --fucsia-h:#F06BA8; --guinda:#69184B; --guinda-d:#2A0A1E;
+  --coral:#EE827C; --ambar:#F3BC81; --amarillo:#F6E08A; --celeste:#A3CDF5; --morado:#8A2BB0;
+  --violet:var(--fucsia); --magenta:var(--fucsia); --butter:var(--amarillo);
+  --wisteria:#7A2A5C; --plumb:#5E1A45; --lav:#FCE4F0;
+  --obsidian:#120A10; --graphite:#24141F; --carbon:#2E2029; --ash:#2E1A27;
+  --glow:rgba(226,64,143,.22) 0 25px 50px -12px;
+  --mosaico:linear-gradient(90deg,#8A2BB0 0%,#E2408F 28%,#EE827C 50%,#F3BC81 68%,#F6E08A 82%,#A3CDF5 100%);
+}
+::selection{background:var(--fucsia);color:#fff}
+/* palabras destacadas con el degradado del mosaico */
+.ital,.fb h1 .ital,.mag,.cor{background:var(--mosaico);-webkit-background-clip:text;background-clip:text;color:transparent;-webkit-text-fill-color:transparent}
+.statement em{background:var(--mosaico);-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent}
+.eyebrow b,.art h3 small,.member .role,.mom .yr,.row .go,.pcard .pn span:last-child,.tlink,.demo a,.bot-n a,.foot .big span{color:var(--fucsia-h)}
+.foot .big span{background:var(--mosaico);-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent}
+.step b,.bg-ink .step b{background:var(--mosaico);-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent}
+/* botones */
+.btn-main,.btn-mag,.bg-ink .btn-main,.fb .btn-main,.cta .btn-main,.bot-open,.bot-f button,.chips input:checked + label,.msg.user{background:var(--fucsia);color:#fff}
+.btn-main:hover,.btn-mag:hover,.bg-ink .btn-main:hover,.fb .btn-main:hover,.cta .btn-main:hover,.bot-open:hover{background:var(--fucsia-h);color:#fff}
+.bot-open i{background:var(--amarillo)}
+.btn-line:hover,.bg-ink .btn-line:hover,.fb .btn-line:hover,.cta .btn-line:hover{box-shadow:inset 0 0 0 1px var(--fucsia)}
+/* superficies con tinte guinda */
+.demo{background:var(--guinda-d);border-color:var(--ash)}
+.mom.mag{background:linear-gradient(160deg,var(--guinda) 0%,#3A0F2B 55%,var(--obsidian) 100%);border-color:var(--plumb)}
+.mom.but{background:linear-gradient(160deg,#3B2A12 0%,var(--obsidian) 70%);border-color:#5A4320}
+.pcard:hover,.mom:hover{border-color:var(--wisteria)}
+/* franja del mosaico: firma de marca */
+.top{border-bottom:0}
+.top::after{content:"";position:absolute;left:0;right:0;bottom:0;height:2px;background:var(--mosaico)}
+.pband{height:3px;display:block;background:var(--mosaico)}
+.pband i{display:none}
+.fb::after{background:linear-gradient(180deg,rgba(0,0,0,.25) 0%,rgba(0,0,0,.1) 30%,rgba(0,0,0,.92) 100%),radial-gradient(80% 55% at 10% 100%,rgba(105,24,75,.6),transparent 70%)}
+.fb .tag-i{box-shadow:inset 0 0 0 1px var(--plumb);color:var(--lav)}
+.cta::before{background:radial-gradient(50% 50% at 30% 50%,rgba(226,64,143,.28),transparent 70%),radial-gradient(40% 50% at 75% 60%,rgba(243,188,129,.18),transparent 70%)}
+.foot{border-top:0;position:relative}
+.foot::before{content:"";position:absolute;left:0;right:0;top:0;height:3px;background:var(--mosaico)}
+/* etiquetas: cada color del mosaico */
+.col .k{box-shadow:inset 0 0 0 1px var(--plumb);color:var(--lav)}
+.cols.c4 .col:nth-child(4n+2) .k{box-shadow:inset 0 0 0 1px #6B3A36;color:#FDE1DE}
+.cols.c4 .col:nth-child(4n+3) .k{box-shadow:inset 0 0 0 1px #6A5228;color:#FDF0D6}
+.cols.c4 .col:nth-child(4n+4) .k{box-shadow:inset 0 0 0 1px #2D4A66;color:#DCEBFB}
+.log .lr:nth-child(4n+1) span{box-shadow:inset 0 0 0 1px #6A5228;color:#FDF0D6}
+.log .lr:nth-child(4n+2) span{box-shadow:inset 0 0 0 1px var(--plumb);color:var(--lav)}
+.log .lr:nth-child(4n+3) span{box-shadow:inset 0 0 0 1px #2D4A66;color:#DCEBFB}
+.log .lr:nth-child(4n+4) span{box-shadow:inset 0 0 0 1px #6B3A36;color:#FDE1DE}
+.list li::before,.list.amber li::before{background:var(--fucsia)}
+.list.amber li::before{background:var(--ambar)}
+.faq summary::after{color:var(--fucsia-h)}
+.form input:focus,.form select:focus,.form textarea:focus{border-color:var(--fucsia);box-shadow:0 0 0 3px rgba(226,64,143,.2)}
+.msg.err{box-shadow:inset 0 0 0 1px var(--plumb)}
+.bot{box-shadow:0 0 0 1px var(--carbon),rgba(226,64,143,.25) 0 25px 60px -12px}
+.nav a[aria-current=page]{box-shadow:inset 0 0 0 1px var(--plumb)}
+:focus-visible{outline-color:var(--fucsia)}
