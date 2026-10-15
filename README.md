@@ -66,3 +66,27 @@ Esta versión es un boceto para aprobación. Antes de publicar con dominio propi
 - Zonas del mapa de cobertura (`programas.html`, lista `ZONAS` en el script del mapa).
 - Enlaces de redes sociales y de prensa (`href="#"`).
 - Formularios de contacto, boletín y reclamaciones: conectarlos a un servicio de envío (p. ej. Formspree).
+
+## Asistente de soporte con IA (Gemini)
+
+El chat de la esquina inferior derecha responde dudas sobre la fundación con la API de Gemini.
+La clave **nunca** llega al navegador: la página llama a `/api/chat`, una función de Netlify
+(`netlify/functions/chat.mjs`) que añade la clave y consulta a Gemini.
+
+Puesta en marcha:
+1. Crea una clave gratuita en Google AI Studio (aistudio.google.com → Get API key).
+2. Publica el repositorio en Netlify (Add new site → Import from GitHub). `netlify.toml` ya está configurado.
+3. En Netlify → Site configuration → Environment variables, añade:
+   - `GEMINI_API_KEY` = tu clave (obligatoria).
+   - `ALLOWED_ORIGINS` = `https://tu-dominio.org` (recomendado; bloquea llamadas desde otras webs).
+   - `GEMINI_MODEL` = opcional; por defecto `gemini-3.5-flash-lite`.
+4. Vuelve a desplegar.
+
+Lo que sabe el asistente está en `netlify/functions/knowledge.mjs`; actualízalo cuando cambien
+datos, programas o cuentas. Protecciones: máx. 6 mensajes por minuto por visitante, mensajes de
+hasta 800 caracteres, últimos 10 turnos de historial y respuestas de hasta 500 tokens.
+
+Importante: en el plan gratuito Google puede usar las conversaciones para mejorar sus productos.
+Por eso el chat pide no compartir datos personales y deriva los casos a WhatsApp. Si llegan
+consultas sensibles con frecuencia, conviene activar facturación (plan de pago) en Google AI Studio.
+GitHub Pages no ejecuta funciones: para que el chat funcione, el sitio debe estar en Netlify.
