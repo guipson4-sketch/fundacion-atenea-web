@@ -22,7 +22,11 @@ function limited(ip) {
 export default async (req, context) => {
   if (req.method !== "POST") return json(405, { error: "Método no permitido" });
 
+  // Por defecto solo se acepta el dominio del propio sitio; ALLOWED_ORIGINS añade otros (p. ej. el dominio propio).
   const allowed = (process.env.ALLOWED_ORIGINS || "").split(",").map(s => s.trim()).filter(Boolean);
+  for (const u of [context?.site?.url, process.env.URL, process.env.DEPLOY_PRIME_URL]) {
+    try { if (u) allowed.push(new URL(u).origin.replace("http://", "https://")); } catch {}
+  }
   const origin = req.headers.get("origin") || "";
   if (allowed.length && origin && !allowed.includes(origin)) return json(403, { error: "Origen no permitido" });
 
