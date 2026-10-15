@@ -122,3 +122,19 @@ consentimiento informado antes del lanzamiento oficial.
 - Donaciones en línea: **Mercado Pago Checkout Pro** (`netlify/functions/donar.mjs`). Requiere la variable
   `MP_ACCESS_TOKEN` (credencial de producción de la cuenta de Mercado Pago de la fundación). Sin ella, el
   formulario indica usar Yape, Plin o transferencia.
+
+## Publicación en Hostinger (hosting oficial)
+
+Hostinger ejecuta PHP + MySQL, así que el chat, las donaciones y los formularios usan `api/*.php`
+(las funciones de `netlify/` quedan solo como alternativa).
+
+1. hPanel > **Sitios web** > Agregar sitio > dominio `ateneapiuraperu.org` (dominio externo).
+2. hPanel > **Bases de datos MySQL**: crear base, usuario y contraseña.
+3. Subir el contenido de `atenea-hostinger.zip` a `public_html` (Administrador de archivos > Subir > Extraer).
+4. Copiar `api/config.example.php` como `api/config.php` y completar: clave de Gemini, token de Mercado Pago,
+   datos de MySQL, correo de avisos y `admin_hash` (contraseña del panel).
+5. DNS en Squarespace: registro **A** `@` → IP del hosting que muestra hPanel; **CNAME** `www` → `ateneapiuraperu.org`.
+   No tocar el **MX** de Google Workspace.
+6. hPanel > **Seguridad > SSL**: activar el certificado gratuito.
+
+Panel de mensajes: `https://ateneapiuraperu.org/api/admin.php`

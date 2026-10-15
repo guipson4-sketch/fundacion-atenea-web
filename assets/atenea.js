@@ -27,7 +27,7 @@
       var data=new FormData(f);
       if(btn) btn.disabled=true;
       if(st){st.textContent='Enviando…';st.style.color=''}
-      fetch('/',{method:'POST',headers:{'Content-Type':'application/x-www-form-urlencoded'},body:new URLSearchParams(data).toString()})
+      fetch('/api/form',{method:'POST',headers:{'Content-Type':'application/x-www-form-urlencoded'},body:new URLSearchParams(data).toString()})
         .then(function(r){
           if(!r.ok) throw new Error(r.status);
           f.reset();
