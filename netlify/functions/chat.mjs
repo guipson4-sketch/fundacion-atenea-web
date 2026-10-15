@@ -40,7 +40,10 @@ export default async (req, context) => {
     .map(m => ({ role: m.role, parts: [{ text: m.text.slice(0, MAX_CHARS) }] }));
   if (!contents.length || contents.at(-1).role !== "user") return json(400, { error: "Falta el mensaje" });
 
-  const res = await fetch(`https://generativelanguage.googleapis.com/v1beta/models/${MODEL}:generateContent`, {
+  // Con la clave propia de Google se llama directo a Gemini (plan gratuito de Google).
+  // Sin ella, Netlify AI Gateway inyecta GEMINI_API_KEY y GOOGLE_GEMINI_BASE_URL (usa créditos de Netlify).
+  const base = process.env.GOOGLE_GEMINI_BASE_URL || "https://generativelanguage.googleapis.com";
+  const res = await fetch(`${base}/v1beta/models/${MODEL}:generateContent`, {
     method: "POST",
     headers: { "content-type": "application/json", "x-goog-api-key": key },
     body: JSON.stringify({
@@ -52,6 +55,7 @@ export default async (req, context) => {
 
   if (!res) return json(502, { error: "No pudimos conectar con el asistente." });
   if (res.status === 429) return json(429, { error: "El asistente alcanzó su límite por ahora. Escríbenos por WhatsApp y te respondemos." });
+  if (!res.ok) { console.error("Gemini", res.status, (await res.text()).slice(0, 300)); }
   if (!res.ok) return json(502, { error: "El asistente no está disponible en este momento." });
 
   const data = await res.json();
