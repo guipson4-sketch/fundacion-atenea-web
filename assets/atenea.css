@@ -585,7 +585,7 @@ h1,h2,h3,h4{font-family:var(--display);font-weight:900;color:#fff;letter-spacing
 }
 ::selection{background:var(--fucsia);color:#fff}
 /* palabras destacadas con el degradado del mosaico */
-.ital,.fb h1 .ital,.mag,.cor{background:var(--mosaico);-webkit-background-clip:text;background-clip:text;color:transparent;-webkit-text-fill-color:transparent}
+.ital,.fb h1 .ital,span.mag,span.cor{background:var(--mosaico);-webkit-background-clip:text;background-clip:text;color:transparent;-webkit-text-fill-color:transparent}
 .statement em{background:var(--mosaico);-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent}
 .eyebrow b,.art h3 small,.member .role,.mom .yr,.row .go,.pcard .pn span:last-child,.tlink,.demo a,.bot-n a,.foot .big span{color:var(--fucsia-h)}
 .foot .big span{background:var(--mosaico);-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent}
@@ -627,3 +627,4 @@ h1,h2,h3,h4{font-family:var(--display);font-weight:900;color:#fff;letter-spacing
 .bot{box-shadow:0 0 0 1px var(--carbon),rgba(226,64,143,.25) 0 25px 60px -12px}
 .nav a[aria-current=page]{box-shadow:inset 0 0 0 1px var(--plumb)}
 :focus-visible{outline-color:var(--fucsia)}
+.mom.mag{-webkit-text-fill-color:currentColor;color:var(--platinum)}
