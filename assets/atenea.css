@@ -574,3 +574,28 @@ h1,h2,h3,h4{font-family:var(--display);font-weight:800;color:var(--guinda-d);let
 }
 @media (max-width:480px){.phero h1{font-size:42px;overflow-wrap:break-word;hyphens:auto}}
 .band .ital{background:linear-gradient(90deg,#F7A8CF,#F3BC81,#F6E08A);-webkit-background-clip:text;background-clip:text}
+
+/* ===== animaciones de scroll (solo si el usuario no pidió reducir movimiento) ===== */
+html.anim .rv{opacity:0;transform:translateY(28px);transition:opacity .8s cubic-bezier(.2,.7,.2,1),transform .8s cubic-bezier(.2,.7,.2,1);transition-delay:var(--d,0ms)}
+html.anim .rv.in{opacity:1;transform:none}
+html.anim .rv-img{overflow:hidden}
+html.anim .rv-img img{transform:scale(1.08);transition:transform 1.4s cubic-bezier(.2,.7,.2,1);transition-delay:var(--d,0ms)}
+html.anim .rv-img.in img{transform:scale(1)}
+html.anim .fb > img{animation:hero-zoom 2.2s cubic-bezier(.2,.7,.2,1) both}
+html.anim .fb h1,html.anim .fb-meta,html.anim .fb .tag-i{animation:hero-up 1s cubic-bezier(.2,.7,.2,1) both}
+html.anim .fb h1{animation-delay:.15s}
+html.anim .fb-meta{animation-delay:.4s}
+html.anim .phero h1{animation:hero-up .9s cubic-bezier(.2,.7,.2,1) .05s both}
+@keyframes hero-zoom{from{transform:scale(1.12)}to{transform:scale(1)}}
+@keyframes hero-up{from{opacity:0;transform:translateY(32px)}to{opacity:1;transform:none}}
+/* micro-interacciones */
+.pcard img,.member img{transition:transform .8s cubic-bezier(.2,.7,.2,1)}
+.pcard:hover img{transform:scale(1.04)}
+.pcard,.col,.trust > div,.mom{transition:transform .35s cubic-bezier(.2,.7,.2,1),box-shadow .35s,border-color .35s}
+.pcard:hover,.trust > div:hover{transform:translateY(-4px);box-shadow:0 1px 2px rgba(42,15,34,.04),0 32px 60px -24px rgba(105,24,75,.32)}
+.btn{transition:background .2s,color .2s,box-shadow .2s,transform .2s}
+.btn:hover{transform:translateY(-1px)}
+.btn:active{transform:scale(.98)}
+.top{transition:box-shadow .3s}
+.top.scrolled{box-shadow:0 10px 30px -18px rgba(105,24,75,.35)}
+@media (prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}}

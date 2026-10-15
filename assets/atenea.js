@@ -86,3 +86,40 @@
   box.querySelector('.bot-x').onclick=function(){show(false)};
   document.addEventListener('keydown',function(e){if(e.key==='Escape'&&!box.hidden)show(false)});
 })();
+
+// Animaciones al hacer scroll: aparición escalonada, imágenes que se asientan y cifras que cuentan.
+(function(){
+  var top=document.querySelector('.top');
+  if(top){var f=function(){top.classList.toggle('scrolled',window.scrollY>8)};f();window.addEventListener('scroll',f,{passive:true})}
+  if(window.matchMedia('(prefers-reduced-motion: reduce)').matches||!('IntersectionObserver' in window)) return;
+  document.documentElement.classList.add('anim');
+  var sel=['.shead','.statement','.facts > div','.pcard','.cols > .col','.steps > .step','.moms > .mom','.team > .member',
+    '.rows > .row','.log .lr','.arts > .art','.trust > div','.dip > *','.pull','.band .wrap > *','.cta h2','.cta .btns',
+    '.split > .l','.split > .r','.faq details','.kv > div','.list li','.phero .meta','.foot .big'];
+  var els=[];
+  sel.forEach(function(s){document.querySelectorAll(s).forEach(function(el){
+    if(el.closest('.fb')||el.classList.contains('rv')) return;
+    var sib=Array.prototype.indexOf.call(el.parentNode.children,el);
+    el.style.setProperty('--d',Math.min(sib,6)*90+'ms');
+    el.classList.add('rv'); els.push(el);
+  })});
+  document.querySelectorAll('.pimg,.dip .tall').forEach(function(el){el.classList.add('rv-img');els.push(el)});
+  // cifras: 28,1 % · 4 578 · S/ 120
+  function count(el){
+    var raw=el.textContent, m=raw.match(/[\d\s.,]*\d/); if(!m) return;
+    var num=m[0], dec=(num.split(',')[1]||'').length, val=parseFloat(num.replace(/\s/g,'').replace(/\./g,'').replace(',','.'));
+    if(!isFinite(val)) return;
+    var t0=null, dur=1400;
+    function fmt(v){var s=v.toFixed(dec).split('.');s[0]=s[0].replace(/\B(?=(\d{3})+(?!\d))/g,' ');return s.join(',')}
+    function step(t){t0=t0||t;var p=Math.min((t-t0)/dur,1),e=1-Math.pow(1-p,3);el.textContent=raw.replace(num,fmt(val*e));if(p<1)requestAnimationFrame(step);else el.textContent=raw}
+    requestAnimationFrame(step);
+  }
+  var io=new IntersectionObserver(function(entries){entries.forEach(function(en){
+    if(!en.isIntersecting) return;
+    var el=en.target; el.classList.add('in'); io.unobserve(el);
+    el.querySelectorAll && el.querySelectorAll('.facts strong, strong').forEach(function(s){if(s.closest('.facts'))count(s)});
+  })},{rootMargin:'0px 0px -8% 0px',threshold:.12});
+  els.forEach(function(el){io.observe(el)});
+  // red de seguridad: nada queda oculto si algo falla
+  setTimeout(function(){els.forEach(function(el){if(el.getBoundingClientRect().top<innerHeight)el.classList.add('in')})},1500);
+})();
