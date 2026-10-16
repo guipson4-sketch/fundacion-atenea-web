@@ -138,3 +138,11 @@ Hostinger ejecuta PHP + MySQL, así que el chat, las donaciones y los formulario
 6. hPanel > **Seguridad > SSL**: activar el certificado gratuito.
 
 Panel de mensajes: `https://ateneapiuraperu.org/api/admin.php`
+
+## Publicación en Cloudflare Pages (recomendado · gratis)
+
+- Funciones: `functions/api/chat.js`, `donar.js`, `form.js` y el panel `functions/admin.js` (código compartido en `cf/`).
+- Build: comando `sh cf-build.sh`, carpeta de salida `dist`.
+- Base de datos: **D1** con el binding `DB` (la tabla `mensajes` se crea sola).
+- Variables secretas: `GEMINI_API_KEY`, `MP_ACCESS_TOKEN`, `ADMIN_PASSWORD`; opcional `ALLOWED_ORIGINS`.
+- Panel de mensajes: `https://ateneapiuraperu.org/admin` (usuario `atenea`).
