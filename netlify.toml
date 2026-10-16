@@ -2,6 +2,13 @@
   publish = "."
   functions = "netlify/functions"
 
+# Sitio antiguo: todo redirige al dominio oficial (hospedado en Cloudflare)
+[[redirects]]
+  from = "/*"
+  to = "https://ateneapiuraperu.org/:splat"
+  status = 301
+  force = true
+
 [[redirects]]
   from = "/api/chat"
   to = "/.netlify/functions/chat"
