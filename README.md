@@ -146,3 +146,7 @@ Panel de mensajes: `https://ateneapiuraperu.org/api/admin.php`
 - Base de datos: **D1** con el binding `DB` (la tabla `mensajes` se crea sola).
 - Variables secretas: `GEMINI_API_KEY`, `MP_ACCESS_TOKEN`, `ADMIN_PASSWORD`; opcional `ALLOWED_ORIGINS`.
 - Panel de mensajes: `https://ateneapiuraperu.org/admin` (usuario `atenea`).
+
+# Generador de páginas
+Las 18 páginas HTML se generan con `python3 tools/build.py` (estilos en `assets/atenea.css`).
+Para cambiar textos, edita `tools/build.py` y vuelve a ejecutarlo.
