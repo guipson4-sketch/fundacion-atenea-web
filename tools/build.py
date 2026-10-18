@@ -673,7 +673,11 @@ phero(["Contacto"], 'Escríbenos. <span class="ital mag">Respondemos.</span>',
     <p class="eyebrow"><b>01</b> Datos de contacto</p>
     <dl class="kv" style="margin-top:32px">
       <div><dt>WhatsApp</dt><dd><a href="https://wa.me/{WA}">{WA_TXT}</a></dd></div>
-      <div><dt>Correo</dt><dd><a href="mailto:{MAIL}">{MAIL}</a></dd></div>
+      <div><dt>Correo general</dt><dd><a href="mailto:{MAIL}">{MAIL}</a></dd></div>
+      <div><dt>Necesito ayuda</dt><dd><a href="mailto:ayuda@ateneapiuraperu.org">ayuda@ateneapiuraperu.org</a></dd></div>
+      <div><dt>Voluntariado</dt><dd><a href="mailto:voluntariado@ateneapiuraperu.org">voluntariado@ateneapiuraperu.org</a></dd></div>
+      <div><dt>Alianzas y consultoría</dt><dd><a href="mailto:alianzas@ateneapiuraperu.org">alianzas@ateneapiuraperu.org</a></dd></div>
+      <div><dt>Datos personales y reclamos</dt><dd><a href="mailto:privacidad@ateneapiuraperu.org">privacidad@ateneapiuraperu.org</a></dd></div>
       <div><dt>Sede</dt><dd>{ADDR} · Perú</dd></div>
       <div><dt>Atención</dt><dd>{HOURS}</dd></div>
       <div><dt>RUC</dt><dd class="mono">{RUC}</dd></div>
@@ -700,7 +704,8 @@ legal("privacidad.html","Política de privacidad",'Política de <span class="ita
  ("Datos que recopilamos","<ul><li>Identificación y contacto: nombre, correo, teléfono.</li><li>Información que compartes al solicitar ayuda o escribirnos.</li><li>Datos de donaciones para emitir constancias.</li></ul>"),
  ("Finalidad","<p>Atender consultas y solicitudes de apoyo, gestionar donaciones y voluntariado, y enviarte el boletín si te suscribes.</p>"),
  ("Confidencialidad","<p>La información sobre salud o violencia se trata con estricta reserva y solo la conoce el personal que te atiende. No vendemos ni cedemos tus datos.</p>"),
- ("Tus derechos",f"<p>Puedes ejercer tus derechos de acceso, rectificación, cancelación y oposición escribiendo a {MAIL} o en nuestra sede.</p>"),
+ ("Tus derechos","<p>Puedes ejercer tus derechos de acceso, rectificación, cancelación y oposición escribiendo a <a href=\"mailto:privacidad@ateneapiuraperu.org\">privacidad@ateneapiuraperu.org</a> o en nuestra sede. Responderemos dentro de los plazos que establece la ley.</p>"),
+ ("Proveedores que nos ayudan","<p>Para operar este sitio usamos proveedores que tratan datos en nuestro nombre y que pueden almacenarlos o procesarlos fuera del Perú: <strong>Cloudflare</strong> (alojamiento del sitio y base de datos de mensajes), <strong>Resend</strong> (envío de correos de aviso y constancias), <strong>Google Workspace</strong> (correo institucional) y <strong>Mercado Pago</strong> (pagos con tarjeta; nosotros no vemos ni guardamos los datos de tu tarjeta). El asistente virtual del sitio usa un servicio de inteligencia artificial: no escribas en él datos personales ni de salud.</p>"),
  ("Conservación","<p>Conservamos tus datos solo el tiempo necesario para la finalidad indicada y según las obligaciones legales aplicables.</p>")])
 legal("terminos.html","Términos de uso",'Términos <span class="ital mag">de uso.</span>',"Condiciones de uso del sitio web de la Fundación Atenea.",[
  ("Uso del sitio","<p>Este sitio tiene fines informativos sobre la labor de la Fundación Atenea. Al usarlo, aceptas estos términos.</p>"),
