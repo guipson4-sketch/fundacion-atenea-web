@@ -19,8 +19,13 @@ export async function onRequestGet({ request, env }) {
   const auth = request.headers.get("authorization") || "";
   if (!auth.startsWith("Basic ")) return pedir();
   let user = "", pass = "";
-  try { [user, pass] = atob(auth.slice(6)).split(/:(.*)/s); } catch { return pedir(); }
-  if (user !== "atenea" || !(await igual(pass || "", env.ADMIN_PASSWORD))) return pedir();
+  // El navegador envía usuario:contraseña en UTF-8 dentro de Base64; se decodifica como UTF-8 (para ñ, tildes, símbolos).
+  try {
+    const bytes = Uint8Array.from(atob(auth.slice(6)), c => c.charCodeAt(0));
+    [user, pass] = new TextDecoder().decode(bytes).split(/:(.*)/s);
+  } catch { return pedir(); }
+  // Se ignoran espacios al inicio/fin (típicos al copiar y pegar) y mayúsculas en el usuario.
+  if (user.trim().toLowerCase() !== "atenea" || !(await igual((pass || "").trim(), env.ADMIN_PASSWORD.trim()))) return pedir();
 
   const filtro = new URL(request.url).searchParams.get("f") || "";
   let filas = [];
