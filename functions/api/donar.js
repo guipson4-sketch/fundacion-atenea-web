@@ -20,7 +20,7 @@ export async function onRequestPost({ request, env }) {
       items: [{ id: "donacion", title: "Donación · Fundación Atenea", quantity: 1, currency_id: "PEN", unit_price: monto }],
       payer: email ? { email, name: nombre || undefined } : undefined,
       back_urls: { success: `${site}/gracias`, pending: `${site}/gracias?estado=pendiente`, failure: `${site}/involucrate#donar` },
-      auto_return: "approved", statement_descriptor: "FUND ATENEA",
+      auto_return: "approved", statement_descriptor: "FUND ATENEA", notification_url: `${site}/api/mp-webhook`,
       external_reference: `don-${Date.now()}`, metadata: { tipo: "donacion", nombre },
     }),
   }).catch(() => null);

@@ -51,20 +51,16 @@ LD = """
 {"@context":"https://schema.org","@type":"NGO","name":"Fundación Atenea","alternateName":"Atenea Piura",
 "url":"https://ateneapiuraperu.org","logo":"https://ateneapiuraperu.org/assets/logo-atenea-transparente.png",
 "image":"https://ateneapiuraperu.org/assets/og-atenea.jpg",
-"description":"Fundación sin fines de lucro con sede en Piura que acompaña a mujeres, niñas, niños y familias en situación de vulnerabilidad.",
+"description":"Fundación sin fines de lucro con sede en Piura que acompaña a mujeres, varones, niñas, niños y familias en situación de vulnerabilidad en todo el Perú.",
 "email":"contacto@ateneapiuraperu.org","nonprofitStatus":"Nonprofit",
 "address":{"@type":"PostalAddress","streetAddress":"Jr. Circunvalación 1384","addressLocality":"Piura","addressRegion":"Piura","addressCountry":"PE"},
-"areaServed":{"@type":"AdministrativeArea","name":"Región Piura, Perú"},
-"knowsAbout":["Violencia contra la mujer","Niñez","Salud","Orientación legal","Ayuda humanitaria"]}
+"areaServed":{"@type":"Country","name":"Perú"},
+"knowsAbout":["Violencia contra la mujer","Violencia familiar","Atención psicológica a varones","Niñez","Salud","Orientación legal","Ayuda humanitaria"]}
 </script>"""
 
 def header(cur):
     items = "".join(f'<li><a href="{h}"{" aria-current=\"page\"" if h==cur else ""}>{t}</a></li>' for h,t in NAV)
-    return f"""<div class="demo"><div class="wrap">
-  <span><strong>Versión de muestra.</strong> Nombres, testimonios, cifras de actividad y datos de contacto son ilustrativos.</span>
-  <span>¿Estás en peligro? Llama gratis a la <a href="tel:100">Línea 100</a>, las 24 horas.</span>
-</div></div>
-<header class="top">
+    return f"""<header class="top">
   <div class="wrap">
     <a class="logo" href="index.html" aria-label="Fundación Atenea, inicio"><img src="assets/logo-atenea-transparente.png" alt="Fundación Atenea" width="146" height="56"></a>
     <nav aria-label="Principal"><ul class="nav">{items}</ul></nav>
@@ -78,7 +74,7 @@ def header(cur):
 FOOT = f"""</main>
 <footer class="foot">
   <div class="wrap">
-    <p class="big">Piura, <span>juntas</span><br>llegamos más lejos.</p>
+    <p class="big">Desde Piura, <span>juntos</span><br>llegamos más lejos.</p>
     <div class="foot-cols">
       <div><span class="logo-w"><img src="assets/logo-atenea-blanco.png" alt="Fundación Atenea" width="166" height="64"></span></div>
       <div><h4>Fundación</h4><ul><li><a href="nosotros.html">Nosotros</a></li><li><a href="programas.html">Programas</a></li><li><a href="historias.html">Historias</a></li><li><a href="transparencia.html">Transparencia y estatuto</a></li><li><a href="consultorias.html">Consultorías</a></li></ul></div>
@@ -116,7 +112,7 @@ def phero(crumbs, h1, lead, side="", img=None, cap=None):
 def shead(num, eyebrow, h2, p="", cls="h2"):
     return f'<div class="shead"><div><p class="eyebrow"><b>{num}</b> {eyebrow}</p><h2 class="{cls}">{h2}</h2></div>{f"<p class=\"lead\">{p}</p>" if p else ""}</div>'
 
-def cta(h="Hoy alguien en Piura necesita que <span class=\"ital\">no la dejemos sola.</span>"):
+def cta(h="Hoy alguien necesita que <span class=\"ital\">no lo dejemos solo.</span>"):
     return f"""<section class="cta"><div class="wrap">
   <h2>{h}</h2>
   <div class="btns"><a class="btn btn-main" href="involucrate.html#donar">Donar ahora →</a><a class="btn btn-line" href="contacto.html">Contáctanos</a></div>
@@ -142,6 +138,7 @@ STEPS = """<div class="steps">
 
 PROGRAMS = [
  ("programa-mujeres.html","Mujeres que avanzan","mujeres.jpg","Acompañamiento a mujeres en situación de violencia, abandono o jefatura de hogar, hasta su autonomía económica.","var(--magenta)"),
+ ("programa-varones.html","Varones y familias","orientacion.jpg","Orientación psicológica, legal y social para varones que sufren maltrato, y apoyo a las familias para convivir sin violencia.","var(--coral)"),
  ("programa-ninez.html","Niñez protegida","ninez.jpg","Nutrición, refuerzo escolar y espacios de cuidado para niñas y niños mientras sus familias se recuperan.","var(--amber)"),
  ("programa-salud.html","Salud y acompañamiento","salud.jpg","Medicamentos, exámenes, traslados y compañía para personas enfermas sin recursos.","var(--sky)"),
  ("programa-orientacion.html","Orientación gratuita","orientacion.jpg","Asesoría legal, psicológica y social, presencial o a distancia, con profesionales habilitados.","var(--coral)"),
@@ -165,14 +162,14 @@ def prog_rows(exclude=None):
 PAGES = {}
 
 # ---------------- INICIO ----------------
-PAGES["index.html"] = ("Fundación Atenea · Piura", "Fundación sin fines de lucro con sede en Piura que acompaña a mujeres, niñas, niños y familias en situación de vulnerabilidad.", "index.html", f"""
+PAGES["index.html"] = ("Fundación Atenea · Piura", "Fundación sin fines de lucro con sede en Piura que acompaña a mujeres, varones, niñas, niños y familias en situación de vulnerabilidad en todo el Perú.", "index.html", f"""
 <section class="fb">
   <img src="assets/img/portada.jpg" alt="Una madre y su hija en la puerta de su casa en Piura" width="1400" height="933" fetchpriority="high">
-  <span class="tag-i">Fundación Atenea · Piura, Perú</span>
+  <span class="tag-i">Fundación Atenea · Perú · Sede en Piura</span>
   <div class="wrap">
-    <h1>Nadie debería <span class="ital">cargar sola</span> lo que puede cargarse entre todas.</h1>
+    <h1>Juntos por un <span class="ital">mejor mañana.</span></h1>
     <div class="fb-meta">
-      <p>Somos una fundación sin fines de lucro con sede en Piura. Acompañamos a mujeres, niñas y niños que enfrentan violencia, enfermedad o pobreza, con apoyo concreto, cercano y sostenido en el tiempo.</p>
+      <p>Nadie debería cargar solo lo que puede cargarse entre todos. Somos una fundación sin fines de lucro con sede en Piura y alcance en todo el Perú. Acompañamos a mujeres, varones, niñas y niños que enfrentan violencia, enfermedad o pobreza, con apoyo concreto, cercano y sostenido en el tiempo.</p>
       <div class="btns"><a class="btn btn-main" href="contacto.html">Necesito ayuda →</a><a class="btn btn-line" href="involucrate.html">Quiero ayudar</a></div>
     </div>
   </div>
@@ -188,13 +185,13 @@ PAGES["index.html"] = ("Fundación Atenea · Piura", "Fundación sin fines de lu
   <div><i></i><b>100 % gratuito</b><span>Ninguna persona paga por la ayuda que recibe.</span></div>
   <div><i></i><b>Confidencial</b><span>Datos protegidos por la Ley N.º 29733.</span></div>
   <div><i></i><b>Cuentas abiertas</b><span>Estados financieros y memoria anual públicos.</span></div>
-  <div><i></i><b>8 provincias</b><span>Sede en Piura y campañas en toda la región.</span></div>
+  <div><i></i><b>Todo el Perú</b><span>Sede en Piura y orientación a distancia en todo el país.</span></div>
 </div></section>
 
 <section class="sec"><div class="wrap g12">
   <p class="eyebrow" style="grid-column:1/4"><b>01</b> Por qué existimos</p>
   <div style="grid-column:4/13">
-    <p class="statement">En Piura, más de una de cada cuatro personas vive en pobreza. Detrás de esa cifra hay <em>mujeres que sostienen hogares solas</em>, niñas y niños con anemia y familias que enfrentan una enfermedad sin red. Atenea nace para ser esa red.</p>
+    <p class="statement">En Piura, más de una de cada cuatro personas vive en pobreza. Detrás de esa cifra hay <em>mujeres que sostienen hogares solas</em>, niñas y niños con anemia y familias que enfrentan una enfermedad sin red. Atenea nace en Piura para ser esa red y quiere serlo en todo el Perú.</p>
     <div class="facts f3" style="margin-top:72px">
       <div><strong>28,1 %</strong><span>de la población de Piura en pobreza monetaria; el promedio nacional es 25,7 %.</span><small>INEI, 2025</small></div>
       <div><strong>4 578</strong><span>casos de violencia atendidos por los CEM de Piura entre enero y julio de 2026.</span><small>MIMP, Programa Warmi Ñan</small></div>
@@ -204,7 +201,7 @@ PAGES["index.html"] = ("Fundación Atenea · Piura", "Fundación sin fines de lu
 </div></section>
 
 <section class="sec bg-white"><div class="wrap">
-  {shead("02","Programas",'Cinco frentes, <span class="ital mag">una misma familia.</span>',"Cada caso entra por una puerta, pero se atiende completo: una madre que llega por violencia suele necesitar también salud, escuela para sus hijos y un ingreso propio.")}
+  {shead("02","Programas",'Seis frentes, <span class="ital mag">una misma familia.</span>',"Cada caso entra por una puerta, pero se atiende completo: una persona que llega por violencia suele necesitar también salud, escuela para sus hijos y un ingreso propio.")}
   {prog_cards()}
 </div></section>
 
@@ -225,7 +222,7 @@ PAGES["index.html"] = ("Fundación Atenea · Piura", "Fundación sin fines de lu
   <div class="wrap">
     <p class="eyebrow" style="color:rgba(255,255,255,.75)"><b style="color:#F6E08A">Piura</b> Costa norte del Perú</p>
     <h2 class="h2" style="margin-top:20px">Del desierto al mar, <span class="ital">nadie se queda atrás.</span></h2>
-    <p>Llegamos a las ocho provincias de la región con campañas de salud, orientación y ayuda humanitaria.</p>
+    <p>Llegamos a las ocho provincias de la región con campañas de salud, orientación y ayuda humanitaria, y atendemos a distancia a personas de todo el Perú.</p>
   </div>
 </section>
 
@@ -313,8 +310,8 @@ phero(["Nosotros"], 'Cada persona es una pieza. <span class="ital mag">Juntas, u
   <div style="grid-column:4/13">
     <p class="statement">Como el mosaico de nuestro logo, creemos que cada persona que ayudamos, cada voluntaria y cada aliado <em>suman color a una misma causa</em>: que nadie enfrente sola lo que puede enfrentarse acompañada.</p>
     <div class="cols c2" style="margin-top:72px">
-      <div class="col"><span class="k">Misión</span><h3>Estar presentes</h3><p>Brindar apoyo, acompañamiento y oportunidades a mujeres, niñas, niños y familias en situación de vulnerabilidad en Piura.</p></div>
-      <div class="col"><span class="k">Visión</span><h3>Ser referente del norte</h3><p>Ser la fundación referente del norte del Perú en asistencia social cercana, transparente y con impacto medible.</p></div>
+      <div class="col"><span class="k">Misión</span><h3>Estar presentes</h3><p>Brindar apoyo, acompañamiento y oportunidades a mujeres, varones, niñas, niños y familias en situación de vulnerabilidad en el Perú.</p></div>
+      <div class="col"><span class="k">Visión</span><h3>Ser referente</h3><p>Ser la fundación referente en el Perú en asistencia social cercana, transparente y con impacto medible.</p></div>
     </div>
   </div>
 </div></section>
@@ -326,14 +323,14 @@ phero(["Nosotros"], 'Cada persona es una pieza. <span class="ital mag">Juntas, u
     <div class="row"><span class="n">02</span><h3>Dignidad</h3><p class="body">Ayudar nunca significa decidir por la otra persona.</p></div>
     <div class="row"><span class="n">03</span><h3>Transparencia</h3><p class="body">Rendimos cuentas de cada sol y de cada acción.</p></div>
     <div class="row"><span class="n">04</span><h3>Compromiso</h3><p class="body">Acompañamos hasta que la familia pueda caminar sola.</p></div>
-    <div class="row"><span class="n">05</span><h3>Sororidad</h3><p class="body">Entre mujeres nos sostenemos y nos abrimos camino.</p></div>
+    <div class="row"><span class="n">05</span><h3>Respeto</h3><p class="body">Tratamos a cada persona con dignidad, sin importar quién sea.</p></div>
   </div>
 </div></section>
 
 <section class="sec bg-white"><div class="wrap">
   <p class="eyebrow"><b>03</b> Mensaje de la presidenta</p>
   <div class="pull" style="margin-top:56px">
-    <blockquote>Creamos Atenea porque vimos de cerca a mujeres y familias enfrentando solas la enfermedad y la violencia. Nuestro compromiso es simple: estar presentes, actuar con seriedad y rendir cuentas de cada sol que se nos confía.</blockquote>
+    <blockquote>Creamos Atenea porque vimos de cerca a personas y familias enfrentando solas la enfermedad y la violencia. Nuestro compromiso es simple: estar presentes, actuar con seriedad y rendir cuentas de cada sol que se nos confía.</blockquote>
     <cite>María Fernanda Castillo · Presidenta del Consejo de Administración (nombre ilustrativo)</cite>
   </div>
 </div></section>
@@ -347,7 +344,7 @@ phero(["Nosotros"], 'Cada persona es una pieza. <span class="ital mag">Juntas, u
   {shead("05","Cómo trabajamos",'Serio, cercano <span class="ital">y medible.</span>')}
   <div class="cols c4">
     <div class="col"><span class="k">Pilar 1</span><h3>Institucionalidad</h3><p>Constitución por escritura pública, inscripción en SUNARP y en el registro del Consejo de Supervigilancia de Fundaciones.</p></div>
-    <div class="col"><span class="k">Pilar 2</span><h3>Aliados y voluntariado</h3><p>Universidades, profesionales, empresas e instituciones de Piura.</p></div>
+    <div class="col"><span class="k">Pilar 2</span><h3>Aliados y voluntariado</h3><p>Universidades, profesionales, empresas e instituciones de Piura y de todo el país.</p></div>
     <div class="col"><span class="k">Pilar 3</span><h3>Campañas en territorio</h3><p>Salud, ayuda humanitaria y orientación gratuita en las ocho provincias.</p></div>
     <div class="col"><span class="k">Pilar 4</span><h3>Rendición de cuentas</h3><p>Resultados, personas atendidas y estados financieros publicados en esta web.</p></div>
   </div>
@@ -365,8 +362,8 @@ phero(["Nosotros"], 'Cada persona es una pieza. <span class="ital mag">Juntas, u
 """ + cta())
 
 # ---------------- PROGRAMAS ----------------
-PAGES["programas.html"] = ("Programas · Fundación Atenea", "Cinco líneas de acción para acompañar a mujeres, niñas, niños, personas enfermas y familias en Piura.", "programas.html",
-phero(["Programas"], 'Cinco formas de <span class="ital mag">estar presentes.</span>',
+PAGES["programas.html"] = ("Programas · Fundación Atenea", "Seis líneas de acción para acompañar a mujeres, varones, niñas, niños, personas enfermas y familias en todo el Perú.", "programas.html",
+phero(["Programas"], 'Seis formas de <span class="ital mag">estar presentes.</span>',
  "Mujeres, niñez, salud, orientación y ayuda humanitaria. Toda la atención es gratuita y confidencial.",
  '<a class="btn btn-main" href="contacto.html">Solicitar apoyo →</a><small>En emergencias: Línea 100 · Policía 105</small>') + f"""
 <section class="sec bg-white"><div class="wrap">
@@ -374,12 +371,12 @@ phero(["Programas"], 'Cinco formas de <span class="ital mag">estar presentes.</s
   {prog_cards()}
 </div></section>
 <section class="sec bg-ink"><div class="wrap">
-  {shead("02","¿Necesitas ayuda?",'No tienes que hacerlo sola. <span class="ital cor">Así te acompañamos.</span>',"Tus datos se protegen conforme a la Ley N.º 29733.")}
+  {shead("02","¿Necesitas ayuda?",'No tienes que hacerlo solo ni sola. <span class="ital cor">Así te acompañamos.</span>',"Tus datos se protegen conforme a la Ley N.º 29733.")}
   {STEPS}
   <div class="btns" style="margin-top:56px"><a class="btn btn-main" href="contacto.html">Solicitar apoyo</a><a class="btn btn-line" href="https://wa.me/{WA}">Escribir por WhatsApp</a></div>
 </div></section>
 <section class="sec"><div class="wrap">
-  {shead("03","Piura en cifras",'La realidad <span class="ital">que queremos cambiar.</span>',"Detrás de cada cifra hay una mujer, una niña o un paciente que necesita apoyo.")}
+  {shead("03","Piura en cifras",'La realidad <span class="ital">que queremos cambiar.</span>',"Detrás de cada cifra hay una mujer, un varón, una niña o un paciente que necesita apoyo.")}
   <div class="facts">
     <div><strong>28,1 %</strong><span>de la población de Piura vive en pobreza monetaria.</span><small>INEI, 2025</small></div>
     <div><strong>4 578</strong><span>casos de violencia atendidos por los CEM de Piura, enero–julio 2026.</span><small>MIMP, Warmi Ñan</small></div>
@@ -388,12 +385,12 @@ phero(["Programas"], 'Cinco formas de <span class="ital mag">estar presentes.</s
   </div>
 </div></section>
 <section class="sec bg-white"><div class="wrap">
-  {shead("04","Cobertura",'Presentes en <span class="ital">toda la región.</span>',"Sede en Piura y campañas en las ocho provincias.")}
+  {shead("04","Cobertura",'Desde Piura <span class="ital">a todo el país.</span>',"Sede en Piura, campañas en las ocho provincias y orientación a distancia en todo el Perú.")}
   <div class="cols c4">""" + "".join(f'<div class="col"><span class="k">Provincia</span><h3>{p}</h3></div>' for p in ["Piura","Sullana","Paita","Talara","Sechura","Morropón","Ayabaca","Huancabamba"]) + """</div>
 </div></section>
 """ + cta())
 
-def program(file, name, lead, img, offers, who, needs, quote, cite, h1):
+def program(file, name, lead, img, offers, who, needs, quote, cite, h1, story=None):
     offers_html = "".join(f'<div class="col"><h3>{t}</h3><p>{d}</p></div>' for t,d in offers)
     who_html = "".join(f"<li>{w}</li>" for w in who)
     needs_html = "".join(f"<li>{n}</li>" for n in needs)
@@ -413,10 +410,10 @@ def program(file, name, lead, img, offers, who, needs, quote, cite, h1):
   {shead("04","Cómo acceder",'Tres pasos <span class="ital cor">simples.</span>')}
   {STEPS}
 </div></section>
-<section class="sec bg-white"><div class="wrap">
+{story or f'''<section class="sec bg-white"><div class="wrap">
   <p class="eyebrow"><b>05</b> Una historia</p>
   <div class="pull" style="margin-top:56px"><blockquote>{quote}</blockquote><cite>{cite} · Testimonio ilustrativo</cite></div>
-</div></section>
+</div></section>'''}
 <section class="sec"><div class="wrap">
   {shead("06","Otros programas",'Conoce <span class="ital">también.</span>')}
   {prog_rows(exclude=file)}
@@ -431,6 +428,19 @@ program("programa-mujeres.html","Mujeres que avanzan",
  ["DNI (si no lo tienes, igual te atendemos).","Contarnos tu situación: la atención es confidencial."],
  "Tras salir de una relación violenta, recibió acompañamiento psicológico y legal. Luego participó en el taller de repostería y hoy vende sus productos en ferias de Piura.",
  "Testimonio anónimo · Mujeres que avanzan", 'Mujeres <span class="ital mag">que avanzan.</span>')
+
+program("programa-varones.html","Varones y familias",
+ "Acompañamos a varones que sufren maltrato físico, psicológico o económico, y apoyamos a las familias para convivir sin violencia. Nadie tiene que callar lo que le pasa.",
+ "orientacion.jpg",
+ [("Apoyo psicológico","Sesiones individuales y grupos de apoyo con psicólogos y psicólogas colegiados."),("Orientación legal","Cómo denunciar, qué medidas de protección existen y a dónde acudir, con derivación a la Policía, el Ministerio Público y los CEM."),("Convivencia sin violencia","Talleres para parejas y familias sobre comunicación, crianza y manejo de conflictos."),("Derivación y seguimiento","Te conectamos con los servicios públicos que corresponden y hacemos seguimiento a tu caso.")],
+ ["Varones víctimas de maltrato físico, psicológico o económico.","Padres y esposos que sufren amenazas o violencia en su hogar.","Familias que necesitan ayuda para convivir sin violencia."],
+ ["DNI (si no lo tienes, igual te atendemos).","Contarnos tu situación: la atención es confidencial."],
+ "", "", 'Varones <span class="ital mag">y familias.</span>',
+ story='''<section class="sec bg-white"><div class="wrap">
+  <p class="eyebrow"><b>05</b> Cómo cuidamos tu caso</p>
+  <p class="statement" style="margin-top:40px">Te escuchamos sin juicios y con reserva. Un profesional colegiado evalúa tu situación primero. <em>No hacemos mediación en casos de violencia:</em> si hay riesgo, te acompañamos a las autoridades.</p>
+  <p class="callout" style="margin-top:40px"><strong>¿Estás en peligro ahora?</strong> Llama a la Línea 100 (gratuita, 24 horas, atiende a mujeres y varones) o a la Policía al 105.</p>
+</div></section>''')
 
 program("programa-ninez.html","Niñez protegida",
  "Cuidamos que niñas y niños crezcan sanos, aprendan y jueguen en un entorno seguro mientras sus familias se recuperan.",
@@ -524,7 +534,7 @@ NEWS = """<section class="sec bg-ink"><div class="wrap split">
 # ---------------- INVOLÚCRATE ----------------
 PAGES["involucrate.html"] = ("Involúcrate · Fundación Atenea", "Dona, ofrece tu tiempo o súmate como aliado de la Fundación Atenea en Piura.", "involucrate.html",
 phero(["Involúcrate"], 'Suma tu color <span class="ital mag">al mosaico.</span>',
- "Dona, ofrece tu tiempo o súmate como aliado. Cada aporte se convierte en ayuda concreta en Piura.",
+ "Dona, ofrece tu tiempo o súmate como aliado. Cada aporte se convierte en ayuda concreta, desde Piura y en todo el Perú.",
  '<a class="btn btn-mag" href="#donar">Donar ahora →</a><a class="btn btn-line" href="#voluntariado">Ser voluntaria/o</a>', "voluntariado.jpg") + f"""
 <section class="sec bg-white" id="donar"><div class="wrap">
   {shead("01","Dona",'Tu aporte, <span class="ital">en ayuda concreta.</span>',"Todas las cuentas están a nombre de la Fundación Atenea. Emitimos constancia por cada donación.")}
@@ -558,7 +568,7 @@ phero(["Involúcrate"], 'Suma tu color <span class="ital mag">al mosaico.</span>
     <div><strong>S/ 30</strong><span>un kit de higiene y alimentos para una familia por una semana.</span></div>
     <div><strong>S/ 60</strong><span>útiles escolares completos para una niña o un niño.</span></div>
     <div><strong>S/ 120</strong><span>traslados de un mes para un paciente en tratamiento.</span></div>
-    <div><strong>S/ 250</strong><span>capital semilla para el emprendimiento de una mujer.</span></div>
+    <div><strong>S/ 250</strong><span>capital semilla para el emprendimiento de una persona.</span></div>
   </div>
 </div></section>
 
@@ -570,7 +580,7 @@ phero(["Involúcrate"], 'Suma tu color <span class="ital mag">al mosaico.</span>
 
 <section class="sec bg-white" id="alianzas"><div class="wrap split">
   <div class="l"><p class="eyebrow"><b>04</b> Alianzas</p><h2 class="h2" style="margin-top:28px">Empresas <span class="ital">con propósito.</span></h2></div>
-  <div class="r"><p class="lead">Construyamos programas de responsabilidad social con impacto real y medible en Piura, o contrata nuestras consultorías: lo recaudado se destina íntegramente a los programas.</p>
+  <div class="r"><p class="lead">Construyamos programas de responsabilidad social con impacto real y medible en Piura y en todo el país, o contrata nuestras consultorías: lo recaudado se destina íntegramente a los programas.</p>
   <div class="btns" style="margin-top:36px"><a class="btn btn-main" href="contacto.html">Ser aliado</a><a class="btn btn-line" href="consultorias.html">Ver consultorías</a></div></div>
 </div></section>
 
@@ -634,8 +644,8 @@ SERV = [("Prevención del hostigamiento sexual","Capacitaciones para empresas e 
         ("Diagnósticos y estudios sociales","Líneas de base, investigación e indicadores sociales para Piura."),
         ("Proyectos y responsabilidad social","Diseño, ejecución y evaluación de programas para poblaciones vulnerables."),
         ("Asistencia técnica a gobiernos locales","Apoyo técnico, no partidario, en programas sociales municipales y regionales.")]
-PAGES["consultorias.html"] = ("Consultorías · Fundación Atenea", "Consultorías y capacitaciones sociales para empresas e instituciones; lo recaudado financia los programas en Piura.", "",
-phero(["Consultorías"], 'Tu organización también <span class="ital mag">transforma Piura.</span>',
+PAGES["consultorias.html"] = ("Consultorías · Fundación Atenea", "Consultorías y capacitaciones sociales para empresas e instituciones; lo recaudado financia los programas de la fundación.", "",
+phero(["Consultorías"], 'Tu organización también <span class="ital mag">transforma el Perú.</span>',
  "Consultorías y capacitaciones especializadas en temas sociales. Todo lo que recibimos por estos servicios se destina íntegramente a nuestros programas.",
  '<a class="btn btn-main" href="contacto.html">Solicitar propuesta →</a>') + f"""
 <section class="sec bg-white"><div class="wrap">
@@ -729,10 +739,10 @@ PAGES["gracias.html"] = ("Gracias · Fundación Atenea", "Gracias por tu donaci�
 """<section class="phero" style="padding-bottom:128px"><div class="wrap">
   <p class="eyebrow"><b>Donación</b> Fundación Atenea</p>
   <h1 style="margin-top:32px">Gracias por <span class="ital">sumar tu color.</span></h1>
-  <div class="meta"><p class="lead" id="gracias-msg">Tu donación fue recibida. Te enviaremos la constancia al correo que indicaste. Con tu aporte, una mujer, una niña o un paciente en Piura no enfrenta solo su situación.</p>
+  <div class="meta"><p class="lead" id="gracias-msg">Tu donación fue recibida. Te enviaremos la constancia al correo que indicaste. Con tu aporte, una mujer, un varón, una niña o un paciente en Piura no enfrenta solo su situación.</p>
   <div class="side"><a class="btn btn-main" href="index.html">Volver al inicio →</a><a class="btn btn-line" href="transparencia.html">Ver cómo usamos los fondos</a></div></div>
 </div></section>
-<script>if(/pendiente/.test(location.search))document.getElementById('gracias-msg').textContent='Tu pago está en proceso. Cuando se confirme, te enviaremos la constancia por correo. ¡Gracias!';</script>
+<script>(function(){var q=new URLSearchParams(location.search),s=q.get('status')||q.get('collection_status')||'',m=document.getElementById('gracias-msg');if(/pendiente|pending|in_process/.test(location.search))m.textContent='Tu pago está en proceso. Cuando se confirme, te enviaremos la constancia al correo que indicaste.';else if(/rejected|failure/.test(s))m.textContent='El pago no se completó. No se hizo ningún cobro; puedes intentarlo de nuevo desde Involúcrate o donar por Yape.'})();</script>
 """)
 
 PAGES["404.html"] = ("Página no encontrada · Fundación Atenea", "La página que buscas no existe o fue movida.", "",

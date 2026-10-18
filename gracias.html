@@ -40,10 +40,10 @@
 <section class="phero" style="padding-bottom:128px"><div class="wrap">
   <p class="eyebrow"><b>Donación</b> Fundación Atenea</p>
   <h1 style="margin-top:32px">Gracias por <span class="ital">sumar tu color.</span></h1>
-  <div class="meta"><p class="lead" id="gracias-msg">Tu donación fue recibida. Te enviaremos la constancia al correo que indicaste. Con tu aporte, una mujer, una niña o un paciente en Piura no enfrenta solo su situación.</p>
+  <div class="meta"><p class="lead" id="gracias-msg">Tu donación fue recibida. Te enviaremos la constancia al correo que indicaste. Con tu aporte, una mujer, un varón, una niña o un paciente en Piura no enfrenta solo su situación.</p>
   <div class="side"><a class="btn btn-main" href="index.html">Volver al inicio →</a><a class="btn btn-line" href="transparencia.html">Ver cómo usamos los fondos</a></div></div>
 </div></section>
-<script>if(/pendiente/.test(location.search))document.getElementById('gracias-msg').textContent='Tu pago está en proceso. Cuando se confirme, te enviaremos la constancia por correo. ¡Gracias!';</script>
+<script>(function(){var q=new URLSearchParams(location.search),s=q.get('status')||q.get('collection_status')||'',m=document.getElementById('gracias-msg');if(/pendiente|pending|in_process/.test(location.search))m.textContent='Tu pago está en proceso. Cuando se confirme, te enviaremos la constancia al correo que indicaste.';else if(/rejected|failure/.test(s))m.textContent='El pago no se completó. No se hizo ningún cobro; puedes intentarlo de nuevo desde Involúcrate o donar por Yape.'})();</script>
 </main>
 <footer class="foot">
   <div class="wrap">

@@ -30,8 +30,13 @@
       fetch('/api/form',{method:'POST',headers:{'Content-Type':'application/x-www-form-urlencoded'},body:new URLSearchParams(data).toString()})
         .then(function(r){
           if(!r.ok) throw new Error(r.status);
+          return r.json().catch(function(){return {}});
+        })
+        .then(function(d){
           f.reset();
-          if(st){st.textContent='¡Gracias! Recibimos tu mensaje y te responderemos pronto.';st.style.color='#1F7A4D'}
+          var msg='¡Gracias! Recibimos tu mensaje y te responderemos pronto.';
+          if(d&&d.codigo) msg='Recibimos tu reclamación. Tu hoja es la N.º '+d.codigo+'. Te enviamos una copia al correo que indicaste.';
+          if(st){st.textContent=msg;st.style.color='#1F7A4D'}
         })
         .catch(function(){
           var lines=[]; data.forEach(function(v,k){ if(['form-name','bot-field','autorizo'].indexOf(k)<0) lines.push(k+': '+v) });

@@ -32,7 +32,7 @@ export async function guardar(env, formulario, datos, request) {
   await env.DB.prepare(`CREATE TABLE IF NOT EXISTS mensajes (
     id INTEGER PRIMARY KEY AUTOINCREMENT, formulario TEXT NOT NULL, datos TEXT NOT NULL,
     ip_hash TEXT NOT NULL, creado TEXT NOT NULL DEFAULT (datetime('now')))`).run();
-  await env.DB.prepare("INSERT INTO mensajes (formulario, datos, ip_hash) VALUES (?, ?, ?)")
+  const r = await env.DB.prepare("INSERT INTO mensajes (formulario, datos, ip_hash) VALUES (?, ?, ?)")
     .bind(formulario, JSON.stringify(datos), await ipHash(request)).run();
-  return true;
+  return r?.meta?.last_row_id || true;     // id del mensaje (o true si D1 no lo informa)
 }

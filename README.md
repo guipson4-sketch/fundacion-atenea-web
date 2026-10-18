@@ -144,7 +144,19 @@ Panel de mensajes: `https://ateneapiuraperu.org/api/admin.php`
 - Funciones: `functions/api/chat.js`, `donar.js`, `form.js` y el panel `functions/admin.js` (código compartido en `cf/`).
 - Build: comando `sh cf-build.sh`, carpeta de salida `dist`.
 - Base de datos: **D1** con el binding `DB` (la tabla `mensajes` se crea sola).
-- Variables secretas: `GEMINI_API_KEY`, `MP_ACCESS_TOKEN`, `ADMIN_PASSWORD`; opcional `ALLOWED_ORIGINS`.
+- Variables secretas: `GEMINI_API_KEY`, `MP_ACCESS_TOKEN`, `ADMIN_PASSWORD`, `RESEND_API_KEY`; opcionales `ALLOWED_ORIGINS`,
+  `MP_WEBHOOK_SECRET`, `MAIL_FROM`, `FUND_RUC`, `RECLAMO_PLAZO` y `MAIL_<BUZON>` (por ejemplo `MAIL_AYUDA`) para cambiar un destino.
+
+### Correos y pagos conectados
+
+- `cf/mail.js` envía correos con [Resend](https://resend.com) (dominio verificado `ateneapiuraperu.org`).
+- `cf/notificar.js` decide el destino: contacto según el motivo (ayuda@, voluntariado@, alianzas@, administracion@, contacto@),
+  boletín (contacto@) y Libro de Reclamaciones (privacidad@ con copia a gerencia@ y copia al consumidor con el código `LR-AAAA-NNNNN`).
+  El correo de aviso usa `Reply-To` de la persona: al responder desde Gmail, la respuesta le llega a ella.
+- `functions/api/mp-webhook.js` recibe los avisos de Mercado Pago, consulta el pago, lo guarda en la tabla `donaciones`
+  y envía el aviso a administracion@ y la constancia al donante (una sola vez por pago).
+- El panel `/admin` muestra si cada correo se envió o falló. Sin `RESEND_API_KEY` el sitio funciona igual y todo queda en el panel.
+- Prueba local sin internet: `node tools/prueba-correos.mjs`.
 - Panel de mensajes: `https://ateneapiuraperu.org/admin` (usuario `atenea`).
 
 # Generador de páginas
