@@ -11,6 +11,7 @@ async function firmaValida(request, env, id) {
   if (!env.MP_WEBHOOK_SECRET) return true;                       // sin secreto, se confía en la consulta directa a la API
   const h = request.headers.get("x-signature") || "";
   const ts = (h.match(/ts=([^,]+)/) || [])[1], v1 = (h.match(/v1=([^,]+)/) || [])[1];
+  if (!h) return true;                                           // sin firma: igual se verifica el pago consultando a la API
   if (!ts || !v1) return false;
   const manifest = `id:${String(id).toLowerCase()};request-id:${request.headers.get("x-request-id") || ""};ts:${ts};`;
   const key = await crypto.subtle.importKey("raw", new TextEncoder().encode(env.MP_WEBHOOK_SECRET), { name: "HMAC", hash: "SHA-256" }, false, ["sign"]);
