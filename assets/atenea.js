@@ -68,7 +68,7 @@
 
 // Asistente de soporte (Gemini vía función del servidor /api/chat)
 (function(){
-  var WA='https://wa.me/51900000000';
+  var WA='contacto.html';
   var open=document.createElement('button');
   open.className='bot-open'; open.type='button';
   open.setAttribute('aria-haspopup','dialog');
@@ -80,7 +80,7 @@
     '<div class="bot-log" aria-live="polite"></div>'+
     '<div class="bot-q"></div>'+
     '<form class="bot-f"><label class="skip" for="bot-in">Tu pregunta</label><textarea id="bot-in" rows="1" maxlength="800" placeholder="Escribe tu pregunta…"></textarea><button type="submit">Enviar</button></form>'+
-    '<p class="bot-n">No compartas datos personales, de salud ni detalles de tu caso: este chat usa IA de Google. ¿En peligro? Llama a la Línea 100. <a href="'+WA+'">Hablar con una persona</a></p>';
+    '<p class="bot-n">No compartas datos personales, de salud ni detalles de tu caso: este chat usa IA de Google. ¿En peligro? Llama a la Línea 100. <a href="'+WA+'">Escribir al equipo</a></p>';
   document.body.appendChild(open); document.body.appendChild(box);
   var log=box.querySelector('.bot-log'), form=box.querySelector('form'), input=box.querySelector('textarea'),
       send=form.querySelector('button'), quick=box.querySelector('.bot-q');
@@ -107,9 +107,9 @@
       .then(function(x){
         w.remove();
         if(x.ok&&x.d.reply){history.push({role:'model',text:x.d.reply});add('model',x.d.reply);save()}
-        else{history.pop();save();add('err',(x.d&&x.d.error)||'El asistente no está disponible. Escríbenos por WhatsApp al +51 900 000 000.')}
+        else{history.pop();save();add('err',(x.d&&x.d.error)||'El asistente no está disponible. Escríbenos desde la página de Contacto o a ayuda@ateneapiuraperu.org.')}
       })
-      .catch(function(){w.remove();history.pop();save();add('err','Sin conexión con el asistente. Escríbenos por WhatsApp al +51 900 000 000.')})
+      .catch(function(){w.remove();history.pop();save();add('err','Sin conexión con el asistente. Escríbenos desde la página de Contacto o a ayuda@ateneapiuraperu.org.')})
       .finally(function(){send.disabled=false;input.focus()});
   }
   form.addEventListener('submit',function(e){e.preventDefault();ask(input.value)});

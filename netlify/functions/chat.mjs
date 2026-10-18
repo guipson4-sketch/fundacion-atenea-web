@@ -64,6 +64,6 @@ export default async (req, context) => {
 
   const data = await res.json();
   const text = data?.candidates?.[0]?.content?.parts?.map(p => p.text || "").join("").trim();
-  if (!text) return json(200, { reply: "No puedo responder eso. Escríbenos por WhatsApp al +51 900 000 000 y una persona del equipo te ayudará." });
+  if (!text) return json(200, { reply: "No puedo responder eso. Escríbenos desde la página de Contacto o a ayuda@ateneapiuraperu.org y una persona del equipo te ayudará." });
   return json(200, { reply: text });
 };

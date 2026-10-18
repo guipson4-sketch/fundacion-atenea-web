@@ -604,3 +604,62 @@ html.anim .phero h1{animation:hero-up .9s cubic-bezier(.2,.7,.2,1) .05s both}
 .donate::before{content:"";position:absolute;left:0;right:0;top:0;height:4px;background:var(--mosaico-full)}
 .donate .send small{font-size:14px}
 @media (max-width:960px){.donate{grid-template-columns:1fr;padding:28px;gap:28px}}
+
+/* =====================================================================
+   v4 · mejoras de diseño: identidad del mosaico, portada legible,
+   rejilla de programas uniforme, hoja de ruta y mejor lectura en móvil
+   ===================================================================== */
+.eyebrow::before{content:"";flex:none;align-self:flex-start;margin-top:4px;width:34px;height:10px;border-radius:2px;
+  background:linear-gradient(90deg,#8A2BB0 0 25%,#D6287F 25% 50%,#F3BC81 50% 75%,#A3CDF5 75% 100%)}
+.bg-ink .eyebrow::before{opacity:.9}
+/* portada: texto siempre legible y bloque de apoyo en vidrio */
+.fb{min-height:min(88vh,900px)}
+.fb::after{background:linear-gradient(180deg,rgba(62,13,44,.34) 0%,rgba(62,13,44,.06) 26%,rgba(62,13,44,.5) 58%,rgba(36,6,26,.94) 100%)}
+.fb h1{font-size:clamp(46px,7vw,104px);text-shadow:0 2px 32px rgba(36,6,26,.4)}
+.fb h1 .ital{background:none;-webkit-text-fill-color:var(--amarillo);color:var(--amarillo)}
+.fb-meta{margin-top:40px;padding:28px 32px;border:1px solid rgba(255,255,255,.18);border-radius:20px;background:rgba(36,6,26,.42);backdrop-filter:blur(10px)}
+.fb .wrap{padding-bottom:56px}
+/* rejilla de programas: 3 columnas, mismas proporciones y cinta de color */
+@media (min-width:961px){
+  .pgrid{grid-template-columns:repeat(3,1fr);gap:28px}
+  .pcard,.pcard:nth-child(1),.pcard:nth-child(2){grid-column:auto}
+  .pcard img,.pcard:nth-child(1) img,.pcard:nth-child(2) img{aspect-ratio:3/2}
+}
+.pcard{position:relative;display:flex;flex-direction:column}
+.pcard::before{content:"";position:absolute;left:0;right:0;top:0;height:5px;z-index:2;background:var(--morado)}
+.pcard:nth-child(6n+2)::before{background:var(--fucsia)}
+.pcard:nth-child(6n+3)::before{background:var(--coral)}
+.pcard:nth-child(6n+4)::before{background:var(--ambar)}
+.pcard:nth-child(6n+5)::before{background:var(--amarillo)}
+.pcard:nth-child(6n+6)::before{background:var(--celeste)}
+.pcard p{flex:1}
+/* hoja de ruta */
+.road{display:grid;grid-template-columns:repeat(2,1fr);gap:20px}
+.road .st{background:#fff;border:1px solid var(--line);border-radius:var(--r);padding:28px;box-shadow:var(--shadow)}
+.road .st i{display:block;width:18px;height:18px;border-radius:4px;margin-bottom:20px;background:var(--morado)}
+.road .st:nth-child(2) i{background:var(--fucsia)}.road .st:nth-child(3) i{background:var(--coral)}.road .st:nth-child(4) i{background:var(--ambar)}
+.road .st.on{border-color:rgba(214,40,127,.45)}
+.pill{display:inline-block;padding:4px 12px;margin-bottom:14px;border-radius:999px;background:#F3E9EE;color:var(--guinda);font:700 12px/1.4 var(--body);letter-spacing:.04em}
+.road .st.on .pill{background:var(--fucsia);color:#fff}
+.road h3{font-size:21px;font-weight:700;letter-spacing:-.02em}
+.road p{margin-top:10px;font-size:15px;color:var(--muted)}
+/* ritmo y lectura */
+.statement{max-width:30em}
+.col h3{line-height:1.15}
+.cols .col .tlink{display:inline-block;margin-top:6px}
+.trust div{display:flex;flex-direction:column}
+@media (max-width:960px){
+  .fb-meta{padding:20px 20px;border-radius:16px}
+  .fb h1{font-size:clamp(40px,11vw,64px)}
+  .road{grid-template-columns:1fr}
+  .pcard::before{height:4px}
+}
+@media (max-width:480px){
+  .wrap{padding:0 18px}
+  .fb .btns .btn{width:100%;justify-content:center}
+  .trust{grid-template-columns:1fr}
+}
+/* legibilidad de filas sobre fondo guinda */
+.bg-ink .row .body,.bg-ink .row .body p{color:rgba(255,255,255,.8)}
+.bg-ink .row .n{color:rgba(255,255,255,.6)}
+.bg-ink .row .go{color:var(--amarillo)}
