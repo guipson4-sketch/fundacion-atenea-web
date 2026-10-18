@@ -9,7 +9,7 @@ const RUTA_MOTIVO = {
   "Quiero donar": "administracion",
   "Voluntariado": "voluntariado",
   "Alianza o consultoría": "alianzas",
-  "Prensa": "contacto",
+  "Prensa": "comunicaciones",
 };
 
 const ETIQUETAS = {

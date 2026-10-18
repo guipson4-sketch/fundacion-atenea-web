@@ -3,7 +3,8 @@
 // Si falta RESEND_API_KEY el sitio sigue funcionando: los mensajes quedan en el panel /admin.
 
 export const DOMINIO = "ateneapiuraperu.org";
-export const BUZONES = ["contacto", "ayuda", "programas", "voluntariado", "alianzas", "administracion", "gerencia", "privacidad"];
+// Los 8 buzones con licencia (según el organigrama). voluntariado@, donaciones@, prensa@, etc. son alias que reciben en alguno de ellos.
+export const BUZONES = ["contacto", "ayuda", "gerencia", "programas", "administracion", "alianzas", "comunicaciones", "privacidad"];
 
 // Devuelve el correo de un buzón (por ejemplo "ayuda" → ayuda@ateneapiuraperu.org).
 export const buzon = (env, nombre) => env["MAIL_" + nombre.toUpperCase()] || `${nombre}@${DOMINIO}`;
