@@ -24,9 +24,9 @@ export async function onRequestPost({ request, env }) {
   }).catch(() => null);
 
   if (!res) return json(502, { error: "No pudimos conectar con el asistente." });
-  if (res.status === 429) return json(429, { error: "El asistente alcanzó su límite por ahora. Escríbenos por WhatsApp y te respondemos." });
+  if (res.status === 429) return json(429, { error: "El asistente alcanzó su límite por ahora. Escríbenos desde la página de Contacto y te respondemos." });
   if (!res.ok) { console.error("Gemini", res.status, (await res.text()).slice(0, 300)); return json(502, { error: "El asistente no está disponible en este momento." }); }
   const data = await res.json();
   const text = data?.candidates?.[0]?.content?.parts?.map(p => p.text || "").join("").trim();
-  return json(200, { reply: text || "No puedo responder eso. Escríbenos por WhatsApp y una persona del equipo te ayudará." });
+  return json(200, { reply: text || "No puedo responder eso. Escríbenos desde la página de Contacto y una persona del equipo te ayudará." });
 }
