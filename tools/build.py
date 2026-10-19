@@ -5,7 +5,7 @@ OUT = sys.argv[1] if len(sys.argv) > 1 else os.path.join(os.path.dirname(__file_
 
 WA = ""; WA_TXT = ""      # sin WhatsApp oficial todavía: no se muestra ningún número
 MAIL = "contacto@ateneapiuraperu.org"
-ADDR = "Jr. Circunvalación 1384, Piura"
+ADDR = "Urb. Ignacio Merino Mz. Q Lt. 61 2da Etapa - Piura"
 RUC = ""                 # sin RUC todavía
 HOURS = "Lunes a viernes, 9:00 a 18:00"
 
@@ -53,7 +53,7 @@ LD = """
 "image":"https://ateneapiuraperu.org/assets/og-atenea.jpg",
 "description":"Fundación sin fines de lucro con sede en Piura que acompaña a mujeres, varones, niñas, niños y familias en situación de vulnerabilidad en todo el Perú.",
 "email":"contacto@ateneapiuraperu.org","nonprofitStatus":"Nonprofit",
-"address":{"@type":"PostalAddress","streetAddress":"Jr. Circunvalación 1384","addressLocality":"Piura","addressRegion":"Piura","addressCountry":"PE"},
+"address":{"@type":"PostalAddress","streetAddress":"Urb. Ignacio Merino Mz. Q Lt. 61, 2da Etapa","addressLocality":"Piura","addressRegion":"Piura","addressCountry":"PE"},
 "areaServed":{"@type":"Country","name":"Perú"},
 "knowsAbout":["Violencia contra la mujer","Violencia familiar","Atención psicológica a varones","Niñez","Salud","Orientación legal","Ayuda humanitaria"]}
 </script>"""

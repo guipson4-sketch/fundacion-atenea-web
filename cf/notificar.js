@@ -76,7 +76,7 @@ async function reclamo(env, d, id, codigo) {
   const ruc = env.FUND_RUC ? `<br>RUC ${esc(env.FUND_RUC)}` : "";
   const plazo = esc(env.RECLAMO_PLAZO || "el plazo que establece la ley");
   const hoja = `<p style="margin:0 0 4px;font-size:13px;color:#6E5566">Hoja de reclamación N.º <strong>${esc(codigo)}</strong> · ${esc(fecha)} (hora de Lima)</p>`
-    + `<p style="font-size:13px;margin:0 0 12px">Proveedor: Fundación Atenea · Jr. Circunvalación 1384, Piura${ruc}</p>`
+    + `<p style="font-size:13px;margin:0 0 12px">Proveedor: Fundación Atenea · Urb. Ignacio Merino Mz. Q Lt. 61 2da Etapa - Piura${ruc}</p>`
     + filas(d, ETIQUETAS);
   // 1) Al equipo: privacidad@ con copia a gerencia@
   await mandar(env, id, {

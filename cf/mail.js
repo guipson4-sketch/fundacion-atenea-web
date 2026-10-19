@@ -45,7 +45,7 @@ export function marco(titulo, contenido, pie = "") {
 <div style="height:6px;background:linear-gradient(90deg,#8A2BB0,#C81E73,#EE827C,#F6E08A,#A3CDF5);border-radius:6px 6px 0 0"></div>
 <div style="background:#fff;padding:28px 26px;border-radius:0 0 12px 12px">
 <h1 style="margin:0 0 16px;font-size:21px;color:#3E0D2C">${esc(titulo)}</h1>${contenido}
-<p style="margin:26px 0 0;font-size:12px;color:#6E5566">Fundación Atenea · Juntos por un mejor mañana · Jr. Circunvalación 1384, Piura, Perú · ${DOMINIO}${pie}</p>
+<p style="margin:26px 0 0;font-size:12px;color:#6E5566">Fundación Atenea · Juntos por un mejor mañana · Urb. Ignacio Merino Mz. Q Lt. 61 2da Etapa - Piura, Perú · ${DOMINIO}${pie}</p>
 </div></div></body></html>`;
 }
 
