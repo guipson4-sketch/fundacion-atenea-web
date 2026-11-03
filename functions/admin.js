@@ -1,21 +1,20 @@
-// Panel privado de mensajes: /admin  (usuario: atenea · contraseña: variable secreta ADMIN_PASSWORD)
+// Panel privado de mensajes: /admin. Credenciales en variables secretas: ADMIN_PASSWORD (obligatoria) y ADMIN_USER (opcional).
+// Tras 6 intentos fallidos en 15 minutos se bloquea esa IP. Recomendado: proteger también /admin con Cloudflare Access.
+import { igualSeguro, ipHash, contarEventos, anotarEvento } from "../cf/lib.js";
 const esc = s => String(s ?? "").replace(/[&<>"']/g, c => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" }[c]));
-
-async function igual(a, b) {
-  const enc = new TextEncoder();
-  const [x, y] = await Promise.all([a, b].map(v => crypto.subtle.digest("SHA-256", enc.encode(v))));
-  const p = new Uint8Array(x), q = new Uint8Array(y); let d = 0;
-  for (let i = 0; i < p.length; i++) d |= p[i] ^ q[i];
-  return d === 0;
-}
 
 // "1" = enviado, "0" = falló (group_concat de los envíos de ese mensaje)
 const correoEstado = c => c == null ? "—" : String(c).split(",").includes("0")
   ? '<strong style="color:#B3261E">Falló</strong>' : '<span style="color:#1F7A4D">Enviado</span>';
 
+const SEGURIDAD = {
+  "cache-control": "no-store", "x-robots-tag": "noindex", "x-content-type-options": "nosniff", "referrer-policy": "no-referrer",
+  "content-security-policy": "default-src 'none'; style-src 'unsafe-inline'; base-uri 'none'; form-action 'none'; frame-ancestors 'none'",
+};
+
 export async function onRequestGet({ request, env }) {
-  const pedir = () => new Response("Acceso restringido", { status: 401, headers: { "www-authenticate": 'Basic realm="Fundacion Atenea", charset="UTF-8"' } });
-  if (!env.ADMIN_PASSWORD) return new Response("Panel no configurado: falta ADMIN_PASSWORD.", { status: 503 });
+  const pedir = () => new Response("Acceso restringido", { status: 401, headers: { ...SEGURIDAD, "www-authenticate": 'Basic realm="Fundacion Atenea", charset="UTF-8"' } });
+  if (!env.ADMIN_PASSWORD || env.ADMIN_PASSWORD.trim().length < 12) return new Response("Panel no configurado: ADMIN_PASSWORD debe tener al menos 12 caracteres.", { status: 503, headers: SEGURIDAD });
   const auth = request.headers.get("authorization") || "";
   if (!auth.startsWith("Basic ")) return pedir();
   let user = "", pass = "";
@@ -25,7 +24,11 @@ export async function onRequestGet({ request, env }) {
     [user, pass] = new TextDecoder().decode(bytes).split(/:(.*)/s);
   } catch { return pedir(); }
   // Se ignoran espacios al inicio/fin (típicos al copiar y pegar) y mayúsculas en el usuario.
-  if (user.trim().toLowerCase() !== "atenea" || !(await igual((pass || "").trim(), env.ADMIN_PASSWORD.trim()))) return pedir();
+  const ip = await ipHash(request, env);
+  if (await contarEventos(env, "admin-fallo", ip, 900) >= 6) return new Response("Demasiados intentos. Espera 15 minutos.", { status: 429, headers: { ...SEGURIDAD, "retry-after": "900" } });
+  const userOk = await igualSeguro(user.trim().toLowerCase(), (env.ADMIN_USER || "atenea").trim().toLowerCase());
+  const passOk = await igualSeguro((pass || "").trim(), env.ADMIN_PASSWORD.trim());
+  if (!(userOk && passOk)) { await anotarEvento(env, "admin-fallo", ip); return pedir(); }
 
   const filtro = new URL(request.url).searchParams.get("f") || "";
   let filas = [];
@@ -51,5 +54,5 @@ h1{color:#3E0D2C}a{color:#D6287F}table{width:100%;border-collapse:collapse;backg
 th{background:#3E0D2C;color:#fff}dl{margin:0}dt{font-weight:600;font-size:12px;text-transform:uppercase;color:#6E5566}dd{margin:0 0 6px}</style></head><body><main>
 <h1>Mensajes recibidos</h1><p><a href="?">Todos</a> · <a href="?f=contacto">Contacto</a> · <a href="?f=boletin">Boletín</a> · <a href="?f=reclamaciones">Reclamaciones</a> · <a href="?f=donacion">Donaciones aprobadas</a> · <a href="?f=donacion-iniciada">Donaciones iniciadas</a></p>
 <table><tr><th>#</th><th>Fecha</th><th>Formulario</th><th>Datos</th><th>Correo</th></tr>${rows}</table></main></body></html>`,
-    { headers: { "content-type": "text/html; charset=utf-8", "cache-control": "no-store", "x-robots-tag": "noindex" } });
+    { headers: { ...SEGURIDAD, "content-type": "text/html; charset=utf-8" } });
 }

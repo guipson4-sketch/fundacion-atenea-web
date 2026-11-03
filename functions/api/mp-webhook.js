@@ -2,26 +2,28 @@
 //  · se guarda en la tabla "donaciones" (una sola vez por pago),
 //  · se avisa a administracion@ y se envía la constancia a quien donó.
 // Variables: MP_ACCESS_TOKEN (obligatoria), MP_WEBHOOK_SECRET (opcional: firma de Mercado Pago).
-import { json, guardar } from "../../cf/lib.js";
+import { json, guardar, igualSeguro } from "../../cf/lib.js";
 import { buzon, enviar, marco, filas, boton, esc, esCorreo, registrarEnvio, DOMINIO } from "../../cf/mail.js";
 
 const soles = n => "S/ " + Number(n || 0).toLocaleString("es-PE", { minimumFractionDigits: 2, maximumFractionDigits: 2 });
 
+// Con MP_WEBHOOK_SECRET configurado la firma es OBLIGATORIA: sin cabecera o con firma distinta se rechaza el aviso.
+// Sin el secreto, el aviso solo se acepta tras confirmar el pago consultando a Mercado Pago (ver más abajo).
 async function firmaValida(request, env, id) {
-  if (!env.MP_WEBHOOK_SECRET) return true;                       // sin secreto, se confía en la consulta directa a la API
+  if (!env.MP_WEBHOOK_SECRET) { console.warn("MP_WEBHOOK_SECRET no configurado: avisos sin verificar firma."); return true; }
   const h = request.headers.get("x-signature") || "";
-  const ts = (h.match(/ts=([^,]+)/) || [])[1], v1 = (h.match(/v1=([^,]+)/) || [])[1];
-  if (!h) return true;                                           // sin firma: igual se verifica el pago consultando a la API
+  const ts = (h.match(/(?:^|,)\s*ts=([^,]+)/) || [])[1], v1 = (h.match(/(?:^|,)\s*v1=([^,]+)/) || [])[1];
   if (!ts || !v1) return false;
   const manifest = `id:${String(id).toLowerCase()};request-id:${request.headers.get("x-request-id") || ""};ts:${ts};`;
   const key = await crypto.subtle.importKey("raw", new TextEncoder().encode(env.MP_WEBHOOK_SECRET), { name: "HMAC", hash: "SHA-256" }, false, ["sign"]);
   const mac = [...new Uint8Array(await crypto.subtle.sign("HMAC", key, new TextEncoder().encode(manifest)))].map(b => b.toString(16).padStart(2, "0")).join("");
-  return mac === v1;
+  return igualSeguro(mac, v1.trim().toLowerCase());
 }
 
 export async function onRequest({ request, env, waitUntil }) {
   const url = new URL(request.url);
   let id = url.searchParams.get("data.id") || url.searchParams.get("id");
+  const idFirma = url.searchParams.get("data.id") || url.searchParams.get("id");   // Mercado Pago firma con el id de la URL, no el del cuerpo
   let tipo = url.searchParams.get("type") || url.searchParams.get("topic");
   if (request.method === "POST") {
     const b = await request.json().catch(() => ({}));
@@ -29,12 +31,13 @@ export async function onRequest({ request, env, waitUntil }) {
   }
   if (tipo !== "payment" || !id) return new Response("ok");     // otros avisos no nos interesan
   if (!env.MP_ACCESS_TOKEN || !env.DB) return json(503, { error: "No configurado" });
-  if (!(await firmaValida(request, env, id))) return json(401, { error: "Firma inválida" });
+  if (!(await firmaValida(request, env, idFirma || id))) return json(401, { error: "Firma inválida" });
 
   // Se consulta el pago directamente a Mercado Pago: así nadie puede inventar una donación.
   const r = await fetch(`https://api.mercadopago.com/v1/payments/${encodeURIComponent(id)}`, { headers: { authorization: `Bearer ${env.MP_ACCESS_TOKEN}` } }).catch(() => null);
   if (!r || !r.ok) return json(502, { error: "No se pudo consultar el pago" });    // Mercado Pago reintenta
   const p = await r.json();
+  if (String(p.id) !== String(id)) return new Response("ok");      // el pago devuelto debe ser el que se pidió
   if (!String(p.external_reference || "").startsWith("don-")) return new Response("ok");
 
   await env.DB.prepare(`CREATE TABLE IF NOT EXISTS donaciones (

@@ -8,6 +8,9 @@ MAIL = "contacto@ateneapiuraperu.org"
 ADDR = "Urb. Ignacio Merino Mz. Q Lt. 61 2da Etapa - Piura"
 RUC = ""                 # sin RUC todavía
 HOURS = "Lunes a viernes, 9:00 a 18:00"
+# Cloudflare Turnstile (captcha gratuito). Clave PÚBLICA del sitio: pégala aquí y define también la variable secreta
+# TURNSTILE_SECRET en Cloudflare. Vacío = sin captcha (los formularios siguen protegidos por límites de uso).
+TURNSTILE_SITEKEY = ""
 
 NAV = [("nosotros.html","Nosotros"),("programas.html","Programas"),("historias.html","Historias"),
        ("involucrate.html","Involúcrate"),("transparencia.html","Transparencia"),("contacto.html","Contacto")]
@@ -702,7 +705,7 @@ PAGES["gracias.html"] = ("Gracias · Fundación Atenea", "Gracias por tu donaci�
   <div class="meta"><p class="lead" id="gracias-msg">Tu donación fue recibida. Te enviaremos la constancia al correo que indicaste. Con tu aporte, una mujer, un varón, una niña o un paciente en Piura no enfrenta solo su situación.</p>
   <div class="side"><a class="btn btn-main" href="index.html">Volver al inicio →</a><a class="btn btn-line" href="transparencia.html">Ver cómo usamos los fondos</a></div></div>
 </div></section>
-<script>(function(){var q=new URLSearchParams(location.search),s=q.get('status')||q.get('collection_status')||'',m=document.getElementById('gracias-msg');if(/pendiente|pending|in_process/.test(location.search))m.textContent='Tu pago está en proceso. Cuando se confirme, te enviaremos la constancia al correo que indicaste.';else if(/rejected|failure/.test(s))m.textContent='El pago no se completó. No se hizo ningún cobro; puedes intentarlo de nuevo desde Involúcrate o donar por Yape.'})();</script>
+<script src="assets/gracias.js"></script>
 """)
 
 PAGES["404.html"] = ("Página no encontrada · Fundación Atenea", "La página que buscas no existe o fue movida.", "",
@@ -713,8 +716,17 @@ PAGES["404.html"] = ("Página no encontrada · Fundación Atenea", "La página q
 </div></section>
 """)
 
+def con_captcha(html):
+    """Inserta el widget de Turnstile antes del botón de envío de cada formulario (solo si hay clave)."""
+    if not TURNSTILE_SITEKEY:
+        return html
+    w = f'<div class="cf-turnstile" data-sitekey="{TURNSTILE_SITEKEY}" data-language="es" style="grid-column:1/-1"></div>'
+    html = html.replace('<div class="send">', w + '<div class="send">')
+    html = html.replace('    <button class="btn btn-main" type="submit">Suscribirme</button>', '    ' + w + '\n    <button class="btn btn-main" type="submit">Suscribirme</button>')
+    return html.replace("</head>", '<script src="https://challenges.cloudflare.com/turnstile/v0/api.js" async defer></script>\n</head>', 1) if "cf-turnstile" in html else html
+
 for f,(title,desc,cur,body) in PAGES.items():
     body = body.replace("{FORM}", CONTACT_FORM).replace("{NEWS}", NEWS)
     with open(os.path.join(OUT,f),"w") as fh:
-        fh.write(head(title,desc,"" if f=="index.html" else f[:-5]) + header(cur) + body + FOOT)
+        fh.write(con_captcha(head(title,desc,"" if f=="index.html" else f[:-5]) + header(cur) + body + FOOT))
 print(len(PAGES),"páginas")

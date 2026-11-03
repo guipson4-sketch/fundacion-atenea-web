@@ -1,10 +1,12 @@
 // Asistente de soporte (Gemini). La clave vive en la variable secreta GEMINI_API_KEY.
 import { KNOWLEDGE } from "../../cf/knowledge.js";
-import { json, origenPermitido, limitado } from "../../cf/lib.js";
+import { json, origenPermitido, limitado, excedeLimite, ipHash } from "../../cf/lib.js";
 
 export async function onRequestPost({ request, env }) {
   if (!origenPermitido(request, env)) return json(403, { error: "Origen no permitido" });
   if (limitado(request, "chat", 6)) return json(429, { error: "Demasiados mensajes seguidos. Espera un minuto, por favor." });
+  if (await excedeLimite(env, "chat-ip", await ipHash(request, env), 40, 3600)) return json(429, { error: "Llegaste al límite de mensajes por hora. Escríbenos desde la página de Contacto y te respondemos." });
+  if (await excedeLimite(env, "chat-global", "*", 2000, 86400)) return json(429, { error: "El asistente alcanzó su límite de hoy. Escríbenos desde la página de Contacto y te respondemos." });
   if (!env.GEMINI_API_KEY) return json(500, { error: "El asistente no está configurado todavía." });
 
   let body; try { body = await request.json(); } catch { return json(400, { error: "Solicitud inválida" }); }

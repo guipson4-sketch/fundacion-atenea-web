@@ -23,13 +23,13 @@ async function mandar(env, id, opciones) {
   return r;
 }
 
-export async function notificar(env, formulario, datos, id, codigo) {
-  if (formulario === "contacto") return contacto(env, datos, id);
-  if (formulario === "boletin") return boletin(env, datos, id);
-  if (formulario === "reclamaciones") return reclamo(env, datos, id, codigo);
+export async function notificar(env, formulario, datos, id, codigo, { sinAcuse = false } = {}) {
+  if (formulario === "contacto") return contacto(env, datos, id, sinAcuse);
+  if (formulario === "boletin") return boletin(env, datos, id, sinAcuse);
+  if (formulario === "reclamaciones") return reclamo(env, datos, id, codigo, sinAcuse);
 }
 
-async function contacto(env, d, id) {
+async function contacto(env, d, id, sinAcuse) {
   const clave = RUTA_MOTIVO[d.motivo] || "contacto";
   const destino = buzon(env, clave);
   const respuesta = esCorreo(d.contacto) ? d.contacto.trim() : null;
@@ -44,7 +44,7 @@ async function contacto(env, d, id) {
     text: `${d.motivo}\n${d.nombre}\n${d.contacto}\n\n${d.mensaje}\n\nPanel: ${ADMIN}`,
   });
   // Acuse de recibo a la persona, sin repetir su mensaje (puede tener datos sensibles).
-  if (respuesta) {
+  if (respuesta && !sinAcuse) {
     const urgente = d.motivo === "Necesito ayuda"
       ? `<p style="font-size:14px"><strong>Si estás en peligro ahora</strong>, llama a la Línea 100 (gratuita, 24 horas) o a la Policía al 105.</p>` : "";
     await mandar(env, id, {
@@ -56,14 +56,14 @@ async function contacto(env, d, id) {
   }
 }
 
-async function boletin(env, d, id) {
+async function boletin(env, d, id, sinAcuse) {
   await mandar(env, id, {
     to: buzon(env, "contacto"), replyTo: esCorreo(d.correo) ? d.correo : undefined,
     subject: `[Boletín] Nueva suscripción · ${d.correo || d.nombre || ""}`,
     html: marco("Nueva suscripción al boletín", filas(d, ETIQUETAS) + `<p>${boton(ADMIN, "Ver en el panel")}</p>`),
     text: `Suscripción al boletín: ${d.nombre} <${d.correo}>`,
   });
-  if (esCorreo(d.correo)) await mandar(env, id, {
+  if (esCorreo(d.correo) && !sinAcuse) await mandar(env, id, {
     to: d.correo, replyTo: buzon(env, "contacto"),
     subject: "Te suscribiste al boletín de Fundación Atenea",
     html: marco("¡Gracias por sumarte!", `<p>Hola ${esc(d.nombre || "")}, te enviaremos una vez al mes historias, avances y formas de ayudar. Si no fuiste tú, responde este correo y te damos de baja.</p>`),
@@ -71,7 +71,7 @@ async function boletin(env, d, id) {
   });
 }
 
-async function reclamo(env, d, id, codigo) {
+async function reclamo(env, d, id, codigo, sinAcuse) {
   const fecha = new Date().toLocaleString("es-PE", { timeZone: "America/Lima", dateStyle: "long", timeStyle: "short" });
   const ruc = env.FUND_RUC ? `<br>RUC ${esc(env.FUND_RUC)}` : "";
   const plazo = esc(env.RECLAMO_PLAZO || "el plazo que establece la ley");
@@ -86,7 +86,7 @@ async function reclamo(env, d, id, codigo) {
     text: `${codigo}\n${d.tipo}\n${d.nombre} ${d.documento}\n${d.correo} ${d.telefono}\n\n${d.descripcion}\n\nPedido: ${d.pedido}\n\nPanel: ${ADMIN}`,
   });
   // 2) Copia al consumidor (constancia de que su reclamo fue recibido)
-  if (esCorreo(d.correo)) await mandar(env, id, {
+  if (esCorreo(d.correo) && !sinAcuse) await mandar(env, id, {
     to: d.correo.trim(), replyTo: buzon(env, "privacidad"),
     subject: `Constancia de tu ${String(d.tipo || "reclamo").toLowerCase()} · ${codigo}`,
     html: marco("Recibimos tu reclamación", `<p>Hola ${esc(d.nombre || "")}, esta es la copia de tu hoja de reclamación. Te responderemos por este medio dentro de ${plazo}.</p>${hoja}<p style="font-size:12px;color:#6E5566;margin-top:14px">La formulación del reclamo no impide acudir a otras vías de solución de controversias ni es requisito previo para interponer una denuncia ante el INDECOPI.</p>`),

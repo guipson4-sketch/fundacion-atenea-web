@@ -39,12 +39,12 @@
           if(st){st.textContent=msg;st.style.color='#1F7A4D'}
         })
         .catch(function(){
-          var lines=[]; data.forEach(function(v,k){ if(['form-name','bot-field','autorizo'].indexOf(k)<0) lines.push(k+': '+v) });
+          var lines=[]; data.forEach(function(v,k){ if(['form-name','bot-field','autorizo','cf-turnstile-response'].indexOf(k)<0) lines.push(k+': '+v) });
           var subject=f.getAttribute('data-mail'), m=f.querySelector('input[name=motivo]:checked'); if(m) subject=m.value;
           location.href='mailto:'+MAIL+'?subject='+encodeURIComponent(subject)+'&body='+encodeURIComponent(lines.join('\n'));
           if(st){st.textContent='Abriendo tu aplicación de correo…'}
         })
-        .finally(function(){ if(btn) btn.disabled=false });
+        .finally(function(){ if(btn) btn.disabled=false; if(window.turnstile)turnstile.reset() });
     });
   });
 
@@ -58,9 +58,9 @@
       var c=f.querySelector('input[name=monto]:checked'), monto=c&&c.value==='otro'?f.otro.value:(c&&c.value);
       if(!monto||Number(monto)<5){ st.textContent='Elige o escribe un monto desde S/ 5.'; st.style.color='#D6287F'; return }
       btn.disabled=true; st.textContent='Conectando con la pasarela segura…'; st.style.color='';
-      fetch('/api/donar',{method:'POST',headers:{'content-type':'application/json'},body:JSON.stringify({monto:monto,nombre:f.nombre.value,email:f.email.value})})
+      fetch('/api/donar',{method:'POST',headers:{'content-type':'application/json'},body:JSON.stringify({monto:monto,nombre:f.nombre.value,email:f.email.value,token:(f.querySelector('[name=cf-turnstile-response]')||{}).value||''})})
         .then(function(r){return r.json().catch(function(){return {}}).then(function(d){return {ok:r.ok,d:d}})})
-        .then(function(x){ if(x.ok&&x.d.url){location.href=x.d.url;return} st.textContent=(x.d&&x.d.error)||'No pudimos iniciar el pago. Intenta de nuevo o dona por Yape.'; st.style.color='#D6287F'; btn.disabled=false })
+        .then(function(x){ if(x.ok&&x.d.url){location.href=x.d.url;return} st.textContent=(x.d&&x.d.error)||'No pudimos iniciar el pago. Intenta de nuevo o dona por Yape.'; st.style.color='#D6287F'; btn.disabled=false; if(window.turnstile)turnstile.reset() })
         .catch(function(){ st.textContent='Sin conexión. Intenta de nuevo o dona por Yape.'; st.style.color='#D6287F'; btn.disabled=false });
     });
   });
