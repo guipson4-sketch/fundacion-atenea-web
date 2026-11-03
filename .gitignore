@@ -3,3 +3,8 @@ node_modules/
 api/config.php
 dist/
 .wrangler/
+.dev.vars
+.env
+.env.*
+*.pem
+*.key

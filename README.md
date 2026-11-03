@@ -137,7 +137,7 @@ Hostinger ejecuta PHP + MySQL, así que el chat, las donaciones y los formulario
    No tocar el **MX** de Google Workspace.
 6. hPanel > **Seguridad > SSL**: activar el certificado gratuito.
 
-Panel de mensajes: `https://ateneapiuraperu.org/api/admin.php`
+Panel de mensajes: `/api/admin.php`
 
 ## Publicación en Cloudflare Pages (recomendado · gratis)
 
@@ -157,7 +157,36 @@ Panel de mensajes: `https://ateneapiuraperu.org/api/admin.php`
   y envía el aviso a administracion@ y la constancia al donante (una sola vez por pago).
 - El panel `/admin` muestra si cada correo se envió o falló. Sin `RESEND_API_KEY` el sitio funciona igual y todo queda en el panel.
 - Prueba local sin internet: `node tools/prueba-correos.mjs`.
-- Panel de mensajes: `https://ateneapiuraperu.org/admin` (usuario `atenea`).
+- Panel de mensajes: `/admin` (usuario y contraseña en variables secretas; ver «Seguridad»).
+
+## Seguridad
+
+Variables secretas en Cloudflare Pages (Settings → Variables and Secrets). Nunca van en el repositorio.
+
+| Variable | Para qué | Obligatoria |
+|---|---|---|
+| `MP_ACCESS_TOKEN` | Cobrar con Mercado Pago | Para donar |
+| `MP_WEBHOOK_SECRET` | Firma de los avisos de Mercado Pago. **Con ella la firma es obligatoria.** Se saca en Mercado Pago → Tus integraciones → Webhooks | Sí, antes de recibir donaciones |
+| `ADMIN_PASSWORD` | Contraseña de `/admin` (mínimo 12 caracteres) | Para el panel |
+| `ADMIN_USER` | Usuario de `/admin` (por defecto `atenea`; conviene cambiarlo) | No |
+| `IP_SALT` | Cadena larga al azar: hace irreversible el hash de IP que se guarda | Recomendada |
+| `TURNSTILE_SECRET` | Exige Turnstile en formularios y donaciones | No (ver abajo) |
+| `GEMINI_API_KEY`, `RESEND_API_KEY` | Chat y correos | Para esas funciones |
+
+Defensas incluidas: solo se aceptan peticiones con `Origin` del propio sitio; límites de uso compartidos en D1
+(donar, formularios, chat, intentos de entrada a `/admin`); máximo 2 correos de acuse por hora a una misma dirección;
+firma de Mercado Pago verificada en tiempo constante y pago reconsultado a la API; Content-Security-Policy y demás
+cabeceras en `cf/_headers`.
+
+**Activar Turnstile (captcha gratuito):** 1) Cloudflare → Turnstile → crear widget para `ateneapiuraperu.org`;
+2) copiar la clave pública en `TURNSTILE_SITEKEY` de `tools/build.py` y ejecutar `python3 tools/build.py`;
+3) crear la variable secreta `TURNSTILE_SECRET`. Hay que hacer los tres pasos juntos: si solo se define el secreto,
+los formularios dejan de aceptar envíos.
+
+**Recomendado fuera del código:** proteger `/admin` con Cloudflare Access (Zero Trust → Access → Applications, gratis
+hasta 50 usuarios); activar la verificación en dos pasos en Cloudflare, Mercado Pago y el correo; en Security → Bots
+activar «Bot Fight Mode». D1 guarda copias automáticas (Time Travel): si se pierden datos se puede restaurar la base a
+un momento anterior desde el panel o con `wrangler d1 time-travel restore`.
 
 # Generador de páginas
 Las 18 páginas HTML se generan con `python3 tools/build.py` (estilos en `assets/atenea.css`).
