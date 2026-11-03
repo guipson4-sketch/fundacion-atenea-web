@@ -339,7 +339,7 @@ phero(["Nosotros"], 'Cada persona es una pieza. <span class="ital mag">Juntas, u
 </div></section>
 
 <section class="sec bg-sand" id="en-terreno"><div class="wrap">
-  {shead("06","En terreno",'Así se ve <span class="ital">una jornada.</span>',"Imágenes de una de nuestras jornadas comunitarias en Piura. Mostramos a nuestro equipo y voluntariado; las imágenes de niñas, niños y de personas en atención médica se publican solo con autorización escrita.")}
+  {shead("06","En terreno",'Así se ve <span class="ital">una jornada.</span>',"Imágenes de una de nuestras jornadas comunitarias en Piura. Las imágenes de niñas y niños se publican con la autorización de sus madres, padres o tutores; no mostramos a personas recibiendo atención médica.")}
   <div class="gal">
     <figure class="wide"><img src="assets/img/jornada/equipo-1.jpg" alt="Equipo de voluntarias, voluntarios y profesionales de la Fundación Atenea junto a los banners de la fundación" width="1600" height="1066" loading="lazy" decoding="async"><figcaption>El equipo de la fundación y su voluntariado.</figcaption></figure>
     <figure><img src="assets/img/jornada/jornada-general.jpg" alt="Vista general de una jornada comunitaria bajo carpas anaranjadas, con módulos de atención" width="1600" height="1066" loading="lazy" decoding="async"><figcaption>Una jornada comunitaria: carpas, módulos y vecinos.</figcaption></figure>
@@ -348,6 +348,9 @@ phero(["Nosotros"], 'Cada persona es una pieza. <span class="ital mag">Juntas, u
     <figure><img src="assets/img/jornada/profesionales.jpg" alt="Profesionales de salud conversando entre risas durante la jornada" width="1600" height="1066" loading="lazy" decoding="async"><figcaption>Profesionales que donan su tiempo.</figcaption></figure>
     <figure><img src="assets/img/jornada/voluntarias.jpg" alt="Dos voluntarias intercambiando información en una de las carpas" width="1600" height="1066" loading="lazy" decoding="async"><figcaption>Orientación en cada módulo.</figcaption></figure>
     <figure><img src="assets/img/jornada/equipo-2.jpg" alt="Grupo de voluntariado y equipo de la fundación frente a los banners de Atenea" width="1600" height="1066" loading="lazy" decoding="async"><figcaption>Juntos por un mejor mañana.</figcaption></figure>
+    <figure><img src="assets/img/jornada/ninos-grupo.jpg" alt="Niñas y niños junto a las animadoras de la jornada, en una foto grupal" width="1600" height="1066" loading="lazy" decoding="async"><figcaption>Una tarde de juego y alegría.</figcaption></figure>
+    <figure><img src="assets/img/jornada/ninos-regalos.jpg" alt="Niñas y niños corriendo con sus bolsitas de regalo durante la jornada" width="1600" height="1066" loading="lazy" decoding="async"><figcaption>Cada niña y niño se lleva una sonrisa.</figcaption></figure>
+    <figure><img src="assets/img/jornada/ninos-juegos.jpg" alt="Niñas y niños jugando a jalar la soga con las animadoras" width="1600" height="1066" loading="lazy" decoding="async"><figcaption>Juegos y recreación para la niñez.</figcaption></figure>
   </div>
 </div></section>
 """ + cta())
