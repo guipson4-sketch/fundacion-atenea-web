@@ -43,7 +43,7 @@ def head(title, desc, canon=""):
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&amp;display=swap" rel="stylesheet">
-<link rel="stylesheet" href="assets/atenea.css">
+<link rel="stylesheet" href="assets/atenea-v2.css">
 </head>
 <body>
 <a class="skip" href="#contenido">Saltar al contenido</a>
@@ -90,7 +90,7 @@ FOOT = f"""</main>
     </div>
   </div>
 </footer>
-<script src="assets/atenea.js"></script>
+<script src="assets/atenea-v2.js"></script>
 </body>
 </html>
 """
@@ -721,7 +721,7 @@ PAGES["gracias.html"] = ("Gracias · Fundación Atenea", "Gracias por tu donaci�
   <div class="meta"><p class="lead" id="gracias-msg">Tu donación fue recibida. Te enviaremos la constancia al correo que indicaste. Con tu aporte, una mujer, un varón, una niña o un paciente en Piura no enfrenta solo su situación.</p>
   <div class="side"><a class="btn btn-main" href="index.html">Volver al inicio →</a><a class="btn btn-line" href="transparencia.html">Ver cómo usamos los fondos</a></div></div>
 </div></section>
-<script src="assets/gracias.js"></script>
+<script src="assets/gracias-v2.js"></script>
 """)
 
 PAGES["404.html"] = ("Página no encontrada · Fundación Atenea", "La página que buscas no existe o fue movida.", "",
