@@ -218,7 +218,7 @@ PAGES["index.html"] = ("Fundación Atenea · Piura, Perú", "Fundación sin fine
 </div></section>
 
 <section class="band">
-  <img src="assets/img/costa.jpg" alt="Costa desértica del norte del Perú (fotografía referencial)" width="2000" height="1125">
+  <img src="assets/img/costa.jpg" alt="Jornada comunitaria de la Fundación Atenea en un arenal de Piura, con carpas, módulos de atención y vecinos" width="2000" height="1333">
   <div class="wrap">
     <p class="eyebrow" style="color:rgba(255,255,255,.75)"><b style="color:#F6E08A">Piura</b> Costa norte del Perú</p>
     <h2 class="h2" style="margin-top:20px">Del desierto al mar, <span class="ital">nadie se queda atrás.</span></h2>
