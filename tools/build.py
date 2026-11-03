@@ -499,8 +499,8 @@ phero(["Guías y novedades"], 'Información <span class="ital mag">que acompaña
     </dl>
     <div class="gal">
       <figure class="wide"><img src="assets/img/jornada/equipo-1.jpg" alt="Equipo de voluntariado y profesionales de la Fundación Atenea junto a los banners de la fundación" width="1600" height="1066" loading="lazy" decoding="async"><figcaption>El equipo que hizo posible la jornada.</figcaption></figure>
-      <figure class="tall"><img src="assets/img/jornada/primera-banner.jpg" alt="Banner de la Fundación Atenea bajo la carpa de atención, con el lema Juntos por un mejor mañana" width="1600" height="1066" loading="lazy" decoding="async"><figcaption>Nuestro punto de atención en la UPIS.</figcaption></figure>
-      <figure class="tall"><img src="assets/img/jornada/primera-bolsitas.jpg" alt="Voluntarios armando bolsitas con el sello de Atenea antes de la jornada" width="1600" height="1066" loading="lazy" decoding="async"><figcaption>Preparando las bolsitas de regalo.</figcaption></figure>
+      <figure class="tall"><img src="assets/img/jornada/primera-banner-v2.jpg" alt="Banner de la Fundación Atenea bajo la carpa de atención, con el lema Juntos por un mejor mañana" width="1600" height="1066" loading="lazy" decoding="async"><figcaption>Nuestro punto de atención en la UPIS.</figcaption></figure>
+      <figure class="tall"><img src="assets/img/jornada/primera-bolsitas-v2.jpg" alt="Voluntarios armando bolsitas con el sello de Atenea antes de la jornada" width="1600" height="1066" loading="lazy" decoding="async"><figcaption>Preparando las bolsitas de regalo.</figcaption></figure>
       <figure><img src="assets/img/jornada/jornada-general.jpg" alt="Vista general de la jornada bajo carpas anaranjadas, con módulos de atención" width="1600" height="1066" loading="lazy" decoding="async"><figcaption>Carpas, módulos y vecinos.</figcaption></figure>
       <figure><img src="assets/img/jornada/medicamentos-1.jpg" alt="Voluntarios entregando medicamentos en la mesa de la jornada" width="1600" height="1066" loading="lazy" decoding="async"><figcaption>Entrega de medicamentos.</figcaption></figure>
     </div>
