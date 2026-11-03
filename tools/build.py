@@ -102,7 +102,7 @@ def crumb(*parts):
     return '<nav class="crumb" aria-label="Ruta de navegación">' + '<span aria-hidden="true">/</span>'.join(out) + '</nav>'
 
 def phero(crumbs, h1, lead, side="", img=None, cap=None):
-    media = (f'<figure class="pimg"><img src="assets/img/{img}" alt="" width="1400" height="560"><figcaption>{cap or "Fotografía referencial. Se reemplazará por imágenes propias con consentimiento informado."}</figcaption></figure>'
+    media = (f'<figure class="pimg"><img src="assets/img/{img}" alt="" width="1400" height="560"><figcaption>{cap or "Jornada comunitaria de la Fundación Atenea en Piura."}</figcaption></figure>'
              if img else '<div class="pband" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i></div>')
     return f"""<section class="phero"><div class="wrap">
   {crumb(*crumbs)}
@@ -167,7 +167,7 @@ PAGES = {}
 # ---------------- INICIO ----------------
 PAGES["index.html"] = ("Fundación Atenea · Piura, Perú", "Fundación sin fines de lucro con sede en Piura que acompaña a mujeres, varones, niñas, niños y familias en situación de vulnerabilidad en todo el Perú.", "index.html", f"""
 <section class="fb">
-  <img src="assets/img/portada.jpg" alt="Una madre abrazando a su hija (fotografía referencial)" width="1400" height="933" fetchpriority="high">
+  <img src="assets/img/portada.jpg" alt="Voluntariado y profesionales de la Fundación Atenea conversando durante una jornada comunitaria en Piura" width="1400" height="933" fetchpriority="high">
   <span class="tag-i">Fundación sin fines de lucro · Sede en Piura · Todo el Perú</span>
   <div class="wrap">
     <h1>Juntos por un <span class="ital">mejor mañana.</span></h1>
