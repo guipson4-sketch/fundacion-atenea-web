@@ -102,7 +102,7 @@ def crumb(*parts):
     return '<nav class="crumb" aria-label="Ruta de navegación">' + '<span aria-hidden="true">/</span>'.join(out) + '</nav>'
 
 def phero(crumbs, h1, lead, side="", img=None, cap=None):
-    media = (f'<figure class="pimg"><img src="assets/img/{img}" alt="" width="1400" height="560"><figcaption>{cap or "Jornada comunitaria de la Fundación Atenea en Piura."}</figcaption></figure>'
+    media = (f'<figure class="pimg"><img src="assets/img/{img}" alt="{cap or 'Jornada comunitaria de la Fundación Atenea en Piura'}" width="1400" height="560"><figcaption>{cap or "Jornada comunitaria de la Fundación Atenea en Piura."}</figcaption></figure>'
              if img else '<div class="pband" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i></div>')
     return f"""<section class="phero"><div class="wrap">
   {crumb(*crumbs)}
@@ -757,8 +757,68 @@ def con_captcha(html):
     html = html.replace('    <button class="btn btn-main" type="submit">Suscribirme</button>', '    ' + w + '\n    <button class="btn btn-main" type="submit">Suscribirme</button>')
     return html.replace("</head>", '<script src="https://challenges.cloudflare.com/turnstile/v0/api.js" async defer></script>\n</head>', 1) if "cf-turnstile" in html else html
 
+
+# ---------------- SEO ----------------
+import json, datetime
+SITE = "https://ateneapiuraperu.org"
+TODAY = datetime.date.today().isoformat()
+SEO_META = {
+ "index.html": ("Fundación Atenea · Ayuda gratuita en Piura, Perú", None),
+ "nosotros.html": ("Quiénes somos · Fundación Atenea Piura", "Conoce la Fundación Atenea: fundación sin fines de lucro en Piura que acompaña a mujeres, varones, niñas, niños y familias en situación de vulnerabilidad."),
+ "programas.html": ("Programas sociales gratuitos en Piura · Fundación Atenea", "Seis programas gratuitos de la Fundación Atenea en Piura: apoyo a mujeres, varones y familias, niñez, salud, orientación legal y psicológica, y ayuda humanitaria."),
+ "historias.html": ("Novedades y guías de ayuda · Fundación Atenea", "Primera campaña médica gratuita en Villa El Salvador, Castilla (Piura), y guías prácticas sobre violencia, salud y anemia infantil de la Fundación Atenea."),
+ "involucrate.html": ("Dona o sé voluntaria/o en Piura · Fundación Atenea", "Dona, ofrece tu tiempo como voluntaria o voluntario o súmate como aliado de la Fundación Atenea, fundación sin fines de lucro con sede en Piura."),
+ "transparencia.html": (None, "Estatuto, órganos de gobierno, estados financieros y memoria anual de la Fundación Atenea, fundación sin fines de lucro en Piura. Cuentas claras y verificables."),
+ "contacto.html": ("Contacto y ubicación en Piura · Fundación Atenea", "Escríbenos, llámanos o visítanos en Piura: " + ADDR + ". Atención " + HOURS.lower() + "."),
+ "privacidad.html": (None, "Política de privacidad de la Fundación Atenea (Piura, Perú): qué datos personales recogemos, para qué los usamos, cuánto tiempo los conservamos y cómo ejercer tus derechos."),
+ "terminos.html": (None, "Términos y condiciones de uso del sitio web de la Fundación Atenea, fundación sin fines de lucro en Piura, Perú: alcance de los servicios, donaciones y responsabilidades."),
+ "reclamaciones.html": (None, "Libro de reclamaciones de la Fundación Atenea en Piura: registra una queja o reclamo sobre nuestros servicios y te responderemos dentro de los plazos legales."),
+ "consultorias.html": (None, "Consultorías de la Fundación Atenea en Piura: asesoría para organizaciones e instituciones que quieren fortalecer su trabajo social y comunitario."),
+}
+NOINDEX = {"gracias.html", "404.html"}
+PROG = {"programa-mujeres.html","programa-varones.html","programa-ninez.html","programa-salud.html","programa-orientacion.html","programa-ayuda.html"}
+
+def jld(obj):
+    return '\n<script type="application/ld+json">' + json.dumps(obj, ensure_ascii=False, separators=(",", ":")) + '</script>'
+
+def seo_extra(f, title):
+    out = ""
+    if f == "index.html":
+        out += jld({"@context":"https://schema.org","@type":"WebSite","name":"Fundación Atenea","url":SITE+"/","inLanguage":"es-PE","publisher":{"@type":"NGO","name":"Fundación Atenea"}})
+        out += '\n<link rel="preload" as="image" href="assets/img/portada-v2.jpg" fetchpriority="high">'
+    elif f not in NOINDEX:
+        crumbs = [("Inicio", SITE + "/")]
+        if f in PROG:
+            crumbs.append(("Programas", SITE + "/programas"))
+        crumbs.append((title.split(" · ")[0], SITE + "/" + f[:-5]))
+        out += jld({"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":i+1,"name":n,"item":u} for i,(n,u) in enumerate(crumbs)]})
+    if f == "historias.html":
+        out += jld({"@context":"https://schema.org","@type":"Event","name":"Campaña médica gratuita de la Fundación Atenea",
+          "description":"Primera actividad de la Fundación Atenea: campaña médica gratuita con medicina general, psicología, obstetricia, odontología y corte de cabello para personas vulnerables, para prevenir enfermedades y promover la salud.",
+          "startDate":"2026-10-25T09:00:00-05:00","eventStatus":"https://schema.org/EventScheduled","eventAttendanceMode":"https://schema.org/OfflineEventAttendanceMode","isAccessibleForFree":True,"inLanguage":"es-PE",
+          "location":{"@type":"Place","name":"UPIS Villa El Salvador","address":{"@type":"PostalAddress","streetAddress":"UPIS Villa El Salvador","addressLocality":"Castilla","addressRegion":"Piura","addressCountry":"PE"}},
+          "image":[SITE+"/assets/img/jornada/equipo-1.jpg",SITE+"/assets/img/jornada/jornada-general.jpg"],
+          "organizer":{"@type":"NGO","name":"Fundación Atenea","url":SITE}})
+    return out
+
+def sitemap():
+    pages = [f for f in PAGES if f not in NOINDEX]
+    pages.sort(key=lambda f: (f != "index.html", f))
+    rows = "".join(f'  <url><loc>{SITE}/{"" if f=="index.html" else f[:-5]}</loc><lastmod>{TODAY}</lastmod><changefreq>{"weekly" if f in ("index.html","historias.html") else "monthly"}</changefreq><priority>{"1.0" if f=="index.html" else ("0.8" if f in ("nosotros.html","programas.html","historias.html","involucrate.html") else "0.6")}</priority></url>\n' for f in pages)
+    return '<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n' + rows + '</urlset>\n'
+
 for f,(title,desc,cur,body) in PAGES.items():
     body = body.replace("{FORM}", CONTACT_FORM).replace("{NEWS}", NEWS)
+    if f in SEO_META:
+        t, d = SEO_META[f]; title = t or title; desc = d or desc
+    h = head(title, desc, "" if f=="index.html" else f[:-5])
+    if f in NOINDEX:
+        import re as _re
+        h = _re.sub(r'<link rel="canonical"[^>]*>\n|<meta property="og:url"[^>]*>\n', "", h)
+        h = h.replace("</head>", '<meta name="robots" content="noindex, follow">\n</head>', 1)
+    h = h.replace("</head>", '<link rel="alternate" hreflang="es-PE" href="' + SITE + '/' + ("" if f=="index.html" else f[:-5]) + '">' + seo_extra(f, title) + "\n</head>", 1) if f not in NOINDEX else h
     with open(os.path.join(OUT,f),"w") as fh:
-        fh.write(con_captcha(head(title,desc,"" if f=="index.html" else f[:-5]) + header(cur) + body + FOOT))
+        fh.write(con_captcha(h + header(cur) + body + FOOT))
+with open(os.path.join(OUT,"sitemap.xml"),"w") as fh:
+    fh.write(sitemap())
 print(len(PAGES),"páginas")
