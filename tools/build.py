@@ -43,7 +43,7 @@ def head(title, desc, canon=""):
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&amp;display=swap" rel="stylesheet">
-<link rel="stylesheet" href="assets/atenea-v2.css">
+<link rel="stylesheet" href="assets/atenea-v3.css">
 </head>
 <body>
 <a class="skip" href="#contenido">Saltar al contenido</a>
@@ -339,7 +339,7 @@ phero(["Nosotros"], 'Cada persona es una pieza. <span class="ital mag">Juntas, u
 </div></section>
 
 <section class="sec bg-sand" id="en-terreno"><div class="wrap">
-  {shead("06","En terreno",'Así se ve <span class="ital">una jornada.</span>',"Primera campaña médica gratuita de la fundación: domingo 25 de octubre, desde las 9:00 a. m., en la UPIS Villa El Salvador (Castilla, Piura), para acercar salud y prevención a personas vulnerables del sector. Hubo medicina general, psicología, obstetricia, odontología y corte de cabello. Las imágenes de niñas y niños se publican con la autorización de sus madres, padres o tutores; no mostramos a personas recibiendo atención médica.")}
+  {shead("06","En terreno",'Así se ve <span class="ital">una jornada.</span>',"Primera campaña médica gratuita de la fundación: domingo 25 de octubre, desde las 9:00 a. m., en la UPIS Villa El Salvador (Castilla, Piura), para acercar salud y prevención a personas vulnerables del sector. Hubo medicina general, psicología, obstetricia, odontología y corte de cabello. Las imágenes de niñas y niños se publican con la autorización de sus madres, padres o tutores; no mostramos a personas recibiendo atención médica. <a href=\"historias.html#primera-actividad\">Ver nuestra primera actividad →</a>")}
   <div class="gal">
     <figure class="wide"><img src="assets/img/jornada/equipo-1.jpg" alt="Equipo de voluntarias, voluntarios y profesionales de la Fundación Atenea junto a los banners de la fundación" width="1600" height="1066" loading="lazy" decoding="async"><figcaption>El equipo de la fundación y su voluntariado.</figcaption></figure>
     <figure><img src="assets/img/jornada/jornada-general.jpg" alt="Vista general de una jornada comunitaria bajo carpas anaranjadas, con módulos de atención" width="1600" height="1066" loading="lazy" decoding="async"><figcaption>Una jornada comunitaria: carpas, módulos y vecinos.</figcaption></figure>
@@ -487,9 +487,25 @@ phero(["Guías y novedades"], 'Información <span class="ital mag">que acompaña
   </div>
 </div></section>
 
-<section class="sec bg-white"><div class="wrap split">
-  <div class="l"><p class="eyebrow"><b>02</b> Novedades</p><h2 class="h2-s" style="margin-top:28px">Aquí contaremos <span class="ital">lo que hagamos.</span></h2></div>
-  <div class="r"><p class="lead">Todavía no hay actividades que reportar: la fundación está en trámite de inscripción. Cuando haya campañas, talleres o convenios, los publicaremos aquí, con fecha y resultados verificables. Suscríbete al boletín para enterarte primero.</p></div>
+<section class="sec bg-white" id="primera-actividad"><div class="wrap">
+  {shead("02","Novedades",'Nuestra primera <span class="ital">actividad.</span>',"Campaña médica gratuita en Villa El Salvador, Castilla (Piura): salud y prevención para quienes más lo necesitan.")}
+  <div class="act">
+    <dl>
+      <div><dt>Cuándo</dt><dd>Domingo 25 de octubre de 2026, desde las 9:00 a. m.</dd></div>
+      <div><dt>Dónde</dt><dd>Asentamiento humano Villa El Salvador, UPIS Villa El Salvador, Castilla (Piura)</dd></div>
+      <div><dt>Para quién</dt><dd>Personas en situación de vulnerabilidad del sector.</dd></div>
+      <div><dt>Para qué</dt><dd>Prevenir enfermedades y promover la salud en la comunidad.</dd></div>
+      <div><dt>Qué ofrecimos</dt><dd>Medicina general, psicología, obstetricia, odontología y corte de cabello, todo gratuito.</dd></div>
+    </dl>
+    <div class="gal">
+      <figure class="wide"><img src="assets/img/jornada/equipo-1.jpg" alt="Equipo de voluntariado y profesionales de la Fundación Atenea junto a los banners de la fundación" width="1600" height="1066" loading="lazy" decoding="async"><figcaption>El equipo que hizo posible la jornada.</figcaption></figure>
+      <figure class="tall"><img src="assets/img/jornada/primera-banner.jpg" alt="Banner de la Fundación Atenea bajo la carpa de atención, con el lema Juntos por un mejor mañana" width="1600" height="1066" loading="lazy" decoding="async"><figcaption>Nuestro punto de atención en la UPIS.</figcaption></figure>
+      <figure class="tall"><img src="assets/img/jornada/primera-bolsitas.jpg" alt="Voluntarios armando bolsitas con el sello de Atenea antes de la jornada" width="1600" height="1066" loading="lazy" decoding="async"><figcaption>Preparando las bolsitas de regalo.</figcaption></figure>
+      <figure><img src="assets/img/jornada/jornada-general.jpg" alt="Vista general de la jornada bajo carpas anaranjadas, con módulos de atención" width="1600" height="1066" loading="lazy" decoding="async"><figcaption>Carpas, módulos y vecinos.</figcaption></figure>
+      <figure><img src="assets/img/jornada/medicamentos-1.jpg" alt="Voluntarios entregando medicamentos en la mesa de la jornada" width="1600" height="1066" loading="lazy" decoding="async"><figcaption>Entrega de medicamentos.</figcaption></figure>
+    </div>
+  </div>
+  <p class="muted" style="margin-top:28px;font-size:14px">Las imágenes de niñas y niños se publican con la autorización de sus madres, padres o tutores; no mostramos a personas recibiendo atención médica. Más actividades se publicarán aquí con fecha y resultados verificables.</p>
 </div></section>
 
 {{NEWS}}

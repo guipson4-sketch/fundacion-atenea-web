@@ -681,3 +681,14 @@ html.anim .phero h1{animation:hero-up .9s cubic-bezier(.2,.7,.2,1) .05s both}
 .pcard img{object-position:50% 30%}
 @media(max-width:900px){.pimg img{max-height:none}}
 @media(max-width:600px){.pimg img{aspect-ratio:4/3}}
+
+/* Primera actividad */
+.act{display:grid;grid-template-columns:minmax(0,5fr) minmax(0,7fr);gap:40px;align-items:start}
+.act dl{margin:0;display:grid;gap:18px}
+.act dt{font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:var(--muted);font-weight:600}
+.act dd{margin:4px 0 0;font-size:17px;line-height:1.5}
+.act .gal{margin-top:0;grid-template-columns:repeat(2,1fr)}
+.act .gal figure.tall img{aspect-ratio:3/4;object-position:50% 40%}
+.act .gal figure.wide img{aspect-ratio:3/2}
+@media(max-width:900px){.act{grid-template-columns:1fr;gap:28px}}
+@media(max-width:600px){.act .gal{grid-template-columns:1fr}}
