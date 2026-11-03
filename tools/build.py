@@ -339,7 +339,7 @@ phero(["Nosotros"], 'Cada persona es una pieza. <span class="ital mag">Juntas, u
 </div></section>
 
 <section class="sec bg-sand" id="en-terreno"><div class="wrap">
-  {shead("06","En terreno",'Así se ve <span class="ital">una jornada.</span>',"Imágenes de una de nuestras jornadas comunitarias en Piura. Las imágenes de niñas y niños se publican con la autorización de sus madres, padres o tutores; no mostramos a personas recibiendo atención médica.")}
+  {shead("06","En terreno",'Así se ve <span class="ital">una jornada.</span>',"Primera campaña médica gratuita de la fundación: domingo 25 de octubre, desde las 9:00 a. m., en la UPIS Villa El Salvador (Castilla, Piura), para acercar salud y prevención a personas vulnerables del sector. Hubo medicina general, psicología, obstetricia, odontología y corte de cabello. Las imágenes de niñas y niños se publican con la autorización de sus madres, padres o tutores; no mostramos a personas recibiendo atención médica.")}
   <div class="gal">
     <figure class="wide"><img src="assets/img/jornada/equipo-1.jpg" alt="Equipo de voluntarias, voluntarios y profesionales de la Fundación Atenea junto a los banners de la fundación" width="1600" height="1066" loading="lazy" decoding="async"><figcaption>El equipo de la fundación y su voluntariado.</figcaption></figure>
     <figure><img src="assets/img/jornada/jornada-general.jpg" alt="Vista general de una jornada comunitaria bajo carpas anaranjadas, con módulos de atención" width="1600" height="1066" loading="lazy" decoding="async"><figcaption>Una jornada comunitaria: carpas, módulos y vecinos.</figcaption></figure>
