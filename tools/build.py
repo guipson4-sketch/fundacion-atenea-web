@@ -358,7 +358,7 @@ phero(["Programas"], 'Seis formas de <span class="ital mag">estar presentes.</sp
   <div class="facts">
     <div><strong>28,1 %</strong><span>de la población de Piura vive en pobreza monetaria.</span><small>INEI, 2025</small></div>
     <div><strong>4 578</strong><span>casos de violencia atendidos por los CEM de Piura, enero–julio 2026.</span><small>MIMP, Warmi Ñan</small></div>
-    <div><strong>48,6 %</strong><span>de las mujeres de Piura que han tenido pareja sufrió violencia de ella alguna vez.</span><small>MIMP, Warmi Ñan</small></div>
+    <div><strong>48,9 %</strong><span>de las mujeres de Piura de 15 a 49 años que han tenido pareja sufrió violencia de ella alguna vez.</span><small>INEI, ENDES 2023</small></div>
     <div><strong>43,7 %</strong><span>de niñas y niños de 6 a 35 meses tiene anemia.</span><small>INEI, ENDES 2025</small></div>
   </div>
 </div></section>
