@@ -26,7 +26,7 @@ def head(title, desc, canon=""):
 <meta name="description" content="{desc}">
 <meta property="og:title" content="{title}">
 <meta property="og:description" content="{desc}">
-<meta property="og:image" content="https://ateneapiuraperu.org/assets/og-atenea.jpg">
+<meta property="og:image" content="https://ateneapiuraperu.org/assets/og-atenea-v2.jpg">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
 <meta property="og:type" content="website">
@@ -34,7 +34,7 @@ def head(title, desc, canon=""):
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="{title}">
 <meta name="twitter:description" content="{desc}">
-<meta name="twitter:image" content="https://ateneapiuraperu.org/assets/og-atenea.jpg">{ld}
+<meta name="twitter:image" content="https://ateneapiuraperu.org/assets/og-atenea-v2.jpg">{ld}
 <meta property="og:locale" content="es_PE">
 <meta name="theme-color" content="#3E0D2C">
 <link rel="icon" href="assets/logo-atenea-transparente.png">
@@ -53,7 +53,7 @@ LD = """
 <script type="application/ld+json">
 {"@context":"https://schema.org","@type":"NGO","name":"Fundación Atenea","alternateName":"Atenea Piura",
 "url":"https://ateneapiuraperu.org","logo":"https://ateneapiuraperu.org/assets/logo-atenea-transparente.png",
-"image":"https://ateneapiuraperu.org/assets/og-atenea.jpg",
+"image":"https://ateneapiuraperu.org/assets/og-atenea-v2.jpg",
 "description":"Fundación sin fines de lucro con sede en Piura que acompaña a mujeres, varones, niñas, niños y familias en situación de vulnerabilidad en todo el Perú.",
 "email":"contacto@ateneapiuraperu.org","nonprofitStatus":"Nonprofit",
 "address":{"@type":"PostalAddress","streetAddress":"Urb. Ignacio Merino Mz. Q Lt. 61, 2da Etapa","addressLocality":"Piura","addressRegion":"Piura","addressCountry":"PE"},
@@ -140,12 +140,12 @@ STEPS = """<div class="steps">
 </div>"""
 
 PROGRAMS = [
- ("programa-mujeres.html","Mujeres que avanzan","mujeres.jpg","Acompañamiento a mujeres en situación de violencia, abandono o jefatura de hogar, hasta su autonomía económica.","var(--magenta)"),
- ("programa-varones.html","Varones y familias","orientacion.jpg","Orientación psicológica, legal y social para varones que sufren maltrato, y apoyo a las familias para convivir sin violencia.","var(--coral)"),
- ("programa-ninez.html","Niñez protegida","ninez.jpg","Nutrición, refuerzo escolar y espacios de cuidado para niñas y niños mientras sus familias se recuperan.","var(--amber)"),
- ("programa-salud.html","Salud y acompañamiento","salud.jpg","Medicamentos, exámenes, traslados y compañía para personas enfermas sin recursos.","var(--sky)"),
- ("programa-orientacion.html","Orientación gratuita","orientacion.jpg","Asesoría legal, psicológica y social, presencial o a distancia, con profesionales habilitados.","var(--coral)"),
- ("programa-ayuda.html","Ayuda humanitaria","ayuda.jpg","Kits, salud y reconstrucción para familias afectadas por lluvias y emergencias en la región.","var(--violet)"),
+ ("programa-mujeres.html","Mujeres que avanzan","mujeres-v2.jpg","Acompañamiento a mujeres en situación de violencia, abandono o jefatura de hogar, hasta su autonomía económica.","var(--magenta)"),
+ ("programa-varones.html","Varones y familias","orientacion-v2.jpg","Orientación psicológica, legal y social para varones que sufren maltrato, y apoyo a las familias para convivir sin violencia.","var(--coral)"),
+ ("programa-ninez.html","Niñez protegida","ninez-v2.jpg","Nutrición, refuerzo escolar y espacios de cuidado para niñas y niños mientras sus familias se recuperan.","var(--amber)"),
+ ("programa-salud.html","Salud y acompañamiento","salud-v2.jpg","Medicamentos, exámenes, traslados y compañía para personas enfermas sin recursos.","var(--sky)"),
+ ("programa-orientacion.html","Orientación gratuita","orientacion-v2.jpg","Asesoría legal, psicológica y social, presencial o a distancia, con profesionales habilitados.","var(--coral)"),
+ ("programa-ayuda.html","Ayuda humanitaria","ayuda-v2.jpg","Kits, salud y reconstrucción para familias afectadas por lluvias y emergencias en la región.","var(--violet)"),
 ]
 
 def prog_cards():
@@ -167,7 +167,7 @@ PAGES = {}
 # ---------------- INICIO ----------------
 PAGES["index.html"] = ("Fundación Atenea · Piura, Perú", "Fundación sin fines de lucro con sede en Piura que acompaña a mujeres, varones, niñas, niños y familias en situación de vulnerabilidad en todo el Perú.", "index.html", f"""
 <section class="fb">
-  <img src="assets/img/portada.jpg" alt="Voluntariado y profesionales de la Fundación Atenea conversando durante una jornada comunitaria en Piura" width="1400" height="933" fetchpriority="high">
+  <img src="assets/img/portada-v2.jpg" alt="Voluntariado y profesionales de la Fundación Atenea conversando durante una jornada comunitaria en Piura" width="1400" height="933" fetchpriority="high">
   <span class="tag-i">Fundación sin fines de lucro · Sede en Piura · Todo el Perú</span>
   <div class="wrap">
     <h1>Juntos por un <span class="ital">mejor mañana.</span></h1>
@@ -218,7 +218,7 @@ PAGES["index.html"] = ("Fundación Atenea · Piura, Perú", "Fundación sin fine
 </div></section>
 
 <section class="band">
-  <img src="assets/img/costa.jpg" alt="Jornada comunitaria de la Fundación Atenea en un arenal de Piura, con carpas, módulos de atención y vecinos" width="2000" height="1333">
+  <img src="assets/img/costa-v2.jpg" alt="Jornada comunitaria de la Fundación Atenea en un arenal de Piura, con carpas, módulos de atención y vecinos" width="2000" height="1333">
   <div class="wrap">
     <p class="eyebrow" style="color:rgba(255,255,255,.75)"><b style="color:#F6E08A">Piura</b> Costa norte del Perú</p>
     <h2 class="h2" style="margin-top:20px">Del desierto al mar, <span class="ital">nadie se queda atrás.</span></h2>
@@ -283,7 +283,7 @@ CONTACT_FORM = """<form class="form" name="contacto" method="POST" data-netlify=
 PAGES["nosotros.html"] = ("Nosotros · Fundación Atenea", "Quiénes somos: una fundación piurana al lado de quienes atraviesan sus momentos más difíciles.", "nosotros.html",
 phero(["Nosotros"], 'Cada persona es una pieza. <span class="ital mag">Juntas, un mosaico.</span>',
  "La Fundación Atenea nace en Piura para estar al lado de quienes atraviesan sus momentos más difíciles: una enfermedad sin recursos, una situación de violencia, el abandono o la pobreza.",
- '<a class="btn btn-main" href="#equipo">Cómo nos organizamos</a><a class="btn btn-line" href="transparencia.html#estatuto">Leer el estatuto</a>', "mujeres.jpg") + f"""
+ '<a class="btn btn-main" href="#equipo">Cómo nos organizamos</a><a class="btn btn-line" href="transparencia.html#estatuto">Leer el estatuto</a>', "mujeres-v2.jpg") + f"""
 <section class="sec"><div class="wrap g12">
   <p class="eyebrow" style="grid-column:1/4"><b>01</b> Propósito</p>
   <div style="grid-column:4/13">
@@ -417,7 +417,7 @@ def program(file, name, lead, img, offers, who, needs, quote, cite, h1, story=No
 
 program("programa-mujeres.html","Mujeres que avanzan",
  "Apoyamos a mujeres en situación de violencia, abandono o jefatura de hogar para que recuperen su seguridad y su autonomía económica.",
- "mujeres.jpg",
+ "mujeres-v2.jpg",
  [("Acompañamiento en casos de violencia","Orientación, acompañamiento a denuncias y articulación con el CEM y la Policía."),("Apoyo psicológico","Sesiones individuales y grupos de apoyo con psicólogas especializadas."),("Capacitación","Talleres de oficios, habilidades digitales y educación financiera."),("Emprendimiento","Capital semilla, asesoría y ferias para vender sus productos.")],
  ["Mujeres víctimas de violencia física, psicológica, sexual o económica.","Madres jefas de hogar en situación de pobreza.","Mujeres en situación de abandono."],
  ["DNI (si no lo tienes, igual te atendemos).","Contarnos tu situación: la atención es confidencial."],
@@ -426,7 +426,7 @@ program("programa-mujeres.html","Mujeres que avanzan",
 
 program("programa-varones.html","Varones y familias",
  "Acompañamos a varones que sufren maltrato físico, psicológico o económico, y apoyamos a las familias para convivir sin violencia. Nadie tiene que callar lo que le pasa.",
- "orientacion.jpg",
+ "orientacion-v2.jpg",
  [("Apoyo psicológico","Sesiones individuales y grupos de apoyo con psicólogos y psicólogas colegiados."),("Orientación legal","Cómo denunciar, qué medidas de protección existen y a dónde acudir, con derivación a la Policía, el Ministerio Público y los CEM."),("Convivencia sin violencia","Talleres para parejas y familias sobre comunicación, crianza y manejo de conflictos."),("Derivación y seguimiento","Te conectamos con los servicios públicos que corresponden y hacemos seguimiento a tu caso.")],
  ["Varones víctimas de maltrato físico, psicológico o económico.","Padres y esposos que sufren amenazas o violencia en su hogar.","Familias que necesitan ayuda para convivir sin violencia."],
  ["DNI (si no lo tienes, igual te atendemos).","Contarnos tu situación: la atención es confidencial."],
@@ -439,7 +439,7 @@ program("programa-varones.html","Varones y familias",
 
 program("programa-ninez.html","Niñez protegida",
  "Cuidamos que niñas y niños crezcan sanos, aprendan y jueguen en un entorno seguro mientras sus familias se recuperan.",
- "ninez.jpg",
+ "ninez-v2.jpg",
  [("Nutrición","Tamizaje y prevención de anemia, suplementos y orientación alimentaria a las familias."),("Refuerzo escolar","Acompañamiento en tareas, lectura y útiles escolares para que nadie deje la escuela."),("Espacios de cuidado","Ludoteca y cuidado infantil mientras sus madres asisten a talleres o citas."),("Protección","Detección de riesgo y articulación con la DEMUNA y los servicios de protección.")],
  ["Hijas e hijos de mujeres atendidas por la fundación.","Niñas y niños de 0 a 12 años en situación de pobreza o riesgo.","Familias con niñas o niños con anemia o desnutrición."],
  ["DNI o partida de nacimiento de la niña o el niño.","Tarjeta de control de salud, si la tienen.","Acompañamiento de la madre, padre o apoderado."],
@@ -448,7 +448,7 @@ program("programa-ninez.html","Niñez protegida",
 
 program("programa-salud.html","Salud y acompañamiento",
  "Acompañamos a personas enfermas sin recursos para que nadie deje su tratamiento por falta de dinero o de compañía.",
- "salud.jpg",
+ "salud-v2.jpg",
  [("Medicamentos y exámenes","Cubrimos total o parcialmente medicamentos, análisis e imágenes no cubiertos por el SIS."),("Traslados","Movilidad a citas, quimioterapias y hemodiálisis en Piura y, cuando se requiere, a Lima."),("Acompañamiento","Voluntariado que acompaña a pacientes y familias en hospitalizaciones y trámites."),("Orientación en salud","Afiliación al SIS, citas y derechos como paciente.")],
  ["Personas con enfermedades crónicas o graves: cáncer, insuficiencia renal, diabetes, VIH, entre otras.","Pacientes en situación de pobreza o sin red de apoyo familiar.","Adultos mayores y personas con discapacidad."],
  ["DNI del paciente.","Informe o receta médica reciente.","Declaración simple de situación económica (te ayudamos a llenarla)."],
@@ -457,7 +457,7 @@ program("programa-salud.html","Salud y acompañamiento",
 
 program("programa-orientacion.html","Orientación gratuita",
  "Asesoría legal, psicológica y social gratuita, presencial o a distancia, a cargo de profesionales habilitados.",
- "orientacion.jpg",
+ "orientacion-v2.jpg",
  [("Asesoría legal","Alimentos, tenencia, violencia familiar, herencias y trámites ante el Estado."),("Atención psicológica","Primera escucha, contención emocional y derivación a servicios especializados."),("Orientación social","Acceso a SIS, Pensión 65, Juntos y otros programas sociales."),("Atención a distancia","Consultas por WhatsApp o videollamada para quienes no pueden movilizarse.")],
  ["Cualquier persona en situación de vulnerabilidad de la región Piura.","Prioridad a mujeres, pacientes y adultos mayores."],
  ["Solo necesitas contarnos tu caso.","DNI y documentos relacionados, si los tienes."],
@@ -466,7 +466,7 @@ program("programa-orientacion.html","Orientación gratuita",
 
 program("programa-ayuda.html","Ayuda humanitaria",
  "Llevamos ayuda inmediata a familias afectadas por lluvias, inundaciones y otras emergencias en la región Piura.",
- "ayuda.jpg",
+ "ayuda-v2.jpg",
  [("Kits de emergencia","Alimentos, agua, abrigo, higiene y útiles para familias damnificadas."),("Campañas de salud","Atención básica y medicamentos en zonas afectadas."),("Voluntariado en territorio","Brigadas para distribución y apoyo comunitario."),("Reconstrucción","Apoyo para recuperar la vivienda y los medios de vida.")],
  ["Familias damnificadas por emergencias y desastres naturales.","Comunidades rurales con difícil acceso a servicios.","Albergues y comedores populares."],
  ["Registro en el padrón de la zona afectada o constancia de la autoridad local.","DNI del jefe o jefa de familia."],
@@ -511,7 +511,7 @@ NEWS = """<section class="sec bg-ink"><div class="wrap split">
 PAGES["involucrate.html"] = ("Involúcrate · Fundación Atenea", "Dona, ofrece tu tiempo o súmate como aliado de la Fundación Atenea.", "involucrate.html",
 phero(["Involúcrate"], 'Suma tu color <span class="ital mag">al mosaico.</span>',
  "Dona, ofrece tu tiempo o súmate como aliado. Cada aporte se convierte en ayuda concreta, desde Piura y en todo el Perú.",
- '<a class="btn btn-mag" href="#donar">Donar ahora →</a><a class="btn btn-line" href="#voluntariado">Ser voluntaria/o</a>', "voluntariado.jpg") + f"""
+ '<a class="btn btn-mag" href="#donar">Donar ahora →</a><a class="btn btn-line" href="#voluntariado">Ser voluntaria/o</a>', "voluntariado-v2.jpg") + f"""
 <section class="sec bg-white" id="donar"><div class="wrap">
   {shead("01","Dona",'Tu aporte, <span class="ital">en ayuda concreta.</span>',"Aún no hemos habilitado los canales oficiales de donación: se publicarán aquí al concluir la inscripción de la fundación.")}
   <div class="cols">
