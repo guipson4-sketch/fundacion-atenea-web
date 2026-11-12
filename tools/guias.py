@@ -160,6 +160,37 @@ GUIDES = [
    ("¿Las donaciones a la Fundación Atenea son deducibles?", "Todavía no. Estamos tramitando la inscripción ante el Consejo de Supervigilancia de Fundaciones y luego la calificación de SUNAT. Avisaremos en la sección de Transparencia."),
   ],
  },
+ {
+  "file": "guia-fundaciones-ong-piura.html",
+  "tag": "Ayudar",
+  "title": "Fundaciones y ONG en Piura: cómo elegir dónde ayudar",
+  "short": "Fundaciones y ONG en Piura: cómo elegir dónde ayudar",
+  "desc": "Cómo elegir una fundación u ONG en Piura para donar o ser voluntario: diferencias entre fundación, asociación y ONG, qué verificar y qué preguntar antes de ayudar.",
+  "h1": 'Fundaciones y ONG en Piura: <span class="ital mag">elige con criterio.</span>',
+  "lead": "En Piura trabajan fundaciones, asociaciones y ONG con causas muy distintas. Esta guía te ayuda a elegir dónde donar o ser voluntaria o voluntario, con preguntas simples.",
+  "related": ["programa-ayuda.html", "programa-ninez.html"],
+  "sections": [
+   ("Fundación, asociación u ONG: ¿cuál es la diferencia?",
+    "<ul class=\"list\"><li><strong>Fundación:</strong> nace de un patrimonio destinado a un fin social y está supervisada por el <strong>Consejo de Supervigilancia de Fundaciones</strong> del Ministerio de Justicia.</li><li><strong>Asociación:</strong> la forman personas (asociados) que se organizan por un fin común y eligen a sus directivos.</li><li><strong>ONG:</strong> es una forma de llamar a muchas fundaciones y asociaciones sin fines de lucro. Las que reciben cooperación internacional se registran en la <strong>APCI</strong>.</li></ul>"),
+   ("Primero, elige la causa",
+    "<p>Pregúntate qué te mueve: niñez y anemia, mujeres en situación de violencia, salud de personas sin recursos, adultos mayores, educación, ambiente o ayuda ante lluvias e inundaciones. Elegir una causa te ayuda a comparar organizaciones que trabajan en lo mismo.</p>"),
+   ("Qué verificar antes de ayudar",
+    "<ul class=\"list amber\"><li><strong>RUC activo y habido</strong> en la consulta RUC de SUNAT.</li><li><strong>Partida en SUNARP</strong> con su nombre exacto.</li><li><strong>Quiénes la dirigen</strong>: nombres de sus responsables publicados.</li><li><strong>Qué ha hecho</strong>: actividades con fecha, lugar y resultados, no solo promesas.</li><li><strong>Cuentas a nombre de la institución</strong>, nunca personales.</li></ul>"),
+   ("Preguntas que puedes hacer",
+    "<ul class=\"list\"><li>¿En qué se usará exactamente mi aporte?</li><li>¿Cómo me informarán de los resultados?</li><li>¿Publican su estatuto y su memoria anual?</li><li>¿Emiten comprobante por las donaciones?</li><li>¿Qué necesitan hoy: dinero, bienes o voluntariado?</li></ul>"),
+   ("Señales de alerta",
+    "<ul class=\"list\"><li>Te piden depositar a una cuenta personal.</li><li>No tienen RUC ni dirección verificable.</li><li>Presionan con urgencia sin explicar en qué usarán el dinero.</li><li>No publican ninguna información sobre su trabajo.</li></ul>"),
+   ("Ser voluntaria o voluntario",
+    "<p>El voluntariado en el Perú está regulado por la Ley N.º 28238. Una buena organización te explica tus funciones, te capacita y cuida la confidencialidad de las personas atendidas. Si te interesa sumarte a la Fundación Atenea, mira <a href=\"involucrate.html#voluntariado\">cómo ser voluntaria o voluntario</a>.</p>"),
+   ("Nuestra información, a la vista",
+    "<p>La Fundación Atenea Piura Perú está inscrita en SUNARP (partida N.º 11345692), tiene RUC 20616737172 y publica su estatuto en <a href=\"transparencia.html\">Transparencia</a>. Lee también <a href=\"guia-como-donar-en-piura.html\">cómo donar en Piura de forma segura</a>.</p>"),
+  ],
+  "faqs": [
+   ("¿Cómo sé si una fundación de Piura existe legalmente?", "Busca su RUC en la consulta RUC de SUNAT y su partida en SUNARP. En el caso de fundaciones, también puedes preguntar por su inscripción ante el Consejo de Supervigilancia de Fundaciones."),
+   ("¿Es mejor donar dinero o bienes?", "Depende de lo que la organización necesite. Pregunta antes: el dinero da flexibilidad y los bienes son útiles cuando responden a una necesidad concreta."),
+   ("¿Puedo ser voluntario sin experiencia?", "Sí. Muchas organizaciones capacitan a sus voluntarios. Lo importante es tu compromiso y respetar la confidencialidad de las personas atendidas."),
+  ],
+ },
 ]
 
 GUIDE_FILES = {g["file"] for g in GUIDES}

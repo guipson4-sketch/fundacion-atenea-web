@@ -580,7 +580,7 @@ for _g in GUIDES:
 _hub = "".join(f'<a class="row" href="{g["file"]}"><span class="n">{g["tag"]}</span><h3>{g["short"]}</h3><p class="body">{g["desc"]}</p><span class="go">Leer guía →</span></a>' for g in GUIDES)
 _t, _d, _c, _b = PAGES["historias.html"]
 PAGES["historias.html"] = (_t, _d, _c, _b.replace('<section class="sec" id="guias"><div class="wrap">', f"""<section class="sec bg-white" id="guias-completas"><div class="wrap">
-  {shead("·","Guías completas",'Respuestas <span class="ital">paso a paso.</span>',"Guías prácticas para Piura: asesoría legal gratuita, violencia, pensión de alimentos, SIS y cómo donar con confianza.")}
+  {shead("·","Guías completas",'Respuestas <span class="ital">paso a paso.</span>',"Guías prácticas para Piura: asesoría legal gratuita, violencia, pensión de alimentos, SIS, cómo donar y cómo elegir una fundación.")}
   <div class="rows">{_hub}</div>
 </div></section>
 <section class="sec" id="guias"><div class="wrap">""", 1))
