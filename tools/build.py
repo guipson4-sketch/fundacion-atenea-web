@@ -15,7 +15,7 @@ HOURS = "Lunes a viernes, 9:00 a 18:00"
 # TURNSTILE_SECRET en Cloudflare. Vacío = sin captcha (los formularios siguen protegidos por límites de uso).
 TURNSTILE_SITEKEY = ""
 # Google Analytics 4: pega aquí el ID de medición (G-XXXXXXXXXX). Vacío = sin Analytics.
-GA_ID = ""
+GA_ID = "G-S1K8KMEJD7"
 # Google Search Console: token de verificación por etiqueta HTML (solo el valor de content). Vacío = sin etiqueta.
 GSC_TOKEN = ""
 
