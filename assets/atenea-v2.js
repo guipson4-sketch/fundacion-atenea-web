@@ -37,6 +37,7 @@
           var msg='¡Gracias! Recibimos tu mensaje y te responderemos pronto.';
           if(d&&d.codigo) msg='Recibimos tu reclamación. Tu hoja es la N.º '+d.codigo+'. Te enviamos una copia al correo que indicaste.';
           if(st){st.textContent=msg;st.style.color='#1F7A4D'}
+          if(window.gtag) gtag('event','generate_lead',{form_name:f.getAttribute('name')||f.getAttribute('data-mail')||'formulario'});
         })
         .catch(function(){
           var lines=[]; data.forEach(function(v,k){ if(['form-name','bot-field','autorizo','cf-turnstile-response'].indexOf(k)<0) lines.push(k+': '+v) });
@@ -58,6 +59,7 @@
       var c=f.querySelector('input[name=monto]:checked'), monto=c&&c.value==='otro'?f.otro.value:(c&&c.value);
       if(!monto||Number(monto)<5){ st.textContent='Elige o escribe un monto desde S/ 5.'; st.style.color='#D6287F'; return }
       btn.disabled=true; st.textContent='Conectando con la pasarela segura…'; st.style.color='';
+      if(window.gtag) gtag('event','begin_checkout',{currency:'PEN',value:Number(monto)});
       fetch('/api/donar',{method:'POST',headers:{'content-type':'application/json'},body:JSON.stringify({monto:monto,nombre:f.nombre.value,email:f.email.value,token:(f.querySelector('[name=cf-turnstile-response]')||{}).value||''})})
         .then(function(r){return r.json().catch(function(){return {}}).then(function(d){return {ok:r.ok,d:d}})})
         .then(function(x){ if(x.ok&&x.d.url){location.href=x.d.url;return} st.textContent=(x.d&&x.d.error)||'No pudimos iniciar el pago. Intenta de nuevo o dona por Yape.'; st.style.color='#D6287F'; btn.disabled=false; if(window.turnstile)turnstile.reset() })

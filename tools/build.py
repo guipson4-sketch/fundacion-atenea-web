@@ -1,19 +1,34 @@
 #!/usr/bin/env python3
 """Genera las páginas del sitio de la Fundación Atenea con un sistema visual común."""
 import os, sys
+sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
+from guias import GUIDES, GUIDE_FILES, EMERGENCIA, UPDATED as GUIDES_UPDATED
 OUT = sys.argv[1] if len(sys.argv) > 1 else os.path.join(os.path.dirname(__file__), "..")
 
 WA = ""; WA_TXT = ""      # sin WhatsApp oficial todavía: no se muestra ningún número
 MAIL = "contacto@ateneapiuraperu.org"
 ADDR = "Urb. Ignacio Merino Mz. Q Lt. 61 2da Etapa - Piura"
-RUC = ""                 # sin RUC todavía
+RUC = "20616737172"      # RUC activo (SUNAT)
+PARTIDA = "11345692"     # partida registral SUNARP (Piura), inscrita el 21/10/2026
 HOURS = "Lunes a viernes, 9:00 a 18:00"
 # Cloudflare Turnstile (captcha gratuito). Clave PÚBLICA del sitio: pégala aquí y define también la variable secreta
 # TURNSTILE_SECRET en Cloudflare. Vacío = sin captcha (los formularios siguen protegidos por límites de uso).
 TURNSTILE_SITEKEY = ""
+# Google Analytics 4: pega aquí el ID de medición (G-XXXXXXXXXX). Vacío = sin Analytics.
+GA_ID = ""
+# Google Search Console: token de verificación por etiqueta HTML (solo el valor de content). Vacío = sin etiqueta.
+GSC_TOKEN = ""
 
 NAV = [("nosotros.html","Nosotros"),("programas.html","Programas"),("historias.html","Historias"),
        ("involucrate.html","Involúcrate"),("transparencia.html","Transparencia"),("contacto.html","Contacto")]
+
+def analytics_tags():
+    out = ""
+    if GSC_TOKEN:
+        out += f'\n<meta name="google-site-verification" content="{GSC_TOKEN}">'
+    if GA_ID:
+        out += f'\n<script async src="https://www.googletagmanager.com/gtag/js?id={GA_ID}"></script>\n<script src="assets/analytics.js" data-ga="{GA_ID}"></script>'
+    return out
 
 def head(title, desc, canon=""):
     ld = LD if canon == "" else ""
@@ -43,7 +58,7 @@ def head(title, desc, canon=""):
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&amp;display=swap" rel="stylesheet">
-<link rel="stylesheet" href="assets/atenea-v3.css">
+<link rel="stylesheet" href="assets/atenea-v3.css">{analytics_tags()}
 </head>
 <body>
 <a class="skip" href="#contenido">Saltar al contenido</a>
@@ -58,7 +73,8 @@ LD = """
 "email":"contacto@ateneapiuraperu.org","nonprofitStatus":"Nonprofit",
 "address":{"@type":"PostalAddress","streetAddress":"Urb. Ignacio Merino Mz. Q Lt. 61, 2da Etapa","addressLocality":"Piura","addressRegion":"Piura","addressCountry":"PE"},
 "areaServed":{"@type":"Country","name":"Perú"},
-"knowsAbout":["Violencia contra la mujer","Violencia familiar","Atención psicológica a varones","Niñez","Salud","Orientación legal","Ayuda humanitaria"]}
+"taxID":"20616737172","sameAs":["https://www.linkedin.com/company/ateneapiuraperu"],
+"knowsAbout":["Asesoría legal gratuita","Pensión de alimentos","Afiliación al SIS","Violencia contra la mujer","Violencia familiar","Atención psicológica a varones","Niñez","Salud","Orientación legal","Ayuda humanitaria"]}
 </script>"""
 
 def header(cur):
@@ -85,7 +101,7 @@ FOOT = f"""</main>
       <div><h4>Contacto</h4><ul><li><a href="mailto:{MAIL}">{MAIL}</a></li><li>{ADDR}</li><li>{HOURS}</li></ul></div>
     </div>
     <div class="legal">
-      <span>© 2026 Fundación Atenea · Piura, Perú · En trámite de inscripción registral</span>
+      <span>© 2026 Fundación Atenea · Piura, Perú · Inscrita en SUNARP (partida 11345692) · RUC 20616737172</span>
       <span><a href="privacidad.html">Privacidad</a> · <a href="terminos.html">Términos</a> · <a href="reclamaciones.html">Libro de Reclamaciones</a></span>
     </div>
   </div>
@@ -128,7 +144,7 @@ def faq(items):
 FAQ = [
  ("¿La ayuda de la fundación tiene algún costo?","No. Toda la orientación y el apoyo que brindamos son gratuitos y confidenciales. Nunca te pediremos dinero a cambio de ayuda."),
  ("¿Cómo sé que mi donación llega a quien la necesita?","Publicaremos estados financieros y una memoria anual con resultados, personas atendidas y uso de los fondos. Solo recibiremos donaciones por los canales oficiales publicados en esta web, que aún no están habilitados."),
- ("¿La fundación está formalmente constituida?","La Fundación Atenea está en trámite de inscripción registral (SUNARP y Consejo de Supervigilancia de Fundaciones). Cuando concluya, publicaremos los documentos en la sección de Transparencia."),
+ ("¿La fundación está formalmente constituida?","Sí. La Fundación Atenea Piura Perú está inscrita en SUNARP (partida N.º 11345692, Piura, inscrita el 21 de octubre de 2026) y tiene RUC 20616737172. Está en trámite su inscripción ante el Consejo de Supervigilancia de Fundaciones; publicaremos cada documento en la sección de Transparencia."),
  ("¿Quién puede pedir ayuda?","Mujeres y varones en situación de violencia o abandono, niñas y niños en riesgo, personas enfermas sin recursos y familias en situación de vulnerabilidad, desde Piura y a distancia en todo el Perú. Escríbenos y evaluamos tu caso sin compromiso."),
  ("¿Cómo puedo ser voluntaria, voluntario o aliado?","Escríbenos desde la página de contacto contándonos tu profesión o la de tu organización. Buscamos profesionales de salud, derecho, psicología, educación y comunicación, además de empresas e instituciones."),
 ]
@@ -164,6 +180,16 @@ def prog_rows(exclude=None):
 
 PAGES = {}
 
+def related_guides(file):
+    gs = [g for g in GUIDES if file in g["related"]]
+    if not gs: return ""
+    rows = "".join(f'<a class="row" href="{g["file"]}"><span class="n">{g["tag"]}</span><h3>{g["short"]}</h3><span class="go">Leer guía →</span></a>' for g in gs)
+    return f"""<section class="sec bg-white"><div class="wrap">
+  {shead("·","Guías prácticas",'Información <span class="ital">que te sirve.</span>')}
+  <div class="rows">{rows}</div>
+</div></section>
+"""
+
 # ---------------- INICIO ----------------
 PAGES["index.html"] = ("Fundación Atenea · Piura, Perú", "Fundación sin fines de lucro con sede en Piura que acompaña a mujeres, varones, niñas, niños y familias en situación de vulnerabilidad en todo el Perú.", "index.html", f"""
 <section class="fb">
@@ -192,7 +218,7 @@ PAGES["index.html"] = ("Fundación Atenea · Piura, Perú", "Fundación sin fine
   <div style="grid-column:4/13">
     <p class="statement">Atenea está en sus primeros pasos. <em>Todavía no tenemos cifras de actividad ni testimonios que mostrar, y no los vamos a inventar.</em> Cada logro se publicará aquí, con fecha y con evidencia.</p>
     <div class="road" style="margin-top:72px">
-      <div class="st on"><i></i><span class="pill">En curso</span><h3>Constitución e inscripción</h3><p>Escritura pública y trámite de inscripción en SUNARP y en el Consejo de Supervigilancia de Fundaciones.</p></div>
+      <div class="st on"><i></i><span class="pill">En curso</span><h3>Constitución e inscripción</h3><p>Escritura pública e inscripción en SUNARP (21/10/2026) concluidas; en trámite la inscripción ante el Consejo de Supervigilancia de Fundaciones.</p></div>
       <div class="st"><i></i><span class="pill">Próximamente</span><h3>Consejo, equipo y aliados</h3><p>Designación del Consejo de Administración y convenios con universidades y colegios profesionales.</p></div>
       <div class="st"><i></i><span class="pill">Próximamente</span><h3>Primeras campañas</h3><p>Orientación gratuita, salud y ayuda humanitaria, con voluntariado capacitado.</p></div>
       <div class="st"><i></i><span class="pill">Próximamente</span><h3>Primer informe público</h3><p>Resultados, personas atendidas y estados financieros, publicados en esta web.</p></div>
@@ -321,7 +347,7 @@ phero(["Nosotros"], 'Cada persona es una pieza. <span class="ital mag">Juntas, u
 <section class="sec bg-sand"><div class="wrap">
   {shead("04","Cómo trabajamos",'Serio, cercano <span class="ital">y medible.</span>')}
   <div class="cols c4">
-    <div class="col"><span class="k">Pilar 1</span><h3>Institucionalidad</h3><p>Constitución por escritura pública y trámite de inscripción en SUNARP y en el Consejo de Supervigilancia de Fundaciones.</p></div>
+    <div class="col"><span class="k">Pilar 1</span><h3>Institucionalidad</h3><p>Constitución por escritura pública, inscripción en SUNARP (partida 11345692) y trámite ante el Consejo de Supervigilancia de Fundaciones.</p></div>
     <div class="col"><span class="k">Pilar 2</span><h3>Aliados y voluntariado</h3><p>Universidades, colegios profesionales, empresas e instituciones de Piura y de todo el país.</p></div>
     <div class="col"><span class="k">Pilar 3</span><h3>Campañas en territorio</h3><p>Salud, ayuda humanitaria y orientación gratuita, empezando por las provincias de Piura.</p></div>
     <div class="col"><span class="k">Pilar 4</span><h3>Rendición de cuentas</h3><p>Resultados, personas atendidas y estados financieros que se publicarán en esta web.</p></div>
@@ -385,6 +411,7 @@ phero(["Programas"], 'Seis formas de <span class="ital mag">estar presentes.</sp
 """ + cta())
 
 def program(file, name, lead, img, offers, who, needs, quote, cite, h1, story=None):
+    rel = related_guides(file)
     offers_html = "".join(f'<div class="col"><h3>{t}</h3><p>{d}</p></div>' for t,d in offers)
     who_html = "".join(f"<li>{w}</li>" for w in who)
     needs_html = "".join(f"<li>{n}</li>" for n in needs)
@@ -409,7 +436,7 @@ def program(file, name, lead, img, offers, who, needs, quote, cite, h1, story=No
   <p class="statement" style="margin-top:40px">Te escuchamos sin juicios y con reserva. <em>Este programa está en etapa de inicio:</em> la atención se activará a medida que concluya la inscripción de la fundación y se complete la red de profesionales.</p>
   <p class="callout" style="margin-top:40px"><strong>¿Es una emergencia?</strong> Llama a la Línea 100 (gratuita, 24 horas) o a la Policía al 105. Si quieres que te avisemos cuando el programa esté activo, escríbenos desde la página de contacto.</p>
 </div></section>'''}
-<section class="sec"><div class="wrap">
+{rel}<section class="sec"><div class="wrap">
   {shead("06","Otros programas",'Conoce <span class="ital">también.</span>')}
   {prog_rows(exclude=file)}
 </div></section>
@@ -523,6 +550,41 @@ NEWS = """<section class="sec bg-ink"><div class="wrap split">
 </div></section>
 """
 
+# ---------------- GUÍAS ----------------
+def guide_page(g):
+    secs = "".join(f'<h2>{h}</h2>{body}' for h, body in g["sections"])
+    rel = "".join(f'<li><a href="{p[0]}">{p[1]}</a></li>' for p in PROGRAMS if p[0] in g["related"])
+    others = "".join(f'<a class="row" href="{o["file"]}"><span class="n">{o["tag"]}</span><h3>{o["short"]}</h3><span class="go">Leer guía →</span></a>' for o in GUIDES if o is not g)
+    PAGES[g["file"]] = (g["title"], g["desc"], "historias.html",
+    phero([("historias.html","Guías"), g["tag"]], g["h1"], g["lead"],
+      '<a class="btn btn-main" href="contacto.html">Pedir orientación gratuita →</a><small>Actualizado: 12 de noviembre de 2026</small>') + f"""
+<section class="sec bg-white"><div class="wrap">
+  <article class="guide">
+    {EMERGENCIA}
+    {secs}
+    <h2>Preguntas frecuentes</h2>
+    {faq(g["faqs"])}
+    <p class="muted guide-note">Esta guía es informativa y no reemplaza la asesoría de un profesional. Los servicios públicos pueden cambiar sus horarios o requisitos: confirma antes de ir.</p>
+    {f'<h2>Programas relacionados</h2><ul class="list">{rel}</ul>' if rel else ""}
+  </article>
+</div></section>
+<section class="sec"><div class="wrap">
+  {shead("·","Más guías",'Sigue <span class="ital">leyendo.</span>')}
+  <div class="rows">{others}</div>
+</div></section>
+""" + cta())
+
+for _g in GUIDES:
+    guide_page(_g)
+
+_hub = "".join(f'<a class="row" href="{g["file"]}"><span class="n">{g["tag"]}</span><h3>{g["short"]}</h3><p class="body">{g["desc"]}</p><span class="go">Leer guía →</span></a>' for g in GUIDES)
+_t, _d, _c, _b = PAGES["historias.html"]
+PAGES["historias.html"] = (_t, _d, _c, _b.replace('<section class="sec" id="guias"><div class="wrap">', f"""<section class="sec bg-white" id="guias-completas"><div class="wrap">
+  {shead("·","Guías completas",'Respuestas <span class="ital">paso a paso.</span>',"Guías prácticas para Piura: asesoría legal gratuita, violencia, pensión de alimentos, SIS, cómo donar y cómo elegir una fundación.")}
+  <div class="rows">{_hub}</div>
+</div></section>
+<section class="sec" id="guias"><div class="wrap">""", 1))
+
 # ---------------- INVOLÚCRATE ----------------
 PAGES["involucrate.html"] = ("Involúcrate · Fundación Atenea", "Dona, ofrece tu tiempo o súmate como aliado de la Fundación Atenea.", "involucrate.html",
 phero(["Involúcrate"], 'Suma tu color <span class="ital mag">al mosaico.</span>',
@@ -618,7 +680,7 @@ phero(["Transparencia"], 'Cada sol, <span class="ital mag">a la vista.</span>',
     <p class="eyebrow"><b>02</b> Estatuto</p>
     <h2 class="h2" style="margin-top:28px">Las reglas <span class="ital">que nos damos.</span></h2>
     <p class="lead" style="margin-top:28px;font-size:18px">Resumen del estatuto de la Fundación Atenea, que se rige por el Código Civil peruano y estará sujeta al Consejo de Supervigilancia de Fundaciones.</p>
-    <p class="callout"><strong>Resumen informativo.</strong> El texto vinculante es el de la escritura pública. La fundación está en trámite de inscripción en SUNARP.</p>
+    <p class="callout"><strong>Resumen informativo.</strong> El texto vinculante es el de la escritura pública inscrita en SUNARP (partida N.º 11345692).</p>
     <div class="btns" style="margin-top:28px"><a class="btn btn-line" href="contacto.html">Solicitar texto completo</a></div>
   </div>
   <div class="r"><div class="arts">{arts}</div></div>
@@ -645,8 +707,15 @@ phero(["Consultorías"], 'Tu organización también <span class="ital mag">trans
   {shead("01","Servicios",'Seis líneas <span class="ital">de trabajo.</span>')}
   <div class="rows">""" + "".join(f'<div class="row"><span class="n">0{i+1}</span><h3>{t}</h3><p class="body">{d}</p></div>' for i,(t,d) in enumerate(SERV)) + f"""</div>
 </div></section>
+<section class="sec"><div class="wrap split">
+  <div class="l"><p class="eyebrow"><b>02</b> Para quién</p><h2 class="h2-s" style="margin:28px 0 40px">Organizaciones <span class="ital">que quieren hacerlo bien.</span></h2>
+  <ul class="list"><li>Empresas que deben cumplir la Ley N.º 27942 de prevención del hostigamiento sexual y capacitar a su personal.</li><li>Municipalidades y gobiernos regionales que necesitan apoyo técnico en programas sociales.</li><li>Instituciones educativas, colegios profesionales y gremios de Piura.</li><li>Empresas que quieren diseñar o medir sus programas de responsabilidad social.</li></ul></div>
+  <div class="r"><p class="eyebrow"><b>03</b> Cómo trabajamos</p><h2 class="h2-s" style="margin:28px 0 40px">Cuatro <span class="ital">pasos.</span></h2>
+  <ul class="list amber"><li><strong>Diagnóstico:</strong> una reunión gratuita para entender tu necesidad.</li><li><strong>Propuesta:</strong> alcance, cronograma y costo por escrito.</li><li><strong>Ejecución:</strong> talleres presenciales en Piura o virtuales, con materiales y certificados de participación.</li><li><strong>Informe:</strong> resultados y recomendaciones al cierre.</li></ul>
+  <p class="callout">Todo lo que recibimos por estos servicios se destina íntegramente a los programas de la fundación. Trabajamos de forma técnica y no partidaria.</p></div>
+</div></section>
 <section class="sec bg-ink"><div class="wrap">
-  {shead("02","Agenda 2030",'Alineados con los <span class="ital cor">ODS.</span>')}
+  {shead("04","Agenda 2030",'Alineados con los <span class="ital cor">ODS.</span>')}
   <div class="facts">
     <div><strong>ODS 1</strong><span>Fin de la pobreza</span></div>
     <div><strong>ODS 3</strong><span>Salud y bienestar</span></div>
@@ -657,6 +726,13 @@ phero(["Consultorías"], 'Tu organización también <span class="ital mag">trans
 """ + cta())
 
 # ---------------- CONTACTO ----------------
+CONTACT_FAQ = [
+ ("¿Dónde está la Fundación Atenea?","Nuestra sede está en " + ADDR + ", Piura, Perú. También orientamos a distancia a personas de todo el país."),
+ ("¿En qué horario atienden?", HOURS + ". Los mensajes que llegan fuera de ese horario se responden el siguiente día hábil."),
+ ("¿Tiene costo la atención?","No. La orientación y el apoyo de la fundación son gratuitos y confidenciales."),
+ ("¿Qué hago si es una emergencia?","No esperes nuestra respuesta: llama a la Policía al 105 o a la Línea 100, gratuita y disponible las 24 horas."),
+ ("¿Puedo ser voluntaria, voluntario o aliado?","Sí. Escríbenos a voluntariado@ateneapiuraperu.org o alianzas@ateneapiuraperu.org contándonos tu profesión o la de tu organización."),
+]
 PAGES["contacto.html"] = ("Contacto · Fundación Atenea", "Escríbenos, llámanos o visítanos en Piura.", "contacto.html",
 phero(["Contacto"], 'Escríbenos. <span class="ital mag">Respondemos.</span>',
  "Estamos para escucharte. Respondemos en un plazo máximo de 48 horas hábiles y tus datos son confidenciales.",
@@ -675,6 +751,15 @@ phero(["Contacto"], 'Escríbenos. <span class="ital mag">Respondemos.</span>',
     </dl>
   </div>
   <div class="r"><p class="eyebrow" style="margin-bottom:32px"><b>02</b> Formulario</p>{{FORM}}</div>
+</div></section>
+<section class="sec bg-ink"><div class="wrap">
+  {shead("03","Después de escribirnos",'Qué pasa <span class="ital cor">con tu mensaje.</span>')}
+  {STEPS}
+</div></section>
+<section class="sec bg-white"><div class="wrap">
+  {shead("04","Preguntas frecuentes",'Antes de <span class="ital">escribirnos.</span>')}
+  {faq(CONTACT_FAQ)}
+  <p style="margin-top:32px">¿Buscas información ahora? Lee nuestras guías: <a href="guia-asesoria-legal-gratuita-piura.html">asesoría legal gratuita en Piura</a>, <a href="guia-violencia-familiar-piura.html">qué hacer si sufres violencia</a> y <a href="guia-pension-de-alimentos-piura.html">pensión de alimentos</a>.</p>
 </div></section>
 """)
 
@@ -766,14 +851,20 @@ SEO_META = {
  "index.html": ("Fundación Atenea · Ayuda gratuita en Piura, Perú", None),
  "nosotros.html": ("Quiénes somos · Fundación Atenea Piura", "Conoce la Fundación Atenea: fundación sin fines de lucro en Piura que acompaña a mujeres, varones, niñas, niños y familias en situación de vulnerabilidad."),
  "programas.html": ("Programas sociales gratuitos en Piura · Fundación Atenea", "Seis programas gratuitos de la Fundación Atenea en Piura: apoyo a mujeres, varones y familias, niñez, salud, orientación legal y psicológica, y ayuda humanitaria."),
- "historias.html": ("Novedades y guías de ayuda · Fundación Atenea", "Primera campaña médica gratuita en Villa El Salvador, Castilla (Piura), y guías prácticas sobre violencia, salud y anemia infantil de la Fundación Atenea."),
+ "historias.html": ("Guías de ayuda y novedades en Piura · Fundación Atenea", "Guías prácticas para Piura: asesoría legal gratuita, violencia familiar, pensión de alimentos, SIS gratuito y cómo donar. Además, nuestra primera campaña médica gratuita."),
  "involucrate.html": ("Dona o sé voluntaria/o en Piura · Fundación Atenea", "Dona, ofrece tu tiempo como voluntaria o voluntario o súmate como aliado de la Fundación Atenea, fundación sin fines de lucro con sede en Piura."),
  "transparencia.html": (None, "Estatuto, órganos de gobierno, estados financieros y memoria anual de la Fundación Atenea, fundación sin fines de lucro en Piura. Cuentas claras y verificables."),
  "contacto.html": ("Contacto y ubicación en Piura · Fundación Atenea", "Escríbenos, llámanos o visítanos en Piura: " + ADDR + ". Atención " + HOURS.lower() + "."),
  "privacidad.html": (None, "Política de privacidad de la Fundación Atenea (Piura, Perú): qué datos personales recogemos, para qué los usamos, cuánto tiempo los conservamos y cómo ejercer tus derechos."),
  "terminos.html": (None, "Términos y condiciones de uso del sitio web de la Fundación Atenea, fundación sin fines de lucro en Piura, Perú: alcance de los servicios, donaciones y responsabilidades."),
  "reclamaciones.html": (None, "Libro de reclamaciones de la Fundación Atenea en Piura: registra una queja o reclamo sobre nuestros servicios y te responderemos dentro de los plazos legales."),
- "consultorias.html": (None, "Consultorías de la Fundación Atenea en Piura: asesoría para organizaciones e instituciones que quieren fortalecer su trabajo social y comunitario."),
+ "programa-mujeres.html": ("Apoyo a mujeres víctimas de violencia en Piura · Atenea", None),
+ "programa-varones.html": ("Ayuda a varones que sufren violencia en Piura · Atenea", None),
+ "programa-ninez.html": ("Niñez protegida y prevención de anemia en Piura · Atenea", None),
+ "programa-salud.html": ("Ayuda para pacientes sin recursos en Piura · Atenea", None),
+ "programa-orientacion.html": ("Orientación legal y psicológica gratuita en Piura · Atenea", None),
+ "programa-ayuda.html": ("Ayuda humanitaria por lluvias en Piura · Fundación Atenea", None),
+ "consultorias.html": ("Consultorías y capacitaciones sociales en Piura · Fundación Atenea", "Capacitaciones en prevención del hostigamiento sexual (Ley 27942), igualdad de género, inclusión laboral, estudios sociales y asistencia técnica para empresas e instituciones de Piura."),
 }
 NOINDEX = {"gracias.html", "404.html"}
 PROG = {"programa-mujeres.html","programa-varones.html","programa-ninez.html","programa-salud.html","programa-orientacion.html","programa-ayuda.html"}
@@ -790,8 +881,18 @@ def seo_extra(f, title):
         crumbs = [("Inicio", SITE + "/")]
         if f in PROG:
             crumbs.append(("Programas", SITE + "/programas"))
-        crumbs.append((title.split(" · ")[0], SITE + "/" + f[:-5]))
+        if f in GUIDE_FILES:
+            crumbs.append(("Guías", SITE + "/historias"))
+        crumbs.append((title.split(" · ")[0].split(" | ")[0], SITE + "/" + f[:-5]))
         out += jld({"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":i+1,"name":n,"item":u} for i,(n,u) in enumerate(crumbs)]})
+    if f in GUIDE_FILES:
+        g = next(x for x in GUIDES if x["file"] == f)
+        url = SITE + "/" + f[:-5]
+        org = {"@type":"NGO","name":"Fundación Atenea","url":SITE+"/","logo":{"@type":"ImageObject","url":SITE+"/assets/logo-atenea-transparente.png"}}
+        out += jld({"@context":"https://schema.org","@type":"Article","headline":g["short"],"description":g["desc"],"inLanguage":"es-PE",
+          "datePublished":GUIDES_UPDATED,"dateModified":GUIDES_UPDATED,"mainEntityOfPage":url,"image":SITE+"/assets/og-atenea-v2.jpg",
+          "author":org,"publisher":org,"about":g["tag"],"spatialCoverage":{"@type":"Place","name":"Piura, Perú"}})
+        out += jld({"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":q,"acceptedAnswer":{"@type":"Answer","text":a}} for q,a in g["faqs"]]})
     if f == "historias.html":
         out += jld({"@context":"https://schema.org","@type":"Event","name":"Campaña médica gratuita de la Fundación Atenea",
           "description":"Primera actividad de la Fundación Atenea: campaña médica gratuita con medicina general, psicología, obstetricia, odontología y corte de cabello para personas vulnerables, para prevenir enfermedades y promover la salud.",
@@ -804,7 +905,7 @@ def seo_extra(f, title):
 def sitemap():
     pages = [f for f in PAGES if f not in NOINDEX]
     pages.sort(key=lambda f: (f != "index.html", f))
-    rows = "".join(f'  <url><loc>{SITE}/{"" if f=="index.html" else f[:-5]}</loc><lastmod>{TODAY}</lastmod><changefreq>{"weekly" if f in ("index.html","historias.html") else "monthly"}</changefreq><priority>{"1.0" if f=="index.html" else ("0.8" if f in ("nosotros.html","programas.html","historias.html","involucrate.html") else "0.6")}</priority></url>\n' for f in pages)
+    rows = "".join(f'  <url><loc>{SITE}/{"" if f=="index.html" else f[:-5]}</loc><lastmod>{TODAY}</lastmod><changefreq>{"weekly" if f in ("index.html","historias.html") else "monthly"}</changefreq><priority>{"1.0" if f=="index.html" else ("0.8" if f in ("nosotros.html","programas.html","historias.html","involucrate.html") or f in GUIDE_FILES else "0.6")}</priority></url>\n' for f in pages)
     return '<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n' + rows + '</urlset>\n'
 
 for f,(title,desc,cur,body) in PAGES.items():
