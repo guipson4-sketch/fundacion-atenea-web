@@ -7,7 +7,7 @@ OUT = sys.argv[1] if len(sys.argv) > 1 else os.path.join(os.path.dirname(__file_
 
 WA = ""; WA_TXT = ""      # sin WhatsApp oficial todavía: no se muestra ningún número
 MAIL = "contacto@ateneapiuraperu.org"
-ADDR = "Urb. Ignacio Merino Mz. Q Lt. 61 2da Etapa - Piura"
+ADDR = "Jr. Circunvalación N.° 1384 - Piura"
 RUC = "20616737172"      # RUC activo (SUNAT)
 PARTIDA = "11345692"     # partida registral SUNARP (Piura), inscrita el 21/10/2026
 HOURS = "Lunes a viernes, 9:00 a 18:00"
@@ -72,7 +72,7 @@ LD = """
 "image":"https://ateneapiuraperu.org/assets/og-atenea-v2.jpg",
 "description":"Fundación sin fines de lucro con sede en Piura que acompaña a mujeres, varones, niñas, niños y familias en situación de vulnerabilidad en todo el Perú.",
 "email":"contacto@ateneapiuraperu.org","nonprofitStatus":"Nonprofit",
-"address":{"@type":"PostalAddress","streetAddress":"Urb. Ignacio Merino Mz. Q Lt. 61, 2da Etapa","addressLocality":"Piura","addressRegion":"Piura","addressCountry":"PE"},
+"address":{"@type":"PostalAddress","streetAddress":"Jr. Circunvalación N.° 1384","addressLocality":"Piura","addressRegion":"Piura","addressCountry":"PE"},
 "areaServed":{"@type":"Country","name":"Perú"},
 "taxID":"20616737172","sameAs":["https://www.linkedin.com/company/ateneapiuraperu"],
 "knowsAbout":["Asesoría legal gratuita","Pensión de alimentos","Afiliación al SIS","Violencia contra la mujer","Violencia familiar","Atención psicológica a varones","Niñez","Salud","Orientación legal","Ayuda humanitaria"]}
@@ -99,7 +99,7 @@ FOOT = f"""</main>
       <div><span class="logo-w"><img src="assets/logo-atenea-blanco.png" alt="Fundación Atenea" width="166" height="64"></span></div>
       <div><h4>Fundación</h4><ul><li><a href="nosotros.html">Nosotros</a></li><li><a href="programas.html">Programas</a></li><li><a href="historias.html">Historias</a></li><li><a href="transparencia.html">Transparencia y estatuto</a></li><li><a href="consultorias.html">Consultorías</a></li></ul></div>
       <div><h4>Participa</h4><ul><li><a href="involucrate.html#donar">Donar</a></li><li><a href="involucrate.html#voluntariado">Voluntariado</a></li><li><a href="involucrate.html#alianzas">Alianzas</a></li><li><a href="contacto.html">Contacto</a></li></ul></div>
-      <div><h4>Contacto</h4><ul><li><a href="mailto:{MAIL}">{MAIL}</a></li><li>{ADDR}</li><li>{HOURS}</li></ul></div>
+      <div><h4>Contacto</h4><ul><li><!--email_off--><a href="mailto:{MAIL}">{MAIL}</a><!--/email_off--></li><li>{ADDR}</li><li>{HOURS}</li></ul></div>
     </div>
     <div class="legal">
       <span>© 2026 Fundación Atenea · Piura, Perú · Inscrita en SUNARP (partida 11345692) · RUC 20616737172</span>
@@ -346,9 +346,17 @@ phero(["Nosotros"], 'Cada persona es una pieza. <span class="ital mag">Juntas, u
   <h3 id="consejo" style="margin:72px 0 8px">Consejo de Administración y Gerencia General</h3>
   <p class="muted" style="margin:0 0 24px">Periodo 2026-2032, según la escritura de constitución inscrita en SUNARP (partida N.º 11345692).</p>
   <div class="cols">
-    <div class="col"><span class="k">Presidenta y Gerente General</span><h3>Natalia Judith Olmedo Alvarado</h3><p>Presidenta del Consejo, fundadora y representante legal de la fundación.<br><a href="mailto:ceo@ateneapiuraperu.org">ceo@ateneapiuraperu.org</a></p></div>
+    <div class="col"><span class="k">Presidenta y Gerente General</span><h3>Natalia Judith Olmedo Alvarado</h3><p>Presidenta del Consejo, fundadora y representante legal de la fundación.<br><!--email_off--><a href="mailto:ceo@ateneapiuraperu.org">ceo@ateneapiuraperu.org</a><!--/email_off--></p></div>
     <div class="col"><span class="k">Secretaria del Consejo</span><h3>Marisol Alvarado Choquehuanca</h3><p>Lleva el libro de actas y la documentación del Consejo.</p></div>
     <div class="col"><span class="k">Tesorero del Consejo</span><h3>Franz Ricardo Fossa Morales</h3><p>Supervisa el manejo de los fondos y su rendición de cuentas.</p></div>
+  </div>
+  <h3 id="ods" style="margin:72px 0 8px">Nuestro compromiso con la Agenda 2030</h3>
+  <p class="muted" style="margin:0 0 24px">Nuestro trabajo se alinea con cuatro Objetivos de Desarrollo Sostenible (ODS) de las Naciones Unidas.</p>
+  <div class="cols c4">
+    <div class="col"><span class="k">ODS 3 · Principal</span><h3>Salud y bienestar</h3><p>Apoyo a personas enfermas en situación de vulnerabilidad: medicamentos, exámenes, traslados y acompañamiento. Metas 3.8 y 3.d.</p></div>
+    <div class="col"><span class="k">ODS 5</span><h3>Igualdad de género</h3><p>Prevención de la violencia contra la mujer, acompañamiento y talleres para su autonomía y emprendimiento. Metas 5.2 y 5.a.</p></div>
+    <div class="col"><span class="k">ODS 1</span><h3>Fin de la pobreza</h3><p>Jornadas de apoyo humanitario con alimentos, ropa e higiene, y apoyo a familias afectadas por emergencias. Metas 1.2 y 1.5.</p></div>
+    <div class="col"><span class="k">ODS 10</span><h3>Reducción de las desigualdades</h3><p>Atención a niñas, niños, adultos mayores, personas con discapacidad y zonas rurales, con orientación gratuita. Meta 10.2.</p></div>
   </div>
 </div></section>
 
@@ -749,11 +757,12 @@ phero(["Contacto"], 'Escríbenos. <span class="ital mag">Respondemos.</span>',
   <div class="l">
     <p class="eyebrow"><b>01</b> Datos de contacto</p>
     <dl class="kv" style="margin-top:32px">
-      <div><dt>Correo general</dt><dd><a href="mailto:{MAIL}">{MAIL}</a></dd></div>
+      <!--email_off--><div><dt>Correo general</dt><dd><a href="mailto:{MAIL}">{MAIL}</a></dd></div>
       <div><dt>Necesito ayuda</dt><dd><a href="mailto:ayuda@ateneapiuraperu.org">ayuda@ateneapiuraperu.org</a></dd></div>
       <div><dt>Voluntariado</dt><dd><a href="mailto:voluntariado@ateneapiuraperu.org">voluntariado@ateneapiuraperu.org</a></dd></div>
       <div><dt>Alianzas y consultoría</dt><dd><a href="mailto:alianzas@ateneapiuraperu.org">alianzas@ateneapiuraperu.org</a></dd></div>
       <div><dt>Datos personales y reclamos</dt><dd><a href="mailto:privacidad@ateneapiuraperu.org">privacidad@ateneapiuraperu.org</a></dd></div>
+      <div><dt>Presidencia y Gerencia General</dt><dd><a href="mailto:ceo@ateneapiuraperu.org">ceo@ateneapiuraperu.org</a></dd></div><!--/email_off-->
       <div><dt>Sede</dt><dd>{ADDR} · Perú</dd></div>
       <div><dt>Atención</dt><dd>{HOURS}</dd></div>
     </dl>
