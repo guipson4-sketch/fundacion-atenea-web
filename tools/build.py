@@ -66,7 +66,8 @@ def head(title, desc, canon=""):
 
 LD = """
 <script type="application/ld+json">
-{"@context":"https://schema.org","@type":"NGO","name":"Fundación Atenea","alternateName":"Atenea Piura",
+{"@context":"https://schema.org","@type":"NGO","name":"Fundación Atenea","legalName":"Fundación Atenea Piura Perú","alternateName":"Atenea Piura",
+"founder":{"@type":"Person","name":"Natalia Judith Olmedo Alvarado","jobTitle":"Presidenta del Consejo de Administración y Gerente General","email":"ceo@ateneapiuraperu.org"},
 "url":"https://ateneapiuraperu.org","logo":"https://ateneapiuraperu.org/assets/logo-atenea-transparente.png",
 "image":"https://ateneapiuraperu.org/assets/og-atenea-v2.jpg",
 "description":"Fundación sin fines de lucro con sede en Piura que acompaña a mujeres, varones, niñas, niños y familias en situación de vulnerabilidad en todo el Perú.",
@@ -219,7 +220,7 @@ PAGES["index.html"] = ("Fundación Atenea · Piura, Perú", "Fundación sin fine
     <p class="statement">Atenea está en sus primeros pasos. <em>Todavía no tenemos cifras de actividad ni testimonios que mostrar, y no los vamos a inventar.</em> Cada logro se publicará aquí, con fecha y con evidencia.</p>
     <div class="road" style="margin-top:72px">
       <div class="st on"><i></i><span class="pill">En curso</span><h3>Constitución e inscripción</h3><p>Escritura pública e inscripción en SUNARP (21/10/2026) concluidas; en trámite la inscripción ante el Consejo de Supervigilancia de Fundaciones.</p></div>
-      <div class="st"><i></i><span class="pill">Próximamente</span><h3>Consejo, equipo y aliados</h3><p>Designación del Consejo de Administración y convenios con universidades y colegios profesionales.</p></div>
+      <div class="st on"><i></i><span class="pill">En curso</span><h3>Consejo, equipo y aliados</h3><p>Consejo de Administración designado en la escritura de constitución; en curso, los convenios con universidades y colegios profesionales.</p></div>
       <div class="st"><i></i><span class="pill">Próximamente</span><h3>Primeras campañas</h3><p>Orientación gratuita, salud y ayuda humanitaria, con voluntariado capacitado.</p></div>
       <div class="st"><i></i><span class="pill">Próximamente</span><h3>Primer informe público</h3><p>Resultados, personas atendidas y estados financieros, publicados en esta web.</p></div>
     </div>
@@ -333,14 +334,21 @@ phero(["Nosotros"], 'Cada persona es una pieza. <span class="ital mag">Juntas, u
 </div></section>
 
 <section class="sec bg-white" id="equipo"><div class="wrap">
-  {shead("03","Cómo nos organizamos",'Un gobierno claro, <span class="ital">áreas con función.</span>',"Estos son los órganos y las áreas previstos en el estatuto y en nuestro organigrama. Los nombres se publicarán cuando concluya la inscripción.")}
+  {shead("03","Cómo nos organizamos",'Un gobierno claro, <span class="ital">áreas con función.</span>',"Estos son los órganos y las áreas previstos en el estatuto y en nuestro organigrama, y las personas que hoy los dirigen.")}
   <div class="cols">
-    <div class="col"><span class="k">Gobierno</span><h3>Consejo de Administración</h3><p>Tres miembros (presidencia, vicepresidencia y secretaría), con cargos ad honorem. Dirige la fundación y aprueba sus estados financieros.</p></div>
+    <div class="col"><span class="k">Gobierno</span><h3>Consejo de Administración</h3><p>Tres miembros (presidencia, secretaría y tesorería), con cargos ad honorem por seis años. Dirige la fundación y aprueba sus estados financieros.</p></div>
     <div class="col"><span class="k">Gestión</span><h3>Gerencia General</h3><p>Representa legalmente a la fundación, ejecuta las decisiones del Consejo y presenta los estados financieros y la memoria anual.</p></div>
     <div class="col"><span class="k">Atención</span><h3>Programas</h3><p>Salud, mujeres, varones y familias, niñez, orientación gratuita y ayuda humanitaria, con profesionales habilitados.</p></div>
     <div class="col"><span class="k">Recursos</span><h3>Administración y finanzas</h3><p>Contabilidad externa, tesorería y registro de cada donación.</p></div>
     <div class="col"><span class="k">Red</span><h3>Alianzas y voluntariado</h3><p>Convenios con universidades y colegios profesionales, y voluntariado capacitado.</p></div>
     <div class="col"><span class="k">Confianza</span><h3>Ética y datos personales</h3><p>Atiende quejas y reclamos y cuida el tratamiento de los datos conforme a la Ley N.º 29733.</p></div>
+  </div>
+  <h3 id="consejo" style="margin:72px 0 8px">Consejo de Administración y Gerencia General</h3>
+  <p class="muted" style="margin:0 0 24px">Periodo 2026-2032, según la escritura de constitución inscrita en SUNARP (partida N.º 11345692).</p>
+  <div class="cols">
+    <div class="col"><span class="k">Presidenta y Gerente General</span><h3>Natalia Judith Olmedo Alvarado</h3><p>Presidenta del Consejo, fundadora y representante legal de la fundación.<br><a href="mailto:ceo@ateneapiuraperu.org">ceo@ateneapiuraperu.org</a></p></div>
+    <div class="col"><span class="k">Secretaria del Consejo</span><h3>Marisol Alvarado Choquehuanca</h3><p>Lleva el libro de actas y la documentación del Consejo.</p></div>
+    <div class="col"><span class="k">Tesorero del Consejo</span><h3>Franz Ricardo Fossa Morales</h3><p>Supervisa el manejo de los fondos y su rendición de cuentas.</p></div>
   </div>
 </div></section>
 
@@ -654,7 +662,7 @@ ARTS = [
  ("Art. 5","Patrimonio","<p>Lo constituyen el aporte de la fundadora, las contribuciones y donaciones de personas naturales o jurídicas, nacionales o extranjeras, los bienes que adquiera y los frutos de sus bienes, siempre que se destinen íntegramente a sus fines.</p>"),
  ("Art. 9","Contabilidad","<p>Está obligada a llevar contabilidad y los libros que señalen las leyes y los que una buena administración demande.</p>"),
  ("Art. 10","Órganos de administración","<p>El Consejo de Administración y la Gerencia General. Los cargos del Consejo los designa la fundadora; la Gerencia General la designa el Consejo.</p>"),
- ("Art. 11","Consejo de Administración","<p>Lo integran tres miembros: presidencia, vicepresidencia y secretaría, con cargos de seis años. Se reúne en sesión ordinaria cada trimestre y una vez al año, dentro de los tres meses del cierre del ejercicio, para aprobar los estados financieros que presenta la Gerencia General.</p>"),
+ ("Art. 11","Consejo de Administración","<p>Lo integran tres miembros: presidencia, secretaría y tesorería, con cargos de seis años. Se reúne en sesión ordinaria cada trimestre y una vez al año, dentro de los tres meses del cierre del ejercicio, para aprobar los estados financieros que presenta la Gerencia General.</p>"),
  ("Art. 14","Cargos sin lucro","<p>Los miembros del Consejo ejercen su cargo sin fines de lucro: solo pueden reembolsarse gastos necesarios, razonables y debidamente sustentados. De sus resoluciones se deja constancia en un libro de actas.</p>"),
  ("Art. 17","Gerencia General","<p>Tiene la representación legal y las facultades de gestión necesarias para administrar la fundación dentro de su objeto, conforme a las instrucciones del Consejo: dirigir las actividades, cuidar la contabilidad, presentar estados financieros y memoria anual, y contratar al personal.</p>"),
  ("Art. 18","Disolución","<p>El Consejo puede decidir la disolución y la liquidación conforme a la ley. Pagadas las obligaciones, el patrimonio remanente no se distribuye entre la fundadora, los administradores o terceros: se destina a otra entidad sin fines de lucro de beneficencia o asistencia social en el Perú.</p>"),
@@ -669,7 +677,7 @@ phero(["Transparencia"], 'Cada sol, <span class="ital mag">a la vista.</span>',
   {shead("01","Documentos",'Cuentas claras, <span class="ital">confianza que crece.</span>')}
   <div class="rows">
     <a class="row" href="#estatuto"><span class="n">01</span><h3>Estatuto</h3><p class="body">Resumen del texto fundacional: fines, gobierno, patrimonio y disolución.</p><span class="go">Leer →</span></a>
-    <div class="row"><span class="n">02</span><h3>Consejo de Administración</h3><p class="body">Quiénes dirigen la fundación y cómo se eligen.</p><span class="go muted">Próximamente</span></div>
+    <a class="row" href="nosotros.html#consejo"><span class="n">02</span><h3>Consejo de Administración</h3><p class="body">Quiénes dirigen la fundación y cómo se eligen.</p><span class="go">Ver →</span></a>
     <div class="row"><span class="n">03</span><h3>Estados financieros</h3><p class="body">Ingresos y gastos, presentados al Consejo de Supervigilancia de Fundaciones.</p><span class="go muted">Al cierre 2026</span></div>
     <div class="row"><span class="n">04</span><h3>Memoria anual</h3><p class="body">Actividades, personas atendidas y resultados del año.</p><span class="go muted">Al cierre 2026</span></div>
   </div>
