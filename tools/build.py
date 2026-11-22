@@ -59,7 +59,7 @@ def head(title, desc, canon=""):
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&amp;display=swap" rel="stylesheet">
-<link rel="stylesheet" href="assets/atenea-v3.css?v=20261122e">{analytics_tags()}
+<link rel="stylesheet" href="assets/atenea-v3.css?v=20261122g">{analytics_tags()}
 </head>
 <body>
 <a class="skip" href="#contenido">Saltar al contenido</a>
@@ -109,7 +109,7 @@ FOOT = f"""</main>
   </div>
 </footer>
 <a class="wa-float" href="{WA_URL}" target="_blank" rel="noopener" aria-label="Escribir por WhatsApp a la Fundación Atenea"><svg viewBox="0 0 32 32" width="28" height="28" aria-hidden="true" focusable="false"><path fill="currentColor" d="M16 3C8.8 3 3 8.7 3 15.8c0 2.5.7 4.8 2 6.8L3 29l6.6-2c1.9 1 4 1.6 6.4 1.6 7.2 0 13-5.8 13-12.9S23.2 3 16 3zm0 23.300c-2.100 0-4.100-.6-5.800-1.700l-.4-.2-3.900 1.200 1.300-3.800-.3-.4a10.200 10.200 0 0 1-1.600-5.500C5.300 10 10.100 5.400 16 5.400s10.700 4.600 10.700 10.300S21.900 26.300 16 26.300zm5.900-7.600c-.3-.2-1.900-.9-2.200-1-.3-.1-.5-.2-.7.200-.2.300-.8 1-1 1.200-.2.200-.4.200-.7.100-.3-.2-1.400-.5-2.600-1.600-1-.9-1.600-1.900-1.800-2.300-.2-.3 0-.5.100-.6l.5-.6c.2-.2.200-.3.300-.5.100-.2.100-.4 0-.6-.1-.2-.7-1.700-1-2.300-.3-.6-.5-.5-.7-.5h-.6c-.2 0-.6.100-.9.400-.3.300-1.200 1.200-1.200 2.800s1.200 3.300 1.400 3.500c.2.200 2.400 3.600 5.700 5 .8.300 1.400.5 1.900.7.8.2 1.500.2 2.100.1.600-.1 1.900-.8 2.200-1.500.3-.8.3-1.400.2-1.500-.1-.2-.3-.3-.6-.4z"/></svg><span>WhatsApp</span></a>
-<script src="assets/atenea-v2.js?v=20261122e"></script>
+<script src="assets/atenea-v2.js?v=20261122g"></script>
 </body>
 </html>
 """
@@ -196,7 +196,7 @@ def related_guides(file):
 # ---------------- INICIO ----------------
 PAGES["index.html"] = ("Fundación Atenea · Piura, Perú", "Fundación sin fines de lucro con sede en Piura que acompaña a mujeres, varones, niñas, niños y familias en situación de vulnerabilidad en todo el Perú.", "index.html", f"""
 <section class="fb">
-  <img src="assets/img/portada-v2.jpg" alt="Voluntariado y profesionales de la Fundación Atenea conversando durante una jornada comunitaria en Piura" width="1400" height="933" fetchpriority="high">
+  <img src="assets/img/portada-v4.jpg" alt="Equipo de voluntariado y profesionales de la Fundación Atenea saludando bajo el arco con el logo de la fundación durante una jornada comunitaria en Piura" width="1448" height="1086" fetchpriority="high">
   <span class="tag-i">Fundación sin fines de lucro · Sede en Piura · Todo el Perú</span>
   <div class="wrap">
     <h1>Juntos por un <span class="ital">mejor mañana.</span></h1>
@@ -916,7 +916,7 @@ def seo_extra(f, title):
     out = ""
     if f == "index.html":
         out += jld({"@context":"https://schema.org","@type":"WebSite","name":"Fundación Atenea","url":SITE+"/","inLanguage":"es-PE","publisher":{"@type":"NGO","name":"Fundación Atenea"}})
-        out += '\n<link rel="preload" as="image" href="assets/img/portada-v2.jpg" fetchpriority="high">'
+        out += '\n<link rel="preload" as="image" href="assets/img/portada-v4.jpg" fetchpriority="high">'
     elif f not in NOINDEX:
         crumbs = [("Inicio", SITE + "/")]
         if f in PROG:
