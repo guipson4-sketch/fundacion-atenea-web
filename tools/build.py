@@ -5,7 +5,8 @@ sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 from guias import GUIDES, GUIDE_FILES, EMERGENCIA, UPDATED as GUIDES_UPDATED
 OUT = sys.argv[1] if len(sys.argv) > 1 else os.path.join(os.path.dirname(__file__), "..")
 
-WA = ""; WA_TXT = ""      # sin WhatsApp oficial todavía: no se muestra ningún número
+WA = "51907841529"; WA_TXT = "907 841 529"      # WhatsApp oficial de la fundación
+WA_URL = f"https://wa.me/{WA}?text=Hola%2C%20quisiera%20informaci%C3%B3n%20de%20la%20Fundaci%C3%B3n%20Atenea."
 MAIL = "contacto@ateneapiuraperu.org"
 ADDR = "Jr. Circunvalación N.° 1384 - Piura"
 RUC = "20616737172"      # RUC activo (SUNAT)
@@ -99,7 +100,7 @@ FOOT = f"""</main>
       <div><span class="logo-w"><img src="assets/logo-atenea-blanco.png" alt="Fundación Atenea" width="166" height="64"></span></div>
       <div><h4>Fundación</h4><ul><li><a href="nosotros.html">Nosotros</a></li><li><a href="programas.html">Programas</a></li><li><a href="historias.html">Historias</a></li><li><a href="transparencia.html">Transparencia y estatuto</a></li><li><a href="consultorias.html">Consultorías</a></li></ul></div>
       <div><h4>Participa</h4><ul><li><a href="involucrate.html#donar">Donar</a></li><li><a href="involucrate.html#voluntariado">Voluntariado</a></li><li><a href="involucrate.html#alianzas">Alianzas</a></li><li><a href="contacto.html">Contacto</a></li></ul></div>
-      <div><h4>Contacto</h4><ul><li><!--email_off--><a href="mailto:{MAIL}">{MAIL}</a><!--/email_off--></li><li>{ADDR}</li><li>{HOURS}</li></ul></div>
+      <div><h4>Contacto</h4><ul><li><!--email_off--><a href="mailto:{MAIL}">{MAIL}</a><!--/email_off--></li><li><a href="{WA_URL}" rel="noopener" target="_blank">WhatsApp {WA_TXT}</a></li><li>{ADDR}</li><li>{HOURS}</li></ul></div>
     </div>
     <div class="legal">
       <span>© 2026 Fundación Atenea · Piura, Perú · Inscrita en SUNARP (partida 11345692) · RUC 20616737172</span>
@@ -107,6 +108,7 @@ FOOT = f"""</main>
     </div>
   </div>
 </footer>
+<a class="wa-float" href="{WA_URL}" target="_blank" rel="noopener" aria-label="Escribir por WhatsApp a la Fundación Atenea"><svg viewBox="0 0 32 32" width="28" height="28" aria-hidden="true" focusable="false"><path fill="currentColor" d="M16 3C8.8 3 3 8.7 3 15.8c0 2.5.7 4.8 2 6.8L3 29l6.6-2c1.9 1 4 1.6 6.4 1.6 7.2 0 13-5.8 13-12.9S23.2 3 16 3zm0 23.300c-2.100 0-4.100-.6-5.800-1.700l-.4-.2-3.900 1.200 1.300-3.800-.3-.4a10.200 10.200 0 0 1-1.600-5.500C5.300 10 10.100 5.400 16 5.400s10.700 4.600 10.700 10.300S21.900 26.300 16 26.300zm5.900-7.600c-.3-.2-1.900-.9-2.200-1-.3-.1-.5-.2-.7.200-.2.300-.8 1-1 1.200-.2.200-.4.200-.7.100-.3-.2-1.400-.5-2.600-1.600-1-.9-1.600-1.900-1.800-2.300-.2-.3 0-.5.100-.6l.5-.6c.2-.2.200-.3.300-.5.100-.2.100-.4 0-.6-.1-.2-.7-1.700-1-2.300-.3-.6-.5-.5-.7-.5h-.6c-.2 0-.6.100-.9.400-.3.300-1.200 1.200-1.200 2.800s1.200 3.300 1.400 3.500c.2.200 2.400 3.600 5.700 5 .8.300 1.400.5 1.900.7.8.2 1.500.2 2.100.1.600-.1 1.900-.8 2.200-1.500.3-.8.3-1.400.2-1.500-.1-.2-.3-.3-.6-.4z"/></svg><span>WhatsApp</span></a>
 <script src="assets/atenea-v2.js"></script>
 </body>
 </html>
@@ -744,11 +746,12 @@ CONTACT_FAQ = [
 PAGES["contacto.html"] = ("Contacto · Fundación Atenea", "Escríbenos, llámanos o visítanos en Piura.", "contacto.html",
 phero(["Contacto"], 'Escríbenos. <span class="ital mag">Respondemos.</span>',
  "Estamos para escucharte. Respondemos en un plazo máximo de 48 horas hábiles y tus datos son confidenciales.",
- '<a class="btn btn-main" href="mailto:ayuda@ateneapiuraperu.org">Escribir a ayuda@ →</a><small>En emergencias: Línea 100 · Policía 105</small>') + f"""
+ f'<a class="btn btn-main" href="{WA_URL}" target="_blank" rel="noopener">Escribir por WhatsApp →</a><a class="btn btn-line" href="mailto:ayuda@ateneapiuraperu.org">Escribir a ayuda@</a><small>En emergencias: Línea 100 · Policía 105</small>') + f"""
 <section class="sec bg-white"><div class="wrap split">
   <div class="l">
     <p class="eyebrow"><b>01</b> Datos de contacto</p>
     <dl class="kv" style="margin-top:32px">
+      <div><dt>WhatsApp</dt><dd><a href="{WA_URL}" target="_blank" rel="noopener">{WA_TXT}</a></dd></div>
       <!--email_off--><div><dt>Correo general</dt><dd><a href="mailto:{MAIL}">{MAIL}</a></dd></div>
       <div><dt>Necesito ayuda</dt><dd><a href="mailto:ayuda@ateneapiuraperu.org">ayuda@ateneapiuraperu.org</a></dd></div>
       <div><dt>Voluntariado</dt><dd><a href="mailto:voluntariado@ateneapiuraperu.org">voluntariado@ateneapiuraperu.org</a></dd></div>
