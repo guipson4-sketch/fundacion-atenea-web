@@ -707,3 +707,6 @@ html.anim .phero h1{animation:hero-up .9s cubic-bezier(.2,.7,.2,1) .05s both}
 .wa-float:hover{background:#1EBE5A}
 .wa-float:focus-visible{outline:3px solid var(--ink);outline-offset:3px}
 @media (max-width:600px){.wa-float{padding:14px}.wa-float span{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0)}}
+
+.pimg-mosaico img{aspect-ratio:16/9;max-height:none;object-position:50% 50%;filter:none}
+@media(max-width:600px){.pimg-mosaico img{aspect-ratio:4/3;object-position:50% 50%}}

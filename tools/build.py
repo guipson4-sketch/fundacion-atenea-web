@@ -42,7 +42,7 @@ def head(title, desc, canon=""):
 <meta name="description" content="{desc}">
 <meta property="og:title" content="{title}">
 <meta property="og:description" content="{desc}">
-<meta property="og:image" content="https://ateneapiuraperu.org/assets/og-atenea-v2.jpg">
+<meta property="og:image" content="https://ateneapiuraperu.org/assets/og-atenea-v3.jpg">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
 <meta property="og:type" content="website">
@@ -50,7 +50,7 @@ def head(title, desc, canon=""):
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="{title}">
 <meta name="twitter:description" content="{desc}">
-<meta name="twitter:image" content="https://ateneapiuraperu.org/assets/og-atenea-v2.jpg">{ld}
+<meta name="twitter:image" content="https://ateneapiuraperu.org/assets/og-atenea-v3.jpg">{ld}
 <meta property="og:locale" content="es_PE">
 <meta name="theme-color" content="#3E0D2C">
 <link rel="icon" href="assets/logo-atenea-transparente.png">
@@ -59,7 +59,7 @@ def head(title, desc, canon=""):
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&amp;display=swap" rel="stylesheet">
-<link rel="stylesheet" href="assets/atenea-v3.css?v=20261122">{analytics_tags()}
+<link rel="stylesheet" href="assets/atenea-v3.css?v=20261122b">{analytics_tags()}
 </head>
 <body>
 <a class="skip" href="#contenido">Saltar al contenido</a>
@@ -70,7 +70,7 @@ LD = """
 {"@context":"https://schema.org","@type":"NGO","name":"Fundación Atenea","legalName":"Fundación Atenea Piura Perú","alternateName":"Atenea Piura",
 "founder":{"@type":"Person","name":"Natalia Judith Olmedo Alvarado","jobTitle":"Presidenta del Consejo de Administración y Gerente General","email":"ceo@ateneapiuraperu.org"},
 "url":"https://ateneapiuraperu.org","logo":"https://ateneapiuraperu.org/assets/logo-atenea-transparente.png",
-"image":"https://ateneapiuraperu.org/assets/og-atenea-v2.jpg",
+"image":"https://ateneapiuraperu.org/assets/og-atenea-v3.jpg",
 "description":"Fundación sin fines de lucro con sede en Piura que acompaña a mujeres, varones, niñas, niños y familias en situación de vulnerabilidad en todo el Perú.",
 "email":"contacto@ateneapiuraperu.org","nonprofitStatus":"Nonprofit",
 "address":{"@type":"PostalAddress","streetAddress":"Jr. Circunvalación N.° 1384","addressLocality":"Piura","addressRegion":"Piura","addressCountry":"PE"},
@@ -109,7 +109,7 @@ FOOT = f"""</main>
   </div>
 </footer>
 <a class="wa-float" href="{WA_URL}" target="_blank" rel="noopener" aria-label="Escribir por WhatsApp a la Fundación Atenea"><svg viewBox="0 0 32 32" width="28" height="28" aria-hidden="true" focusable="false"><path fill="currentColor" d="M16 3C8.8 3 3 8.7 3 15.8c0 2.5.7 4.8 2 6.8L3 29l6.6-2c1.9 1 4 1.6 6.4 1.6 7.2 0 13-5.8 13-12.9S23.2 3 16 3zm0 23.300c-2.100 0-4.100-.6-5.800-1.700l-.4-.2-3.900 1.200 1.300-3.800-.3-.4a10.200 10.200 0 0 1-1.600-5.500C5.300 10 10.100 5.400 16 5.400s10.700 4.600 10.700 10.300S21.900 26.300 16 26.300zm5.900-7.600c-.3-.2-1.900-.9-2.200-1-.3-.1-.5-.2-.7.200-.2.300-.8 1-1 1.200-.2.200-.4.200-.7.100-.3-.2-1.400-.5-2.600-1.600-1-.9-1.600-1.900-1.800-2.300-.2-.3 0-.5.100-.6l.5-.6c.2-.2.200-.3.300-.5.100-.2.100-.4 0-.6-.1-.2-.7-1.700-1-2.300-.3-.6-.5-.5-.7-.5h-.6c-.2 0-.6.100-.9.400-.3.300-1.200 1.200-1.200 2.800s1.200 3.300 1.400 3.500c.2.200 2.400 3.600 5.700 5 .8.300 1.400.5 1.900.7.8.2 1.500.2 2.100.1.600-.1 1.900-.8 2.200-1.500.3-.8.3-1.400.2-1.500-.1-.2-.3-.3-.6-.4z"/></svg><span>WhatsApp</span></a>
-<script src="assets/atenea-v2.js?v=20261122"></script>
+<script src="assets/atenea-v2.js?v=20261122b"></script>
 </body>
 </html>
 """
@@ -120,8 +120,8 @@ def crumb(*parts):
         out.append(f'<a href="{p[0]}">{p[1]}</a>' if isinstance(p, tuple) else p)
     return '<nav class="crumb" aria-label="Ruta de navegación">' + '<span aria-hidden="true">/</span>'.join(out) + '</nav>'
 
-def phero(crumbs, h1, lead, side="", img=None, cap=None):
-    media = (f'<figure class="pimg"><img src="assets/img/{img}" alt="{cap or 'Jornada comunitaria de la Fundación Atenea en Piura'}" width="1400" height="560"><figcaption>{cap or "Jornada comunitaria de la Fundación Atenea en Piura."}</figcaption></figure>'
+def phero(crumbs, h1, lead, side="", img=None, cap=None, alt=None, cls="", srcset=None):
+    media = (f'<figure class="pimg {cls}"><img src="assets/img/{img}" {f'srcset="{srcset}" sizes="(max-width:900px) 100vw, 1200px" ' if srcset else ''}alt="{alt or cap or 'Jornada comunitaria de la Fundación Atenea en Piura'}" width="1600" height="900" fetchpriority="high"><figcaption>{cap or "Jornada comunitaria de la Fundación Atenea en Piura."}</figcaption></figure>'
              if img else '<div class="pband" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i></div>')
     return f"""<section class="phero"><div class="wrap">
   {crumb(*crumbs)}
@@ -567,7 +567,7 @@ def guide_page(g):
     others = "".join(f'<a class="row" href="{o["file"]}"><span class="n">{o["tag"]}</span><h3>{o["short"]}</h3><span class="go">Leer guía →</span></a>' for o in GUIDES if o is not g)
     PAGES[g["file"]] = (g["title"], g["desc"], "historias.html",
     phero([("historias.html","Guías"), g["tag"]], g["h1"], g["lead"],
-      '<a class="btn btn-main" href="contacto.html">Pedir orientación gratuita →</a><small>Actualizado: 12 de noviembre de 2026</small>') + f"""
+      '<a class="btn btn-main" href="contacto.html">Pedir orientación gratuita →</a><small>Actualizado: 12 de noviembre de 2026</small>', **({"img": "manos-mosaico.jpg", "cap": "Cada aporte es una faceta del mosaico.", "alt": "Manos de distintas tonalidades unidas en el centro sobre un mosaico de colores", "cls": "pimg-mosaico", "srcset": "assets/img/manos-mosaico-800.jpg 800w, assets/img/manos-mosaico.jpg 1600w"} if g["file"] == "guia-como-donar-en-piura.html" else {})) + f"""
 <section class="sec bg-white"><div class="wrap">
   <article class="guide">
     {EMERGENCIA}
@@ -599,7 +599,7 @@ PAGES["historias.html"] = (_t, _d, _c, _b.replace('<section class="sec" id="guia
 PAGES["involucrate.html"] = ("Involúcrate · Fundación Atenea", "Dona, ofrece tu tiempo o súmate como aliado de la Fundación Atenea.", "involucrate.html",
 phero(["Involúcrate"], 'Suma tu color <span class="ital mag">al mosaico.</span>',
  "Dona, ofrece tu tiempo o súmate como aliado. Cada aporte se convierte en ayuda concreta, desde Piura y en todo el Perú.",
- '<a class="btn btn-mag" href="#donar">Donar ahora →</a><a class="btn btn-line" href="#voluntariado">Ser voluntaria/o</a>', "voluntariado-v2.jpg") + f"""
+ '<a class="btn btn-mag" href="#donar">Donar ahora →</a><a class="btn btn-line" href="#voluntariado">Ser voluntaria/o</a>', "manos-mosaico.jpg", cap="Cada aporte es una faceta del mosaico.", alt="Manos de distintas tonalidades unidas en el centro sobre un mosaico de colores", cls="pimg-mosaico", srcset="assets/img/manos-mosaico-800.jpg 800w, assets/img/manos-mosaico.jpg 1600w") + f"""
 <section class="sec bg-white" id="donar"><div class="wrap">
   {shead("01","Dona",'Tu aporte, <span class="ital">en ayuda concreta.</span>',"Aún no hemos habilitado los canales oficiales de donación: se publicarán aquí al concluir la inscripción de la fundación.")}
   <div class="cols">
@@ -902,7 +902,7 @@ def seo_extra(f, title):
         url = SITE + "/" + f[:-5]
         org = {"@type":"NGO","name":"Fundación Atenea","url":SITE+"/","logo":{"@type":"ImageObject","url":SITE+"/assets/logo-atenea-transparente.png"}}
         out += jld({"@context":"https://schema.org","@type":"Article","headline":g["short"],"description":g["desc"],"inLanguage":"es-PE",
-          "datePublished":GUIDES_UPDATED,"dateModified":GUIDES_UPDATED,"mainEntityOfPage":url,"image":SITE+"/assets/og-atenea-v2.jpg",
+          "datePublished":GUIDES_UPDATED,"dateModified":GUIDES_UPDATED,"mainEntityOfPage":url,"image":SITE+"/assets/og-atenea-v3.jpg",
           "author":org,"publisher":org,"about":g["tag"],"spatialCoverage":{"@type":"Place","name":"Piura, Perú"}})
         out += jld({"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":q,"acceptedAnswer":{"@type":"Answer","text":a}} for q,a in g["faqs"]]})
     if f == "historias.html":
