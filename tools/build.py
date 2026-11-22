@@ -59,7 +59,7 @@ def head(title, desc, canon=""):
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&amp;display=swap" rel="stylesheet">
-<link rel="stylesheet" href="assets/atenea-v3.css?v=20261122d">{analytics_tags()}
+<link rel="stylesheet" href="assets/atenea-v3.css?v=20261122e">{analytics_tags()}
 </head>
 <body>
 <a class="skip" href="#contenido">Saltar al contenido</a>
@@ -109,7 +109,7 @@ FOOT = f"""</main>
   </div>
 </footer>
 <a class="wa-float" href="{WA_URL}" target="_blank" rel="noopener" aria-label="Escribir por WhatsApp a la Fundación Atenea"><svg viewBox="0 0 32 32" width="28" height="28" aria-hidden="true" focusable="false"><path fill="currentColor" d="M16 3C8.8 3 3 8.7 3 15.8c0 2.5.7 4.8 2 6.8L3 29l6.6-2c1.9 1 4 1.6 6.4 1.6 7.2 0 13-5.8 13-12.9S23.2 3 16 3zm0 23.300c-2.100 0-4.100-.6-5.800-1.700l-.4-.2-3.900 1.200 1.300-3.800-.3-.4a10.200 10.200 0 0 1-1.600-5.500C5.300 10 10.100 5.400 16 5.400s10.700 4.600 10.700 10.300S21.900 26.300 16 26.300zm5.900-7.600c-.3-.2-1.900-.9-2.200-1-.3-.1-.5-.2-.7.200-.2.300-.8 1-1 1.200-.2.200-.4.200-.7.100-.3-.2-1.400-.5-2.600-1.600-1-.9-1.600-1.900-1.800-2.300-.2-.3 0-.5.100-.6l.5-.6c.2-.2.200-.3.300-.5.100-.2.100-.4 0-.6-.1-.2-.7-1.700-1-2.300-.3-.6-.5-.5-.7-.5h-.6c-.2 0-.6.100-.9.400-.3.300-1.200 1.200-1.200 2.800s1.200 3.300 1.400 3.500c.2.200 2.400 3.600 5.700 5 .8.300 1.400.5 1.900.7.8.2 1.500.2 2.100.1.600-.1 1.900-.8 2.200-1.500.3-.8.3-1.400.2-1.500-.1-.2-.3-.3-.6-.4z"/></svg><span>WhatsApp</span></a>
-<script src="assets/atenea-v2.js?v=20261122d"></script>
+<script src="assets/atenea-v2.js?v=20261122e"></script>
 </body>
 </html>
 """
@@ -524,8 +524,36 @@ phero(["Guías y novedades"], 'Información <span class="ital mag">que acompaña
   </div>
 </div></section>
 
-<section class="sec bg-white" id="primera-actividad"><div class="wrap">
-  {shead("02","Novedades",'Nuestra primera <span class="ital">actividad.</span>',"Campaña médica gratuita en Villa El Salvador, Castilla (Piura): salud y prevención para quienes más lo necesitan.")}
+<section class="sec bg-white" id="segunda-actividad"><div class="wrap">
+  {shead("02","Novedades",'Nuestra segunda <span class="ital">campaña médica.</span>',"Gran Campaña Médica: atención gratuita para toda la familia, con juegos, animación y bolsitas de regalo para niñas y niños.")}
+  <div class="act">
+    <dl>
+      <div><dt>Cuándo</dt><dd>Domingo 8 de noviembre de 2026, desde las 9:00 a. m.</dd></div>
+      <div><dt>Dónde</dt><dd>UPIS Salital de los Pinos, Mz. E 13 y 12, en toda la avenida El Tallán.</dd></div>
+      <div><dt>Para quién</dt><dd>Toda la familia, con atención gratuita.</dd></div>
+      <div><dt>Qué ofrecimos</dt><dd>Medicina general, odontología, psicología, obstetricia, fisioterapia, farmacia, otras especialidades y corte de cabello, todo gratuito.</dd></div>
+      <div><dt>Y además</dt><dd>Animación y juegos para niñas y niños, y bolsitas de regalo.</dd></div>
+    </dl>
+    <div class="gal">
+      <figure class="wide"><img src="assets/img/jornada-8nov/equipo-grupo.jpg" srcset="assets/img/jornada-8nov/equipo-grupo-800.jpg 800w, assets/img/jornada-8nov/equipo-grupo.jpg 1600w" sizes="(max-width:900px) 100vw, 600px" alt="Equipo de voluntariado, profesionales y organizadores de la Fundación Atenea posando junto a los banners bajo una carpa anaranjada" width="1600" height="900" loading="lazy" decoding="async"><figcaption>El equipo que hizo posible la jornada.</figcaption></figure>
+      <figure><img src="assets/img/jornada-8nov/montaje-carpas.jpg" srcset="assets/img/jornada-8nov/montaje-carpas-800.jpg 800w, assets/img/jornada-8nov/montaje-carpas.jpg 1600w" sizes="(max-width:900px) 100vw, 600px" alt="Montaje de las carpas anaranjadas desde la mañana, con la estructura metálica extendida sobre el arenal" width="1600" height="900" loading="lazy" decoding="async"><figcaption>Desde temprano: levantando las carpas.</figcaption></figure>
+      <figure><img src="assets/img/jornada-8nov/preparando-regalos.jpg" srcset="assets/img/jornada-8nov/preparando-regalos-800.jpg 800w, assets/img/jornada-8nov/preparando-regalos.jpg 1600w" sizes="(max-width:900px) 100vw, 600px" alt="Voluntarias y voluntarios alistando cajas y bolsitas de regalo sobre una mesa bajo la carpa" width="1600" height="900" loading="lazy" decoding="async"><figcaption>Alistando las bolsitas de regalo.</figcaption></figure>
+      <figure><img src="assets/img/jornada-8nov/atencion-banner.jpg" srcset="assets/img/jornada-8nov/atencion-banner-800.jpg 800w, assets/img/jornada-8nov/atencion-banner.jpg 1600w" sizes="(max-width:900px) 100vw, 600px" alt="Mesas de atención bajo la carpa, con familias sentadas y el banner Juntos por un mejor mañana" width="1600" height="900" loading="lazy" decoding="async"><figcaption>Puntos de atención bajo las carpas.</figcaption></figure>
+      <figure><img src="assets/img/jornada-8nov/juegos-animadoras.jpg" srcset="assets/img/jornada-8nov/juegos-animadoras-800.jpg 800w, assets/img/jornada-8nov/juegos-animadoras.jpg 1600w" sizes="(max-width:900px) 100vw, 600px" alt="Animadoras vestidas de colores jugando con niñas y niños en el arenal" width="1600" height="900" loading="lazy" decoding="async"><figcaption>Una mañana de juego y animación.</figcaption></figure>
+      <figure><img src="assets/img/jornada-8nov/bolsitas-banner.jpg" srcset="assets/img/jornada-8nov/bolsitas-banner-800.jpg 800w, assets/img/jornada-8nov/bolsitas-banner.jpg 1600w" sizes="(max-width:900px) 100vw, 600px" alt="Niñas y niños junto a la mesa de bolsitas de regalo y el banner de la fundación" width="1600" height="900" loading="lazy" decoding="async"><figcaption>Cada niña y niño recibió su bolsita.</figcaption></figure>
+      <figure><img src="assets/img/jornada-8nov/mesa-entrega.jpg" srcset="assets/img/jornada-8nov/mesa-entrega-800.jpg 800w, assets/img/jornada-8nov/mesa-entrega.jpg 1600w" sizes="(max-width:900px) 100vw, 600px" alt="Voluntarias y voluntarios organizando la mesa de la jornada bajo la carpa" width="1600" height="900" loading="lazy" decoding="async"><figcaption>Organizando la mesa de la jornada.</figcaption></figure>
+      <figure class="wide"><img src="assets/img/jornada-8nov/animacion-general.jpg" srcset="assets/img/jornada-8nov/animacion-general-800.jpg 800w, assets/img/jornada-8nov/animacion-general.jpg 1600w" sizes="(max-width:900px) 100vw, 600px" alt="Animadoras y decenas de niñas y niños bailando y jugando bajo el sol, con las carpas y el banner de la fundación al fondo" width="1600" height="900" loading="lazy" decoding="async"><figcaption>8 de noviembre de 2026: animación y juegos.</figcaption></figure>
+      <figure><img src="assets/img/jornada-8nov/descarga-viveres.jpg" srcset="assets/img/jornada-8nov/descarga-viveres-800.jpg 800w, assets/img/jornada-8nov/descarga-viveres.jpg 1600w" sizes="(max-width:900px) 100vw, 600px" alt="Voluntarios descargando cajas de una camioneta junto al banner de la Fundación Atenea" width="1600" height="900" loading="lazy" decoding="async"><figcaption>8 de noviembre de 2026: descargando las cajas.</figcaption></figure>
+      <figure><img src="assets/img/jornada-8nov/reparto-viveres.jpg" srcset="assets/img/jornada-8nov/reparto-viveres-800.jpg 800w, assets/img/jornada-8nov/reparto-viveres.jpg 1600w" sizes="(max-width:900px) 100vw, 600px" alt="Voluntarios entregando una caja con bolsas a familias sentadas en sillas blancas" width="1600" height="900" loading="lazy" decoding="async"><figcaption>8 de noviembre de 2026: entrega a las familias.</figcaption></figure>
+      <figure><img src="assets/img/jornada-8nov/entrega-familias.jpg" srcset="assets/img/jornada-8nov/entrega-familias-800.jpg 800w, assets/img/jornada-8nov/entrega-familias.jpg 1600w" sizes="(max-width:900px) 100vw, 600px" alt="Voluntario con la camiseta de Atenea sosteniendo una caja verde frente a familias sentadas" width="1600" height="900" loading="lazy" decoding="async"><figcaption>8 de noviembre de 2026: reparto en el sector.</figcaption></figure>
+      <figure><img src="assets/img/jornada-8nov/mascotas-bolsitas.jpg" srcset="assets/img/jornada-8nov/mascotas-bolsitas-800.jpg 800w, assets/img/jornada-8nov/mascotas-bolsitas.jpg 1600w" sizes="(max-width:900px) 100vw, 600px" alt="Mascotas, niñas y niños bajo la carpa anaranjada junto a la mesa con bolsitas de regalo" width="1600" height="900" loading="lazy" decoding="async"><figcaption>8 de noviembre de 2026: bolsitas de regalo y mascotas.</figcaption></figure>
+    </div>
+  </div>
+  <p class="muted" style="margin-top:28px;font-size:14px">Las imágenes de niñas y niños se publican con la autorización de sus madres, padres o tutores; no mostramos a personas recibiendo atención médica.</p>
+</div></section>
+
+<section class="sec" id="primera-actividad"><div class="wrap">
+  {shead("03","Novedades",'Nuestra primera <span class="ital">actividad.</span>',"Campaña médica gratuita en Villa El Salvador, Castilla (Piura): salud y prevención para quienes más lo necesitan.")}
   <div class="act">
     <dl>
       <div><dt>Cuándo</dt><dd>Domingo 25 de octubre de 2026, desde las 9:00 a. m.</dd></div>
