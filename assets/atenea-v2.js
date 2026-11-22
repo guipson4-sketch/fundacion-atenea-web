@@ -70,7 +70,7 @@
 
 // Asistente de soporte (Gemini vía función del servidor /api/chat)
 (function(){
-  var WA='contacto.html';
+  var WA='https://wa.me/51907841529?text=Hola%2C%20quisiera%20informaci%C3%B3n%20de%20la%20Fundaci%C3%B3n%20Atenea.';
   var open=document.createElement('button');
   open.className='bot-open'; open.type='button';
   open.setAttribute('aria-haspopup','dialog');
@@ -82,7 +82,7 @@
     '<div class="bot-log" aria-live="polite"></div>'+
     '<div class="bot-q"></div>'+
     '<form class="bot-f"><label class="skip" for="bot-in">Tu pregunta</label><textarea id="bot-in" rows="1" maxlength="800" placeholder="Escribe tu pregunta…"></textarea><button type="submit">Enviar</button></form>'+
-    '<p class="bot-n">No compartas datos personales, de salud ni detalles de tu caso: este chat usa IA de Google. ¿En peligro? Llama a la Línea 100. <a href="'+WA+'">Escribir al equipo</a></p>';
+    '<p class="bot-n">No compartas datos personales, de salud ni detalles de tu caso: este chat usa IA de Google. ¿En peligro? Llama a la Línea 100. <a href="'+WA+'" target="_blank" rel="noopener">Escribir al equipo por WhatsApp</a></p>';
   document.body.appendChild(open); document.body.appendChild(box);
   var log=box.querySelector('.bot-log'), form=box.querySelector('form'), input=box.querySelector('textarea'),
       send=form.querySelector('button'), quick=box.querySelector('.bot-q');

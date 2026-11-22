@@ -702,3 +702,8 @@ html.anim .phero h1{animation:hero-up .9s cubic-bezier(.2,.7,.2,1) .05s both}
 .guide a:not(.btn){color:var(--guinda);text-decoration:underline;text-underline-offset:3px}
 .guide .faq{margin-top:8px}
 .guide .guide-note{font-size:14px;margin-top:40px}
+
+.wa-float{position:fixed;left:20px;bottom:20px;z-index:40;display:inline-flex;align-items:center;gap:10px;background:#25D366;color:#fff;text-decoration:none;font:600 15px/1 var(--body);padding:14px 18px;border-radius:999px;box-shadow:0 6px 20px rgba(0,0,0,.22)}
+.wa-float:hover{background:#1EBE5A}
+.wa-float:focus-visible{outline:3px solid var(--ink);outline-offset:3px}
+@media (max-width:600px){.wa-float{padding:14px}.wa-float span{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0)}}
