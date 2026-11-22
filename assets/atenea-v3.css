@@ -710,3 +710,9 @@ html.anim .phero h1{animation:hero-up .9s cubic-bezier(.2,.7,.2,1) .05s both}
 
 .pimg-mosaico img{aspect-ratio:16/9;max-height:none;object-position:50% 50%;filter:none}
 @media(max-width:600px){.pimg-mosaico img{aspect-ratio:4/3;object-position:50% 50%}}
+
+.pimg-mosaico::after{content:"";position:absolute;inset:0;border-radius:var(--r);background:linear-gradient(to top,rgba(18,10,40,.78) 0%,rgba(18,10,40,.35) 38%,rgba(18,10,40,0) 65%);pointer-events:none}
+.pimg-quote{position:absolute;left:clamp(18px,4vw,48px);bottom:clamp(18px,4vw,44px);z-index:2;margin:0;color:#fff;font:800 clamp(24px,4.6vw,56px)/1.05 var(--display);letter-spacing:-.03em;text-shadow:0 2px 18px rgba(0,0,0,.35);max-width:14em}
+.pimg-quote span{color:#FFD6EC}
+.pimg-mosaico figcaption{z-index:3}
+@media(max-width:600px){.pimg-mosaico figcaption{display:none}}
