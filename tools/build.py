@@ -72,7 +72,9 @@ LD = """
 "url":"https://ateneapiuraperu.org","logo":"https://ateneapiuraperu.org/assets/logo-atenea-transparente.png",
 "image":"https://ateneapiuraperu.org/assets/og-atenea-v4.jpg",
 "description":"Fundación sin fines de lucro con sede en Piura que acompaña a mujeres, varones, niñas, niños y familias en situación de vulnerabilidad en todo el Perú.",
-"email":"contacto@ateneapiuraperu.org","nonprofitStatus":"Nonprofit",
+"email":"contacto@ateneapiuraperu.org","telephone":"+51907841529","nonprofitStatus":"Nonprofit",
+"contactPoint":{"@type":"ContactPoint","contactType":"atención al público","telephone":"+51907841529","email":"contacto@ateneapiuraperu.org","availableLanguage":["es"],"areaServed":"PE"},
+"openingHoursSpecification":{"@type":"OpeningHoursSpecification","dayOfWeek":["Monday","Tuesday","Wednesday","Thursday","Friday"],"opens":"09:00","closes":"18:00"},
 "address":{"@type":"PostalAddress","streetAddress":"Jr. Circunvalación N.° 1384","addressLocality":"Piura","addressRegion":"Piura","addressCountry":"PE"},
 "areaServed":{"@type":"Country","name":"Perú"},
 "taxID":"20616737172","sameAs":["https://www.linkedin.com/company/ateneapiuraperu"],
@@ -223,7 +225,7 @@ PAGES["index.html"] = ("Fundación Atenea · Piura, Perú", "Fundación sin fine
     <div class="road" style="margin-top:72px">
       <div class="st on"><i></i><span class="pill">En curso</span><h3>Constitución e inscripción</h3><p>Escritura pública e inscripción en SUNARP (21/10/2026) concluidas; en trámite la inscripción ante el Consejo de Supervigilancia de Fundaciones.</p></div>
       <div class="st on"><i></i><span class="pill">En curso</span><h3>Consejo, equipo y aliados</h3><p>Consejo de Administración designado en la escritura de constitución; en curso, los convenios con universidades y colegios profesionales.</p></div>
-      <div class="st"><i></i><span class="pill">Próximamente</span><h3>Primeras campañas</h3><p>Orientación gratuita, salud y ayuda humanitaria, con voluntariado capacitado.</p></div>
+      <div class="st on"><i></i><span class="pill">Realizadas</span><h3>Primeras campañas médicas</h3><p>Dos campañas médicas gratuitas en Piura: 25 de octubre y 8 de noviembre de 2026. <a href="historias.html#segunda-actividad">Ver la jornada →</a></p></div>
       <div class="st"><i></i><span class="pill">Próximamente</span><h3>Primer informe público</h3><p>Resultados, personas atendidas y estados financieros, publicados en esta web.</p></div>
     </div>
   </div>
@@ -890,21 +892,21 @@ TODAY = datetime.date.today().isoformat()
 SEO_META = {
  "index.html": ("Fundación Atenea · Ayuda gratuita en Piura, Perú", None),
  "nosotros.html": ("Quiénes somos · Fundación Atenea Piura", "Conoce la Fundación Atenea: fundación sin fines de lucro en Piura que acompaña a mujeres, varones, niñas, niños y familias en situación de vulnerabilidad."),
- "programas.html": ("Programas sociales gratuitos en Piura · Fundación Atenea", "Seis programas gratuitos de la Fundación Atenea en Piura: apoyo a mujeres, varones y familias, niñez, salud, orientación legal y psicológica, y ayuda humanitaria."),
- "historias.html": ("Guías de ayuda y novedades en Piura · Fundación Atenea", "Guías prácticas para Piura: asesoría legal gratuita, violencia familiar, pensión de alimentos, SIS gratuito y cómo donar. Además, nuestra primera campaña médica gratuita."),
+ "programas.html": ("Programas sociales gratuitos en Piura · Fundación Atenea", "Seis programas gratuitos de la Fundación Atenea en Piura: mujeres, varones y familias, niñez, salud, orientación legal y psicológica, y ayuda humanitaria."),
+ "historias.html": ("Guías de ayuda y novedades en Piura · Fundación Atenea", "Guías para Piura: asesoría legal gratuita, violencia familiar, pensión de alimentos, SIS gratuito y cómo donar. Además, nuestras campañas médicas gratuitas."),
  "involucrate.html": ("Dona o sé voluntaria/o en Piura · Fundación Atenea", "Dona, ofrece tu tiempo como voluntaria o voluntario o súmate como aliado de la Fundación Atenea, fundación sin fines de lucro con sede en Piura."),
- "transparencia.html": (None, "Estatuto, órganos de gobierno, estados financieros y memoria anual de la Fundación Atenea, fundación sin fines de lucro en Piura. Cuentas claras y verificables."),
- "contacto.html": ("Contacto y ubicación en Piura · Fundación Atenea", "Escríbenos, llámanos o visítanos en Piura: " + ADDR + ". Atención " + HOURS.lower() + "."),
- "privacidad.html": (None, "Política de privacidad de la Fundación Atenea (Piura, Perú): qué datos personales recogemos, para qué los usamos, cuánto tiempo los conservamos y cómo ejercer tus derechos."),
- "terminos.html": (None, "Términos y condiciones de uso del sitio web de la Fundación Atenea, fundación sin fines de lucro en Piura, Perú: alcance de los servicios, donaciones y responsabilidades."),
+ "transparencia.html": (None, "Estatuto, órganos de gobierno, estados financieros y memoria anual de la Fundación Atenea, fundación sin fines de lucro en Piura. Cuentas claras."),
+ "contacto.html": ("Contacto y ubicación en Piura · Fundación Atenea", "Escríbenos, llámanos al " + WA_TXT + " o visítanos en Piura: " + ADDR + ". Atención " + HOURS.lower() + "."),
+ "privacidad.html": (None, "Política de privacidad de la Fundación Atenea (Piura): qué datos personales recogemos, para qué los usamos, cuánto los conservamos y cómo ejercer tus derechos."),
+ "terminos.html": (None, "Términos de uso del sitio web de la Fundación Atenea, fundación sin fines de lucro en Piura: alcance de los servicios, donaciones y responsabilidades."),
  "reclamaciones.html": (None, "Libro de reclamaciones de la Fundación Atenea en Piura: registra una queja o reclamo sobre nuestros servicios y te responderemos dentro de los plazos legales."),
  "programa-mujeres.html": ("Apoyo a mujeres víctimas de violencia en Piura · Atenea", None),
- "programa-varones.html": ("Ayuda a varones que sufren violencia en Piura · Atenea", None),
- "programa-ninez.html": ("Niñez protegida y prevención de anemia en Piura · Atenea", None),
- "programa-salud.html": ("Ayuda para pacientes sin recursos en Piura · Atenea", None),
- "programa-orientacion.html": ("Orientación legal y psicológica gratuita en Piura · Atenea", None),
- "programa-ayuda.html": ("Ayuda humanitaria por lluvias en Piura · Fundación Atenea", None),
- "consultorias.html": ("Consultorías y capacitaciones sociales en Piura · Fundación Atenea", "Capacitaciones en prevención del hostigamiento sexual (Ley 27942), igualdad de género, inclusión laboral, estudios sociales y asistencia técnica para empresas e instituciones de Piura."),
+ "programa-varones.html": ("Ayuda a varones que sufren violencia en Piura · Atenea", "Acompañamos a varones que sufren maltrato físico, psicológico o económico y apoyamos a las familias para convivir sin violencia. Atención gratuita."),
+ "programa-ninez.html": ("Niñez protegida y prevención de anemia en Piura · Atenea", "Cuidamos que niñas y niños de Piura crezcan sanos, aprendan y jueguen en un entorno seguro, con nutrición y refuerzo escolar mientras sus familias se recuperan."),
+ "programa-salud.html": ("Ayuda para pacientes sin recursos en Piura · Atenea", "Acompañamos a personas enfermas sin recursos en Piura con medicamentos, exámenes, traslados y compañía, para que nadie deje su tratamiento por falta de dinero."),
+ "programa-orientacion.html": ("Orientación legal y psicológica gratuita en Piura · Atenea", "Asesoría legal, psicológica y social gratuita en Piura, presencial o a distancia para todo el Perú, a cargo de profesionales habilitados."),
+ "programa-ayuda.html": ("Ayuda humanitaria por lluvias en Piura · Fundación Atenea", "Llevamos ayuda inmediata —kits de alimentos, salud y reconstrucción— a familias afectadas por lluvias, inundaciones y otras emergencias en la región Piura."),
+ "consultorias.html": ("Consultorías y capacitaciones sociales en Piura · Fundación Atenea", "Capacitaciones en prevención del hostigamiento sexual (Ley 27942), igualdad de género e inclusión laboral para empresas e instituciones de Piura."),
 }
 NOINDEX = {"gracias.html", "404.html"}
 PROG = {"programa-mujeres.html","programa-varones.html","programa-ninez.html","programa-salud.html","programa-orientacion.html","programa-ayuda.html"}
@@ -933,7 +935,18 @@ def seo_extra(f, title):
           "datePublished":GUIDES_UPDATED,"dateModified":GUIDES_UPDATED,"mainEntityOfPage":url,"image":SITE+"/assets/og-atenea-v4.jpg",
           "author":org,"publisher":org,"about":g["tag"],"spatialCoverage":{"@type":"Place","name":"Piura, Perú"}})
         out += jld({"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":q,"acceptedAnswer":{"@type":"Answer","text":a}} for q,a in g["faqs"]]})
+    if f in PROG:
+        out += jld({"@context":"https://schema.org","@type":"Service","name":title.split(" · ")[0],"serviceType":"Programa social gratuito",
+          "description":SEO_META.get(f,(None,None))[1] or PAGES[f][1],"url":SITE+"/"+f[:-5],"inLanguage":"es-PE","isAccessibleForFree":True,
+          "provider":{"@type":"NGO","name":"Fundación Atenea","url":SITE+"/"},
+          "areaServed":[{"@type":"AdministrativeArea","name":"Piura, Perú"},{"@type":"Country","name":"Perú"}]})
     if f == "historias.html":
+        out += jld({"@context":"https://schema.org","@type":"Event","name":"Gran campaña médica gratuita (segunda campaña) de la Fundación Atenea",
+          "description":"Atención gratuita para toda la familia: medicina general, odontología, psicología, obstetricia, fisioterapia, farmacia y corte de cabello, con juegos, animación y bolsitas de regalo para niñas y niños.",
+          "startDate":"2026-11-08T09:00:00-05:00","eventStatus":"https://schema.org/EventScheduled","eventAttendanceMode":"https://schema.org/OfflineEventAttendanceMode","isAccessibleForFree":True,"inLanguage":"es-PE",
+          "location":{"@type":"Place","name":"UPIS Salital de los Pinos","address":{"@type":"PostalAddress","streetAddress":"UPIS Salital de los Pinos, Mz. E 13 y 12, avenida El Tallán","addressLocality":"Piura","addressRegion":"Piura","addressCountry":"PE"}},
+          "image":[SITE+"/assets/img/jornada-8nov/equipo-grupo.jpg",SITE+"/assets/img/jornada-8nov/atencion-banner.jpg"],
+          "organizer":{"@type":"NGO","name":"Fundación Atenea","url":SITE}})
         out += jld({"@context":"https://schema.org","@type":"Event","name":"Campaña médica gratuita de la Fundación Atenea",
           "description":"Primera actividad de la Fundación Atenea: campaña médica gratuita con medicina general, psicología, obstetricia, odontología y corte de cabello para personas vulnerables, para prevenir enfermedades y promover la salud.",
           "startDate":"2026-10-25T09:00:00-05:00","eventStatus":"https://schema.org/EventScheduled","eventAttendanceMode":"https://schema.org/OfflineEventAttendanceMode","isAccessibleForFree":True,"inLanguage":"es-PE",
@@ -948,6 +961,24 @@ def sitemap():
     rows = "".join(f'  <url><loc>{SITE}/{"" if f=="index.html" else f[:-5]}</loc><lastmod>{TODAY}</lastmod><changefreq>{"weekly" if f in ("index.html","historias.html") else "monthly"}</changefreq><priority>{"1.0" if f=="index.html" else ("0.8" if f in ("nosotros.html","programas.html","historias.html","involucrate.html") or f in GUIDE_FILES else "0.6")}</priority></url>\n' for f in pages)
     return '<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n' + rows + '</urlset>\n'
 
+import re as _re2
+def seo_post(html):
+    """Enlaces internos en su URL canónica (sin .html: Cloudflare Pages redirige .html → limpia) y carga diferida de imágenes."""
+    def clean(m):
+        name, frag = m.group(1), m.group(2) or ""
+        return 'href="/' + ("" if name == "index" else name) + frag + '"'
+    html = _re2.sub(r'href="([a-z0-9-]+)\.html(#[^"]*)?"', clean, html)
+    head_part, sep, rest = html.partition("</header>")
+    if sep:
+        def lazy(m):
+            tag = m.group(0)
+            if "loading=" in tag or "fetchpriority" in tag:
+                return tag
+            return tag[:-1] + ' loading="lazy" decoding="async">'
+        rest = _re2.sub(r"<img\b[^>]*>", lazy, rest)
+        html = head_part + sep + rest
+    return html
+
 for f,(title,desc,cur,body) in PAGES.items():
     body = body.replace("{FORM}", CONTACT_FORM).replace("{NEWS}", NEWS)
     if f in SEO_META:
@@ -959,7 +990,7 @@ for f,(title,desc,cur,body) in PAGES.items():
         h = h.replace("</head>", '<meta name="robots" content="noindex, follow">\n</head>', 1)
     h = h.replace("</head>", '<link rel="alternate" hreflang="es-PE" href="' + SITE + '/' + ("" if f=="index.html" else f[:-5]) + '">' + seo_extra(f, title) + "\n</head>", 1) if f not in NOINDEX else h
     with open(os.path.join(OUT,f),"w") as fh:
-        fh.write(con_captcha(h + header(cur) + body + FOOT))
+        fh.write(seo_post(con_captcha(h + header(cur) + body + FOOT)))
 with open(os.path.join(OUT,"sitemap.xml"),"w") as fh:
     fh.write(sitemap())
 print(len(PAGES),"páginas")
