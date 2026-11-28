@@ -8,12 +8,12 @@ const TEL = "907 841 529";
 
 const RESP = {
   menu: `Hola, gracias por escribir a Fundación Atenea Piura Perú. Responde con una palabra:\n\n• *información*: quiénes somos y qué hacemos\n• *ayuda*: necesito orientación\n• *donar*: quiero apoyar\n• *voluntariado*: quiero sumarme\n• *alianzas*: quiero aliarme con la fundación\n• *horario*: horario y dirección\n\nO cuéntanos tu consulta y una persona del equipo te responderá.`,
-  informacion: `Fundación Atenea Piura Perú es una fundación sin fines de lucro en Piura. Trabajamos con programas de orientación, salud, niñez, mujeres y varones.\n\nConoce nuestros programas: ${WEB}/programas.html\nEstamos en Jr. Circunvalación N.° 1384, Piura.\n\nSi quieres que te orientemos, escribe *ayuda*.`,
+  informacion: `Fundación Atenea Piura Perú es una fundación sin fines de lucro en Piura. Trabajamos con programas de orientación, salud, niñez, mujeres y varones.\n\nConoce nuestros programas: ${WEB}/programas\nEstamos en Jr. Circunvalación N.° 1384, Piura.\n\nSi quieres que te orientemos, escribe *ayuda*.`,
   ayuda: `Gracias por escribirnos. Para orientarte necesitamos solo tu nombre y qué necesitas. Una persona del equipo te responderá en horario de atención.\n\nSi estás en peligro ahora, llama a la Línea 100 (gratuita, 24 horas) o a la Policía al 105.`,
-  donar: `Gracias por querer apoyar a Fundación Atenea. Aquí ves cómo donar: ${WEB}/guia-como-donar-en-piura.html\n\nTambién puedes donar alimentos, útiles o tu tiempo. Escríbenos qué te gustaría aportar y te indicamos cómo coordinar.`,
-  voluntariado: `¡Gracias por querer ser voluntaria/o de Fundación Atenea! Cuéntanos tu nombre, tu disponibilidad y en qué te gustaría ayudar. Más información: ${WEB}/involucrate.html`,
+  donar: `Gracias por querer apoyar a Fundación Atenea. Aquí ves cómo donar: ${WEB}/guia-como-donar-en-piura\n\nTambién puedes donar alimentos, útiles o tu tiempo. Escríbenos qué te gustaría aportar y te indicamos cómo coordinar.`,
+  voluntariado: `¡Gracias por querer ser voluntaria/o de Fundación Atenea! Cuéntanos tu nombre, tu disponibilidad y en qué te gustaría ayudar. Más información: ${WEB}/involucrate`,
   alianzas: `Gracias por tu interés en aliarte con Fundación Atenea. Cuéntanos quién eres, tu organización y qué propones. Te responderá el equipo de alianzas. También puedes escribir a contacto@ateneapiuraperu.org.`,
-  horario: `Atendemos de lunes a viernes, de 9:00 a 18:00, en Jr. Circunvalación N.° 1384, Piura. WhatsApp ${TEL}. Más datos: ${WEB}/contacto.html`,
+  horario: `Atendemos de lunes a viernes, de 9:00 a 18:00, en Jr. Circunvalación N.° 1384, Piura. WhatsApp ${TEL}. Más datos: ${WEB}/contacto`,
 };
 
 // Palabras (sin tildes, en minúscula) → respuesta.

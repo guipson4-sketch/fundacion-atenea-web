@@ -1,4 +1,6 @@
 User-agent: *
 Allow: /
 Disallow: /gracias
+Disallow: /api/
+Disallow: /admin
 Sitemap: https://ateneapiuraperu.org/sitemap.xml

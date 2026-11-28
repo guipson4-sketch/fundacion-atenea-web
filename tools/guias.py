@@ -165,7 +165,7 @@ GUIDES = [
   "tag": "Ayudar",
   "title": "Fundaciones y ONG en Piura: cómo elegir dónde ayudar",
   "short": "Fundaciones y ONG en Piura: cómo elegir dónde ayudar",
-  "desc": "Cómo elegir una fundación u ONG en Piura para donar o ser voluntario: diferencias entre fundación, asociación y ONG, qué verificar y qué preguntar antes de ayudar.",
+  "desc": "Cómo elegir una fundación u ONG en Piura para donar o ser voluntario: diferencias entre fundación, asociación y ONG, y qué verificar antes de ayudar.",
   "h1": 'Fundaciones y ONG en Piura: <span class="ital mag">elige con criterio.</span>',
   "lead": "En Piura trabajan fundaciones, asociaciones y ONG con causas muy distintas. Esta guía te ayuda a elegir dónde donar o ser voluntaria o voluntario, con preguntas simples.",
   "related": ["programa-ayuda.html", "programa-ninez.html"],
